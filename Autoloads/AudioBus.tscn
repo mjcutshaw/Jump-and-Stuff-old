@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://uxsy16qwfcna"]
+
+[ext_resource type="Script" path="res://Autoloads/AudioBus.gd" id="1_so3t6"]
+
+[node name="AudioBus" type="Node"]
+script = ExtResource( "1_so3t6" )
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Music1" type="AudioStreamPlayer" parent="Music"]
+bus = &"Music"
+
+[node name="Backgrounds" type="Node" parent="."]
+
+[node name="Background1" type="AudioStreamPlayer" parent="Backgrounds"]
+bus = &"Background"
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SFX1" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"

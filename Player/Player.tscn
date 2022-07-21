@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Utility/DrawCollision.gd" type="Script" id=1]
+[ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://Player/States/Idle.gd" type="Script" id=4]
+[ext_resource path="res://Player/States/Walk.gd" type="Script" id=5]
+[ext_resource path="res://Player/States/Jump.gd" type="Script" id=6]
+[ext_resource path="res://Player/States/Fall.gd" type="Script" id=7]
+[ext_resource path="res://Player/States/Spawn.gd" type="Script" id=8]
+[ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 0, -11 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -54 )
+shape = SubResource( 1 )
+script = ExtResource( 1 )
+color = Color( 0.243137, 0, 1, 1 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
