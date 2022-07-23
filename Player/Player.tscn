@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Utility/DrawCollision.gd" type="Script" id=1]
+[ext_resource path="res://Player/Scripts/Body.gd" type="Script" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=4]
@@ -11,17 +11,23 @@
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 64 )
+extents = Vector2( 32, 48 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0, -11 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -54 )
-shape = SubResource( 1 )
+[node name="CharacterRig" type="Node2D" parent="."]
+
+[node name="Body" type="Node2D" parent="CharacterRig"]
 script = ExtResource( 1 )
-color = Color( 0.243137, 0, 1, 1 )
+bodyHeight = 2
+bodyWidth = 1
+bodyColor = Color( 0.384314, 0, 0.596078, 1 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -48 )
+shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
