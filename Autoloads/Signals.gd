@@ -1,9 +1,8 @@
 extends Node
 
-#
+
 #signal jumped
 #signal dashed
-#signal spun
 #
 #signal bonked
 #
@@ -15,9 +14,6 @@ extends Node
 #signal checkpoint(data)
 #
 #signal settings_update
-#
-#
-#
 #
 #signal level_completed(data)
 #signal level_started(data)

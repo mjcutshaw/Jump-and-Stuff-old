@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Game/CharmsMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Game/MapMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Game/StatsMenu.tscn" type="PackedScene" id=3]
+
+[node name="GameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Charms" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Map" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Stats" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="M" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="V" type="VBoxContainer" parent="M"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="M" type="MarginContainer" parent="M/V"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M/V/M"]
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="M/V/M/HBoxContainer"]
+margin_bottom = 14.0
+
+[node name="M2" type="MarginContainer" parent="M/V"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 18.0
