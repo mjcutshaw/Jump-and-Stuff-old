@@ -16,7 +16,9 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	
+	player.velocityPlayer.x = lerp(player.velocityPlayer.x, 0, Stats.friction)
+	if player.velocityPlayer.x < 5:
+		player.velocityPlayer.x = 0
 
 
 func visual(delta) -> void:
@@ -40,6 +42,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if get_move_direction().x != 0:
+		return State.Walk
 
 	return State.Null

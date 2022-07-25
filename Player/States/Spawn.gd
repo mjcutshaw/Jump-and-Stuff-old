@@ -22,7 +22,7 @@ func physics(delta) -> void:
 
 	if !player.is_on_floor():
 		player.velocity.y += 100
-		player.move_logic(delta, player.SNAP_GROUND)
+		player.move_logic(player.SNAP_GROUND, true)
 	else:
 		player.velocity = Vector2.ZERO
 

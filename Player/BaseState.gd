@@ -12,7 +12,7 @@ enum State {
 }
 
 var player: Player
-
+var Stats: = ResourceLoader.load("res://Resources/PlayerStats.tres")
 
 func enter() -> void:
 	pass

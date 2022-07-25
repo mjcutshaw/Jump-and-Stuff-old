@@ -3,8 +3,8 @@ extends Resource
 #TODO: moved stats to here
 
 var moveSpeed: int = 15 * Globals.TILE_SIZE
-var acceleration: float = 0.3
-var friction: float = 0.2
+var acceleration: float = 1.0
+var friction: float = 0.9
 var crouchFriction: float = 0.02
 
 var jumpHeightMax: float = 4.5 * Globals.TILE_SIZE
