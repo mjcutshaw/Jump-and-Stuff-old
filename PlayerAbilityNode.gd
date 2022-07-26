@@ -29,6 +29,14 @@ onready var maxJump: int = Abilities.maxJump
 onready var maxJumpAir: int = Abilities.maxJumpAir
 onready var maxDash: int = Abilities.maxDash
 
+func _ready() -> void:
+	EventBus.connect("update_abilities", self, "update_abilities")
+
+
+func update_abilities():
+	update()
+	## used to reload from ability changes
+
 
 func unlock_ability(ability: int) -> void:
 	if ability == Abilities.abiliyList.All:

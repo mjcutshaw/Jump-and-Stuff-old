@@ -24,3 +24,13 @@ onready var gravityApex: float = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
 onready var gravityGlide: float = gravityFall/10
 onready var jumpVelocityMax: float = -sqrt(2 * gravityJump * jumpHeightMax)
 onready var jumpVelocityMin: float = -sqrt(2 * gravityJump * jumpHeightMin)
+
+
+func _ready() -> void:
+	EventBus.connect("update_stats", self, "update_stats")
+
+
+func update_stats():
+	update()
+	## used to reload from stat changes
+

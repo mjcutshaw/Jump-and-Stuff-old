@@ -1,6 +1,9 @@
 extends Node
 
 
+signal update_stats
+signal update_abilities
+
 #signal jumped
 #signal dashed
 #

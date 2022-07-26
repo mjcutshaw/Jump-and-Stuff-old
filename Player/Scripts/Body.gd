@@ -15,7 +15,7 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2(-32,0),bodySize), bodyColor)
 	## Eye ##
 	draw_circle(Vector2(16,-96), 4, Color.white)
-	## Mouth
+	## Mouth ##
 	draw_rect(Rect2(Vector2(8, -70),Vector2(24,4)), Color.white)
 
 func set_body_height(v) -> void:
