@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends PlayerStatsNode
 class_name Player
 
 

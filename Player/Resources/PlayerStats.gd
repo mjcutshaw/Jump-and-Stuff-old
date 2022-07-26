@@ -1,6 +1,7 @@
 extends Resource
+class_name PlayerStats
 
-#TODO: moved stats to here
+
 
 var moveSpeed: int = 15 * Globals.TILE_SIZE
 var acceleration: float = 1.0
@@ -18,12 +19,7 @@ var jumpTripleVelocityModifier: float = 1.5
 var jumpCrouchVelocityModifier: float = 1.75
 var jumpLongVelocityModifier: float = 1.35
 var dashJumpBoostVelocityModifier: float = 1.25
-onready var gravityJump: float = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
-onready var gravityFall: float = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
-onready var gravityApex: float = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
-onready var gravityGlide: float = gravityFall/10
-onready var jumpVelocityMax: float = -sqrt(2 * gravityJump * jumpHeightMax)
-onready var jumpVelocityMin: float = -sqrt(2 * gravityJump * jumpHeightMin)
+
 var terminalVelocity: int = 30 * Globals.TILE_SIZE
 var moveSpeedApex: int = 13 * Globals.TILE_SIZE
 

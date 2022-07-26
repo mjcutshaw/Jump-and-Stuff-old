@@ -1,6 +1,6 @@
 extends BaseState
 
-var growTime: float = .05
+export var growTime: float = .05
 
 func enter() -> void:
 	.enter()

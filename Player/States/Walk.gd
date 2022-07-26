@@ -19,23 +19,24 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	print(pTime)
 	pTime = clamp(pTime, 0 , pTimeAmount)
 	
-	if pTime == 0 and (player.velocityPlayer.x >= Stats.moveSpeed):
-		player.velocityPlayer.x = Stats.moveSpeed * 1.2
-	if Stats.moveSpeed > abs(player.velocityPlayer.x):
+	
+	## SMW like p speed ##
+#	if pTime == 0 and (player.velocityPlayer.x >= player.moveSpeed):
+#		player.velocityPlayer.x = player.moveSpeed * 1.2 #TODO: lerp() and var
+	if player.moveSpeed > abs(player.velocityPlayer.x):
 		## acceleration ##
-		player.velocityPlayer.x = get_move_strength().x * round(lerp(abs(player.velocityPlayer.x), Stats.moveSpeed, Stats.acceleration)) 
-		if abs(player.velocityPlayer.x) == (Stats.moveSpeed - 1):
-			player.velocityPlayer.x = Stats.moveSpeed * get_move_direction().x
+		player.velocityPlayer.x = get_move_strength().x * round(lerp(abs(player.velocityPlayer.x), player.moveSpeed, player.acceleration)) 
+		if abs(player.velocityPlayer.x) == (player.moveSpeed - 1):
+			player.velocityPlayer.x = player.moveSpeed * get_move_direction().x
 		pTime += delta
-	elif Stats.moveSpeed < abs(player.velocityPlayer.x):
+	elif player.moveSpeed < abs(player.velocityPlayer.x):
 		## maintain momentum ##
 		player.velocityPlayer.x = get_move_strength().x * abs(player.velocityPlayer.x)
-	elif Stats.moveSpeed == abs(player.velocityPlayer.x):
+	elif player.moveSpeed == abs(player.velocityPlayer.x):
 		## maintain speed
-		player.velocityPlayer.x = get_move_strength().x * Stats.moveSpeed
+		player.velocityPlayer.x = get_move_strength().x * player.moveSpeed
 		pTime -= delta
 	else:
 		print("velocity logic error")

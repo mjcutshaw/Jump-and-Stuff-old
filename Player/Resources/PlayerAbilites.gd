@@ -1,6 +1,7 @@
 extends Resource
 class_name PlayerAbilities
 
+#TODO: add these onto player scrip like PlayerStatsNode
 #TODO: add more conditions for unlocks
 #TODO: all abilities should get an upgrade and shartds/modifires/charms
 enum abiliyList {

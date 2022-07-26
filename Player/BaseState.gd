@@ -12,10 +12,11 @@ enum State {
 }
 
 var player: Player
-var Stats: = ResourceLoader.load("res://Resources/PlayerStats.tres")
+var Stats = PlayerStats
 
 func enter() -> void:
 	pass
+	
 
 func exit() -> void:
 	pass
