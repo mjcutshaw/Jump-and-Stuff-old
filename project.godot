@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/SuperStates/Move.gd"
 }, {
-"base": "PlayerStatsNode",
+"base": "PlayerAbilitiesNode",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Scripts/Player.gd"
@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "PlayerAbilities",
 "language": "GDScript",
 "path": "res://Player/Resources/PlayerAbilites.gd"
+}, {
+"base": "PlayerStatsNode",
+"class": "PlayerAbilitiesNode",
+"language": "GDScript",
+"path": "res://PlayerAbilityNode.gd"
 }, {
 "base": "Resource",
 "class": "PlayerStats",
@@ -61,6 +66,7 @@ _global_script_class_icons={
 "MoveState": "",
 "Player": "",
 "PlayerAbilities": "",
+"PlayerAbilitiesNode": "",
 "PlayerStats": "",
 "PlayerStatsNode": "",
 "VisibleCollisionShape2D": ""

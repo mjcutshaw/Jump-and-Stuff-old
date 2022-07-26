@@ -1,4 +1,4 @@
-extends PlayerStatsNode
+extends PlayerAbilitiesNode
 class_name Player
 
 
