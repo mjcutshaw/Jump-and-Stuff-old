@@ -12,11 +12,11 @@ onready var bodySize: Vector2 = Vector2(width, height)
 
 func _draw() -> void:
 	## Body ##
-	draw_rect(Rect2(Vector2(-32,0),bodySize), bodyColor)
+	draw_rect(Rect2(Vector2(-16,0),bodySize), bodyColor)
 	## Eye ##
-	draw_circle(Vector2(16,-96), 4, Color.white)
+	draw_circle(Vector2(8,-48), 2, Color.white)
 	## Mouth ##
-	draw_rect(Rect2(Vector2(8, -70),Vector2(24,4)), Color.white)
+	draw_rect(Rect2(Vector2(2, -34),Vector2(14,2)), Color.white)
 
 func set_body_height(v) -> void:
 	bodyHeight = v

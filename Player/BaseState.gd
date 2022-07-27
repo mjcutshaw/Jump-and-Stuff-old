@@ -12,11 +12,9 @@ enum State {
 }
 
 var player: Player
-var Stats = PlayerStats
 
 func enter() -> void:
 	pass
-	
 
 func exit() -> void:
 	pass

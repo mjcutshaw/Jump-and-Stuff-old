@@ -1,6 +1,6 @@
 extends Node
 
-const TILE_SIZE: int = 64
+const TILE_SIZE: int = 32
 const GAME_NAME: String = "Jump and Stuff"
 const CREATOR: String = "Matt"
 const VERSION: String = "0.0.1"
