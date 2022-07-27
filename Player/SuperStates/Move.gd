@@ -17,8 +17,9 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.move_logic(player.SNAP_GROUND, true)
+	
 	player.velocity = player.velocity_logic()
+
 
 
 func visual(delta) -> void:
@@ -47,9 +48,10 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 
-#func velocity_logic(value) -> void:
-#	+
+#TODO: move to player script 
 
+func gravity_logic(amount, delta) -> void:
+	player.velocityPlayer.y += amount * delta
 
 func momentum_logic(speed, useMoveDirection: bool) -> void:
 	#TODO: need to get accel and deccel, lerp function

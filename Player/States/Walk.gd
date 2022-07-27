@@ -21,7 +21,6 @@ func physics(delta) -> void:
 
 	pTime = clamp(pTime, 0 , pTimeAmount)
 	
-	
 	## SMW like p speed ##
 #	if pTime == 0 and (player.velocityPlayer.x >= player.moveSpeed):
 #		player.velocityPlayer.x = player.moveSpeed * 1.2 #TODO: lerp() and var

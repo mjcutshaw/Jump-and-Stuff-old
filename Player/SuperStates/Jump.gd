@@ -1,10 +1,11 @@
-extends MoveState
-class_name GroundState
+extends AirState
+class_name JumpState
+
 
 func enter() -> void:
 	.enter()
 
-	player.velocityPlayer.y = 10
+	
 
 
 func exit() -> void:
@@ -16,7 +17,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.move_logic(player.SNAP_GROUND, true)
+	gravity_logic(player.gravityJump, delta)
 
 
 func visual(delta) -> void:
@@ -30,8 +31,10 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump"):
-		return State.Jump
+#	if Input.is_action_just_released("jump"):
+#		print("jump release")
+#		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
+#		return State.Fall
 
 	return State.Null
 
@@ -41,7 +44,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if !player.is_on_floor():
+	if player.velocityPlayer.y >= 0:
 		return State.Fall
 
 	return State.Null

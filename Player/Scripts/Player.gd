@@ -4,6 +4,7 @@ class_name Player
 
 onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
+onready var stateLabel: Label = $StateLabel
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(20.0, 0)
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	sm.physics(delta)
 	sm.state_check(delta)
 	
-	$Velocity.text = str(velocity)
+	$Velocity.text = str(velocity.round())
 
 
 func _process(delta: float) -> void:

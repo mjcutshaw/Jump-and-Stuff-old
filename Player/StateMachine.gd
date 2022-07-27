@@ -1,8 +1,6 @@
 extends Node
 
 
-#export (NodePath) var startingState
-
 onready var states = {
 	BaseState.State.Spawn: $Spawn,
 	BaseState.State.Die: $Die,
@@ -29,6 +27,7 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
+	player.stateLabel.text = currentState.name
 
 func init() -> void:
 	for child in get_children():
