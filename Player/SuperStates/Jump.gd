@@ -31,10 +31,10 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-#	if Input.is_action_just_released("jump"):
-#		print("jump release")
-#		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
-#		return State.Fall
+	## variable jump height ##
+	if Input.is_action_just_released("jump"):
+		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
+		return State.Fall
 
 	return State.Null
 
