@@ -15,7 +15,7 @@ var previousState: BaseState
 var currentStateName: String
 var previousStateName: String
 
-onready var player: Player = get_parent()
+onready var player: Player = owner
 
 
 func change_state(newState: int) -> void:
