@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Scripts/Body.gd" type="Script" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Player/States/Fall.gd" type="Script" id=7]
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
+[ext_resource path="res://Player/Scripts/CharacterRig.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
@@ -17,6 +18,7 @@ extents = Vector2( 16, 32 )
 script = ExtResource( 2 )
 
 [node name="CharacterRig" type="Node2D" parent="."]
+script = ExtResource( 10 )
 
 [node name="Body" type="Node2D" parent="CharacterRig"]
 script = ExtResource( 1 )
