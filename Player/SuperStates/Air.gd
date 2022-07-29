@@ -1,7 +1,8 @@
 extends MoveState
 class_name AirState
 
-#TODO: air horizontal movement
+#TODO: corner correction
+
 func enter() -> void:
 	.enter()
 
@@ -60,3 +61,11 @@ func horizontal_velocity_logic():
 		player.velocityPlayer.x = lerp(player.velocityPlayer.x, player.moveSpeed * get_move_strength().x, player.friction)
 	else:
 		print("air horizontal velocity error")
+
+func neutral_air_momentum_logic():
+	if !neutralMovement:
+		velocity_logic(player.moveSpeed)
+	if neutralMovement: ## Carry momentum with nuetral moveDirection ##
+		momentum_logic(player.moveSpeed, false)
+	if get_move_direction() != Vector2.ZERO and neutralMovement: ## Cancel out nuetral momentum
+		neutralMovement = false

@@ -2,6 +2,9 @@ extends BaseState
 class_name MoveState
 
 
+var neutralMovement: bool = false
+
+
 func enter() -> void:
 	.enter()
 
@@ -19,7 +22,6 @@ func physics(delta) -> void:
 
 	
 	player.velocity = player.velocity_logic()
-
 
 
 func visual(delta) -> void:
@@ -48,20 +50,27 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 
-#TODO: move to player script 
-
 func gravity_logic(amount, delta) -> void:
 	player.velocityPlayer.y += amount * delta
 
-func momentum_logic(speed, useMoveDirection: bool) -> void:
-	#TODO: need to get accel and deccel, lerp function
+
+func velocity_logic(speed) -> void:
+	#TODO: variable to use moveDirection
+	player.velocityPlayer.x = get_move_direction().x * speed
+
+
+func momentum_logic(speed, useMoveDirection: bool = true) -> void:
+	#TODO: not tested, copied and updated from G4 version
 	if useMoveDirection:
-		player.velocity.x = player.moveDirection.x * max(abs(speed), abs(player.velocity.x))
-	if !useMoveDirection:
-		if player.velocity.x == 0:
-			player.velocity.x = player.velocity.x
+		if player.velocityPlayer.x < player.moveSpeed:
+			player.velocityPlayer.x = get_move_strength().x * round(lerp(abs(player.velocityPlayer.x), player.moveSpeed, player.acceleration))
 		else:
-			player.velocity.x =  max(abs(speed), abs(player.velocity.x)) * player.facing
+			player.velocityPlayer.x = get_move_strength().x * max(abs(speed), abs(player.velocityPlayer.x))
+	if !useMoveDirection:
+		if player.velocityPlayer.x == 0:
+			player.velocityPlayer.x = player.velocityPlayer.x
+		else:
+			player.velocityPlayer.x =  max(abs(speed), abs(player.velocityPlayer.x)) * sign(player.velocityPlayer.x)
 
 func neutral_move_direction_logic() -> bool:
 	if get_move_direction() == Vector2.ZERO:

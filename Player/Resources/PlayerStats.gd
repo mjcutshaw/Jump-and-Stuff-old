@@ -3,9 +3,9 @@ class_name PlayerStats
 
 
 
-var moveSpeed: int = 15 * Globals.TILE_SIZE
-var acceleration: float = 1.0
-var friction: float = 0.9
+var moveSpeed: int = 20 * Globals.TILE_SIZE
+var acceleration: float = 0.2
+var friction: float = 0.1
 var crouchFriction: float = 0.02
 
 var jumpHeightMax: float = 4.5 * Globals.TILE_SIZE

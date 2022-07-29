@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Scripts/Body.gd" type="Script" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
 [ext_resource path="res://Player/Scripts/CharacterRig.gd" type="Script" id=10]
+[ext_resource path="res://Player/Augments/P-Speed.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
@@ -51,6 +52,11 @@ script = ExtResource( 6 )
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
+
+[node name="Augments" type="Node" parent="."]
+
+[node name="P-Speed" type="Node" parent="Augments"]
+script = ExtResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

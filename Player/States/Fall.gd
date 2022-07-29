@@ -4,8 +4,8 @@ extends AirState
 func enter() -> void:
 	.enter()
 
-	
-
+	if get_move_direction() == Vector2.ZERO:
+		neutralMovement = true
 
 func exit() -> void:
 	.exit()
@@ -16,6 +16,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
+	neutral_air_momentum_logic()
 	gravity_logic(player.gravityFall, delta)
 
 
