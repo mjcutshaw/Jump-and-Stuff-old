@@ -466,7 +466,7 @@ tracks/2/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head/Chin:rotation_degrees")
+tracks/3/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -475,10 +475,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0971458, 0.0971458 ]
+"values": [ -1.00903, 4.92988 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head:rotation_degrees")
+tracks/4/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -487,10 +487,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -1.00903, 4.92988 ]
+"values": [ 0.0, 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hip/Chest:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -499,10 +499,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ -0.342875, -0.433443 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite/Skeleton2D/Hip/Chest:rotation_degrees")
+tracks/6/path = NodePath("Sprite/Skeleton2D/Hip:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -511,10 +511,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -0.342875, -0.433443 ]
+"values": [ 0.0, 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite/Skeleton2D/Hip:rotation_degrees")
+tracks/7/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -526,7 +526,7 @@ tracks/7/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
+tracks/8/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -535,10 +535,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ 70.3278, 70.3278 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
+tracks/9/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -547,10 +547,10 @@ tracks/9/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 70.3278, 70.3278 ]
+"values": [ 0.0, 0.0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
+tracks/10/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -562,7 +562,7 @@ tracks/10/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg:rotation_degrees")
+tracks/11/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -574,7 +574,7 @@ tracks/11/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg:rotation_degrees")
+tracks/12/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg/LeftFoot:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -586,48 +586,36 @@ tracks/12/keys = {
 "values": [ 0.0, 0.0 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg/LeftFoot:rotation_degrees")
+tracks/13/path = NodePath("Sprite/Skeleton2D/Hip:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0.5, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0 ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("Sprite/Skeleton2D/Hip:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -3, -11 ) ]
 }
-tracks/15/type = "value"
-tracks/15/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
+tracks/14/type = "value"
+tracks/14/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0 ]
 }
-tracks/16/type = "value"
-tracks/16/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
+tracks/15/type = "value"
+tracks/15/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
 "times": PoolRealArray( 0.5, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -1333,19 +1321,19 @@ tracks/5/keys = {
 "values": [ -40.1318, -34.1689, 4.46022, 19.5206, 35.3344, 18.5494, -16.0323, -26.4507, -40.1318 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head/Chin:rotation_degrees")
+tracks/6/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.7, 0.8, 0.9, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456 ]
+"values": [ 49.6868, 39.5608, 0.72485, -4.42639, -55.2494, -33.4131, 20.974, 27.9563, 49.6868 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm:rotation_degrees")
+tracks/7/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1354,10 +1342,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.7, 0.8, 0.9, 1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 49.6868, 39.5608, 0.72485, -4.42639, -55.2494, -33.4131, 20.974, 27.9563, 49.6868 ]
+"values": [ -86.5264, -52.0043, -50.7752, -75.909, -65.4772, -57.7609, -65.3075, -63.6975, -86.5264 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
+tracks/8/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1366,22 +1354,22 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.7, 0.8, 0.9, 1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -86.5264, -52.0043, -50.7752, -75.909, -65.4772, -57.7609, -65.3075, -63.6975, -86.5264 ]
+"values": [ 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
+tracks/9/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.7, 0.8, 0.9, 1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278 ]
+"values": [ 19.4265, -18.9075, -49.2737, -97.3648, -66.2172, -67.8162, -29.2417, -47.1932, 0.705066, 10.0524, 23.4968, 21.4617, 19.4265 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg:rotation_degrees")
+tracks/10/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1390,10 +1378,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 19.4265, -18.9075, -49.2737, -97.3648, -66.2172, -67.8162, -29.2417, -47.1932, 0.705066, 10.0524, 23.4968, 21.4617, 19.4265 ]
+"values": [ 95.6353, 110.788, 117.695, 106.106, 43.7348, 37.4385, 9.07671, 78.9234, 39.2062, 48.7418, 17.1601, 56.3977, 95.6353 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
+tracks/11/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1402,34 +1390,34 @@ tracks/11/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 95.6353, 110.788, 117.695, 106.106, 43.7348, 37.4385, 9.07671, 78.9234, 39.2062, 48.7418, 17.1601, 56.3977, 95.6353 ]
+"values": [ 55.6942, 91.4726, 39.859, 30.6418, 26.0914, 57.3896, 95.5336, 65.7712, 84.8885, 105.98, 102.003, 41.5752, 55.6942 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
+tracks/12/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 55.6942, 91.4726, 39.859, 30.6418, 26.0914, 57.3896, 95.5336, 65.7712, 84.8885, 105.98, 102.003, 41.5752, 55.6942 ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.7, 0.8, 0.9, 1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 70.4643, 70.4643, 70.4643, 70.4643, 70.4643, 70.4643, 70.4643, 70.4643, 70.4643 ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 6.20701, -36.6959, -36.1181, -15.9378, 40.2239, 36.8756, 14.7112, 13.2938, 11.8765, 10.4591, -0.393764, -3.89666, 6.20701 ]
+}
 tracks/14/type = "value"
-tracks/14/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
+tracks/14/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg:rotation_degrees")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1438,27 +1426,15 @@ tracks/14/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 6.20701, -36.6959, -36.1181, -15.9378, 40.2239, 36.8756, 14.7112, 13.2938, 11.8765, 10.4591, -0.393764, -3.89666, 6.20701 ]
+"values": [ -65.6781, -57.6967, -2.98436, 19.7068, 20.6046, 22.5818, 15.487, 26.3705, 2.87948, -41.8002, -72.8228, -80.0806, -65.6781 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg:rotation_degrees")
+tracks/15/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm/LeftForearm:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -65.6781, -57.6967, -2.98436, 19.7068, 20.6046, 22.5818, 15.487, 26.3705, 2.87948, -41.8002, -72.8228, -80.0806, -65.6781 ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm/LeftForearm:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.7, 0.8, 0.9, 1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
@@ -1505,7 +1481,7 @@ tracks/2/keys = {
 "values": [ -27.7881, -37.5891, -12.3507, -24.3746, -36.6077, -36.6077, -23.3157, -37.0737, -27.7881 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head/Chin:rotation_degrees")
+tracks/3/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1514,34 +1490,34 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456, 0.0971456 ]
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite/Skeleton2D/Hip/Chest/Head:rotation_degrees")
+tracks/4/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -38.8261, -17.6849, -2.00788, 23.4365, 48.0693, 4.34599, -14.5235, -38.8261 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite/Skeleton2D/Hip/Chest:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite/Skeleton2D/Hip/Chest:rotation_degrees")
+tracks/6/path = NodePath("Sprite/Skeleton2D/Hip:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1553,7 +1529,7 @@ tracks/6/keys = {
 "values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Sprite/Skeleton2D/Hip:rotation_degrees")
+tracks/7/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1562,10 +1538,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+"values": [ -35.0791, -35.5942, -13.9125, -29.3814, -38.5556, -38.5556, -15.7102, -29.9646, -35.0791 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
+tracks/8/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1574,10 +1550,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -35.0791, -35.5942, -13.9125, -29.3814, -38.5556, -38.5556, -15.7102, -29.9646, -35.0791 ]
+"values": [ 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Sprite/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
+tracks/9/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1586,10 +1562,10 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278, 70.3278 ]
+"values": [ 24.0853, 33.5536, 125.838, 70.4823, 4.17665, 48.5185, 7.37566, 21.7199, 24.0853 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
+tracks/10/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg:rotation_degrees")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1598,10 +1574,10 @@ tracks/10/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 24.0853, 33.5536, 125.838, 70.4823, 4.17665, 48.5185, 7.37566, 21.7199, 24.0853 ]
+"values": [ 19.926, 18.6897, -47.2542, -60.9198, -22.225, -39.5632, 23.8388, 25.4551, 19.926 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg:rotation_degrees")
+tracks/11/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1610,10 +1586,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 19.926, 18.6897, -47.2542, -60.9198, -22.225, -39.5632, 23.8388, 25.4551, 19.926 ]
+"values": [ -26.9247, -50.2536, -17.8582, 9.5402, 27.8206, 31.8761, -15.9817, -38.2518, -26.9247 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg:rotation_degrees")
+tracks/12/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg/LeftFoot:rotation_degrees")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1622,10 +1598,10 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -26.9247, -50.2536, -17.8582, 9.5402, 27.8206, 31.8761, -15.9817, -38.2518, -26.9247 ]
+"values": [ -19.2157, -17.9784, -14.6937, -15.002, 15.0645, -13.4433, -16.1769, 2.95738, -19.2157 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Sprite/Skeleton2D/Hip/LeftLeg/LeftLowerLeg/LeftFoot:rotation_degrees")
+tracks/13/path = NodePath("Sprite/Skeleton2D/Hip:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1634,10 +1610,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -19.2157, -17.9784, -14.6937, -15.002, 15.0645, -13.4433, -16.1769, 2.95738, -19.2157 ]
+"values": [ Vector2( -3, -11 ), Vector2( -3, -5 ), Vector2( -3, -26 ), Vector2( -3, -30 ), Vector2( -3, -11 ), Vector2( -3, -5 ), Vector2( -3, -11 ), Vector2( -3, -30 ), Vector2( -3, -11 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Sprite/Skeleton2D/Hip:position")
+tracks/14/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1646,27 +1622,15 @@ tracks/14/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -3, -11 ), Vector2( -3, -5 ), Vector2( -3, -26 ), Vector2( -3, -30 ), Vector2( -3, -11 ), Vector2( -3, -5 ), Vector2( -3, -11 ), Vector2( -3, -30 ), Vector2( -3, -11 ) ]
+"values": [ 16.8793, -7.46142, -5.81507, -8.76219, -3.17026, 5.76248, -0.503692, -3.07496, 16.8793 ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
+tracks/15/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 16.8793, -7.46142, -5.81507, -8.76219, -3.17026, 5.76248, -0.503692, -3.07496, 16.8793 ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("Sprite/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
@@ -1693,9 +1657,13 @@ anims/run = SubResource( 8 )
 anims/walk = SubResource( 9 )
 
 [node name="Sprite" parent="CharacterRig" instance=ExtResource( 1 )]
+position = Vector2( 0, -8 )
+scale = Vector2( 0.35, 0.35 )
 
 [node name="AnimationTree" type="AnimationTree" parent="CharacterRig"]
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Particles" type="Node2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false

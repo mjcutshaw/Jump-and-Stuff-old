@@ -4,7 +4,10 @@ extends Node
 signal update_stats
 signal update_abilities
 
-signal jumped
+signal jump
+signal fall
+signal walk
+signal idle
 #signal dashed
 #
 #signal bonked

@@ -254,6 +254,7 @@ EventBus="*res://Autoloads/Signals.gd"
 [debug]
 
 gdscript/warnings/unused_argument=false
+gdscript/warnings/unused_signal=false
 
 [display]
 

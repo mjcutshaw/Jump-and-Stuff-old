@@ -4,7 +4,7 @@ extends AirState
 func enter() -> void:
 	.enter()
 
-	player.animPlayer.play("fall")
+	EventBus.emit_signal("fall")
 	if get_move_direction() == Vector2.ZERO:
 		neutralMovement = true
 
