@@ -19,7 +19,6 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.move_logic(player.NO_SNAP, true)
-	horizontal_velocity_logic()
 
 
 func visual(delta) -> void:
@@ -52,20 +51,11 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 
-func horizontal_velocity_logic():
-	#TODO: feed variable for speed
-	if get_move_direction().x != 0:
-		#TODO: variable
-		player.velocityPlayer.x = lerp(player.velocityPlayer.x, player.moveSpeed * get_move_strength().x, player.acceleration)
-	elif get_move_direction().x == 0:
-		player.velocityPlayer.x = lerp(player.velocityPlayer.x, player.moveSpeed * get_move_strength().x, player.friction)
-	else:
-		print("air horizontal velocity error")
 
 func neutral_air_momentum_logic():
 	if !neutralMovement:
 		velocity_logic(player.moveSpeed)
-	if neutralMovement: ## Carry momentum with nuetral moveDirection ##
+	if neutralMovement: ## Carry momentum with neutral moveDirection ##
 		momentum_logic(player.moveSpeed, false)
-	if get_move_direction() != Vector2.ZERO and neutralMovement: ## Cancel out nuetral momentum
+	if get_move_direction() != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
 		neutralMovement = false
