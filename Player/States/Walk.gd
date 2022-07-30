@@ -6,7 +6,8 @@ extends GroundState
 func enter() -> void:
 	.enter()
 
-	
+	player.animPlayer.play("run")
+	#TODO: very speed of playback based on velocity
 
 
 func exit() -> void:

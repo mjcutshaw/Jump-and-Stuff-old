@@ -7,6 +7,7 @@ func enter() -> void:
 	#TODO: coyote time and buffer jump
 	EventBus.emit_signal("jumped")
 	player.velocityPlayer.y = player.jumpVelocityMax
+	player.animPlayer.play("jump")
 
 
 func exit() -> void:

@@ -16,9 +16,9 @@ func _ready() -> void:
 	pTime = pTimeAmount
 
 func _physics_process(delta: float) -> void:
-	
-	if owner.is_on_floor():
-		logic(delta)
+	pass
+#	if owner.is_on_floor():
+#		logic(delta)
 
 func logic(delta) -> void:
 	pTime = clamp(pTime, 0 , pTimeAmount)

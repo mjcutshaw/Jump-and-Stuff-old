@@ -5,6 +5,7 @@ class_name Player
 onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
 onready var stateLabel: Label = $StateLabel
+onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(20.0, 0)
