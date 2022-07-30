@@ -14,7 +14,7 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-#	player.previousVelocity = player.velocity
+	
 
 
 func physics(delta) -> void:

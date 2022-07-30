@@ -15,14 +15,8 @@ const NO_SNAP:= Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 var velocityPlayer: Vector2 = Vector2.ZERO
 var velocityEnviroment: Vector2 = Vector2.ZERO
-var previousVelocity = Vector2.ZERO
-#var moveDirection: Vector2 = Vector2.ZERO
-#var lastDirection: Vector2 = Vector2.ZERO
-#var moveStrength: Vector2 = Vector2.ZERO
-#var aimStrength: Vector2 = Vector2.ZERO
-#var aimDirection: Vector2 = Vector2.ZERO
-#var wallDirection: Vector2 = Vector2.ZERO
-#var lastWallDirection: Vector2 = Vector2.ZERO
+
+
 
 
 func _ready() -> void:
