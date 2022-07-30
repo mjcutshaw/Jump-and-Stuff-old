@@ -7,6 +7,7 @@ var facing: int
 
 #TODO: use signals to control animations or make animation tree
 #TODO: move out of physics so on called when needed
+#TODO: change hit box depending on state, shrink a bit in the air
 
 func _physics_process(delta: float) -> void:
 	if player.velocity.x > 0:
