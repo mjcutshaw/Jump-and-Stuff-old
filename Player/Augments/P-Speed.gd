@@ -23,9 +23,9 @@ func _physics_process(delta: float) -> void:
 func logic(delta) -> void:
 	pTime = clamp(pTime, 0 , pTimeAmount)
 	
-	if player.moveSpeed > abs(player.velocityPlayer.x):
+	if player.moveSpeed > abs(player.velocityAugment.x):
 		pTime += delta
-	elif player.moveSpeed == abs(player.velocityPlayer.x):
+	elif player.moveSpeed == abs(player.velocityAugment.x):
 		pTime -= delta
 
 

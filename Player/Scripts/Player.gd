@@ -15,6 +15,7 @@ const NO_SNAP:= Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 var velocityPlayer: Vector2 = Vector2.ZERO
 var velocityEnviroment: Vector2 = Vector2.ZERO
+var velocityAugment: Vector2 = Vector2.ZERO
 
 
 
@@ -44,4 +45,5 @@ func move_logic(snap, stopOnSlope) -> void:
 	velocity = move_and_slide_with_snap(velocity, snap, FLOOR_NORMAL, stopOnSlope)
 
 func velocity_logic() -> Vector2:
-	return velocityPlayer + velocityEnviroment
+	#TODO: probably need a better way to do this. need to figure good way for swapable abilities 
+	return velocityPlayer + velocityEnviroment + velocityAugment
