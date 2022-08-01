@@ -1,6 +1,6 @@
 extends Node
 
-
+#TODO: state achine based of signals
 onready var states = {
 	BaseState.State.Spawn: $Spawn,
 	BaseState.State.Die: $Die,

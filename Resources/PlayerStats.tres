@@ -4,3 +4,27 @@
 
 [resource]
 script = ExtResource( 1 )
+moveSpeed = 20
+acceleration = 0.2
+friction = 0.2
+crouchFriction = 0.02
+jumpHeightMax = 4.5
+jumpHeightMin = 10
+jumpTimeToPeak = 0.5
+jumpTimeToDescent = 0.25
+jumpTimeAtApex = 0.8
+jumpApexHeight = 40.0
+jumpDoubleVelocityModifier = 1.25
+jumpTripleVelocityModifier = 1.5
+jumpCrouchVelocityModifier = 1.75
+jumpLongVelocityModifier = 1.35
+dashJumpBoostVelocityModifier = 1.25
+terminalVelocity = 30
+moveSpeedApex = 13
+glideSpeedModifier = 2
+glideFallSpeedModifier = 6
+jumpBoostTime = 0.1
+dashTime = 0.3
+dashDistance = 10
+slideSpeed = 7
+quickSlideSpeed = 12
