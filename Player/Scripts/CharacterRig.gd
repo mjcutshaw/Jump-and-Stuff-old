@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var player: Player = owner
-onready var body: Node2D = $Sprite
+onready var body: Node2D = $Frame
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 var lastDirection: int = 1
 var facing: int
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	## probably will cause problems later
 
 func jump():
-	animPlayer.play("jump")
+	animPlayer.play("Jump")
 
 func fall():
-	animPlayer.play("fall")
+	animPlayer.play("Fall")

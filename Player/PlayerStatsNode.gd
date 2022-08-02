@@ -28,8 +28,8 @@ onready var jumpVelocityMin: float = -sqrt(2 * gravityJump * jumpHeightMin)
 
 onready var dashDistance: int = Stats.dashDistance * Globals.TILE_SIZE
 
-export var slideSpeed: int = Stats.slideSpeed * Globals.TILE_SIZE
-export var quickSlideSpeed: int = Stats.quickSlideSpeed * Globals.TILE_SIZE
+onready var slideSpeed: int = Stats.slideSpeed * Globals.TILE_SIZE
+onready var quickSlideSpeed: int = Stats.quickSlideSpeed * Globals.TILE_SIZE
 
 
 func _ready() -> void:
