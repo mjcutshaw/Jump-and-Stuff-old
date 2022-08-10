@@ -5678,6 +5678,8 @@ anims/Slide = SubResource( 20 )
 
 [node name="Walking" type="Particles2D" parent="CharacterRig/Particles"]
 
+[node name="Jump" type="Particles2D" parent="CharacterRig/Particles"]
+
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, -32 )
