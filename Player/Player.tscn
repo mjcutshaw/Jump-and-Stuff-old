@@ -5402,8 +5402,6 @@ extents = Vector2( 16, 32 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-slideSpeed = null
-quickSlideSpeed = null
 
 [node name="CharacterRig" type="Node2D" parent="."]
 script = ExtResource( 10 )
@@ -5677,6 +5675,8 @@ anims/Slide = SubResource( 20 )
 "anims/Wall Slide" = SubResource( 22 )
 
 [node name="Particles" type="Node2D" parent="CharacterRig"]
+
+[node name="Walking" type="Particles2D" parent="CharacterRig/Particles"]
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
