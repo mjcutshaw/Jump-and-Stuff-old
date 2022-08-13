@@ -1,6 +1,6 @@
 extends Area2D
 class_name Interactable
 
-func _ready() -> void:
-	collision_layer = Globals.INTERACTABLE
-	collision_mask = Globals.PLAYER
+func _init() -> void:
+	set_collision_mask_bit(Globals.INTERACTABLE, true)
+	set_collision_layer_bit(Globals.INTERACTABLE, true)

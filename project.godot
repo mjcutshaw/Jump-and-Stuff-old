@@ -29,12 +29,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/SuperStates/Ground.gd"
 }, {
-"base": "Area2D",
+"base": "HealthBox",
+"class": "HealBox",
+"language": "GDScript",
+"path": "res://Objects/Prefabs/HitHurtBoxes/Healbox.gd"
+}, {
+"base": "Interactable",
+"class": "HealthBox",
+"language": "GDScript",
+"path": "res://Objects/Prefabs/HitHurtBoxes/Healthbox.gd"
+}, {
+"base": "Interactable",
 "class": "Hitbox",
 "language": "GDScript",
 "path": "res://Objects/Prefabs/HitHurtBoxes/Hitbox.gd"
 }, {
-"base": "Area2D",
+"base": "HealthBox",
 "class": "Hurtbox",
 "language": "GDScript",
 "path": "res://Objects/Prefabs/HitHurtBoxes/Hurtbox.gd"
@@ -89,6 +99,8 @@ _global_script_class_icons={
 "AirState": "",
 "BaseState": "",
 "GroundState": "",
+"HealBox": "",
+"HealthBox": "",
 "Hitbox": "",
 "Hurtbox": "",
 "Interactable": "",
@@ -163,12 +175,13 @@ jump={
 
 [layer_names]
 
-2d_physics/layer_1="World"
-2d_physics/layer_2="Semisolid"
-2d_physics/layer_3="Hurtbox"
+2d_physics/layer_1="Don't use"
+2d_physics/layer_2="World"
+2d_physics/layer_3="Semisolid"
+2d_physics/layer_4="Hitbox"
+2d_physics/layer_5="Interactable"
 2d_physics/layer_6="Enemies"
 2d_physics/layer_7="Player"
-2d_physics/layer_8="Interactable"
 
 [physics]
 

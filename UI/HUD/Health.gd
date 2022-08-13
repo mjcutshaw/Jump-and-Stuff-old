@@ -1,6 +1,6 @@
 extends Control
 
-
+#TODO: move over to player script
 var Stats: Resource = preload("res://Resources/PlayerStats.tres")
 
 onready var healthEmpty: TextureRect = $HealthEmpty
@@ -29,7 +29,6 @@ func set_health(amount:int) -> void:
 		healthFull.rect_size.x = health * textureSize
 	
 	if health == 0:
-		healthFull.visible = false
 		EventBus.emit_signal("playerDied")
 
 func set_health_max(amount:int) -> void:

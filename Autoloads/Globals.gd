@@ -7,7 +7,7 @@ const VERSION: String = "0.0.1"
 
 const GROUND: int = 1
 const SEMISOLID: int = 2
-const HURTBOX: int = 3
+const HITBOX: int = 3
 const ENEMY: int = 6
 const PLAYER: int = 7
 const INTERACTABLE: int = 8

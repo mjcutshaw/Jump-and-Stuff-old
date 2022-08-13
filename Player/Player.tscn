@@ -19,7 +19,7 @@
 [ext_resource path="res://Assets/Player/parts/jetpack.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Player/parts/treadFront1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Player/parts/treadBack2.png" type="Texture" id=19]
-[ext_resource path="res://Objects/Prefabs/HitHurtBoxes/Hurtbox.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Prefabs/HitHurtBoxes/Hitbox.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/Player/parts/mouthRed.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Player/parts/spring1.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Player/parts/mouthGreen.png" type="Texture" id=23]
@@ -5382,7 +5382,7 @@ tracks/13/keys = {
 extents = Vector2( 24, 24 )
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 16, 17.25 )
+extents = Vector2( 16, 16 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 64
@@ -5734,8 +5734,9 @@ margin_top = -104.0
 margin_right = 24.0
 margin_bottom = -90.0
 
-[node name="Hurtbox" parent="." instance=ExtResource( 20 )]
+[node name="Hitbox" parent="." instance=ExtResource( 20 )]
+monitoring = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( 0, -22.75 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -24 )
 shape = SubResource( 24 )
