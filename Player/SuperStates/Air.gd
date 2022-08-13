@@ -6,7 +6,7 @@ class_name AirState
 func enter() -> void:
 	.enter()
 
-	
+	EventBus.emit_signal("playerGrounded", false)
 
 
 func exit() -> void:
@@ -18,7 +18,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.move_logic(player.NO_SNAP, true)
+	player.move_logic(player.NO_SNAP, false)
 
 
 func visual(delta) -> void:
@@ -43,6 +43,8 @@ func state_check(delta: float) -> int:
 		return newState
 
 	if player.is_on_floor():
+		player.animPlayer.play("Landing")
+		EventBus.emit_signal("landed")
 		if get_move_direction() == Vector2.ZERO:
 			return State.Idle
 		else:

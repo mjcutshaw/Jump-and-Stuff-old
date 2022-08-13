@@ -1,6 +1,6 @@
 extends Node
 
-
+#TODO: needs to be saved
 var currentSpawn = null
 
 func reset():

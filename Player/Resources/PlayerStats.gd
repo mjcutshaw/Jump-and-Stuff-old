@@ -2,13 +2,15 @@ extends Resource
 class_name PlayerStats
 
 
+export var healthMax: int = 4
+var health: int = 3
 
-export var moveSpeed: int = 20 
+export var moveSpeed: int = 10
 export var acceleration: float = 0.2
 export var friction: float = 0.2
 export  var crouchFriction: float = 0.02
 
-export var jumpHeightMax: float = 4.5
+export var jumpHeightMax: float = 3.25
 export var jumpHeightMin: int = 10
 export var jumpTimeToPeak: float = 0.5
 export var jumpTimeToDescent: float = 0.25

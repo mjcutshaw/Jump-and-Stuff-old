@@ -8,7 +8,9 @@ func enter() -> void:
 	var tween = create_tween()
 	tween.tween_property(player.characterRig, "scale", Vector2(1,1), growTime).from(Vector2(0,0))
 	## grows the player on spawn ##
-
+	player.animPlayer.play("Idle")
+	EventBus.emit_signal("playerHealthChanged", player.healthMax)
+	#TODO: need if statement if after damage return to last platform
 
 
 func exit() -> void:

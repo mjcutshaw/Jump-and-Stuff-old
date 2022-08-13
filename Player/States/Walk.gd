@@ -6,7 +6,7 @@ extends GroundState
 func enter() -> void:
 	.enter()
 
-	player.animPlayer.play("Drive")
+	player.animPlayer.queue("Drive")
 	#TODO: very speed of playback based on velocity
 
 

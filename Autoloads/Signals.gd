@@ -4,10 +4,15 @@ extends Node
 signal update_stats
 signal update_abilities
 
+signal playerDied
 signal jump
 signal fall
 signal walk
 signal idle
+signal landed
+signal playerGrounded(isGrounded)
+signal playerHealthChanged(amount)
+signal playerHealthMaxChanged(amount)
 #signal dashed
 #
 #signal bonked

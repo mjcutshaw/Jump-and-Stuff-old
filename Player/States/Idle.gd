@@ -5,7 +5,7 @@ func enter() -> void:
 	.enter()
 
 	#TODO: character needs to be moving
-	player.animPlayer.play("idle")
+	player.animPlayer.queue("Idle")
 
 
 func exit() -> void:

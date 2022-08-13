@@ -1,10 +1,8 @@
-extends KinematicBody2D
+extends Actors
 class_name PlayerStatsNode
 
-#TODO: new base kinematic body for player and enemy to pull from
 
 var Stats: Resource = preload("res://Resources/PlayerStats.tres")
-
 
 onready var moveSpeed: int = Stats.moveSpeed * Globals.TILE_SIZE
 onready var acceleration: float = Stats.acceleration
@@ -34,6 +32,7 @@ onready var quickSlideSpeed: int = Stats.quickSlideSpeed * Globals.TILE_SIZE
 
 func _ready() -> void:
 	EventBus.connect("update_stats", self, "update_stats")
+	healthMax = Stats.healthMax
 
 
 func update_stats():

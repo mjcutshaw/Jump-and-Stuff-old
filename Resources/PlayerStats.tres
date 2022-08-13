@@ -4,11 +4,12 @@
 
 [resource]
 script = ExtResource( 1 )
-moveSpeed = 20
+healthMax = 4
+moveSpeed = 10
 acceleration = 0.2
 friction = 0.2
 crouchFriction = 0.02
-jumpHeightMax = 4.5
+jumpHeightMax = 3.25
 jumpHeightMin = 10
 jumpTimeToPeak = 0.5
 jumpTimeToDescent = 0.25

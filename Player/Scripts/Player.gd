@@ -22,7 +22,9 @@ var velocityAugment: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	sm.init()
-
+	yield(get_tree(), "idle_frame")
+	EventBus.emit_signal("playerHealthMaxChanged", healthMax)
+	EventBus.emit_signal("playerHealthChanged", healthMax)
 
 func _unhandled_input(event: InputEvent) -> void:
 	sm.handle_input(event)
@@ -42,7 +44,7 @@ func _process(delta: float) -> void:
 
 func move_logic(snap, stopOnSlope) -> void:
 	#TODO: revisit when changing gravity
-	velocity = move_and_slide_with_snap(velocity, snap, FLOOR_NORMAL, stopOnSlope)
+	velocity = move_and_slide_with_snap(velocity, snap, FLOOR_NORMAL, stopOnSlope, 4, 0.9)
 
 func velocity_logic() -> Vector2:
 	#TODO: probably need a better way to do this. need to figure good way for swapable abilities 

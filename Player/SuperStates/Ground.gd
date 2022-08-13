@@ -5,6 +5,7 @@ func enter() -> void:
 	.enter()
 
 	player.velocityPlayer.y = 10
+	EventBus.emit_signal("playerGrounded", true)
 
 
 func exit() -> void:
