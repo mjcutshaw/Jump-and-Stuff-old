@@ -1,2 +1,2 @@
-extends Node2D
-#class_name Checkpoint
+extends Interactable
+class_name Checkpoint

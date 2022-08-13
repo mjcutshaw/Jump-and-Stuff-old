@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 #TODO: move over to player script
 var Stats: Resource = preload("res://Resources/PlayerStats.tres")
