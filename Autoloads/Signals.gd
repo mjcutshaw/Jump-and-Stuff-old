@@ -22,7 +22,8 @@ signal playerHealthMaxChanged(amount)
 #
 #signal player_spawned
 #signal player_died
-#signal checkpoint(data)
+signal checkpoint
+signal startingLocation
 #
 #signal settings_update
 #

@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Interactable",
 "class": "Checkpoint",
 "language": "GDScript",
-"path": "res://Objects/Prefabs/Scripts/Checkpoint.gd"
+"path": "res://Objects/Checkpoints/Script/Checkpoint.gd"
 }, {
 "base": "MoveState",
 "class": "GroundState",
@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "PlayerStatsNode",
 "class": "PlayerAbilitiesNode",
 "language": "GDScript",
-"path": "res://PlayerAbilityNode.gd"
+"path": "res://Player/PlayerAbilityNode.gd"
 }, {
 "base": "Resource",
 "class": "PlayerStats",
@@ -135,7 +135,9 @@ CheckpointSystem="*res://Autoloads/CheckpointSystem.gd"
 [debug]
 
 gdscript/warnings/unused_argument=false
+gdscript/warnings/narrowing_conversion=false
 gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 shapes/collision/shape_color=Color( 1, 1, 1, 0.419608 )
 
 [display]

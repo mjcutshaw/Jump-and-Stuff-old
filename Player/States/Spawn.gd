@@ -5,6 +5,8 @@ export var growTime: float = .05
 func enter() -> void:
 	.enter()
 
+	if CheckpointSystem.currentRespawn != Vector2.ZERO:
+		player.global_position = CheckpointSystem.currentRespawn
 	var tween = create_tween()
 	tween.tween_property(player.characterRig, "scale", Vector2(1,1), growTime).from(Vector2(0,0))
 	## grows the player on spawn ##

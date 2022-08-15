@@ -19,7 +19,7 @@
 [ext_resource path="res://Assets/Player/parts/jetpack.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Player/parts/treadFront1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Player/parts/treadBack2.png" type="Texture" id=19]
-[ext_resource path="res://Objects/Prefabs/HitHurtBoxes/Hitbox.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Prefabs/HealthBoxes/Hitbox.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/Player/parts/mouthRed.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Player/parts/spring1.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Player/parts/mouthGreen.png" type="Texture" id=23]
@@ -5684,6 +5684,7 @@ editor_draw_drag_margin = true
 script = ExtResource( 34 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
 
@@ -5735,8 +5736,7 @@ margin_right = 24.0
 margin_bottom = -90.0
 
 [node name="Hitbox" parent="." instance=ExtResource( 20 )]
-monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 0, -24 )
+position = Vector2( 0, -32 )
 shape = SubResource( 24 )

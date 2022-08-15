@@ -1,20 +1,20 @@
 extends Node
 
 #TODO: needs to be saved
-var currentSpawn = null
+#TODO: last safe ground
+var currentRespawn: Vector2 = Vector2.ZERO
+var startingArea: Vector2 = Vector2.ZERO
+var lastSafeGround: Vector2 = Vector2.ZERO
+var lastCheckpoint: Vector2 = Vector2.ZERO
 
-func reset():
-	currentSpawn = null
-	get_tree().reload_current_scene()
 
-func check_reset():
-	if currentSpawn == null:
-		reset()
+func set_respawn(spawn):
+	currentRespawn = spawn
+
+
+func respawn():
+	if currentRespawn!= Vector2.ZERO:
+		Player.global_position = currentRespawn
 	else:
-		return false
-
-func set_spawn(spawn):
-	currentSpawn = spawn
-
-func get_spawn():
-	return currentSpawn
+		get_tree().reload_current_scene()
+		print("no spawn point set")

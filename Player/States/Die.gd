@@ -10,7 +10,7 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-	
+	CheckpointSystem.respawn()
 
 
 func physics(delta) -> void:
