@@ -1,10 +1,15 @@
 extends Area2D
 class_name Interactable
 
-#FIXME: get areas out of scene root for easy group and layer
+## Create from prefab ##
 
-#func _init() -> void:
-#	set_collision_mask_bit(Globals.INTERACTABLE, true)
-#	set_collision_layer_bit(Globals.INTERACTABLE, true)
-#
-##TODO: remove this
+export var oneUse: bool = false
+
+
+func _ready() -> void:
+	connect("area_entered", self, "_on_Interactable_entered")
+
+
+func _on_Interactable_entered(area) -> void:
+	if area.is_in_group("Player") and oneUse:
+		queue_free()

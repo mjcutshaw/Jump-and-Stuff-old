@@ -5736,7 +5736,7 @@ margin_top = -104.0
 margin_right = 24.0
 margin_bottom = -90.0
 
-[node name="Hitbox" parent="." instance=ExtResource( 20 )]
+[node name="Hitbox" parent="." groups=["Player"] instance=ExtResource( 20 )]
 visible = false
 collision_mask = 16
 script = ExtResource( 35 )

@@ -5,6 +5,5 @@
 [node name="Healbox" type="Area2D" groups=["Healthbox"]]
 modulate = Color( 0, 1, 0.345098, 1 )
 collision_layer = 16
-collision_mask = 0
-monitoring = false
+collision_mask = 16
 script = ExtResource( 1 )

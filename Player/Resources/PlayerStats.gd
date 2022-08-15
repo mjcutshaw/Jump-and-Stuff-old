@@ -2,6 +2,10 @@ extends Resource
 class_name PlayerStats
 
 #TODO: makes based on each other for easy boosting
+
+enum statList {moveSpeed, jumpHeight, healthMax}
+
+
 export var healthMax: int = 4
 var health: int = 3
 
