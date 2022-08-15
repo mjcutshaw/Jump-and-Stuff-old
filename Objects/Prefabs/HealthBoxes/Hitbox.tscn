@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Objects/Prefabs/HitHurtBoxes/Hitbox.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Prefabs/HealthBoxes/Scripts/Hitbox.gd" type="Script" id=1]
 
 [node name="Hitbox" type="Area2D"]
 modulate = Color( 0.898039, 0.921569, 0.160784, 1 )
-collision_layer = 4
+collision_layer = 16
 collision_mask = 0
 monitoring = false
 script = ExtResource( 1 )
