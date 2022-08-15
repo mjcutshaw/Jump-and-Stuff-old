@@ -67,5 +67,5 @@ func unlock_ability(ability: int) -> void:
 	elif ability == Abilities.abiliyList.DashDown:
 		unlockedDashDown = true
 	else:
-		print("Null Ability Unlocked")
+		EventBus.emit_signal("error", "Null Ability Unlocked")
 	EventBus.emit_signal("ability_check")

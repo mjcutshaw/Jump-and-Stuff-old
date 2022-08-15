@@ -26,6 +26,8 @@ signal healthUI(amount)
 
 signal checkpoint
 signal startingLocation
+
+signal error(info)
 #
 #signal settings_update
 #

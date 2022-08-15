@@ -5738,7 +5738,6 @@ margin_bottom = -90.0
 
 [node name="Hitbox" parent="." groups=["Player"] instance=ExtResource( 20 )]
 visible = false
-collision_mask = 16
 script = ExtResource( 35 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

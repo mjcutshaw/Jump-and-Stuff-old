@@ -5,24 +5,24 @@ class_name PlayerAbilities
 #TODO: add these onto player scrip like PlayerStatsNode
 #TODO: add more conditions for unlocks
 #TODO: all abilities should get an upgrade and shards/modifires/charms
-enum abiliyList {
-	Null,
-	All,
-	Jump,
-	JumpAir,
-	JumpLong,
-	JumpCrouch, 
-	JumpWall,
-	Dash,
-	DashSide,
-	DashUp,
-	DashDown,
-	DashWall,
-	Glide,
-	GroundPound,
-	Grapple,
-	Climb,
-	}
+#enum abiliyList {
+#	Null,
+#	All,
+#	Jump,
+#	JumpAir,
+#	JumpLong,
+#	JumpCrouch, 
+#	JumpWall,
+#	Dash,
+#	DashSide,
+#	DashUp,
+#	DashDown,
+#	DashWall,
+#	Glide,
+#	GroundPound,
+#	Grapple,
+#	Climb,
+#	}
 
 
 var unlockedJump: bool = false
@@ -53,33 +53,33 @@ var maxDash: int = 1
 
 
 func unlock_ability(ability: int) -> void:
-	if ability == abiliyList.All:
+	if ability == Globals.abiliyList.All:
 		unlockedJump = true
 		unlockedJumpAir = true
 		unlockedDashDown = true
 		unlockedDashSide = true
 		unlockedDashUp = true
-	elif ability == abiliyList.Jump:
+	elif ability == Globals.abiliyList.Jump:
 		unlockedJump = true
-	elif ability == abiliyList.JumpAir:
+	elif ability == Globals.abiliyList.JumpAir:
 		if unlockedJumpAir == true:
 			maxJumpAir = +1
 		else:
 			unlockedJumpAir = true
-	elif ability == abiliyList.Dash:
+	elif ability == Globals.abiliyList.Dash:
 		#TODO: logic for increased dashes
 		unlockedDashSide = true
 		unlockedDashUp = true
 		unlockedDashDown = true
-	elif ability == abiliyList.DashSide:
+	elif ability == Globals.abiliyList.DashSide:
 		if unlockedDashSide == true:
 			maxDash += 1
 		else:
 			unlockedDashSide = true
-	elif ability ==  abiliyList.DashUp:
+	elif ability ==  Globals.abiliyList.DashUp:
 		unlockedDashUp = true
-	elif ability == abiliyList.DashDown:
+	elif ability == Globals.abiliyList.DashDown:
 		unlockedDashDown = true
 	else:
-		print("Null Ability Unlocked")
+		EventBus.emit_signal("error", "Null Ability Unlocked")
 	EventBus.emit_signal("ability_check")

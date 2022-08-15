@@ -31,3 +31,24 @@ var allColor: Color = Color.white
 var spinColor: Color = Color.orange
 var bashColor: Color = Color.yellow
 #TODO: Add in airjump tracker
+
+
+enum statList {NULL, MoveSpeed, JumpHeight, HealthMax}
+enum abiliyList {
+	NULL,
+	All,
+	Jump,
+	JumpAir,
+	JumpLong,
+	JumpCrouch, 
+	JumpWall,
+	Dash,
+	DashSide,
+	DashUp,
+	DashDown,
+	DashWall,
+	Glide,
+	GroundPound,
+	Grapple,
+	Climb,
+	}

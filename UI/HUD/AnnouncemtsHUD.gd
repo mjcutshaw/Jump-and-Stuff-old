@@ -16,15 +16,15 @@ func announce(type: String, amount: int) -> void:
 	announceLabel.text = ""
 	hide()
 
-#TODO: global enum
+
 func announce_stat_change(stat: int, amount: int) -> void:
-	if stat == 0:
+	if stat == Globals.statList.MoveSpeed:
 		announce("Move speed inscreased by ", amount)
-	elif stat == 1:
+	elif stat == Globals.statList.JumpHeight:
 		announce("Jump height inscreased by ", amount)
-	elif stat == 2:
+	elif stat == Globals.statList.HealthMax:
 		announce("Max health inscreased by ", amount)
 	else:
-		announce("stat change error: ", stat)
+		EventBus.emit_signal("error", str("stat change error: ", stat))
 	
 

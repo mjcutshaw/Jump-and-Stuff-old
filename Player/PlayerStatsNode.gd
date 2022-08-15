@@ -43,11 +43,11 @@ func update_stats():
 
 
 func change_stat(stat: int, amount: int):
-	if stat == 0:
+	if stat == Globals.statList.MoveSpeed:
 		baseMoveSpeed += amount
-	elif stat == 1:
+	elif stat == Globals.statList.JumpHeight:
 		baseJumpHeightMax += amount
-	elif stat == 2:
+	elif stat == Globals.statList.HealthMax:
 		healthMax += amount
 		health = healthMax
 		EventBus.emit_signal("healthUI", health)
