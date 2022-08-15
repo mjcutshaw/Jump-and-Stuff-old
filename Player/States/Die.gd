@@ -4,13 +4,18 @@ extends BaseState
 func enter() -> void:
 	.enter()
 
-	
+	#todo: particles and timout out to respawn
 
 
 func exit() -> void:
 	.exit()
 
-	CheckpointSystem.respawn()
+	
+	if CheckpointSystem.currentRespawn != Vector2.ZERO:
+		player.global_position = CheckpointSystem.currentRespawn
+	else:
+		get_tree().reload_current_scene()
+		print("no spawn point set")
 
 
 func physics(delta) -> void:
@@ -40,6 +45,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	#TODO: make a timer
+	return State.Spawn
 
 	return State.Null

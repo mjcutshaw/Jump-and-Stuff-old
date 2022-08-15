@@ -17,6 +17,8 @@ var previousStateName: String
 
 onready var player: Player = owner
 
+func _ready() -> void:
+	EventBus.connect("playerDied", self, "player_died")
 
 func change_state(newState: int) -> void:
 	if currentState:
@@ -59,3 +61,5 @@ func visual(delta) -> void:
 #func sound(delta) -> void:
 #	currentState.sound(delta)
 
+func player_died() -> void:
+	change_state(BaseState.State.Die)

@@ -10,11 +10,3 @@ var lastCheckpoint: Vector2 = Vector2.ZERO
 
 func set_respawn(spawn):
 	currentRespawn = spawn
-
-
-func respawn():
-	if currentRespawn!= Vector2.ZERO:
-		Player.global_position = currentRespawn
-	else:
-		get_tree().reload_current_scene()
-		print("no spawn point set")

@@ -22,9 +22,8 @@ var velocityAugment: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	sm.init()
-	yield(get_tree(), "idle_frame")
-	EventBus.emit_signal("playerHealthMaxChanged", healthMax)
-	EventBus.emit_signal("playerHealthChanged", healthMax)
+	EventBus.connect("playerHealthChanged", self, "health_changed")
+	EventBus.connect("playerDied", self, "died")
 
 func _unhandled_input(event: InputEvent) -> void:
 	sm.handle_input(event)
@@ -49,3 +48,15 @@ func move_logic(snap, stopOnSlope) -> void:
 func velocity_logic() -> Vector2:
 	#TODO: probably need a better way to do this. need to figure good way for swapable abilities 
 	return velocityPlayer + velocityEnviroment + velocityAugment
+
+
+func health_changed(amount) -> void:
+	health = clamp(health + amount, 0, healthMax)
+	EventBus.emit_signal("healthUI", health)
+	
+	if health == 0:
+		EventBus.emit_signal("playerDied")
+
+
+func died() -> void:
+	pass

@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func change_health(amount: int):
 	health = clamp(health + amount, 0, healthMax)
-	print(str(self) + str(" takes damage"))
 
 func reset_health():
 	health = healthMax

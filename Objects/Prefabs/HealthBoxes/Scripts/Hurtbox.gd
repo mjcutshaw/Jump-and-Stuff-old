@@ -5,3 +5,4 @@ class_name Hurtbox
 func _init() -> void:
 	amount = -amount
 
+#TODO: ti

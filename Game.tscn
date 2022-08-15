@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Assets/Background/bg_layer1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Levels/Playground/Scripts/Clouds.gd" type="Script" id=25]
 [ext_resource path="res://Objects/Checkpoints/StartingLocation.tscn" type="PackedScene" id=26]
 [ext_resource path="res://UI/HUD/HealthHUD.gd" type="Script" id=27]
+[ext_resource path="res://Objects/Hazards/Spike.tscn" type="PackedScene" id=28]
 [ext_resource path="res://UI/HUD/GameTimeHUD.gd" type="Script" id=29]
 
 [sub_resource type="StreamTexture" id=39]
@@ -389,6 +390,8 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [node name="Playground" type="Node2D" parent="."]
 
+[node name="Spike" parent="Playground" instance=ExtResource( 28 )]
+
 [node name="HUD" type="CanvasLayer" parent="Playground"]
 
 [node name="Health" type="MarginContainer" parent="Playground/HUD"]
@@ -673,6 +676,9 @@ motion_mirroring = Vector2( 2800, 0 )
 modulate = Color( 0.25098, 0.529412, 0.0588235, 1 )
 position = Vector2( 350, 58 )
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Playground/ParallaxBackground/Hills2"]
 modulate = Color( 0.215686, 0.462745, 0.0431373, 1 )

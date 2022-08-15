@@ -33,6 +33,7 @@ onready var quickSlideSpeed: int = Stats.quickSlideSpeed * Globals.TILE_SIZE
 func _ready() -> void:
 	EventBus.connect("update_stats", self, "update_stats")
 	healthMax = Stats.healthMax
+	health = Stats.health
 
 
 func update_stats():
