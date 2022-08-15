@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerStats
 
-
+#TODO: makes based on each other for easy boosting
 export var healthMax: int = 4
 var health: int = 3
 

@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Prefabs/HealthBoxes/Scripts/Hitbox.gd"
 }, {
+"base": "Hitbox",
+"class": "HitboxPlayer",
+"language": "GDScript",
+"path": "res://Player/Scripts/HitboxPlayer.gd"
+}, {
 "base": "HealthBox",
 "class": "Hurtbox",
 "language": "GDScript",
@@ -94,6 +99,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/PlayerStatsNode.gd"
 }, {
+"base": "Unlockables",
+"class": "StatChanger",
+"language": "GDScript",
+"path": "res://Objects/Unlockables/Scripts/StatChanger.gd"
+}, {
+"base": "Interactable",
+"class": "Unlockables",
+"language": "GDScript",
+"path": "res://Objects/Unlockables/Scripts/Unlockable.gd"
+}, {
 "base": "CollisionShape2D",
 "class": "VisibleCollisionShape2D",
 "language": "GDScript",
@@ -108,6 +123,7 @@ _global_script_class_icons={
 "HealBox": "",
 "HealthBox": "",
 "Hitbox": "",
+"HitboxPlayer": "",
 "Hurtbox": "",
 "Interactable": "",
 "JumpState": "",
@@ -117,6 +133,8 @@ _global_script_class_icons={
 "PlayerAbilitiesNode": "",
 "PlayerStats": "",
 "PlayerStatsNode": "",
+"StatChanger": "",
+"Unlockables": "",
 "VisibleCollisionShape2D": ""
 }
 
