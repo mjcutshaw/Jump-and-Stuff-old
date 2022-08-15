@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Objects/Checkpoints/Script/StartingLocation.gd" type="Script" id=1]
 
-[node name="StartingLocation" type="Position2D"]
+[node name="StartingLocation" type="Position2D" groups=["Checkpoint"]]
 script = ExtResource( 1 )

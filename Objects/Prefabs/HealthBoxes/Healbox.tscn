@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Objects/Prefabs/HealthBoxes/Scripts/Healbox.gd" type="Script" id=1]
 
-[node name="Healbox" type="Area2D"]
+[node name="Healbox" type="Area2D" groups=["Healthbox"]]
 modulate = Color( 0, 1, 0.345098, 1 )
 collision_layer = 16
 collision_mask = 0

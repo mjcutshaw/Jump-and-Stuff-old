@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Healing" type="Area2D"]
+[node name="Healing" type="Area2D" groups=["Healthbox"]]
 collision_layer = 16
 collision_mask = 0
 monitoring = false
