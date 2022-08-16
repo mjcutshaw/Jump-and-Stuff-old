@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/Augments/Scripts/P-Speed.gd" type="Script" id=1]
+
+[node name="P-Speed" type="Node"]
+script = ExtResource( 1 )

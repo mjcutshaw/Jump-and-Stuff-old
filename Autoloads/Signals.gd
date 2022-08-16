@@ -15,6 +15,7 @@ signal playerGrounded(isGrounded)
 signal playerHealthChanged(amount)
 signal playerHealthMaxChanged(amount)
 signal playerStatChange(stat, amount)
+signal playerAugmentUnlocked(augment)
 
 signal healthUI(amount)
 #signal dashed

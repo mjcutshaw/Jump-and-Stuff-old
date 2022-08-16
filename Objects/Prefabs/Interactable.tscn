@@ -3,4 +3,6 @@
 [ext_resource path="res://Objects/Prefabs/Scripts/Interactable.gd" type="Script" id=1]
 
 [node name="Interactable" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource( 1 )

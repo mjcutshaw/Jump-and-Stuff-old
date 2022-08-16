@@ -15,7 +15,7 @@ func exit() -> void:
 		player.global_position = CheckpointSystem.currentRespawn
 	else:
 		get_tree().reload_current_scene()
-		print("no spawn point set")
+		EventBus.emit_signal("error", str("no spawn point set"))
 
 
 func physics(delta) -> void:

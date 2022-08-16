@@ -11,4 +11,4 @@ func set_starting_location() -> void:
 
 func check_multiple_locations() -> void:
 	if CheckpointSystem.startingArea != global_position:
-		print("multiple starting location" + str(global_position))
+		EventBus.emit_signal("error", str("multiple starting location" + str(global_position)))

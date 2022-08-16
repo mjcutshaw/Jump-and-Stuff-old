@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
 [ext_resource path="res://Player/Scripts/CharacterRig.gd" type="Script" id=10]
-[ext_resource path="res://Player/Augments/P-Speed.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Player/parts/spring3.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Player/parts/eyeBlack.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Player/parts/drill.png" type="Texture" id=14]
@@ -5677,6 +5676,7 @@ anims/Umbrella = SubResource( 23 )
 [node name="Camera2D" type="Camera2D" parent="CharacterRig"]
 position = Vector2( 232, -193 )
 current = true
+zoom = Vector2( 0.5, 0.5 )
 limit_bottom = 100
 limit_smoothed = true
 smoothing_enabled = true
@@ -5711,9 +5711,6 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="Augments" type="Node" parent="."]
-
-[node name="P-Speed" type="Node" parent="Augments"]
-script = ExtResource( 11 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

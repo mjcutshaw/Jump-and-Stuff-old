@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://Assets/Background/bg_layer1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -34,6 +34,8 @@
 [ext_resource path="res://Objects/Checkpoints/Checkpoint.tscn" type="PackedScene" id=32]
 [ext_resource path="res://UI/HUD/AnnouncemtsHUD.gd" type="Script" id=33]
 [ext_resource path="res://UI/Debug/ErrorsHUD.gd" type="Script" id=34]
+[ext_resource path="res://Objects/Unlockables/AugmentUnlocker.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Player/Augments/P-Speed.tscn" type="PackedScene" id=36]
 
 [sub_resource type="StreamTexture" id=39]
 flags = 6
@@ -394,6 +396,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 [node name="Game" type="Node"]
 
 [node name="Playground" type="Node2D" parent="."]
+position = Vector2( 16, 8 )
 
 [node name="HUD" type="CanvasLayer" parent="Playground"]
 
@@ -485,6 +488,7 @@ script = ExtResource( 34 )
 margin_right = 384.0
 margin_bottom = 96.0
 size_flags_horizontal = 3
+readonly = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Playground"]
 
@@ -825,20 +829,25 @@ tile_data = PoolIntArray( -524271, 1, 196612, -524270, 1, 196612, -524269, 1, 19
 
 [node name="Interactables" type="Node" parent="Playground"]
 
+[node name="AugmentUnlocker" parent="Playground/Interactables" instance=ExtResource( 35 )]
+position = Vector2( 384, 0 )
+augment = ExtResource( 36 )
+
 [node name="StatChanger" parent="Playground/Interactables" instance=ExtResource( 31 )]
-position = Vector2( -104, 0 )
+position = Vector2( -104, 8 )
 oneUse = true
 statIncrease = 1
 negative = false
 
 [node name="Checkpoint" parent="Playground/Interactables" instance=ExtResource( 32 )]
-position = Vector2( -240, -8 )
+position = Vector2( -248, 8 )
 
 [node name="Healing" parent="Playground/Interactables" instance=ExtResource( 30 )]
-position = Vector2( 64, 0 )
+position = Vector2( 64, 8 )
 monitoring = true
 
 [node name="Spike" parent="Playground/Interactables" instance=ExtResource( 28 )]
+position = Vector2( 0, 8 )
 monitoring = true
 
 [node name="World" type="Node2D" parent="."]

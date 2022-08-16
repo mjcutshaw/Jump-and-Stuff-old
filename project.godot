@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Player/SuperStates/Air.gd"
 }, {
 "base": "Node",
+"class": "Augment",
+"language": "GDScript",
+"path": "res://Player/Augments/Scripts/Augment.gd"
+}, {
+"base": "Node",
 "class": "BaseState",
 "language": "GDScript",
 "path": "res://Player/BaseState.gd"
@@ -117,6 +122,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Actors": "",
 "AirState": "",
+"Augment": "",
 "BaseState": "",
 "Checkpoint": "",
 "GroundState": "",

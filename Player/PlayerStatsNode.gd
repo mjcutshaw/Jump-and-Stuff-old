@@ -52,7 +52,7 @@ func change_stat(stat: int, amount: int):
 		health = healthMax
 		EventBus.emit_signal("healthUI", health)
 	else:
-		print("invalid stat change = " + str(stat))
+		EventBus.emit_signal("error", str("invalid stat change = " + str(stat)))
 	
 	update_stats()
 

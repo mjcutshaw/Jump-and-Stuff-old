@@ -1,5 +1,6 @@
 extends MarginContainer
-
+#FIXME: only shows one line
+#TODO: make debug overlay
 onready var errorText: TextEdit = $TextEdit
 
 func _ready() -> void:

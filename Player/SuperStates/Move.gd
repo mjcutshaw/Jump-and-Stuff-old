@@ -60,7 +60,7 @@ func velocity_logic(speed) -> void:
 
 
 func momentum_logic(speed, useMoveDirection: bool = true) -> void:
-	#TODO: not tested, copied and updated from G4 version
+	#FIXME: redo this. not good velocity mechanic
 	if useMoveDirection:
 		if player.velocityPlayer.x < player.moveSpeed:
 			player.velocityPlayer.x = get_move_strength().x * round(lerp(abs(player.velocityPlayer.x), player.moveSpeed, player.acceleration))
