@@ -5710,6 +5710,8 @@ script = ExtResource( 6 )
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
+[node name="Abilities" type="Node" parent="."]
+
 [node name="Augments" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]

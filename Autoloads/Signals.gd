@@ -15,6 +15,7 @@ signal playerGrounded(isGrounded)
 signal playerHealthChanged(amount)
 signal playerHealthMaxChanged(amount)
 signal playerStatChange(stat, amount)
+signal playerAbilityUnlocked(augment)
 signal playerAugmentUnlocked(augment)
 
 signal healthUI(amount)
@@ -23,7 +24,6 @@ signal healthUI(amount)
 #signal bonked
 #
 #signal ability_check
-#signal ability_unlocked(data)
 
 signal checkpoint
 signal startingLocation

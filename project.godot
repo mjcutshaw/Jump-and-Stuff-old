@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Unlockables",
+"class": "AbilitiyUnlocker",
+"language": "GDScript",
+"path": "res://Objects/Unlockables/Scripts/AbilityUnlocker.gd"
+}, {
+"base": "Node",
+"class": "Ability",
+"language": "GDScript",
+"path": "res://Player/Abilities/Ability.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Actors",
 "language": "GDScript",
@@ -120,6 +130,8 @@ _global_script_classes=[ {
 "path": "res://Utility/DrawCollision.gd"
 } ]
 _global_script_class_icons={
+"AbilitiyUnlocker": "",
+"Ability": "",
 "Actors": "",
 "AirState": "",
 "Augment": "",

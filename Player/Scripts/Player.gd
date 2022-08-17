@@ -6,6 +6,7 @@ onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
 onready var stateLabel: Label = $StateLabel
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
+onready var abilities: Node = $Abilities
 onready var augments: Node = $Augments
 
 const FLOOR_NORMAL = Vector2.UP
@@ -26,6 +27,10 @@ func _ready() -> void:
 	EventBus.connect("playerHealthChanged", self, "health_changed")
 	EventBus.connect("playerDied", self, "died")
 	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
+	EventBus.connect("playerAbilityUnlocked", self, "ability_unlocked")
+	
+	for i in abilities.get_children():
+		i.initialize(self)
 	for i in augments.get_children():
 		i.initialize(self)
 
@@ -66,6 +71,10 @@ func health_changed(amount) -> void:
 func died() -> void:
 	pass
 
+func ability_unlocked(ability: Ability) -> void:
+	abilities.add_child(ability)
+	for i in abilities.get_children():
+		i.initialize(self)
 
 func augment_unlocked(augment: Augment) -> void:
 	augments.add_child(augment)
