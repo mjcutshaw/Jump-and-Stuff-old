@@ -1,2 +1,4 @@
-extends Node
+extends PlayerUnlockables
 class_name Ability
+
+
