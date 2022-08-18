@@ -5685,7 +5685,6 @@ editor_draw_drag_margin = true
 script = ExtResource( 34 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
 
@@ -5758,3 +5757,20 @@ script = ExtResource( 35 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0, -32 )
 shape = SubResource( 24 )
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="LedgeDetection" type="Node2D" parent="Raycasts"]
+
+[node name="Right" type="RayCast2D" parent="Raycasts/LedgeDetection"]
+visible = false
+position = Vector2( 32, 0 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 14
+
+[node name="Left" type="RayCast2D" parent="Raycasts/LedgeDetection"]
+position = Vector2( -32, 0 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 14

@@ -1,6 +1,7 @@
 extends BaseState
 class_name MoveState
 
+#FIXME: gut movement code and remake it
 
 var neutralMovement: bool = false
 
@@ -20,7 +21,9 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	
+	if get_move_direction().x == 0 and (player.ledgeLeft or player.ledgeRight):
+		player.velocity.x = 0
+		## stop on ledge it no input. might be better to change friction
 	player.velocity = player.velocity_logic()
 
 

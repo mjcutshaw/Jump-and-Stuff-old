@@ -6,7 +6,8 @@ onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
 onready var stateLabel: Label = $StateLabel
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
-
+onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
+onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -18,12 +19,13 @@ var velocityPlayer: Vector2 = Vector2.ZERO
 var velocityEnviroment: Vector2 = Vector2.ZERO
 var velocityAugment: Vector2 = Vector2.ZERO
 
+var ledgeLeft: bool = false
+var ledgeRight: bool = false
 
 
 
 func _ready() -> void:
 	sm.init()
-	
 	EventBus.connect("playerDied", self, "died")
 
 
@@ -35,7 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	sm.physics(delta)
 	sm.state_check(delta)
-	
+	ledge_detection()
 	$Velocity.text = str(velocity.round())
 
 
@@ -53,9 +55,16 @@ func velocity_logic() -> Vector2:
 	return velocityPlayer + velocityEnviroment + velocityAugment
 
 
-
-
 func died() -> void:
 	pass
 
-
+func ledge_detection()-> void:
+	if is_on_floor() and !ledgeDetectionLeft.is_colliding():
+		ledgeLeft = true
+	else:
+		ledgeLeft = false
+	
+	if is_on_floor() and !ledgeDetectionRight.is_colliding():
+		ledgeRight = true
+	else:
+		ledgeRight = false

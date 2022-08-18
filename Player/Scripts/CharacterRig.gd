@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if player.velocity.x > 0:
 		if scale.x == -1:
 			var tween = create_tween()
-			tween.tween_property(self, "scale", Vector2(1,1), flipTime).from(Vector2(-1,1))
+			tween.tween_property(self, "scale", Vector2(1,1), flipTime).from(Vector2(-1,1)) #TODO: Easin, out
 		lastDirection = 1
 	elif player.velocity.x < 0:
 		if scale.x == 1:
