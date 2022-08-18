@@ -10,8 +10,8 @@ onready var abilities: Node = $Abilities
 onready var augments: Node = $Augments
 
 const FLOOR_NORMAL = Vector2.UP
-const SNAP_GROUND:= Vector2(20.0, 0)
-const SNAP_Wall:= Vector2(0, 20.0)
+const SNAP_GROUND:= Vector2(0, 20.0)
+const SNAP_Wall:= Vector2(20.0, 0) ##TODO: multiply times wall direction
 const NO_SNAP:= Vector2.ZERO
 
 var velocity: Vector2 = Vector2.ZERO
