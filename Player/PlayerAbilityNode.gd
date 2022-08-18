@@ -3,6 +3,9 @@ class_name PlayerAbilitiesNode
 
 var Abilities: Resource = preload("res://Resources/PlayerAbilities.tres")
 
+onready var abilities: Node = $Abilities
+onready var augments: Node = $Augments
+
 onready var unlockedJump: bool = Abilities.unlockedJump
 onready var unlockedJumpAir: bool = Abilities.unlockedJumpAir
 onready var unlockedJumpCrouch: bool = Abilities.unlockedJumpCrouch
@@ -31,7 +34,13 @@ onready var maxDash: int = Abilities.maxDash
 
 func _ready() -> void:
 	EventBus.connect("update_abilities", self, "update_abilities")
-
+	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
+	EventBus.connect("playerAbilityUnlocked", self, "ability_unlocked")
+	
+	for i in abilities.get_children():
+		i.initialize(self)
+	for i in augments.get_children():
+		i.initialize(self)
 
 func update_abilities():
 	update()
@@ -69,3 +78,14 @@ func unlock_ability(ability: int) -> void:
 	else:
 		EventBus.emit_signal("error", "Null Ability Unlocked")
 	EventBus.emit_signal("ability_check")
+
+
+func ability_unlocked(ability: Ability) -> void:
+	abilities.add_child(ability)
+	for i in abilities.get_children():
+		i.initialize(self)
+
+func augment_unlocked(augment: Augment) -> void:
+	augments.add_child(augment)
+	for i in augments.get_children():
+		i.initialize(self)

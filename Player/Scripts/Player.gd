@@ -6,8 +6,7 @@ onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
 onready var stateLabel: Label = $StateLabel
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
-onready var abilities: Node = $Abilities
-onready var augments: Node = $Augments
+
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -24,15 +23,9 @@ var velocityAugment: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	sm.init()
-	EventBus.connect("playerHealthChanged", self, "health_changed")
-	EventBus.connect("playerDied", self, "died")
-	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
-	EventBus.connect("playerAbilityUnlocked", self, "ability_unlocked")
 	
-	for i in abilities.get_children():
-		i.initialize(self)
-	for i in augments.get_children():
-		i.initialize(self)
+	EventBus.connect("playerDied", self, "died")
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -60,23 +53,9 @@ func velocity_logic() -> Vector2:
 	return velocityPlayer + velocityEnviroment + velocityAugment
 
 
-func health_changed(amount) -> void:
-	health = clamp(health + amount, 0, healthMax)
-	EventBus.emit_signal("healthUI", health)
-	
-	if health == 0:
-		EventBus.emit_signal("playerDied")
 
 
 func died() -> void:
 	pass
 
-func ability_unlocked(ability: Ability) -> void:
-	abilities.add_child(ability)
-	for i in abilities.get_children():
-		i.initialize(self)
 
-func augment_unlocked(augment: Augment) -> void:
-	augments.add_child(augment)
-	for i in augments.get_children():
-		i.initialize(self)

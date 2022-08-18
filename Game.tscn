@@ -830,7 +830,7 @@ tile_data = PoolIntArray( -524271, 1, 196612, -524270, 1, 196612, -524269, 1, 19
 [node name="Interactables" type="Node" parent="Playground"]
 
 [node name="AugmentUnlocker" parent="Playground/Interactables" instance=ExtResource( 35 )]
-position = Vector2( 384, 0 )
+position = Vector2( 392, 56 )
 augment = ExtResource( 36 )
 
 [node name="StatChanger" parent="Playground/Interactables" instance=ExtResource( 31 )]

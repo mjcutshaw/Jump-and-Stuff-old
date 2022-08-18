@@ -27,11 +27,20 @@ func _ready() -> void:
 	update_stats()
 	EventBus.connect("update_stats", self, "update_stats")
 	EventBus.connect("playerStatChange", self, "change_stat")
+	EventBus.connect("playerHealthChanged", self, "health_changed")
+	
+	healthMax = Stats.healthMax
+	health = Stats.health
+	
+	yield(get_tree(), "idle_frame") #needs to wait so it updates
+	EventBus.emit_signal("healthUI", health)
+	EventBus.emit_signal("playerHealthMaxChanged", healthMax)
 
 
 func update_stats():
 	healthMax = Stats.healthMax
 	health = Stats.health
+	
 	
 	moveSpeed = baseMoveSpeed * Globals.TILE_SIZE
 	
@@ -40,6 +49,7 @@ func update_stats():
 	gravityFall = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
 	jumpVelocityMax = -sqrt(2 * gravityJump * jumpHeightMax)
 	jumpVelocityMin = -sqrt(2 * gravityJump * jumpHeightMin)
+
 
 
 func change_stat(stat: int, amount: int):
@@ -56,3 +66,10 @@ func change_stat(stat: int, amount: int):
 	
 	update_stats()
 
+
+func health_changed(amount) -> void:
+	health = clamp(health + amount, 0, healthMax)
+	EventBus.emit_signal("healthUI", health)
+	
+	if health == 0:
+		EventBus.emit_signal("playerDied")
