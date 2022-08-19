@@ -8,6 +8,7 @@ enum State {
 	Idle,
 	Walk,
 	Jump,
+	Apex
 	Fall,
 }
 

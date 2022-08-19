@@ -15,12 +15,15 @@ var friction: float
 onready var baseJumpHeightMax: float = Stats.jumpHeightMax
 var jumpHeightMax: float
 onready var jumpHeightMin: float = Stats.jumpHeightMin
+onready var jumpHeightApex: float = Stats.jumpHeightApex
 onready var jumpTimeToPeak: float = Stats.jumpTimeToPeak
 onready var jumpTimeToDescent: float = Stats.jumpTimeToDescent
+onready var jumpTimeAtApex: float = Stats.jumpTimeAtApex
 
 
 var gravityJump: float
 var gravityFall: float
+var gravityApex: float
 var jumpVelocityMax: float
 var jumpVelocityMin: float
 
@@ -50,6 +53,7 @@ func update_stats():
 	jumpHeightMax = baseJumpHeightMax * Globals.TILE_SIZE
 	gravityJump = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
 	gravityFall = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
+	gravityApex = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
 	jumpVelocityMax = -sqrt(2 * gravityJump * jumpHeightMax)
 	jumpVelocityMin = -sqrt(2 * gravityJump * jumpHeightMin)
 

@@ -85,6 +85,11 @@ _global_script_classes=[ {
 "path": "res://Objects/Prefabs/Scripts/Interactable.gd"
 }, {
 "base": "AirState",
+"class": "JumpApex",
+"language": "GDScript",
+"path": "res://Player/States/JumpApex.gd"
+}, {
+"base": "AirState",
 "class": "JumpState",
 "language": "GDScript",
 "path": "res://Player/SuperStates/Jump.gd"
@@ -155,6 +160,7 @@ _global_script_class_icons={
 "HitboxPlayer": "",
 "Hurtbox": "",
 "Interactable": "",
+"JumpApex": "",
 "JumpState": "",
 "MoveState": "",
 "Player": "",

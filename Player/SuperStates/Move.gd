@@ -1,7 +1,7 @@
 extends BaseState
 class_name MoveState
 
-#FIXME: gut movement code and remake it
+#FIXME: don't exit super state if it is the same
 
 var neutralMovement: bool = false
 

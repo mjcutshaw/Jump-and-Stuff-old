@@ -1,5 +1,5 @@
 extends AirState
-class_name JumpState
+class_name JumpApex
 
 
 func enter() -> void:
@@ -17,7 +17,8 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	gravity_logic(player.gravityJump, delta)
+	neutral_air_momentum_logic()
+	gravity_logic(player.gravityApex, delta)
 
 
 func visual(delta) -> void:
@@ -31,10 +32,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	## variable jump height ##
-	if Input.is_action_just_released("jump"):
-		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
-		return State.Fall
+	
 
 	return State.Null
 
@@ -44,9 +42,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.is_on_ceiling():
+	if player.velocityPlayer.y > player.jumpHeightApex:
 		return State.Fall
-	if player.velocityPlayer.y > - player.jumpHeightApex:
-		return State.Apex
 
 	return State.Null

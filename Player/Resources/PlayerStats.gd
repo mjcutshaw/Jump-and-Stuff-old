@@ -14,10 +14,10 @@ export  var crouchFriction: float = 0.02
 
 export var jumpHeightMax: float = 3.25
 export var jumpHeightMin: int = 10
+export var jumpHeightApex: float = 40.0
 export var jumpTimeToPeak: float = 0.5
 export var jumpTimeToDescent: float = 0.25
 export var jumpTimeAtApex: float = 0.8
-export var jumpApexHeight: float = 40
 export var jumpDoubleVelocityModifier: float = 1.25
 export var jumpTripleVelocityModifier: float = 1.5
 export var jumpCrouchVelocityModifier: float = 1.75

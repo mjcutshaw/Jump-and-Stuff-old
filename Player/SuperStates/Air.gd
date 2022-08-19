@@ -2,6 +2,7 @@ extends MoveState
 class_name AirState
 
 #TODO: corner correction
+#TODO: changing direction, look into skidding
 
 func enter() -> void:
 	.enter()

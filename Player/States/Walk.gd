@@ -1,11 +1,14 @@
 extends GroundState
 
 var skidding: bool = false
+
 func enter() -> void:
 	.enter()
 
 	player.animPlayer.queue("Drive")
 	#TODO: very speed of playback based on velocity
+	#TODO: nuetral on entering
+	
 
 
 func exit() -> void:
@@ -20,14 +23,12 @@ func physics(delta) -> void:
 	if abs(player.velocityPlayer.x)  >= 16 and skidding:
 		skidding = false
 	if get_move_direction().x == 0 and (player.ledgeLeft or player.ledgeRight):
-		player.velocityPlayer.x = 0 ## stop on ledge it no input. might be better to change friction
-		#WATCH: might want to change this to faster friction
+		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.friction*2)
+		## stop on ledge it no input. might be better to change friction
 	if player.velocityPlayer.x != 0  and get_move_direction().x != 0 and (sign(player.velocityPlayer.x) != get_move_direction().x):
 		skidding = true
-		
 	
 	if skidding:
-		var oldVelocity = player.velocityPlayer.x
 		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, player.moveSpeed * get_move_direction().x, player.acceleration) 
 	elif !skidding:
 		if get_move_direction().x != 0 and player.velocityPlayer.x < player.moveSpeed:

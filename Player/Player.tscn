@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Player/Scripts/HitboxPlayer.gd" type="Script" id=35]
 [ext_resource path="res://Player/Abilities/Super/Ground.gd" type="Script" id=36]
 [ext_resource path="res://Player/Abilities/AbilitiesManager.gd" type="Script" id=37]
+[ext_resource path="res://Player/States/JumpApex.gd" type="Script" id=38]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5708,6 +5709,9 @@ script = ExtResource( 5 )
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
+
+[node name="Apex" type="Node" parent="StateMachine"]
+script = ExtResource( 38 )
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
