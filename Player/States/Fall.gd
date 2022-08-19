@@ -17,8 +17,8 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	neutral_air_momentum_logic()
 	gravity_logic(player.gravityFall, delta)
+	player.velocityPlayer.y = min(player.velocityPlayer.y, player.terminalVelocity)
 
 
 func visual(delta) -> void:

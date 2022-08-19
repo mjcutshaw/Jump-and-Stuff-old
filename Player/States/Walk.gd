@@ -20,21 +20,25 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	if abs(player.velocityPlayer.x)  >= 16 and skidding:
+	if (sign(player.velocityPlayer.x) == get_move_direction().x) and skidding:
 		skidding = false
-	if get_move_direction().x == 0 and (player.ledgeLeft or player.ledgeRight):
-		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.friction*2)
+	if (get_move_direction().x == 0 or skidding) and (player.ledgeLeft or player.ledgeRight):
+		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.frictionSkid)
 		## stop on ledge it no input. might be better to change friction
 	if player.velocityPlayer.x != 0  and get_move_direction().x != 0 and (sign(player.velocityPlayer.x) != get_move_direction().x):
 		skidding = true
+		#TODO: tweak to have it over a certain velocity
 	
 	if skidding:
-		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, player.moveSpeed * get_move_direction().x, player.acceleration) 
+		if abs(get_move_direction().x) > 0:
+			player.velocityPlayer.x = move_toward(player.velocityPlayer.x, player.moveSpeed * get_move_direction().x, player.accelerationGround)
+		elif get_move_direction().x == 0:
+			player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.frictionSkid)
 	elif !skidding:
 		if get_move_direction().x != 0 and player.velocityPlayer.x < player.moveSpeed:
-			apply_acceleration()
+			apply_acceleration(player.accelerationGround)
 		elif get_move_direction().x == 0:
-			apply_friction()
+			apply_friction(player.frictionGround)
 		elif player.velocityPlayer.x >= player.moveSpeed:
 			#TODO: look at not needing moveDirection
 			momentum_logic(player.moveSpeed, true)

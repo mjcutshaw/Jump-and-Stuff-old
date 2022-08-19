@@ -71,6 +71,13 @@ func momentum_logic(speed, useMoveDirection: bool = true) -> void:
 			player.velocityPlayer.x =  max(abs(speed), abs(player.velocityPlayer.x)) * sign(player.velocityPlayer.x) 
 
 
+func apply_acceleration(amount) -> void:
+	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * get_move_direction().x
+
+func apply_friction(amount) -> void:
+	player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, amount)
+
+
 func neutral_move_direction_logic() -> bool:
 	if get_move_direction() == Vector2.ZERO:
 		return true

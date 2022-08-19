@@ -8,9 +8,10 @@ export var healthMax: int = 4
 var health: int = 3
 
 export var moveSpeed: int = 15
-export var acceleration: float = .3
-export var friction: float = .5
-export  var crouchFriction: float = 0.02
+export var accelerationGround: float = .3
+export var frictionGround: float = .5
+export var frictionSkid: float = 1.0
+export var crouchFriction: float = 0.02
 
 export var jumpHeightMax: float = 3.25
 export var jumpHeightMin: int = 10
@@ -23,6 +24,9 @@ export var jumpTripleVelocityModifier: float = 1.5
 export var jumpCrouchVelocityModifier: float = 1.75
 export var jumpLongVelocityModifier: float = 1.35
 export var dashJumpBoostVelocityModifier: float = 1.25
+export var accelerationAir: float = .5
+export var frictionAir: float = .7
+
 
 export var terminalVelocity: int = 30
 export var moveSpeedApex: int = 13 

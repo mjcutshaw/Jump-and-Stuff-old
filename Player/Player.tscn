@@ -5680,10 +5680,9 @@ anims/Umbrella = SubResource( 23 )
 [node name="Camera2D" type="Camera2D" parent="CharacterRig"]
 position = Vector2( 232, -193 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
-limit_bottom = 100
 limit_smoothed = true
 smoothing_enabled = true
+smoothing_speed = 7.0
 drag_margin_top = 0.75
 editor_draw_drag_margin = true
 script = ExtResource( 34 )
@@ -5745,24 +5744,26 @@ script = ExtResource( 11 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-margin_left = -41.0
-margin_top = -129.0
-margin_right = -1.0
-margin_bottom = -89.0
+margin_left = -64.0
+margin_top = -160.0
+margin_right = -24.0
+margin_bottom = -120.0
 rect_scale = Vector2( 2.89862, 1.73804 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="Velocity" type="Label" parent="."]
-margin_left = -16.0
-margin_top = -80.0
-margin_right = 24.0
-margin_bottom = -66.0
+visible = false
+margin_left = -48.0
+margin_top = -128.0
+margin_right = -8.0
+margin_bottom = -114.0
 
 [node name="StateLabel" type="Label" parent="."]
-margin_left = -16.0
-margin_top = -104.0
-margin_right = 24.0
-margin_bottom = -90.0
+visible = false
+margin_left = -48.0
+margin_top = -152.0
+margin_right = -8.0
+margin_bottom = -138.0
 
 [node name="Hitbox" parent="." groups=["Player"] instance=ExtResource( 20 )]
 visible = false

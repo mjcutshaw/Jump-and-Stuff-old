@@ -6,26 +6,35 @@ var Stats: Resource = preload("res://Resources/PlayerStats.tres")
 
 
 onready var baseMoveSpeed: int = Stats.moveSpeed
+onready var baseAccelerationGround: float = Stats.accelerationGround
+onready var basefrictionGround: float = Stats.frictionGround
+onready var basefrictionSkid: float = Stats.frictionSkid
+
 var moveSpeed: int
-onready var baseAcceleration: float = Stats.acceleration
-var acceleration: float
-onready var basefriction: float = Stats.friction
-var friction: float
+var accelerationGround: float
+var frictionGround: float
+#TODO: accel skid?
+var frictionSkid: float
 
 onready var baseJumpHeightMax: float = Stats.jumpHeightMax
-var jumpHeightMax: float
 onready var jumpHeightMin: float = Stats.jumpHeightMin
 onready var jumpHeightApex: float = Stats.jumpHeightApex
 onready var jumpTimeToPeak: float = Stats.jumpTimeToPeak
 onready var jumpTimeToDescent: float = Stats.jumpTimeToDescent
 onready var jumpTimeAtApex: float = Stats.jumpTimeAtApex
+onready var baseAccelerationAir: float = Stats.accelerationAir
+onready var basefrictionAir: float = Stats.frictionAir
+onready var baseTerminalVelocity: float= Stats.terminalVelocity
 
-
+var jumpHeightMax: float
 var gravityJump: float
 var gravityFall: float
 var gravityApex: float
 var jumpVelocityMax: float
 var jumpVelocityMin: float
+var accelerationAir: float
+var frictionAir: float
+var terminalVelocity: float
 
 
 func _ready() -> void:
@@ -46,18 +55,24 @@ func update_stats():
 	healthMax = Stats.healthMax
 	health = Stats.health
 	
-	moveSpeed = baseMoveSpeed * Globals.TILE_SIZE
-	acceleration = baseAcceleration * Globals.TILE_SIZE
-	friction = basefriction * Globals.TILE_SIZE
+	moveSpeed = by_tile_size(baseMoveSpeed)
+	accelerationGround = by_tile_size(baseAccelerationGround)
+	frictionGround = by_tile_size(basefrictionGround)
+	frictionSkid = by_tile_size(basefrictionSkid)
 	
-	jumpHeightMax = baseJumpHeightMax * Globals.TILE_SIZE
+	jumpHeightMax = by_tile_size(baseJumpHeightMax)
 	gravityJump = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
 	gravityFall = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
 	gravityApex = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
 	jumpVelocityMax = -sqrt(2 * gravityJump * jumpHeightMax)
 	jumpVelocityMin = -sqrt(2 * gravityJump * jumpHeightMin)
+	accelerationAir = by_tile_size(baseAccelerationAir)
+	frictionAir = by_tile_size(basefrictionAir)
+	terminalVelocity = by_tile_size(baseTerminalVelocity)
 
 
+func by_tile_size(amount) -> float:
+	return amount * Globals.TILE_SIZE
 
 func change_stat(stat: int, amount: int):
 	if stat == Globals.statList.MoveSpeed:

@@ -3,6 +3,7 @@ class_name AirState
 
 #TODO: corner correction
 #TODO: changing direction, look into skidding
+var airTurn: bool = false
 
 func enter() -> void:
 	.enter()
@@ -20,7 +21,22 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.move_logic(player.NO_SNAP, false)
-
+	
+	if player.velocityPlayer.x != 0  and get_move_direction().x != 0 and (sign(player.velocityPlayer.x) != get_move_direction().x):
+		airTurn = true
+	
+	if airTurn:
+		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, player.moveSpeed * get_move_direction().x, player.accelerationAir) 
+	elif !airTurn:
+		if get_move_direction().x != 0 and player.velocityPlayer.x < player.moveSpeed:
+			apply_acceleration(player.accelerationAir)
+		elif get_move_direction().x == 0:
+			apply_friction(player.frictionAir)
+		elif player.velocityPlayer.x >= player.moveSpeed:
+			#TODO: look at not needing moveDirection
+			momentum_logic(player.moveSpeed, true)
+	
+	
 
 func visual(delta) -> void:
 	.visual(delta)
@@ -46,10 +62,7 @@ func state_check(delta: float) -> int:
 	if player.is_on_floor():
 		player.animPlayer.play("Landing")
 		EventBus.emit_signal("landed")
-		if get_move_direction() == Vector2.ZERO:
-			return State.Idle
-		else:
-			return State.Walk
+		return State.Walk
 
 	return State.Null
 

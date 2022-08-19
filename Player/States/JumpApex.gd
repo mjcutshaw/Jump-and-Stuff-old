@@ -17,7 +17,6 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	neutral_air_momentum_logic()
 	gravity_logic(player.gravityApex, delta)
 
 
