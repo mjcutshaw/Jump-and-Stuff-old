@@ -46,3 +46,10 @@ func state_check(delta: float) -> int:
 		return State.Fall
 
 	return State.Null
+
+
+func apply_acceleration() -> void:
+	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, player.acceleration) * get_move_direction().x
+
+func apply_friction() -> void:
+	player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.friction)

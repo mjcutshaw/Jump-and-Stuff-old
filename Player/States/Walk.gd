@@ -1,8 +1,6 @@
 extends GroundState
 
 
-
-
 func enter() -> void:
 	.enter()
 
@@ -19,7 +17,14 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	if get_move_strength().x != 0:
+	if get_move_direction().x == 0 and (player.ledgeLeft or player.ledgeRight):
+		player.velocityPlayer.x = 0 ## stop on ledge it no input. might be better to change friction
+		#WATCH: might want to change this to faster friction
+	if get_move_direction().x != 0 and player.velocityPlayer.x < player.moveSpeed:
+		apply_acceleration()
+	elif get_move_direction().x == 0:
+		apply_friction()
+	elif player.velocityPlayer.x >= player.moveSpeed:
 		momentum_logic(player.moveSpeed, true)
 
 
@@ -44,7 +49,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if get_move_direction().x == 0:
+	if player.velocityPlayer.x == 0:
 		return State.Idle
 
 	return State.Null

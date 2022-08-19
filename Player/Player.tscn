@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
 [ext_resource path="res://Player/Scripts/CharacterRig.gd" type="Script" id=10]
+[ext_resource path="res://Player/Abilities/Walk.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Player/parts/spring3.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Player/parts/eyeBlack.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Player/parts/drill.png" type="Texture" id=14]
@@ -34,6 +35,8 @@
 [ext_resource path="res://Assets/Player/parts/treadFront2.png" type="Texture" id=33]
 [ext_resource path="res://Player/Camera2D.gd" type="Script" id=34]
 [ext_resource path="res://Player/Scripts/HitboxPlayer.gd" type="Script" id=35]
+[ext_resource path="res://Player/Abilities/Super/Ground.gd" type="Script" id=36]
+[ext_resource path="res://Player/Abilities/AbilitiesManager.gd" type="Script" id=37]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5710,12 +5713,14 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="States" type="Node" parent="."]
+pause_mode = 1
 
 [node name="Spawn" type="Node" parent="States"]
 
 [node name="Die" type="Node" parent="States"]
 
 [node name="Ground" type="Node" parent="States"]
+script = ExtResource( 36 )
 
 [node name="Air" type="Node" parent="States"]
 
@@ -5726,6 +5731,11 @@ script = ExtResource( 7 )
 [node name="Dash" type="Node" parent="States"]
 
 [node name="Abilities" type="Node" parent="."]
+pause_mode = 1
+script = ExtResource( 37 )
+
+[node name="Walk" type="Node" parent="Abilities"]
+script = ExtResource( 11 )
 
 [node name="Augments" type="Node" parent="."]
 

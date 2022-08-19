@@ -17,7 +17,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.velocityPlayer.x = lerp(player.velocityPlayer.x, 0, player.friction)
+	player.velocityPlayer.x = 0
 
 
 

@@ -37,6 +37,7 @@ enum statList {NULL, MoveSpeed, JumpHeight, HealthMax}
 enum abiliyList {
 	NULL,
 	All,
+	Walk,
 	Jump,
 	JumpAir,
 	JumpLong,

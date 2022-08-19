@@ -21,9 +21,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	if get_move_direction().x == 0 and (player.ledgeLeft or player.ledgeRight):
-		player.velocity.x = 0
-		## stop on ledge it no input. might be better to change friction
+	
 	player.velocity = player.velocity_logic()
 
 
@@ -65,15 +63,13 @@ func velocity_logic(speed) -> void:
 func momentum_logic(speed, useMoveDirection: bool = true) -> void:
 	#FIXME: redo this. not good velocity mechanic
 	if useMoveDirection:
-		if player.velocityPlayer.x < player.moveSpeed:
-			player.velocityPlayer.x = get_move_strength().x * round(lerp(abs(player.velocityPlayer.x), player.moveSpeed, player.acceleration))
-		else:
-			player.velocityPlayer.x = get_move_strength().x * max(abs(speed), abs(player.velocityPlayer.x))
+		player.velocityPlayer.x = get_move_strength().x * max(abs(speed), abs(player.velocityPlayer.x))
 	if !useMoveDirection:
 		if player.velocityPlayer.x == 0:
 			player.velocityPlayer.x = player.velocityPlayer.x
 		else:
 			player.velocityPlayer.x =  max(abs(speed), abs(player.velocityPlayer.x)) * sign(player.velocityPlayer.x) 
+
 
 func neutral_move_direction_logic() -> bool:
 	if get_move_direction() == Vector2.ZERO:

@@ -7,8 +7,10 @@ var Stats: Resource = preload("res://Resources/PlayerStats.tres")
 
 onready var baseMoveSpeed: int = Stats.moveSpeed
 var moveSpeed: int
-onready var acceleration: float = Stats.acceleration
-onready var friction: float = Stats.friction
+onready var baseAcceleration: float = Stats.acceleration
+var acceleration: float
+onready var basefriction: float = Stats.friction
+var friction: float
 
 onready var baseJumpHeightMax: float = Stats.jumpHeightMax
 var jumpHeightMax: float
@@ -41,8 +43,9 @@ func update_stats():
 	healthMax = Stats.healthMax
 	health = Stats.health
 	
-	
 	moveSpeed = baseMoveSpeed * Globals.TILE_SIZE
+	acceleration = baseAcceleration * Globals.TILE_SIZE
+	friction = basefriction * Globals.TILE_SIZE
 	
 	jumpHeightMax = baseJumpHeightMax * Globals.TILE_SIZE
 	gravityJump = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)

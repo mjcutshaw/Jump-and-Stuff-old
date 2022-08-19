@@ -37,10 +37,10 @@ func _ready() -> void:
 	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
 	EventBus.connect("playerAbilityUnlocked", self, "ability_unlocked")
 	
-	for i in abilities.get_children():
-		i.initialize(self)
-	for i in augments.get_children():
-		i.initialize(self)
+	for child in abilities.get_children():
+		child.initialize(self)
+	for child in augments.get_children():
+		child.initialize(self)
 
 func update_abilities():
 	update()

@@ -8,8 +8,8 @@ export var healthMax: int = 4
 var health: int = 3
 
 export var moveSpeed: int = 10
-export var acceleration: float = 0.1
-export var friction: float = 0.1
+export var acceleration: float = .5
+export var friction: float = .5
 export  var crouchFriction: float = 0.02
 
 export var jumpHeightMax: float = 3.25
