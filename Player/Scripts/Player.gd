@@ -28,6 +28,10 @@ var ledgeRight: bool = false
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1
 
+var jumpCornerCorrectionVertical: int = 10
+var jumpCornerCorrectionHorizontal: int = 15
+
+
 
 func _ready() -> void:
 	sm.init()
@@ -78,3 +82,21 @@ func set_timers() -> void:
 	coyoteJumpTimer.wait_time = coyoteTime
 	coyoteJumpWallTimer.wait_time = coyoteTime
 	bufferJumpTimer.wait_time = jumpBufferTime
+
+
+func attempt_vertical_corner_correction(amount: int, delta) -> void:
+	for i in range(1, amount*2+1):
+		for j in [-1.0, 1.0]:
+			if !test_move(global_transform.translated(Vector2(0, i * j / 2)), Vector2(velocity.x * delta, 0)):
+				translate(Vector2(0, i * j / 2))
+				if velocity.y * j < 0: velocity.y = 0
+				return
+
+
+func attempt_horizontal_corner_correction(amount: int, delta) -> void:
+	for i in range(1, amount*2+1):
+		for j in [-1.0, 1.0]:
+			if !test_move(global_transform.translated(Vector2(i * j / 2, 0)), Vector2(0, velocity.y * delta)):
+				translate(Vector2(i * j / 2, 0))
+				if velocity.x * j < 0: velocity.x = 0
+				return

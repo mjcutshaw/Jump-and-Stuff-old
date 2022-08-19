@@ -1,6 +1,6 @@
 extends AirState
 class_name JumpApex
-
+ #TODO: increased airspeed
 
 func enter() -> void:
 	.enter()

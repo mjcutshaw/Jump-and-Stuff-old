@@ -2,7 +2,7 @@ extends MoveState
 class_name AirState
 
 #TODO: corner correction
-#TODO: changing direction, look into skidding
+
 var airTurn: bool = false
 
 func enter() -> void:
@@ -36,6 +36,8 @@ func physics(delta) -> void:
 			#TODO: look at not needing moveDirection
 			momentum_logic(player.moveSpeed, true)
 	
+	if player.test_move(player.global_transform, Vector2(player.velocity.x * delta, 0)):
+		player.attempt_vertical_corner_correction(player.jumpCornerCorrectionVertical, delta)
 	
 
 func visual(delta) -> void:

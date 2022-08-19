@@ -18,6 +18,9 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	gravity_logic(player.gravityJump, delta)
+	
+	if player.test_move(player.global_transform, Vector2(0, player.velocity.y * delta)):
+		player.attempt_horizontal_corner_correction(player.jumpCornerCorrectionHorizontal, delta)
 
 
 func visual(delta) -> void:
