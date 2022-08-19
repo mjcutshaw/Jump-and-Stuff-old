@@ -5773,7 +5773,6 @@ shape = SubResource( 24 )
 [node name="LedgeDetection" type="Node2D" parent="Raycasts"]
 
 [node name="Right" type="RayCast2D" parent="Raycasts/LedgeDetection"]
-visible = false
 position = Vector2( 32, 0 )
 enabled = true
 cast_to = Vector2( 0, 5 )

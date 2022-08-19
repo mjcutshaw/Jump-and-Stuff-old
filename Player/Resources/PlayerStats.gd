@@ -7,8 +7,8 @@ class_name PlayerStats
 export var healthMax: int = 4
 var health: int = 3
 
-export var moveSpeed: int = 10
-export var acceleration: float = .5
+export var moveSpeed: int = 15
+export var acceleration: float = .3
 export var friction: float = .5
 export  var crouchFriction: float = 0.02
 

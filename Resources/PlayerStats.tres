@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource( 1 )
 healthMax = 4
-moveSpeed = 10
-acceleration = 0.5
+moveSpeed = 15
+acceleration = 0.3
 friction = 0.5
 crouchFriction = 0.02
 jumpHeightMax = 3.25

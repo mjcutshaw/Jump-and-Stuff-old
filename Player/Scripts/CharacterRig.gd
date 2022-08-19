@@ -17,17 +17,19 @@ func _ready() -> void:
 	EventBus.connect("fall", self, "fall")
 
 func _physics_process(delta: float) -> void:
-	if player.velocity.x > 0:
+	if move_direction() > 0:
 		if scale.x == -1:
 			var tween = create_tween()
 			tween.tween_property(self, "scale", Vector2(1,1), flipTime).from(Vector2(-1,1)) #TODO: Easin, out
 		lastDirection = 1
-	elif player.velocity.x < 0:
+	elif move_direction() < 0:
 		if scale.x == 1:
 			var tween = create_tween()
 			tween.tween_property(self, "scale", Vector2(-1,1), flipTime).from(Vector2(1,1))
 		lastDirection = -1
-
+#TODO: turn into global or player
+func move_direction() -> int:
+	return  - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 
 func jump():
 	animPlayer.play("Jump")
