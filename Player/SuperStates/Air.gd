@@ -49,7 +49,15 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("jump"):
+#		if !player.coyoteJumpWallTimer.is_stopped():
+#			player.coyoteJumpWallTimer.stop()
+#			return State.JumpWall
+		if !player.coyoteJumpTimer.is_stopped(): 
+			player.coyoteJumpTimer.stop()
+			return State.Jump
+		else:
+			player.bufferJumpTimer.start()
 
 	return State.Null
 

@@ -11,7 +11,7 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-	
+	player.coyoteJumpTimer.start()
 
 
 func physics(delta) -> void:
@@ -42,6 +42,9 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
+	if !player.bufferJumpTimer.is_stopped():
+		player.bufferJumpTimer.stop()
+		return State.Jump
 	if !player.is_on_floor():
 		return State.Fall
 

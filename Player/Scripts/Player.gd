@@ -8,6 +8,9 @@ onready var stateLabel: Label = $StateLabel
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
 onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
+onready var bufferJumpTimer: Timer = $Timers/BufferJump
+onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
+onready var coyoteJumpWallTimer: Timer = $Timers/CoyoteJumpWall
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -22,12 +25,14 @@ var velocityAugment: Vector2 = Vector2.ZERO
 var ledgeLeft: bool = false
 var ledgeRight: bool = false
 
+var jumpBufferTime: float = 0.1
+var coyoteTime: float = 0.1
 
 
 func _ready() -> void:
 	sm.init()
 	EventBus.connect("playerDied", self, "died")
-
+	set_timers()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -68,3 +73,8 @@ func ledge_detection()-> void:
 		ledgeRight = true
 	else:
 		ledgeRight = false
+
+func set_timers() -> void:
+	coyoteJumpTimer.wait_time = coyoteTime
+	coyoteJumpWallTimer.wait_time = coyoteTime
+	bufferJumpTimer.wait_time = jumpBufferTime
