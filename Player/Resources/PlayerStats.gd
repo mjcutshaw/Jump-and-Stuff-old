@@ -35,7 +35,7 @@ export var glideSpeedModifier: int = 2
 export var glideFallSpeedModifier: int = 6
 
 export var jumpBoostTime: float = 0.10 #DASH
-export var dashTime = 0.3
+export var dashDuration = 0.3
 export var dashDistance: int = 10 
 
 # WALL SLIDE #

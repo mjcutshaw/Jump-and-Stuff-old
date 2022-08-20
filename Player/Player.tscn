@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Player/Abilities/Super/Ground.gd" type="Script" id=36]
 [ext_resource path="res://Player/Abilities/AbilitiesManager.gd" type="Script" id=37]
 [ext_resource path="res://Player/States/JumpApex.gd" type="Script" id=38]
+[ext_resource path="res://Player/States/Dash.gd" type="Script" id=39]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5715,6 +5716,9 @@ script = ExtResource( 38 )
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource( 39 )
+
 [node name="States" type="Node" parent="."]
 pause_mode = 1
 
@@ -5798,4 +5802,7 @@ one_shot = true
 one_shot = true
 
 [node name="CoyoteJumpWall" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="DashDuration" type="Timer" parent="Timers"]
 one_shot = true

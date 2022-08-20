@@ -15,7 +15,7 @@ export var growTime: float = .3
 
 
 func _ready() -> void:
-	EventBus.connect("jump", self, "jump")
+	EventBus.connect("playerJumped", self, "jump")
 	EventBus.connect("fall", self, "fall")
 	EventBus.connect("playerSpawned", self, "spawned")
 

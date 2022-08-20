@@ -36,6 +36,9 @@ var accelerationAir: float
 var frictionAir: float
 var terminalVelocity: float
 
+var dashVelocity: float
+onready var dashDuration: float = Stats.dashDuration
+
 
 func _ready() -> void:
 	update_stats()
@@ -69,12 +72,15 @@ func update_stats():
 	accelerationAir = by_tile_size(baseAccelerationAir)
 	frictionAir = by_tile_size(basefrictionAir)
 	terminalVelocity = by_tile_size(baseTerminalVelocity)
+	
+	dashVelocity = by_tile_size(Stats.dashDistance)/Stats.dashDuration
 
 
 func by_tile_size(amount) -> float:
 	return amount * Globals.TILE_SIZE
 
 func change_stat(stat: int, amount: int):
+	#TODO: should this update the base sheet?
 	if stat == Globals.statList.MoveSpeed:
 		baseMoveSpeed += amount
 	elif stat == Globals.statList.JumpHeight:

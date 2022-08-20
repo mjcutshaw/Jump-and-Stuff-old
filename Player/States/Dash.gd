@@ -1,23 +1,27 @@
 extends MoveState
-class_name GroundState
+
+#TODO: add facing and change to moveDirection, from get_move_direction
+#TODO: got back to previous velocity
 
 func enter() -> void:
 	.enter()
 
-	player.velocityPlayer.y = 10
-	EventBus.emit_signal("playerGrounded", true)
+	player.animPlayer.play("Dash Side")
+	EventBus.emit_signal("playerDashed")
+	player.dashTimer.start()
+	player.velocityPlayer.x = player.dashVelocity * get_move_direction().x
 
 
 func exit() -> void:
 	.exit()
 
-	player.coyoteJumpTimer.start()
+	
 
 
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.move_logic(player.SNAP_GROUND, true)
+	
 
 
 func visual(delta) -> void:
@@ -31,10 +35,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump"):
-		return State.Jump
-	if Input.is_action_just_pressed("dash"):
-		return State.Dash
+	
 
 	return State.Null
 
@@ -44,13 +45,10 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if !player.bufferJumpTimer.is_stopped():
-		player.bufferJumpTimer.stop()
-		return State.Jump
-	if !player.is_on_floor():
-		return State.Fall
+	if player.dashTimer.is_stopped():
+		if player.is_on_floor():
+			return State.Walk
+		else:
+			return State.Fall
 
 	return State.Null
-
-
-

@@ -5,6 +5,7 @@ class_name JumpState
 func enter() -> void:
 	.enter()
 
+	EventBus.emit_signal("playerJumped")
 	player.coyoteJumpTimer.stop()
 
 

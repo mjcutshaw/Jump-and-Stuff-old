@@ -8,9 +8,11 @@ onready var stateLabel: Label = $StateLabel
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
 onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
+
 onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
 onready var coyoteJumpWallTimer: Timer = $Timers/CoyoteJumpWall
+onready var dashTimer: Timer = $Timers/DashDuration
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -68,6 +70,7 @@ func died() -> void:
 	pass
 
 func ledge_detection()-> void:
+	#TODO: look into mvoing this to the raycasts
 	if is_on_floor() and !ledgeDetectionLeft.is_colliding():
 		ledgeLeft = true
 	else:
@@ -82,6 +85,8 @@ func set_timers() -> void:
 	coyoteJumpTimer.wait_time = coyoteTime
 	coyoteJumpWallTimer.wait_time = coyoteTime
 	bufferJumpTimer.wait_time = jumpBufferTime
+	dashTimer.wait_time = dashDuration
+	#TODO: move this over to timers
 
 
 func attempt_vertical_corner_correction(amount: int, delta) -> void:

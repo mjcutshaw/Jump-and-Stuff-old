@@ -31,6 +31,7 @@ func physics(delta) -> void:
 	
 	if skidding:
 		if abs(get_move_direction().x) > 0:
+			##TODO: accel skid?
 			player.velocityPlayer.x = move_toward(player.velocityPlayer.x, player.moveSpeed * get_move_direction().x, player.accelerationGround)
 		elif get_move_direction().x == 0:
 			player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.frictionSkid)

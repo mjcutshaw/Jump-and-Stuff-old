@@ -1,11 +1,9 @@
 extends JumpState
 
-
+#TODO: dash jump
 func enter() -> void:
 	.enter()
 
-	#TODO: coyote time and buffer jump
-	EventBus.emit_signal("jump")
 	player.velocityPlayer.y = player.jumpVelocityMax
 
 

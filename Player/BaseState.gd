@@ -10,6 +10,7 @@ enum State {
 	Jump,
 	Apex
 	Fall,
+	Dash,
 }
 
 var player: Player

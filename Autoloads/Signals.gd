@@ -6,7 +6,8 @@ signal update_abilities
 
 signal playerSpawned
 signal playerDied
-signal jump
+signal playerJumped
+signal playerDashed
 signal fall
 signal walk
 signal idle
@@ -19,8 +20,6 @@ signal playerAbilityUnlocked(augment)
 signal playerAugmentUnlocked(augment)
 
 signal healthUI(amount)
-#signal dashed
-#
 #signal bonked
 #
 #signal ability_check
