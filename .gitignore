@@ -1,7 +1,5 @@
 Assets/
 addons/
-scripts/
-gut/
 
 # Godot-specific ignores
 .import/

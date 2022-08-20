@@ -1,16 +1,12 @@
 extends BaseState
 
-export var growTime: float = .05
 
 func enter() -> void:
 	.enter()
 
+	EventBus.emit_signal("playerSpawned")
 	if CheckpointSystem.currentRespawn != Vector2.ZERO:
 		player.global_position = CheckpointSystem.currentRespawn
-	var tween = create_tween()
-	#TODO: move to CharacterRig
-	tween.tween_property(player.characterRig, "scale", Vector2(1,1), growTime).from(Vector2(0,0))
-	## grows the player on spawn ##
 	player.animPlayer.play("Idle")
 	EventBus.emit_signal("playerHealthChanged", player.healthMax)
 	#TODO: need if statement if after damage return to last platform

@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/MainTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Kenney Future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/PlayButton.gd" type="Script" id=3]
+[ext_resource path="res://UI/Quit.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GameName" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.5
+margin_right = 45.5
+margin_bottom = 40.0
+grow_horizontal = 2
+custom_constants/margin_top = 75
+
+[node name="Label" type="Label" parent="GameName"]
+margin_top = 75.0
+margin_right = 535.0
+margin_bottom = 132.0
+grow_horizontal = 2
+theme = ExtResource( 1 )
+text = "Jump and Stuff"
+align = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+grow_horizontal = 2
+
+[node name="Play" type="Button" parent="Buttons"]
+margin_right = 121.0
+margin_bottom = 29.0
+grow_horizontal = 2
+theme = ExtResource( 1 )
+text = "Play"
+script = ExtResource( 3 )
+
+[node name="Options" type="Button" parent="Buttons"]
+margin_top = 33.0
+margin_right = 121.0
+margin_bottom = 62.0
+theme = ExtResource( 1 )
+text = "Options"
+
+[node name="Quit" type="Button" parent="Buttons"]
+margin_top = 66.0
+margin_right = 121.0
+margin_bottom = 95.0
+theme = ExtResource( 1 )
+text = "Quit"
+script = ExtResource( 4 )
+
+[node name="Version" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+margin_right = 85.0
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="Version"]
+margin_left = 20.0
+margin_right = 85.0
+margin_bottom = 40.0
+
+[node name="Game" type="Label" parent="Version/V"]
+margin_right = 65.0
+margin_bottom = 18.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0.0.0"
+
+[node name="Engine" type="Label" parent="Version/V"]
+margin_top = 22.0
+margin_right = 65.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Godot"
+
+[node name="Creator" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -131.0
+margin_top = -60.0
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="Creator"]
+margin_left = 20.0
+margin_right = 111.0
+margin_bottom = 40.0
+
+[node name="GameBy" type="Label" parent="Creator/V"]
+margin_right = 91.0
+margin_bottom = 18.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Game By:"
+align = 2
+
+[node name="Engine" type="Label" parent="Creator/V"]
+margin_top = 22.0
+margin_right = 91.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Matt"
+align = 2
+
+[connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_Quit_pressed"]

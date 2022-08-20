@@ -9,4 +9,5 @@ func _ready() -> void:
 
 func enter_text(info) -> void:
 	show()
-	errorText.text = info
+	errorText.text = str(errorText.text, "\n", info)
+	errorText.set_v_scroll(9999999)
