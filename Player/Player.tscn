@@ -39,7 +39,7 @@
 [ext_resource path="res://Player/Abilities/AbilitiesManager.gd" type="Script" id=37]
 [ext_resource path="res://Player/States/JumpApex.gd" type="Script" id=38]
 [ext_resource path="res://Player/States/Dash.gd" type="Script" id=39]
-[ext_resource path="res://Player/States/DashJump.gd" type="Script" id=40]
+[ext_resource path="res://Player/States/SuperJump.gd" type="Script" id=40]
 [ext_resource path="res://Player/States/Glide.gd" type="Script" id=41]
 
 [sub_resource type="Animation" id=2]
@@ -5721,7 +5721,7 @@ script = ExtResource( 7 )
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 39 )
 
-[node name="DashJump" type="Node" parent="StateMachine"]
+[node name="SuperJump" type="Node" parent="StateMachine"]
 script = ExtResource( 40 )
 
 [node name="Glide" type="Node" parent="StateMachine"]

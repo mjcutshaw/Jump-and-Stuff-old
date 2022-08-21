@@ -7,6 +7,7 @@ signal update_abilities
 signal playerSpawned
 signal playerDied
 signal playerJumped
+signal playerSuperJumped
 signal playerDashed
 signal playerGlide
 signal fall

@@ -8,10 +8,10 @@ enum State {
 	Idle,
 	Walk,
 	Jump,
+	SuperJump,
 	Apex
 	Fall,
 	Dash,
-	DashJump,
 	Glide,
 }
 

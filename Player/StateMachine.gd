@@ -7,10 +7,10 @@ onready var states = {
 	BaseState.State.Idle: $Idle,
 	BaseState.State.Walk: $Walk,
 	BaseState.State.Jump: $Jump,
+	BaseState.State.SuperJump: $SuperJump,
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
 	BaseState.State.Dash: $Dash,
-	BaseState.State.DashJump: $DashJump,
 	BaseState.State.Glide: $Glide,
 }
 

@@ -1,10 +1,13 @@
-extends AirState
- #TODO: increased airspeed
+extends JumpState
+
+#TODO: will be a combo button
 
 func enter() -> void:
 	.enter()
 
-	
+	EventBus.emit_signal("playerSuperJumped")
+	player.velocityPlayer.y = player.jumpVelocityMax*2 
+	#TODO: own variable
 
 
 func exit() -> void:
@@ -16,7 +19,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	gravity_logic(player.gravityApex, delta)
+	air_velocity_logic(player.moveSpeed/5)
 
 
 func visual(delta) -> void:
@@ -30,7 +33,10 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	## variable jump height ##
+	if Input.is_action_just_released("jump"):
+		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin*3)
+		return State.Fall
 
 	return State.Null
 
@@ -40,7 +46,6 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.velocityPlayer.y > player.jumpHeightApex:
-		return State.Fall
+	
 
 	return State.Null

@@ -1,11 +1,12 @@
 extends AirState
 class_name JumpState
 
+#TODO: will need to remove some of this for super jump to break things
 
 func enter() -> void:
 	.enter()
 
-	EventBus.emit_signal("playerJumped")
+	
 	player.coyoteJumpTimer.stop()
 
 
@@ -35,10 +36,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	## variable jump height ##
-	if Input.is_action_just_released("jump"):
-		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
-		return State.Fall
+	
 
 	return State.Null
 

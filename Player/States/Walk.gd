@@ -1,7 +1,7 @@
 extends GroundState
 
 var skidding: bool = false
-#TODO: if nuetral in use momentum
+#TODO: if nuetral entering use momentum
 
 func enter() -> void:
 	.enter()

@@ -70,11 +70,11 @@ func air_velocity_logic(speed) -> void:
 	if airTurn:
 		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, speed * get_move_direction().x, player.accelerationAir) 
 	elif !airTurn:
-		if get_move_direction().x != 0 and player.velocityPlayer.x < speed:
+		if get_move_direction().x != 0 and abs(player.velocityPlayer.x) < speed:
 			apply_acceleration(player.accelerationAir)
 		elif get_move_direction().x == 0:
 			apply_friction(player.frictionAir)
-		elif player.velocityPlayer.x >= speed:
+		elif abs(player.velocityPlayer.x) >= speed:
 			#TODO: look at not needing moveDirection
 			momentum_logic(speed, true)
 			

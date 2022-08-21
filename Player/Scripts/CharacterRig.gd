@@ -20,6 +20,7 @@ func _ready() -> void:
 	EventBus.connect("playerSpawned", self, "spawned")
 	EventBus.connect("playerDashed", self, "dash")
 	EventBus.connect("playerGlide", self, "glide")
+	EventBus.connect("playerSuperJumped", self, "super_jump")
 
 func _physics_process(delta: float) -> void:
 	if !spawning:
@@ -40,6 +41,9 @@ func move_direction() -> int:
 
 func jump():
 	animPlayer.play("Jump")
+
+func super_jump():
+	animPlayer.play("Dash Up")
 
 func fall():
 	animPlayer.play("Fall")

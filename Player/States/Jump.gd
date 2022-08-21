@@ -4,6 +4,7 @@ extends JumpState
 func enter() -> void:
 	.enter()
 
+	EventBus.emit_signal("playerJumped")
 	player.velocityPlayer.y = player.jumpVelocityMax
 
 
@@ -30,7 +31,10 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	## variable jump height ##
+	if Input.is_action_just_released("jump"):
+		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
+		return State.Fall
 
 	return State.Null
 
