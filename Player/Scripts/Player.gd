@@ -60,6 +60,9 @@ func _process(delta: float) -> void:
 func move_logic(snap, stopOnSlope) -> void:
 	#TODO: revisit when changing gravity
 	velocity = move_and_slide_with_snap(velocity, snap, FLOOR_NORMAL, stopOnSlope, 4, 0.9)
+	
+	#TODO: play with using this on ground, go around circles
+#	velocity = move_and_slide_with_snap(velocity.rotated(rotation), snap, -transform.y, stopOnSlope, 4, 0.9)
 
 func velocity_logic() -> Vector2:
 	#TODO: probably need a better way to do this. need to figure good way for swapable abilities 

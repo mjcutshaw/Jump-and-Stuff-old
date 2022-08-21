@@ -1,5 +1,6 @@
 extends Camera2D
 
+#TODO: make good
 
 func _ready() -> void:
 	EventBus.connect("playerGrounded", self, "grounded")

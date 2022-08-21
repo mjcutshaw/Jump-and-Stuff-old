@@ -433,6 +433,7 @@ expand = true
 stretch_mode = 2
 
 [node name="GameTime" type="MarginContainer" parent="HUD"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -190.0
@@ -444,6 +445,7 @@ custom_constants/margin_top = 20
 script = ExtResource( 32 )
 
 [node name="Panel" type="Panel" parent="HUD/GameTime"]
+visible = false
 modulate = Color( 1, 1, 1, 0.411765 )
 margin_top = 20.0
 margin_right = 172.0
@@ -482,7 +484,7 @@ size_flags_vertical = 3
 script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="HUD/Announcemts"]
-margin_right = 40.0
+margin_right = 68.0
 margin_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -490,10 +492,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="HUD/Announcemts"]
-margin_right = 40.0
+margin_right = 68.0
 margin_bottom = 23.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 42 )
+text = "Test"
 align = 1
 
 [node name="Errors" type="MarginContainer" parent="HUD"]
@@ -838,7 +841,7 @@ texture = ExtResource( 27 )
 position = Vector2( 200, -64 )
 
 [node name="Player" parent="." instance=ExtResource( 41 )]
-position = Vector2( -48, 0 )
+position = Vector2( -520, -40 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 6
 

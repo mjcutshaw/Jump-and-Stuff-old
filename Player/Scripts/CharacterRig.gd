@@ -34,9 +34,7 @@ func _physics_process(delta: float) -> void:
 				var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "scale", Vector2(-1,1), flipTime).from(Vector2(1,1))
 			lastDirection = -1
-	
-	if player.is_on_floor():
-		player.rotation = player.get_floor_normal().angle() + PI/2
+
 
 #TODO: turn into global or player
 func move_direction() -> int:

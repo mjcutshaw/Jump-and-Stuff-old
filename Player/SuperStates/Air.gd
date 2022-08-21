@@ -8,6 +8,7 @@ func enter() -> void:
 	.enter()
 
 	EventBus.emit_signal("playerGrounded", false)
+	
 
 
 func exit() -> void:
