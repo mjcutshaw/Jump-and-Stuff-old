@@ -11,7 +11,6 @@ export var moveSpeed: int = 15
 export var accelerationGround: float = .3
 export var frictionGround: float = .5
 export var frictionSkid: float = 1.0
-export var crouchFriction: float = 0.02
 
 export var jumpHeightMax: float = 3.25
 export var jumpHeightMin: int = 10
@@ -33,6 +32,7 @@ export var moveSpeedApex: int = 13
 
 export var glideSpeedModifier: int = 2
 export var glideFallSpeedModifier: int = 6
+export var glideGravityModifier: int = 10
 
 export var jumpBoostTime: float = 0.10 #DASH
 export var dashDuration = 0.3

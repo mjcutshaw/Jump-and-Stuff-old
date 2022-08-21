@@ -24,12 +24,14 @@ onready var jumpTimeToDescent: float = Stats.jumpTimeToDescent
 onready var jumpTimeAtApex: float = Stats.jumpTimeAtApex
 onready var baseAccelerationAir: float = Stats.accelerationAir
 onready var basefrictionAir: float = Stats.frictionAir
-onready var baseTerminalVelocity: float= Stats.terminalVelocity
-
+onready var baseTerminalVelocity: float = Stats.terminalVelocity
+onready var glideFallSpeedModifier: int = Stats.glideFallSpeedModifier #TODO: look into
+onready var glideSpeedModifier: int = Stats.glideSpeedModifier #TODO: look into
 var jumpHeightMax: float
 var gravityJump: float
 var gravityFall: float
 var gravityApex: float
+var gravityGlide: float
 var jumpVelocityMax: float
 var jumpVelocityMin: float
 var accelerationAir: float
@@ -67,6 +69,7 @@ func update_stats():
 	gravityJump = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
 	gravityFall = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
 	gravityApex = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
+	gravityGlide = gravityFall/Stats.glideGravityModifier #TODO: look into better equation
 	jumpVelocityMax = -sqrt(2 * gravityJump * jumpHeightMax)
 	jumpVelocityMin = -sqrt(2 * gravityJump * jumpHeightMin)
 	accelerationAir = by_tile_size(baseAccelerationAir)

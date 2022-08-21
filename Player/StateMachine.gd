@@ -10,6 +10,8 @@ onready var states = {
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
 	BaseState.State.Dash: $Dash,
+	BaseState.State.DashJump: $DashJump,
+	BaseState.State.Glide: $Glide,
 }
 
 var currentState: BaseState

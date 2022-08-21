@@ -11,6 +11,8 @@ enum State {
 	Apex
 	Fall,
 	Dash,
+	DashJump,
+	Glide,
 }
 
 var player: Player

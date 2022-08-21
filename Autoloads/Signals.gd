@@ -8,6 +8,7 @@ signal playerSpawned
 signal playerDied
 signal playerJumped
 signal playerDashed
+signal playerGlide
 signal fall
 signal walk
 signal idle

@@ -1,7 +1,6 @@
 extends MoveState
 class_name AirState
 
-#TODO: corner correction
 
 var airTurn: bool = false
 
@@ -21,20 +20,6 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.move_logic(player.NO_SNAP, false)
-	
-	if player.velocityPlayer.x != 0  and get_move_direction().x != 0 and (sign(player.velocityPlayer.x) != get_move_direction().x):
-		airTurn = true
-	
-	if airTurn:
-		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, player.moveSpeed * get_move_direction().x, player.accelerationAir) 
-	elif !airTurn:
-		if get_move_direction().x != 0 and player.velocityPlayer.x < player.moveSpeed:
-			apply_acceleration(player.accelerationAir)
-		elif get_move_direction().x == 0:
-			apply_friction(player.frictionAir)
-		elif player.velocityPlayer.x >= player.moveSpeed:
-			#TODO: look at not needing moveDirection
-			momentum_logic(player.moveSpeed, true)
 	
 	if player.test_move(player.global_transform, Vector2(player.velocity.x * delta, 0)):
 		player.attempt_vertical_corner_correction(player.jumpCornerCorrectionVertical, delta)
@@ -77,11 +62,33 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 
+func air_velocity_logic(speed) -> void:
+	#TODO: turn accel and friction into variables?
+	if player.velocityPlayer.x != 0  and get_move_direction().x != 0 and (sign(player.velocityPlayer.x) != get_move_direction().x):
+		airTurn = true
+	
+	if airTurn:
+		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, speed * get_move_direction().x, player.accelerationAir) 
+	elif !airTurn:
+		if get_move_direction().x != 0 and player.velocityPlayer.x < speed:
+			apply_acceleration(player.accelerationAir)
+		elif get_move_direction().x == 0:
+			apply_friction(player.frictionAir)
+		elif player.velocityPlayer.x >= speed:
+			#TODO: look at not needing moveDirection
+			momentum_logic(speed, true)
+			
+			#TODO: combime with below function
 
-func neutral_air_momentum_logic():
+
+func neutral_air_momentum_logic() -> void:
 	if !neutralMovement:
 		velocity_logic(player.moveSpeed)
 	if neutralMovement: ## Carry momentum with neutral moveDirection ##
 		momentum_logic(player.moveSpeed, false)
 	if get_move_direction() != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
 		neutralMovement = false
+
+
+func terminal_velocity(speed)-> void:
+	player.velocityPlayer.y = min(player.velocityPlayer.y, speed)
