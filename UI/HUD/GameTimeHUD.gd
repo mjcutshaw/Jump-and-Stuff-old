@@ -3,7 +3,7 @@ extends Control
 var timePlayed: float
 var strTimeElapsed: String
 
-onready var playTimeLabel: Label = $playTime
+onready var playTimeLabel: Label = $MarginContainer/PlayTime
 
 func _ready() -> void:
 	show()

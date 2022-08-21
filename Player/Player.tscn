@@ -5385,8 +5385,9 @@ tracks/13/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 24 )
+[sub_resource type="CapsuleShape2D" id=25]
+radius = 24.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 16, 16 )
@@ -5399,6 +5400,16 @@ script = ExtResource( 2 )
 [node name="CharacterRig" type="Node2D" parent="."]
 script = ExtResource( 10 )
 
+[node name="Camera2D" type="Camera2D" parent="CharacterRig"]
+position = Vector2( 232, -193 )
+current = true
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+drag_margin_top = 0.75
+editor_draw_drag_margin = true
+script = ExtResource( 34 )
+
 [node name="Frame" type="Node2D" parent="CharacterRig"]
 __meta__ = {
 "_edit_group_": true
@@ -5406,7 +5417,7 @@ __meta__ = {
 
 [node name="GreenFrame" type="Sprite" parent="CharacterRig/Frame"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 9.09495e-13, -38 )
+position = Vector2( 7.62939e-06, -40.25 )
 scale = Vector2( 0.385542, 0.427928 )
 texture = ExtResource( 15 )
 
@@ -5529,25 +5540,25 @@ __meta__ = {
 }
 
 [node name="treadBack1" type="Sprite" parent="CharacterRig/Parts/Tread"]
+visible = false
 position = Vector2( 15, -16 )
 scale = Vector2( 0.383929, 0.438356 )
 z_index = -1
 texture = ExtResource( 30 )
 
 [node name="treadBack2" type="Sprite" parent="CharacterRig/Parts/Tread"]
-visible = false
 position = Vector2( 14.5, -16 )
 scale = Vector2( 0.383929, 0.438356 )
 z_index = -1
 texture = ExtResource( 19 )
 
 [node name="treadFront1" type="Sprite" parent="CharacterRig/Parts/Tread"]
+visible = false
 position = Vector2( -18, -16 )
 scale = Vector2( 0.321429, 0.438356 )
 texture = ExtResource( 18 )
 
 [node name="treadFront2" type="Sprite" parent="CharacterRig/Parts/Tread"]
-visible = false
 position = Vector2( -18, -16 )
 scale = Vector2( 0.321429, 0.438356 )
 texture = ExtResource( 33 )
@@ -5680,19 +5691,9 @@ anims/Umbrella = SubResource( 23 )
 
 [node name="Jump" type="Particles2D" parent="CharacterRig/Particles"]
 
-[node name="Camera2D" type="Camera2D" parent="CharacterRig"]
-position = Vector2( 232, -193 )
-current = true
-limit_smoothed = true
-smoothing_enabled = true
-smoothing_speed = 7.0
-drag_margin_top = 0.75
-editor_draw_drag_margin = true
-script = ExtResource( 34 )
-
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -24 )
-shape = SubResource( 1 )
+position = Vector2( 0, -32 )
+shape = SubResource( 25 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )

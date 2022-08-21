@@ -12,6 +12,7 @@ func exit() -> void:
 	.exit()
 
 	player.coyoteJumpTimer.start()
+	
 
 
 func physics(delta) -> void:
