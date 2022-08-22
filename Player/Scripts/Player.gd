@@ -13,6 +13,7 @@ onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
 onready var coyoteJumpWallTimer: Timer = $Timers/CoyoteJumpWall
 onready var dashTimer: Timer = $Timers/DashDuration
+onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -29,6 +30,7 @@ var ledgeRight: bool = false
 
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1
+var semisolidResetTime:= .1
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
@@ -89,6 +91,7 @@ func set_timers() -> void:
 	coyoteJumpWallTimer.wait_time = coyoteTime
 	bufferJumpTimer.wait_time = jumpBufferTime
 	dashTimer.wait_time = dashDuration
+	semisolidResetTimer.wait_time = semisolidResetTime
 	#TODO: move this over to timers
 
 
@@ -108,3 +111,7 @@ func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 				translate(Vector2(i * j / 2, 0))
 				if velocity.x * j < 0: velocity.x = 0
 				return
+
+
+func _on_SemisolidReset_timeout() -> void:
+	set_collision_mask_bit(Globals.SEMISOLID, true)

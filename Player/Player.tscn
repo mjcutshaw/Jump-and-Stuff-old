@@ -5815,3 +5815,8 @@ one_shot = true
 
 [node name="DashDuration" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="SemisolidReset" type="Timer" parent="Timers"]
+one_shot = true
+
+[connection signal="timeout" from="Timers/SemisolidReset" to="." method="_on_SemisolidReset_timeout"]

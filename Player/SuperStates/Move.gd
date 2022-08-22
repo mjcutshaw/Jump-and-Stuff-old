@@ -99,4 +99,4 @@ static func get_move_strength() -> Vector2:
 func rotate_to_normal() -> void:
 	if player.rotation != 0*PI:
 		var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-		tween.tween_property(player, "rotation", 0*PI, .2)
+		tween.tween_property(player, "rotation", 0*PI, .5)

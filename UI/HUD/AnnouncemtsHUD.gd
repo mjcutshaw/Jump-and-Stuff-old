@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-onready var announceLabel: Label = $Label
+onready var announceLabel: Label = $MarginContainer/Announce
 export var annoucmentLenght: float = 2.0
 
 
