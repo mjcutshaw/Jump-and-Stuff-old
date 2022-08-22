@@ -9,6 +9,7 @@ func enter() -> void:
 
 	
 	EventBus.emit_signal("playerDashed")
+	rotate_to_normal()
 	player.dashTimer.start()
 	player.velocityPlayer.x = player.dashVelocity * get_move_direction().x
 

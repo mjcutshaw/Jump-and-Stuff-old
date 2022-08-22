@@ -94,3 +94,9 @@ static func get_move_strength() -> Vector2:
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
 	return inputStrength if inputStrength.length() > deadzoneRadius else Vector2.ZERO
+
+
+func rotate_to_normal() -> void:
+	if player.rotation != 0*PI:
+		var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.tween_property(player, "rotation", 0*PI, .2)

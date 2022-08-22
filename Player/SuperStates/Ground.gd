@@ -13,8 +13,9 @@ func exit() -> void:
 
 	player.coyoteJumpTimer.start()
 	
-	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.tween_property(player, "rotation", 0*PI, .2)
+	#TODO: need to move to other stats, since this get exited between idle and walk
+#	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+#	tween.tween_property(player, "rotation", 0*PI, .2)
 
 
 func physics(delta) -> void:
@@ -27,7 +28,9 @@ func visual(delta) -> void:
 	.visual(delta)
 
 	# player align to floor
-	player.rotation = player.get_floor_normal().angle() + PI/2
+	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(player, "rotation", player.get_floor_normal().angle() + PI/2, .5)
+	#TODO: find a way to not run every frame
 
 
 func handle_input(event: InputEvent) -> int:
