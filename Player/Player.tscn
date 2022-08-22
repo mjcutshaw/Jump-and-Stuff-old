@@ -5385,9 +5385,8 @@ tracks/13/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CapsuleShape2D" id=25]
-radius = 24.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 32, 28 )
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 16, 16 )
@@ -5692,7 +5691,7 @@ anims/Umbrella = SubResource( 23 )
 [node name="Jump" type="Particles2D" parent="CharacterRig/Particles"]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -32 )
+position = Vector2( 0, -28 )
 shape = SubResource( 25 )
 
 [node name="StateMachine" type="Node" parent="."]
