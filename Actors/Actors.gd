@@ -8,8 +8,11 @@ func _ready() -> void:
 	pass
 
 
-func change_health(amount: int):
+func change_health(amount: int) -> void:
 	health = clamp(health + amount, 0, healthMax)
 
-func reset_health():
+func reset_health() -> void:
 	health = healthMax
+
+func bounce(amount) -> void:
+	EventBus.emit_signal("error", "generic bounce")

@@ -35,7 +35,8 @@ var semisolidResetTime:= .1
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
 
-
+func bounce(amount) -> void:
+	EventBus.emit_signal("playerBounced", amount)
 
 func _ready() -> void:
 	sm.init()

@@ -23,6 +23,7 @@ onready var player: Player = owner
 
 func _ready() -> void:
 	EventBus.connect("playerDied", self, "player_died")
+	EventBus.connect("playerBounced", self, "bounce")
 
 func change_state(newState: int) -> void:
 	if currentState:
@@ -67,3 +68,8 @@ func visual(delta) -> void:
 
 func player_died() -> void:
 	change_state(BaseState.State.Die)
+
+func bounce(amount) -> void:
+	change_state(BaseState.State.Fall)
+	player.velocityPlayer = amount
+	#TODO: lower amount if jump is no pressed

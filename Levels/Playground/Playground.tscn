@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Assets/Kenney Future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -8,8 +8,11 @@
 [ext_resource path="res://Assets/Background/Clouds/cloud8.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Background/Clouds/cloud7.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Background/Trees/treePine.png" type="Texture" id=8]
+[ext_resource path="res://Utility/DrawCollision.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Background/bg_layer1.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Prefabs/BounceBox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Background/sun.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Player/parts/spring3.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Background/hillsLarge.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Background/Clouds/cloud1.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Background/Clouds/cloud2.png" type="Texture" id=16]
@@ -430,6 +433,9 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=81]
+extents = Vector2( 10, 8 )
 
 [node name="Playground" type="Node2D"]
 position = Vector2( 16, 8 )
@@ -979,3 +985,19 @@ position = Vector2( 64, 8 )
 
 [node name="Spike" parent="Interactables" instance=ExtResource( 36 )]
 position = Vector2( 0, 8 )
+
+[node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
+position = Vector2( 160, -64 )
+__meta__ = {
+"_edit_group_": true
+}
+bounceDirection = 7
+
+[node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Interactables/BounceBox"]
+visible = false
+shape = SubResource( 81 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Interactables/BounceBox"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 13 )

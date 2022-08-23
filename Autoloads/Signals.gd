@@ -18,8 +18,10 @@ signal playerGrounded(isGrounded)
 signal playerHealthChanged(amount)
 signal playerHealthMaxChanged(amount)
 signal playerStatChange(stat, amount)
-signal playerAbilityUnlocked(augment)
+signal playerAbilityUnlocked(ability)
 signal playerAugmentUnlocked(augment)
+
+signal playerBounced(amount)
 
 signal healthUI(amount)
 #signal bonked

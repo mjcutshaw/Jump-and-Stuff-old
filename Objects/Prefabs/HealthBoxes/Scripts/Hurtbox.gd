@@ -8,3 +8,4 @@ class_name Hurtbox
 func _init() -> void:
 	amount = -amount
 
+#FIXME: move to own layer.
