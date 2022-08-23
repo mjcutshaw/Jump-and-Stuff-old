@@ -968,7 +968,8 @@ tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220,
 [node name="Interactables" type="Node" parent="."]
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
-position = Vector2( 392, 56 )
+position = Vector2( 384, -16 )
+collision_mask = 80
 augment = ExtResource( 42 )
 
 [node name="StatChanger" parent="Interactables" instance=ExtResource( 39 )]
@@ -978,15 +979,18 @@ statIncrease = 1
 
 [node name="Checkpoint" parent="Interactables" instance=ExtResource( 38 )]
 position = Vector2( -248, 8 )
+collision_mask = 80
 
 [node name="Healing" parent="Interactables" instance=ExtResource( 40 )]
 position = Vector2( 64, 8 )
+collision_mask = 128
 
 [node name="Spike" parent="Interactables" instance=ExtResource( 36 )]
 position = Vector2( 0, 8 )
 
 [node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
-position = Vector2( 72, 56 )
+position = Vector2( 168, -72 )
+collision_mask = 80
 __meta__ = {
 "_edit_group_": true
 }

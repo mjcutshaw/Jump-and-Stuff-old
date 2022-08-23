@@ -11,3 +11,10 @@ func _ready() -> void:
 		amount = -amount
 	if statIncrease == Globals.statList.NULL:
 		EventBus.emit_signal("error", str("stat changer null: " + str(global_position)))
+	
+	connect("body_entered", self, "on_Player_entered")
+
+
+func on_Player_entered(body: Player) -> void:
+	EventBus.emit_signal("playerStatChange", statIncrease, amount)
+	

@@ -7,9 +7,9 @@ export var oneUse: bool = false
 
 
 func _ready() -> void:
-	connect("area_entered", self, "_on_Interactable_entered")
+	connect("body_entered", self, "_on_Interactable_entered")
 
 
-func _on_Interactable_entered(area) -> void:
-	if area.is_in_group("Player") and oneUse:
+func _on_Interactable_entered(body: Player) -> void:
+	if oneUse:
 		queue_free()

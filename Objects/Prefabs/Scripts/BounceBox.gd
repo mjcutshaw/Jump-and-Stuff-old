@@ -2,6 +2,7 @@ extends Interactable
 
 #TODO: setget bounce direction
 #TODO: make spring scene
+#TODO: only for players atm
 
 export var amount: int = 1000
 enum direction {null, up, down, left, right, upLeft, upRight, downLeft, downRight,}
@@ -9,7 +10,7 @@ export (direction) var bounceDirection
 var bounceVector: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	connect("area_entered", self, "on_bounceBox_entered")
+	connect("body_entered", self, "on_bounceBox_entered")
 	bounce_direction()
 
 func bounce_direction() -> void:
@@ -38,6 +39,6 @@ func bounce_direction() -> void:
 		rotation = 2.35619
 
 
-func on_bounceBox_entered(body) -> void:
-	body.owner.bounce(bounceVector)
+func on_bounceBox_entered(body: Player) -> void:
+	body.bounce(bounceVector)
 

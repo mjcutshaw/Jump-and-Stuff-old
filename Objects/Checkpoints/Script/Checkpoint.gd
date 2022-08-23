@@ -4,7 +4,7 @@ class_name Checkpoint
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	connect("area_entered", self, "_on_Checkpoint_entered")
+	connect("body_entered", self, "_on_Checkpoint_entered")
 	animPlayer.play("Unused")
 	EventBus.connect("checkpoint", self, "check_if_current_checkpoint")
 

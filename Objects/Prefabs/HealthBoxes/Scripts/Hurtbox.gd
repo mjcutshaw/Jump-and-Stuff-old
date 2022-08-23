@@ -8,4 +8,9 @@ class_name Hurtbox
 func _init() -> void:
 	amount = -amount
 
-#FIXME: move to own layer.
+func _ready() -> void:
+	pass
+
+
+func on_Hitbox_entered(area: Hitbox) -> void:
+	pass
