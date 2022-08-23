@@ -946,9 +946,6 @@ texture = ExtResource( 27 )
 [node name="StartingLocation" parent="." instance=ExtResource( 35 )]
 position = Vector2( 200, -64 )
 
-[node name="Player" parent="." instance=ExtResource( 41 )]
-scale = Vector2( 0.5, 0.5 )
-
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.5, 0.5 )
 tile_set = SubResource( 37 )
@@ -965,10 +962,13 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220, -589854, 0, 0, -589853, 0, 196610, -589852, 0, 393220, -393246, 0, 0, -393245, 0, 196610, -393244, 0, 393220, -393241, 0, 0, -393240, 0, 196610, -393239, 0, 393220, -196638, 0, 0, -196637, 0, 196610, -196636, 0, 393220 )
 
+[node name="Player" parent="." instance=ExtResource( 41 )]
+scale = Vector2( 0.5, 0.5 )
+
 [node name="Interactables" type="Node" parent="."]
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
-position = Vector2( 384, -16 )
+position = Vector2( 376, 72 )
 collision_mask = 80
 augment = ExtResource( 42 )
 

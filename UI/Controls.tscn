@@ -39,3 +39,17 @@ margin_top = 82.0
 margin_right = 966.0
 margin_bottom = 96.0
 text = "Glide"
+
+[node name="Grapple" type="Label" parent="."]
+margin_left = 1158.0
+margin_top = 96.0
+margin_right = 1208.0
+margin_bottom = 110.0
+text = "Grapple"
+
+[node name="Burrow" type="Label" parent="."]
+margin_left = 1160.0
+margin_top = 132.0
+margin_right = 1210.0
+margin_bottom = 146.0
+text = "Burrow"
