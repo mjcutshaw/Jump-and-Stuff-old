@@ -15,4 +15,4 @@ func reset_health() -> void:
 	health = healthMax
 
 func bounce(amount) -> void:
-	EventBus.emit_signal("error", "generic bounce")
+	pass #to be used for enemies

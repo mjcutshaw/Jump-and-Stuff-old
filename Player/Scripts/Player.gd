@@ -4,7 +4,6 @@ class_name Player
 
 onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
-onready var stateLabel: Label = $StateLabel
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
 onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
@@ -35,8 +34,6 @@ var semisolidResetTime:= .1
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
 
-func bounce(amount) -> void:
-	EventBus.emit_signal("playerBounced", amount)
 
 func _ready() -> void:
 	sm.init()
@@ -52,7 +49,6 @@ func _physics_process(delta: float) -> void:
 	sm.physics(delta)
 	sm.state_check(delta)
 	ledge_detection()
-	$Velocity.text = str(velocity.round())
 
 
 func _process(delta: float) -> void:
@@ -116,3 +112,6 @@ func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 
 func _on_SemisolidReset_timeout() -> void:
 	set_collision_mask_bit(Globals.SEMISOLID, true)
+
+func bounce(amount) -> void:
+	EventBus.emit_signal("playerBounced", amount)

@@ -5754,29 +5754,6 @@ script = ExtResource( 11 )
 
 [node name="Augments" type="Node" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_left = -64.0
-margin_top = -160.0
-margin_right = -24.0
-margin_bottom = -120.0
-rect_scale = Vector2( 2.89862, 1.73804 )
-color = Color( 0, 0, 0, 1 )
-
-[node name="Velocity" type="Label" parent="."]
-visible = false
-margin_left = -48.0
-margin_top = -128.0
-margin_right = -8.0
-margin_bottom = -114.0
-
-[node name="StateLabel" type="Label" parent="."]
-visible = false
-margin_left = -48.0
-margin_top = -152.0
-margin_right = -8.0
-margin_bottom = -138.0
-
 [node name="Hitbox" parent="." groups=["Player"] instance=ExtResource( 20 )]
 visible = false
 script = ExtResource( 35 )
