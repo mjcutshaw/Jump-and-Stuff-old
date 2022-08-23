@@ -7,10 +7,11 @@ const VERSION: String = "0.0.1"
 
 const GROUND: int = 1
 const SEMISOLID: int = 2
-const HITBOX: int = 3
-const ENEMY: int = 6
-const PLAYER: int = 7
-const INTERACTABLE: int = 8
+const PLATFORM: int = 3
+const INTERACTABLE: int = 4
+const ENEMY: int = 5
+const PLAYER: int = 6
+const HAZARD: int = 7
 
 #const WATER: int = 256
 #const LAVA: int = 512
