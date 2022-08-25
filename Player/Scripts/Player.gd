@@ -29,6 +29,9 @@ var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var facing: int = 1
 
+var aimStrength: Vector2 = Vector2.ZERO
+var aimDirection: Vector2 = Vector2.ZERO
+
 var ledgeLeft: bool = false
 var ledgeRight: bool = false
 
