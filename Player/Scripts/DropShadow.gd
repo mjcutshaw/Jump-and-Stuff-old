@@ -1,6 +1,5 @@
 extends Node2D
 
-#TODO: better logic for when over a ledge. picking te lower contact
 onready var raycastRight: RayCast2D = $RayCast2D
 onready var raycastLeft: RayCast2D = $RayCast2D2
 #TODO: change shadpw to draw 

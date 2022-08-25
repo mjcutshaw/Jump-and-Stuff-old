@@ -13,7 +13,7 @@ func _ready() -> void:
 	EventBus.connect("debug1", self, "debug_1_label")
 	EventBus.connect("debug2", self, "debug_2_label")
 	EventBus.connect("debug3", self, "debug_3_label")
-	
+
 
 func state_label(info) -> void:
 	stateLabel.text = str(info)
@@ -21,11 +21,11 @@ func state_label(info) -> void:
 func velocity_label(info) -> void:
 	velocityLabel.text = str(info)
 
-func debug_1_label(info) -> void:
-	debug1Label.text = str(info)
+func debug_1_label(type, info) -> void:
+	debug1Label.text = str(type, ": ", info)
 
-func debug_2_label(info) -> void:
-	debug2Label.text = str(info)
+func debug_2_label(type, info) -> void:
+	debug2Label.text = str(type, ": ", info)
 
-func debug_3_label(info) -> void:
-	debug3Label.text = str(info)
+func debug_3_label(type, info) -> void:
+	debug3Label.text = str(type, ": ", info)

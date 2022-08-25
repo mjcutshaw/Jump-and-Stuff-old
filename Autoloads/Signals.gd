@@ -34,9 +34,9 @@ signal startingLocation
 signal error(info)
 signal debugState(info)
 signal debugVelocity(info)
-signal debug1(info)
-signal debug2(info)
-signal debug3(info)
+signal debug1(type, info)
+signal debug2(type, info)
+signal debug3(type, info)
 #
 #signal settings_update
 #
