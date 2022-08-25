@@ -57,13 +57,13 @@ func gravity_logic(amount, delta) -> void:
 
 func velocity_logic(speed) -> void:
 	#TODO: variable to use moveDirection
-	player.velocityPlayer.x = get_move_direction().x * speed
+	player.velocityPlayer.x = player.moveDirection.x * speed
 
 
 func momentum_logic(speed, useMoveDirection: bool = true) -> void:
 	#FIXME: redo this. not good velocity mechanic
 	if useMoveDirection:
-		player.velocityPlayer.x = get_move_strength().x * max(abs(speed), abs(player.velocityPlayer.x))
+		player.velocityPlayer.x = player.moveStrength.x * max(abs(speed), abs(player.velocityPlayer.x))
 	if !useMoveDirection:
 		if player.velocityPlayer.x == 0:
 			player.velocityPlayer.x = player.velocityPlayer.x
@@ -72,28 +72,16 @@ func momentum_logic(speed, useMoveDirection: bool = true) -> void:
 
 
 func apply_acceleration(amount) -> void:
-	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * get_move_direction().x
+	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * player.moveDirection.x
 
 func apply_friction(amount) -> void:
 	player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, amount)
 
 
 func neutral_move_direction_logic() -> bool:
-	if get_move_direction() == Vector2.ZERO:
+	if player.moveDirection == Vector2.ZERO:
 		return true
 	return false
-
-static func get_move_direction() -> Vector2:
-	return get_move_strength().normalized()
-
-static func get_move_strength() -> Vector2:
-	var deadzoneRadius: = 0.2
-	#TODO: make deadzone radius in settings
-	var inputStrength: = Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	)
-	return inputStrength if inputStrength.length() > deadzoneRadius else Vector2.ZERO
 
 
 func rotate_to_normal() -> void:

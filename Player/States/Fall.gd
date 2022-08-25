@@ -5,7 +5,7 @@ func enter() -> void:
 	.enter()
 
 	EventBus.emit_signal("fall")
-	if get_move_direction() == Vector2.ZERO:
+	if player.moveDirection == Vector2.ZERO:
 		neutralMovement = true
 
 
@@ -34,8 +34,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("glide"):
-		return State.Glide
+	
 
 	return State.Null
 
@@ -45,6 +44,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.glidePressed:
+		return State.Glide
 
 	return State.Null

@@ -69,15 +69,15 @@ func state_check(delta: float) -> int:
 
 func air_velocity_logic(speed) -> void:
 	#TODO: turn accel and friction into variables?
-	if player.velocityPlayer.x != 0  and get_move_direction().x != 0 and (sign(player.velocityPlayer.x) != get_move_direction().x):
+	if player.velocityPlayer.x != 0  and player.moveDirection.x != 0 and (sign(player.velocityPlayer.x) != player.moveDirection.x):
 		airTurn = true
 	
 	if airTurn:
-		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, speed * get_move_direction().x, player.accelerationAir) 
+		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, speed * player.moveDirection.x, player.accelerationAir) 
 	elif !airTurn:
-		if get_move_direction().x != 0 and abs(player.velocityPlayer.x) < speed:
+		if player.moveDirection.x != 0 and abs(player.velocityPlayer.x) < speed:
 			apply_acceleration(player.accelerationAir)
-		elif get_move_direction().x == 0:
+		elif player.moveDirection.x == 0:
 			apply_friction(player.frictionAir)
 		elif abs(player.velocityPlayer.x) >= speed:
 			#TODO: look at not needing moveDirection
@@ -91,7 +91,7 @@ func neutral_air_momentum_logic() -> void:
 		velocity_logic(player.moveSpeed)
 	if neutralMovement: ## Carry momentum with neutral moveDirection ##
 		momentum_logic(player.moveSpeed, false)
-	if get_move_direction() != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
+	if player.moveDirection != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
 		neutralMovement = false
 
 

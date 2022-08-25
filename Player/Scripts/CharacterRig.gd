@@ -3,10 +3,8 @@ extends Node2D
 onready var player: Player = owner
 onready var body: Node2D = $Frame
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
-var lastDirection: int = 1
-var facing: int
 var spawning: bool = false
-export var flipTime: float = .3
+export var flipTime: float = .4
 export var growTime: float = .5
 
 #TODO: use signals to control animations or make animation tree
@@ -28,13 +26,12 @@ func _physics_process(delta: float) -> void:
 			if scale.x == -1:
 				var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "scale", Vector2(1,1), flipTime).from(Vector2(-1,1)) #TODO: Easin, out
-			lastDirection = 1
+			player.facing = 1
 		elif move_direction() < 0:
 			if scale.x == 1:
 				var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "scale", Vector2(-1,1), flipTime).from(Vector2(1,1))
-			lastDirection = -1
-
+			player.facing = -1
 
 #TODO: turn into global or player
 func move_direction() -> int:

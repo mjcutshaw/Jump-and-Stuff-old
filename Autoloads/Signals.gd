@@ -32,6 +32,11 @@ signal checkpoint
 signal startingLocation
 
 signal error(info)
+signal debugState(info)
+signal debugVelocity(info)
+signal debug1(info)
+signal debug2(info)
+signal debug3(info)
 #
 #signal settings_update
 #

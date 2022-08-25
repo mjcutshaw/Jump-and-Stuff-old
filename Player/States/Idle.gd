@@ -42,7 +42,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if get_move_direction().x != 0:
+	if player.moveDirection.x != 0:
 		return State.Walk
 
 	return State.Null

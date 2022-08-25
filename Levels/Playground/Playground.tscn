@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Assets/Kenney Future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Assets/Background/Trees/treeSmall_green2.png" type="Texture" id=30]
 [ext_resource path="res://UI/HUD/HealthHUD.gd" type="Script" id=31]
 [ext_resource path="res://UI/HUD/GameTimeHUD.gd" type="Script" id=32]
+[ext_resource path="res://UI/Debug/DebugInfo.gd" type="Script" id=33]
 [ext_resource path="res://UI/Debug/ErrorsHUD.gd" type="Script" id=34]
 [ext_resource path="res://Objects/Checkpoints/StartingLocation.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Objects/Hazards/Spike.tscn" type="PackedScene" id=36]
@@ -561,6 +562,57 @@ margin_bottom = 96.0
 size_flags_horizontal = 3
 readonly = true
 
+[node name="DebugInfo" type="MarginContainer" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -106.0
+margin_right = 40.0
+rect_min_size = Vector2( 100, 0 )
+script = ExtResource( 33 )
+
+[node name="Panel" type="Panel" parent="HUD/DebugInfo"]
+modulate = Color( 1, 1, 1, 0.533333 )
+margin_right = 100.0
+margin_bottom = 106.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/DebugInfo"]
+margin_right = 100.0
+margin_bottom = 106.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/DebugInfo/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 90.0
+margin_bottom = 96.0
+
+[node name="State" type="Label" parent="HUD/DebugInfo/MarginContainer/VBoxContainer"]
+margin_right = 80.0
+margin_bottom = 14.0
+
+[node name="Velocity" type="Label" parent="HUD/DebugInfo/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 32.0
+
+[node name="Debug1" type="Label" parent="HUD/DebugInfo/MarginContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 80.0
+margin_bottom = 50.0
+
+[node name="Debug2" type="Label" parent="HUD/DebugInfo/MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 80.0
+margin_bottom = 68.0
+
+[node name="Debug3" type="Label" parent="HUD/DebugInfo/MarginContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 80.0
+margin_bottom = 86.0
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -962,9 +1014,6 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220, -589854, 0, 0, -589853, 0, 196610, -589852, 0, 393220, -393246, 0, 0, -393245, 0, 196610, -393244, 0, 393220, -393241, 0, 0, -393240, 0, 196610, -393239, 0, 393220, -196638, 0, 0, -196637, 0, 196610, -196636, 0, 393220 )
 
-[node name="Player" parent="." instance=ExtResource( 41 )]
-scale = Vector2( 0.5, 0.5 )
-
 [node name="Interactables" type="Node" parent="."]
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
@@ -989,7 +1038,7 @@ collision_mask = 128
 position = Vector2( 0, 8 )
 
 [node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
-position = Vector2( 168, -72 )
+position = Vector2( 184, 8 )
 collision_mask = 80
 __meta__ = {
 "_edit_group_": true
@@ -1004,3 +1053,6 @@ script = ExtResource( 9 )
 [node name="Sprite" type="Sprite" parent="Interactables/BounceBox"]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 13 )
+
+[node name="Player" parent="." instance=ExtResource( 41 )]
+scale = Vector2( 0.5, 0.5 )

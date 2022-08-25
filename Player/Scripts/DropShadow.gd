@@ -1,16 +1,18 @@
 extends Node2D
 
+#TODO: better logic for when over a ledge. picking te lower contact
 onready var raycastRight: RayCast2D = $RayCast2D
 onready var raycastLeft: RayCast2D = $RayCast2D2
-#TODO: change sdaow to draw 
+#TODO: change shadpw to draw 
 onready var shadow: Sprite = $Sprite
 
-var castLength: int = 500
+var castLength: int = 800
 var collide1: int
 var collide2: int
 var collide3: int
 
 func _ready() -> void:
+	show()
 	raycastLeft.cast_to.y = castLength
 	raycastRight.cast_to.y = castLength
 

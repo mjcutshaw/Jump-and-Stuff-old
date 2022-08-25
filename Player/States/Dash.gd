@@ -1,7 +1,5 @@
 extends MoveState
 
-#TODO: add facing and change to moveDirection, from get_move_direction
-#TODO: got back to previous velocity
 #TODO: move timer to here
 
 func enter() -> void:
@@ -11,7 +9,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
 	player.dashTimer.start()
-	player.velocityPlayer.x = player.dashVelocity * get_move_direction().x
+	player.velocityPlayer.x = player.dashVelocity * player.facing
 
 
 func exit() -> void:

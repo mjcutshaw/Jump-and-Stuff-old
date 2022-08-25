@@ -34,6 +34,8 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
+	EventBus.emit_signal("debugState", currentStateName)
+	
 
 
 func init() -> void:

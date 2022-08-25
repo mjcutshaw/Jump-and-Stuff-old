@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_Healthbox_entered(healthbox: HealthBox) -> void:
 	owner.change_health(healthbox.amount)
-	
+	#TODO: move player
 	if owner.health > 0 and healthbox.amount < 0:
 		#TODO: move to character rig
 		set_deferred("monitoring", false)

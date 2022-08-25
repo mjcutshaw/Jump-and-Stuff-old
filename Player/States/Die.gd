@@ -1,5 +1,6 @@
 extends BaseState
 
+#TODO: freeze so the player sees what happened
 
 func enter() -> void:
 	.enter()
