@@ -128,6 +128,3 @@ theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Matt"
 align = 2
-
-[connection signal="pressed" from="Buttons/Play" to="Buttons/Play" method="_on_Play_pressed"]
-[connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_Quit_pressed"]
