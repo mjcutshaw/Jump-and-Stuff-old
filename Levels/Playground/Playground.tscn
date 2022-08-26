@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://Assets/Kenney Future.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Player/Augments/P-Speed.tscn" type="PackedScene" id=42]
 [ext_resource path="res://UI/Pause/PauseMenu.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Objects/Grapple/GrappleTarget.tscn" type="PackedScene" id=44]
 
 [sub_resource type="StreamTexture" id=39]
 flags = 6
@@ -438,6 +439,8 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 
 [sub_resource type="RectangleShape2D" id=81]
 extents = Vector2( 10, 8 )
+
+[sub_resource type="CircleShape2D" id=82]
 
 [node name="Playground" type="Node2D"]
 
@@ -1059,6 +1062,16 @@ script = ExtResource( 9 )
 [node name="Sprite" type="Sprite" parent="Interactables/BounceBox"]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 13 )
+
+[node name="GrappleTarget" parent="Interactables" instance=ExtResource( 44 )]
+position = Vector2( 320, -112 )
+COLOR_ACTIVE = Color( 0, 1, 0.27451, 1 )
+
+[node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Interactables/GrappleTarget"]
+visible = false
+shape = SubResource( 82 )
+script = ExtResource( 9 )
+color = Color( 0.321569, 0.105882, 0.584314, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 41 )]
 scale = Vector2( 0.5, 0.5 )
