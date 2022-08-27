@@ -44,6 +44,8 @@ func physics(delta) -> void:
 		elif player.velocityPlayer.x >= player.moveSpeed:
 			#TODO: look at not needing moveDirection
 			momentum_logic(player.moveSpeed, true)
+	if player.is_on_wall():
+		player.velocityPlayer.x = 0
 
 
 func visual(delta) -> void:

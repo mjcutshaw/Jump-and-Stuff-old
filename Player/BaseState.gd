@@ -9,7 +9,8 @@ enum State {
 	Walk,
 	Jump,
 	SuperJump,
-	Apex
+	JumpAir,
+	Apex,
 	Fall,
 	Dash,
 	Glide,

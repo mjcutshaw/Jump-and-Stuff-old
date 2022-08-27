@@ -10,6 +10,7 @@ func enter() -> void:
 	player.animPlayer.play("Idle")
 	EventBus.emit_signal("playerHealthChanged", player.healthMax)
 	#TODO: need if statement if after damage return to last platform
+	player.reset_ability(Globals.abiliyList.All)
 
 
 func exit() -> void:

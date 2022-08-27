@@ -32,6 +32,7 @@ var unlockedJumpLong: bool = false
 var unlockedJumpWall: bool = false
 var unlockedJumpWallLeft: bool = false
 var unlockedJumpWallRight: bool = false
+var unlockedDash: bool = false
 var unlockedDashAir: bool = false
 var unlockedDashLeft: bool = false
 var unlockedDashRight: bool = false
@@ -48,7 +49,7 @@ var unlockedClimbRight: bool = false
 
 
 var maxJump: int = 1
-var maxJumpAir: int = 0
+var maxJumpAir: int = 1
 var maxDash: int = 1
 
 

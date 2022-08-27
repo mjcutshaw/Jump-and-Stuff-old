@@ -26,7 +26,7 @@ signal playerBounced(amount)
 signal healthUI(amount)
 #signal bonked
 #
-#signal ability_check
+signal ability_check
 
 signal checkpoint
 signal startingLocation

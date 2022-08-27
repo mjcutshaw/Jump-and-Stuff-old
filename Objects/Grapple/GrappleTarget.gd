@@ -1,12 +1,12 @@
-extends Area2D
+extends Interactable
 class_name GrappleTarget
 
 #TODO: generalize 
-#TODO: extend interactable
 
+enum abilityTargetType {null, grapple, burrow}
+export (abilityTargetType) var abilityTarget
 onready var timer: Timer = $Timer
 
-export var is_one_shot: = false
 
 #TODO: play with colors
 export var COLOR_ACTIVE: Color = Color(0.9375, 0.730906, 0.025635)
@@ -37,7 +37,7 @@ func set_is_active(value:bool) -> void:
 	is_active = value
 	self.color = COLOR_ACTIVE if is_active else COLOR_INACTIVE
 
-	if not is_active and not is_one_shot:
+	if not is_active and not oneUse:
 		timer.start()
 
 

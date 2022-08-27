@@ -13,12 +13,10 @@ onready var unlockedJumpLong: bool = Abilities.unlockedJumpLong
 onready var unlockedJumpWall: bool = Abilities.unlockedJumpWall
 onready var unlockedJumpWallLeft: bool = Abilities.unlockedJumpWallLeft
 onready var unlockedJumpWallRight: bool = Abilities.unlockedJumpWallRight
+onready var unlockedDash: bool = Abilities.unlockedDash
 onready var unlockedDashAir: bool = Abilities.unlockedDashAir
 onready var unlockedDashLeft: bool = Abilities.unlockedDashLeft
 onready var unlockedDashRight: bool = Abilities.unlockedDashRight
-onready var unlockedDashSide: bool = Abilities.unlockedDashSide
-onready var unlockedDashUp: bool = Abilities.unlockedDashUp
-onready var unlockedDashDown: bool = Abilities.unlockedDashDown
 onready var unlockedDashWall: bool = Abilities.unlockedDashWall
 onready var unlockedGlide: bool = Abilities.unlockedGlide
 onready var unlockedGroundPound: bool = Abilities.unlockedGroundPound
@@ -31,6 +29,9 @@ onready var unlockedClimbRight: bool = Abilities.unlockedClimbRight
 onready var maxJump: int = Abilities.maxJump
 onready var maxJumpAir: int = Abilities.maxJumpAir
 onready var maxDash: int = Abilities.maxDash
+
+var remainingJumpAir: int = 1
+var remainingDash: int = 1
 
 func _ready() -> void:
 	EventBus.connect("update_abilities", self, "update_abilities")
@@ -49,13 +50,8 @@ func update_abilities():
 
 func unlock_ability(ability: int) -> void:
 	if ability == Abilities.abiliyList.All:
-		unlockedJump = true
 		unlockedJumpAir = true
-		unlockedDashDown = true
-		unlockedDashSide = true
-		unlockedDashUp = true
-	elif ability == Abilities.abiliyList.Jump:
-		unlockedJump = true
+		unlockedDash = true
 	elif ability == Abilities.abiliyList.JumpAir:
 		if unlockedJumpAir == true:
 			maxJumpAir = +1
@@ -63,21 +59,14 @@ func unlock_ability(ability: int) -> void:
 			unlockedJumpAir = true
 	elif ability == Abilities.abiliyList.Dash:
 		#TODO: logic for increased dashes
-		unlockedDashSide = true
-		unlockedDashUp = true
-		unlockedDashDown = true
-	elif ability == Abilities.abiliyList.DashSide:
-		if unlockedDashSide == true:
+		if unlockedDash == true:
 			maxDash += 1
 		else:
-			unlockedDashSide = true
-	elif ability ==  Abilities.abiliyList.DashUp:
-		unlockedDashUp = true
-	elif ability == Abilities.abiliyList.DashDown:
-		unlockedDashDown = true
+			unlockedDash = true
 	else:
 		EventBus.emit_signal("error", "Null Ability Unlocked")
 	EventBus.emit_signal("ability_check")
+	#TODO: using this?
 
 
 func ability_unlocked(ability: Ability) -> void:
@@ -89,3 +78,51 @@ func augment_unlocked(augment: Augment) -> void:
 	augments.add_child(augment)
 	for i in augments.get_children():
 		i.initialize(self)
+
+#LOOKAT: can to ability first?
+func can_use_ability(ability: int) -> bool:
+	#TODO: add back in unlock check
+	if ability == Globals.abiliyList.Dash and remainingDash > 0:
+		return true
+	elif ability == Globals.abiliyList.JumpAir and remainingJumpAir > 0:
+		return true
+	return false
+#	if ability == Globals.abiliyList.Dash and remainingDash > 0 and unlockedDash:
+#		return true
+#	elif ability == Globals.abiliyList.JumpAir and remainingJumpAir > 0 and unlockedJumpAir:
+#		return true
+#	return false
+
+func consume_ability(ability: int, amount: int) -> void:
+	#TODO: Use 99 remove all or all a third input to do that
+	if ability == Globals.abiliyList.All:
+		set_jump_air(-amount)
+		set_dash(-amount)
+	elif ability == Globals.abiliyList.JumpAir:
+		set_jump_air(-amount)
+	elif ability == Globals.abiliyList.Dash:
+		set_dash(-amount)
+	else:
+		print("Null Ability Consume")
+	EventBus.emit_signal("ability_check")
+
+
+func reset_ability(ability: int) -> void:
+	if ability == Globals.abiliyList.All:
+		set_dash(maxDash)
+		set_jump_air(maxJumpAir)
+	elif ability == Globals.abiliyList.JumpAir:
+		set_jump_air(maxJumpAir)
+	elif ability == Globals.abiliyList.Dash:
+		set_dash(maxDash)
+	else:
+		print("Null Ability Reset")
+	EventBus.emit_signal("ability_check")
+
+
+func set_jump_air(amount: int) -> void:
+	remainingJumpAir = clamp(remainingJumpAir + amount, 0, maxJumpAir)
+
+
+func set_dash(amount: int) -> void:
+	remainingDash = clamp(remainingDash + amount, 0, maxDash)

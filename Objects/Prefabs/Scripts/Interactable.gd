@@ -1,9 +1,8 @@
 extends Area2D
 class_name Interactable
 
-## Create from prefab ##
-
 export var oneUse: bool = false
+#TODO: add use amounts
 
 
 func _ready() -> void:

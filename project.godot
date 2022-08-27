@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Checkpoints/Script/Checkpoint.gd"
 }, {
-"base": "Area2D",
+"base": "Interactable",
 "class": "GrappleTarget",
 "language": "GDScript",
 "path": "res://Objects/Grapple/GrappleTarget.gd"

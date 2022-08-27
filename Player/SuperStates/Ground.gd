@@ -7,6 +7,7 @@ func enter() -> void:
 	player.velocityPlayer.y = 10
 	EventBus.emit_signal("playerGrounded", true)
 	player.set_collision_mask_bit(Globals.SEMISOLID, true)
+	player.reset_ability(Globals.abiliyList.All)
 
 
 func exit() -> void:

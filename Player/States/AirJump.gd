@@ -1,17 +1,12 @@
-extends MoveState
+extends JumpState
 
-#TODO: move timer to here
 
 func enter() -> void:
 	.enter()
 
-	
-	EventBus.emit_signal("playerDashed")
-	rotate_to_normal()
-	player.dashTimer.start()
-	player.velocityPlayer.x = player.dashVelocity * player.facing
-	
-	player.consume_ability(Globals.abiliyList.Dash, 1)
+	EventBus.emit_signal("playerJumped")
+	player.velocityPlayer.y = player.jumpVelocityMax
+	player.consume_ability(Globals.abiliyList.JumpAir, 1)
 
 
 func exit() -> void:
@@ -23,8 +18,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.velocity.y = 0
-	player.move_logic(player.SNAP_GROUND, true)
+	
 
 
 func visual(delta) -> void:
@@ -38,7 +32,9 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_released("jump"):
+		
+		return State.Fall
 
 	return State.Null
 
@@ -48,10 +44,6 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.dashTimer.is_stopped():
-		if player.is_on_floor():
-			return State.Walk
-		else:
-			return State.Fall
+	
 
 	return State.Null
