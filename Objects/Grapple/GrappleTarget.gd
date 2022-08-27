@@ -1,6 +1,7 @@
 extends Area2D
 class_name GrappleTarget
 
+#TODO: generalize 
 #TODO: extend interactable
 
 onready var timer: Timer = $Timer
@@ -15,8 +16,8 @@ var is_active: = true setget set_is_active
 var color: = COLOR_ACTIVE setget set_color
 
 
-func _ready() -> void:
-	timer.connect("timeout", self, "_on_Timer_timeout")
+#func _ready() -> void:
+#	timer.connect("timeout", self, "_on_Timer_timeout")
 
 
 func _draw() -> void:

@@ -1,5 +1,5 @@
 extends Node
-
+#TODO: look into gdquest state machine
 #TODO: state achine based of signals
 onready var states = {
 	BaseState.State.Spawn: $Spawn,

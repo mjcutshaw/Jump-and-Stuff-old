@@ -1,28 +1,32 @@
 extends Area2D
 
 #TODO: two indicators, grapple and burrow
+#make resuble and parent tell target. might be easier to have generic target and control the layers they look at
 
 onready var player: Player = owner
 onready var raycast: RayCast2D = $RayCast2D
 onready var aimIndicator: Node2D = $AimIndicator
 onready var targetIndicator: Node2D = $TargetIndicator
-var targetGrapple: GrappleTarget setget set_target_grapple
+var targetGrapple: GrappleTarget
 
 func _ready() -> void:
 	aimIndicator.visible = false
-
+	raycast.set_as_toplevel(true)
 
 func _unhandled_input(event: InputEvent) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	targetGrapple = find_best_target()
+	
 	aim_direction()
 	if player.aimDirection == Vector2.ZERO:
 		aimIndicator.visible = false
+		targetIndicator.visible = false
 	else:
 		aimIndicator.visible = true
 		aim()
+		targetGrapple = find_best_target()
+		set_target_grapple(targetGrapple)
 
 func find_best_target() -> GrappleTarget:
 	var closestTarget: GrappleTarget = null
@@ -31,24 +35,25 @@ func find_best_target() -> GrappleTarget:
 		if not t.is_active:
 			continue
 		
+		raycast.global_position = global_position
 		raycast.cast_to = t.global_position - global_position
+		raycast.force_update_transform()
 		
 		if raycast.is_colliding():
 			continue
 		
 		closestTarget = t
-		break
 	return closestTarget
 
 func has_target_grapple() -> bool:
 	return targetGrapple != null
 
 
-func set_target_grapple(target: GrappleTarget) -> void:
-	targetGrapple = target
-	targetIndicator.visible = has_target_grapple()
-	if target:
-		targetGrapple.global_position = target.global_position
+func set_target_grapple(value: GrappleTarget) -> void:
+	targetGrapple = value
+	targetIndicator.visible = targetGrapple != null
+	if targetGrapple:
+		targetIndicator.global_position = targetGrapple.global_position
 
 
 func aim_direction() -> void:

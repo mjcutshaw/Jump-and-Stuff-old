@@ -1031,20 +1031,20 @@ collision_mask = 80
 augment = ExtResource( 42 )
 
 [node name="StatChanger" parent="Interactables" instance=ExtResource( 39 )]
-position = Vector2( -104, 8 )
+position = Vector2( -168, 80 )
 oneUse = true
 statIncrease = 1
 
 [node name="Checkpoint" parent="Interactables" instance=ExtResource( 38 )]
-position = Vector2( -248, 8 )
+position = Vector2( -296, 120 )
 collision_mask = 80
 
 [node name="Healing" parent="Interactables" instance=ExtResource( 40 )]
-position = Vector2( 64, 8 )
+position = Vector2( 112, 48 )
 collision_mask = 128
 
 [node name="Spike" parent="Interactables" instance=ExtResource( 36 )]
-position = Vector2( 0, 8 )
+position = Vector2( -16, 24 )
 
 [node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
 position = Vector2( 184, 8 )
@@ -1065,13 +1065,9 @@ texture = ExtResource( 13 )
 
 [node name="GrappleTarget" parent="Interactables" instance=ExtResource( 44 )]
 position = Vector2( 320, -112 )
-COLOR_ACTIVE = Color( 0, 1, 0.27451, 1 )
 
 [node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Interactables/GrappleTarget"]
-visible = false
 shape = SubResource( 82 )
-script = ExtResource( 9 )
-color = Color( 0.321569, 0.105882, 0.584314, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 41 )]
 scale = Vector2( 0.5, 0.5 )

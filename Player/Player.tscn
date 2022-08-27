@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -47,6 +47,8 @@
 [ext_resource path="res://Player/Scripts/CollectorBox.gd" type="Script" id=45]
 [ext_resource path="res://Player/Scripts/HazardWaring.gd" type="Script" id=46]
 [ext_resource path="res://Player/Scripts/TargetIndicator.gd" type="Script" id=47]
+[ext_resource path="res://Player/States/Grapple.gd" type="Script" id=48]
+[ext_resource path="res://Player/Scripts/Grapple.gd" type="Script" id=49]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5745,6 +5747,9 @@ script = ExtResource( 40 )
 [node name="Glide" type="Node" parent="StateMachine"]
 script = ExtResource( 41 )
 
+[node name="Grapple" type="Node" parent="StateMachine"]
+script = ExtResource( 48 )
+
 [node name="States" type="Node" parent="."]
 pause_mode = 1
 
@@ -5831,33 +5836,34 @@ modulate = Color( 0, 0, 0, 1 )
 scale = Vector2( 1, 0.1 )
 texture = ExtResource( 35 )
 
-[node name="Aim" type="Area2D" parent="."]
+[node name="Grapple" type="Line2D" parent="."]
+script = ExtResource( 49 )
+
+[node name="Aim" type="Area2D" parent="Grapple"]
 position = Vector2( 0, -32 )
 collision_layer = 0
 collision_mask = 4096
 script = ExtResource( 43 )
 
-[node name="CapsuleV" type="CollisionShape2D" parent="Aim"]
+[node name="CapsuleH" type="CollisionShape2D" parent="Grapple/Aim"]
 position = Vector2( 104, 0 )
 rotation = 1.57079
 shape = SubResource( 26 )
+disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Aim"]
+[node name="CapsuleV" type="CollisionShape2D" parent="Grapple/Aim"]
 position = Vector2( 144, 0 )
 shape = SubResource( 27 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Aim"]
+[node name="RayCast2D" type="RayCast2D" parent="Grapple/Aim"]
 cast_to = Vector2( 200, 0 )
 collision_mask = 2
 
-[node name="AimIndicator" type="Node2D" parent="Aim"]
+[node name="AimIndicator" type="Node2D" parent="Grapple/Aim"]
 script = ExtResource( 44 )
 
-[node name="TargetIndicator" type="Node2D" parent="Aim"]
+[node name="TargetIndicator" type="Node2D" parent="Grapple/Aim"]
 script = ExtResource( 47 )
-
-[node name="Grapple" type="Line2D" parent="."]
-visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="Grapple"]
 
