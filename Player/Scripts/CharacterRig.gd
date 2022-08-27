@@ -4,12 +4,14 @@ onready var player: Player = owner
 onready var body: Node2D = $Frame
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 var spawning: bool = false
+var dashing: bool = false
 export var flipTime: float = .4
 export var growTime: float = .5
 
 #TODO: use signals to control animations or make animation tree
 #TODO: move out of physics so on called when needed
 #TODO: change hit box depending on state, shrink a bit in the air
+#TODO: skidding should shrink player
 
 
 func _ready() -> void:
@@ -21,7 +23,8 @@ func _ready() -> void:
 	EventBus.connect("playerSuperJumped", self, "super_jump")
 
 func _physics_process(delta: float) -> void:
-	if !spawning:
+	
+	if !spawning or !dashing:
 		if move_direction() > 0:
 			if scale.x == -1:
 				var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -48,6 +51,9 @@ func fall():
 
 func dash():
 	animPlayer.play("Dash Side")
+	dashing = true
+	yield(get_tree().create_timer(player.dashDuration),"timeout")
+	dashing = false
 
 func glide():
 	animPlayer.play("Glide")

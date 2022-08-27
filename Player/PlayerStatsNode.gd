@@ -1,7 +1,7 @@
 extends Actors
 class_name PlayerStatsNode
 
-
+#LOOKAT: get rid of resource?
 var Stats: Resource = preload("res://Resources/PlayerStats.tres")
 
 

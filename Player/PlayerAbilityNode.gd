@@ -1,6 +1,7 @@
 extends PlayerStatsNode
 class_name PlayerAbilitiesNode
 
+#LOOKAT: get rid of resource?
 var Abilities: Resource = preload("res://Resources/PlayerAbilities.tres")
 
 onready var abilities: Node = $Abilities

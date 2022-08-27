@@ -6,6 +6,7 @@ var skidding: bool = false
 func enter() -> void:
 	.enter()
 
+	#TODO: animation state machine
 	player.animPlayer.queue("Drive")
 	#TODO: very speed of playback based on velocity
 	#TODO: nuetral on entering
@@ -26,9 +27,9 @@ func physics(delta) -> void:
 	if (player.moveDirection.x == 0 or skidding) and (player.ledgeLeft or player.ledgeRight):
 		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.frictionSkid)
 		## stop on ledge it no input. might be better to change friction
-	if player.velocityPlayer.x != 0  and player.moveDirection.x != 0 and (sign(player.velocityPlayer.x) != player.moveDirection.x):
+	if abs(player.velocityPlayer.x) > player.moveSpeed  and player.moveDirection.x != 0 and (sign(player.velocityPlayer.x) != player.moveDirection.x):
 		skidding = true
-		#TODO: tweak to have it over a certain velocity
+		#Skid if over base speed
 	
 	if skidding:
 		if abs(player.moveDirection.x) > 0:

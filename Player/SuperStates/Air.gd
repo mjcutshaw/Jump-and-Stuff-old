@@ -24,7 +24,7 @@ func physics(delta) -> void:
 	
 	if player.test_move(player.global_transform, Vector2(player.velocity.x * delta, 0)):
 		player.attempt_vertical_corner_correction(player.jumpCornerCorrectionVertical, delta)
-	
+
 
 func visual(delta) -> void:
 	.visual(delta)

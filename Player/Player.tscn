@@ -5422,6 +5422,8 @@ script = ExtResource( 10 )
 [node name="Camera2D" type="Camera2D" parent="CharacterRig"]
 position = Vector2( 232, -193 )
 current = true
+limit_smoothed = true
+smoothing_enabled = true
 smoothing_speed = 7.0
 drag_margin_top = 0.75
 editor_draw_drag_margin = true
@@ -5779,6 +5781,25 @@ script = ExtResource( 11 )
 
 [node name="Augments" type="Node" parent="."]
 
+[node name="DropShadow" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 42 )
+
+[node name="RayCast2D" type="RayCast2D" parent="DropShadow"]
+position = Vector2( -32, 0 )
+enabled = true
+collision_mask = 14
+
+[node name="RayCast2D2" type="RayCast2D" parent="DropShadow"]
+position = Vector2( 32, 0 )
+enabled = true
+collision_mask = 14
+
+[node name="Sprite" type="Sprite" parent="DropShadow"]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 1, 0.1 )
+texture = ExtResource( 35 )
+
 [node name="Hitbox" parent="." groups=["Player"] instance=ExtResource( 20 )]
 visible = false
 
@@ -5818,25 +5839,6 @@ one_shot = true
 
 [node name="SemisolidReset" type="Timer" parent="Timers"]
 one_shot = true
-
-[node name="DropShadow" type="Node2D" parent="."]
-visible = false
-script = ExtResource( 42 )
-
-[node name="RayCast2D" type="RayCast2D" parent="DropShadow"]
-position = Vector2( -32, 0 )
-enabled = true
-collision_mask = 14
-
-[node name="RayCast2D2" type="RayCast2D" parent="DropShadow"]
-position = Vector2( 32, 0 )
-enabled = true
-collision_mask = 14
-
-[node name="Sprite" type="Sprite" parent="DropShadow"]
-modulate = Color( 0, 0, 0, 1 )
-scale = Vector2( 1, 0.1 )
-texture = ExtResource( 35 )
 
 [node name="Grapple" type="Line2D" parent="."]
 script = ExtResource( 49 )

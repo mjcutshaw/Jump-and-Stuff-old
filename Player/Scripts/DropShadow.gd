@@ -1,8 +1,9 @@
 extends Node2D
 
+#TODO: breaks on slope
 onready var raycastRight: RayCast2D = $RayCast2D
 onready var raycastLeft: RayCast2D = $RayCast2D2
-#TODO: change shadpw to draw 
+#TODO: change shadow to draw 
 onready var shadow: Sprite = $Sprite
 
 var castLength: int = 800

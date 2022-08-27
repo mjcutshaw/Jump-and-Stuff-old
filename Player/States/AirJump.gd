@@ -18,7 +18,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	
+	air_velocity_logic(player.moveSpeed)
 
 
 func visual(delta) -> void:
