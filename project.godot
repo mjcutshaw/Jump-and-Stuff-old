@@ -40,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://Player/BaseState.gd"
 }, {
 "base": "Interactable",
+"class": "BounceBox",
+"language": "GDScript",
+"path": "res://Objects/Prefabs/Scripts/BounceBox.gd"
+}, {
+"base": "Interactable",
 "class": "Checkpoint",
 "language": "GDScript",
 "path": "res://Objects/Checkpoints/Script/Checkpoint.gd"
+}, {
+"base": "Area2D",
+"class": "CollectorBox",
+"language": "GDScript",
+"path": "res://Player/Scripts/CollectorBox.gd"
 }, {
 "base": "Interactable",
 "class": "GrappleTarget",
@@ -151,7 +161,9 @@ _global_script_class_icons={
 "AirState": "",
 "Augment": "",
 "BaseState": "",
+"BounceBox": "",
 "Checkpoint": "",
+"CollectorBox": "",
 "GrappleTarget": "",
 "GroundAbilities": "",
 "GroundState": "",
@@ -289,11 +301,11 @@ grapple={
 [layer_names]
 
 2d_physics/layer_1="Don't use"
-2d_physics/layer_2="World"
+2d_physics/layer_2="Ground"
 2d_physics/layer_3="Semisolid"
 2d_physics/layer_4="Platform"
 2d_physics/layer_5="Interactable"
-2d_physics/layer_6="Enemies"
+2d_physics/layer_6="Collectibles"
 2d_physics/layer_7="Player"
 2d_physics/layer_8="Hazard"
 2d_physics/layer_13="Grapple"

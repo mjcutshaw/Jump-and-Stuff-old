@@ -1,3 +1,4 @@
 extends Area2D
+class_name CollectorBox
 
-#TODO: move interactables to here
+

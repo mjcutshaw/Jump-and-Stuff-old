@@ -1,5 +1,7 @@
 extends Interactable
+class_name BounceBox
 
+#TODO: move to new layer
 #TODO: setget bounce direction
 #TODO: make spring scene
 #TODO: only for players atm

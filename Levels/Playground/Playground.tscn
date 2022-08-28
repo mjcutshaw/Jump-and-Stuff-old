@@ -1026,29 +1026,26 @@ tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220,
 [node name="Interactables" type="Node" parent="."]
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
-position = Vector2( 376, 72 )
-collision_mask = 80
+position = Vector2( 376, 0 )
 augment = ExtResource( 42 )
 
 [node name="StatChanger" parent="Interactables" instance=ExtResource( 39 )]
-position = Vector2( -168, 80 )
+position = Vector2( -168, -8 )
 oneUse = true
 statIncrease = 1
 
 [node name="Checkpoint" parent="Interactables" instance=ExtResource( 38 )]
-position = Vector2( -296, 120 )
-collision_mask = 80
+position = Vector2( -288, 0 )
 
 [node name="Healing" parent="Interactables" instance=ExtResource( 40 )]
 position = Vector2( 112, 48 )
 collision_mask = 128
 
 [node name="Spike" parent="Interactables" instance=ExtResource( 36 )]
-position = Vector2( -16, 24 )
+position = Vector2( -72, 0 )
 
 [node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
 position = Vector2( 184, 8 )
-collision_mask = 80
 __meta__ = {
 "_edit_group_": true
 }

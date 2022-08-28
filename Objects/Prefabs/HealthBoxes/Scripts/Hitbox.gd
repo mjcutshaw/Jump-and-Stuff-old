@@ -1,6 +1,7 @@
 extends Interactable
 class_name Hitbox
 
+#TODO: hit/hurt boxes shoudn't be under interactables
 #TODO: use tween to smooth out
 export var iFrames: float = 1
 

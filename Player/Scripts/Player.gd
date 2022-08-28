@@ -1,6 +1,7 @@
 extends PlayerAbilitiesNode
 class_name Player
 
+#FIXME: change player to layer 8
 
 onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
