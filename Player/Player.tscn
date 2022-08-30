@@ -5418,11 +5418,8 @@ collision_layer = 64
 collision_mask = 190
 script = ExtResource( 2 )
 
-[node name="CharacterRig" type="Node2D" parent="."]
-script = ExtResource( 10 )
-
-[node name="Camera2D" type="Camera2D" parent="CharacterRig"]
-position = Vector2( 232, -193 )
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 16, -120 )
 current = true
 limit_smoothed = true
 smoothing_enabled = true
@@ -5430,6 +5427,9 @@ smoothing_speed = 7.0
 drag_margin_top = 0.75
 editor_draw_drag_margin = true
 script = ExtResource( 34 )
+
+[node name="CharacterRig" type="Node2D" parent="."]
+script = ExtResource( 10 )
 
 [node name="Frame" type="Node2D" parent="CharacterRig"]
 __meta__ = {

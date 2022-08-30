@@ -4,6 +4,7 @@ extends JumpState
 func enter() -> void:
 	.enter()
 
+	player.animPlayer.play("Jump Double")
 	EventBus.emit_signal("playerJumped")
 	player.velocityPlayer.y = player.jumpVelocityMax
 	player.consume_ability(Globals.abiliyList.JumpAir, 1)
@@ -33,7 +34,6 @@ func handle_input(event: InputEvent) -> int:
 		return newState
 
 	if Input.is_action_just_released("jump"):
-		
 		return State.Fall
 
 	return State.Null
@@ -44,6 +44,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.velocityPlayer.y > 0:
+		return State.Fall
 
 	return State.Null

@@ -48,7 +48,6 @@ func state_check(delta: float) -> int:
 
 	if player.is_on_ceiling():
 		return State.Fall
-	if player.velocityPlayer.y > - player.jumpHeightApex:
-		return State.Apex
+	
 
 	return State.Null

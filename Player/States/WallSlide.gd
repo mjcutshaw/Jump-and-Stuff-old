@@ -19,6 +19,7 @@ func physics(delta) -> void:
 #	gravity_logic(player.gravityFall/10, delta
 #	cap_wall_slide_speed(player.wallSlideSpeed)
 	
+	#TODO: adjust speeds and use accel and friction
 	if player.moveDirection.y == Globals.DOWN:
 		player.velocityPlayer.y = player.wallQuickSlideSpeed
 	else:

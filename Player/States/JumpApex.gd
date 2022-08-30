@@ -4,7 +4,7 @@ extends AirState
 func enter() -> void:
 	.enter()
 
-	
+	player.animPlayer.play("Jump Top")
 
 
 func exit() -> void:

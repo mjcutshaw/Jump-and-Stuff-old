@@ -44,14 +44,14 @@ func handle_input(event: InputEvent) -> int:
 	if Input.is_action_just_released("move_down"):
 		player.semisolidResetTimer.start()
 	if Input.is_action_just_pressed("jump"):
-		if player.can_use_ability(Globals.abiliyList.JumpAir):
-			return State.JumpAir
-#		if !player.coyoteJumpWallTimer.is_stopped():
-#			player.coyoteJumpWallTimer.stop()
-#			return State.JumpWall
+		if !player.coyoteJumpWallTimer.is_stopped():
+			player.coyoteJumpWallTimer.stop()
+			return State.JumpWall
 		if !player.coyoteJumpTimer.is_stopped(): 
 			player.coyoteJumpTimer.stop()
 			return State.Jump
+		if player.can_use_ability(Globals.abiliyList.JumpAir):
+			return State.JumpAir
 		else:
 			player.bufferJumpTimer.start()
 

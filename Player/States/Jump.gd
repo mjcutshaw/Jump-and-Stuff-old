@@ -45,6 +45,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.velocityPlayer.y > - player.jumpHeightApex:
+		return State.Apex
 
 	return State.Null
