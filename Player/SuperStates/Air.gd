@@ -47,10 +47,10 @@ func handle_input(event: InputEvent) -> int:
 		if !player.coyoteJumpWallTimer.is_stopped():
 			player.coyoteJumpWallTimer.stop()
 			return State.JumpWall
-		if !player.coyoteJumpTimer.is_stopped(): 
+		elif !player.coyoteJumpTimer.is_stopped(): 
 			player.coyoteJumpTimer.stop()
 			return State.Jump
-		if player.can_use_ability(Globals.abiliyList.JumpAir):
+		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			return State.JumpAir
 		else:
 			player.bufferJumpTimer.start()

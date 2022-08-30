@@ -16,6 +16,7 @@ enum State {
 	Dash,
 	Glide,
 	WallSlide,
+	GroundPound,
 }
 
 var player: Player

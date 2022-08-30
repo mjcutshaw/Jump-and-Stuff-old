@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -52,6 +52,7 @@
 [ext_resource path="res://Player/States/AirJump.gd" type="Script" id=50]
 [ext_resource path="res://Player/States/WallSlide.gd" type="Script" id=51]
 [ext_resource path="res://Player/States/JumpWall.gd" type="Script" id=52]
+[ext_resource path="res://Player/States/GroundPound.gd" type="Script" id=53]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5604,8 +5605,8 @@ texture = ExtResource( 22 )
 
 [node name="Jetpack" type="Node2D" parent="CharacterRig/Parts"]
 visible = false
-position = Vector2( 22, -31 )
-rotation = -1.5708
+position = Vector2( -23, -13 )
+rotation = 1.5708
 
 [node name="jetpack" type="Sprite" parent="CharacterRig/Parts/Jetpack"]
 position = Vector2( -21, -23 )
@@ -5654,6 +5655,8 @@ texture = ExtResource( 16 )
 
 [node name="Drill" type="Node2D" parent="CharacterRig/Parts"]
 visible = false
+position = Vector2( -1, -44 )
+rotation = -3.14159
 
 [node name="Drill" type="Sprite" parent="CharacterRig/Parts/Drill"]
 position = Vector2( 4.54747e-13, -49 )
@@ -5761,6 +5764,9 @@ script = ExtResource( 51 )
 
 [node name="Grapple" type="Node" parent="StateMachine"]
 script = ExtResource( 48 )
+
+[node name="GroundPound" type="Node" parent="StateMachine"]
+script = ExtResource( 53 )
 
 [node name="States" type="Node" parent="."]
 pause_mode = 1

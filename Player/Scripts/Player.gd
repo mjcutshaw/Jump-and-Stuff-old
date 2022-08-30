@@ -41,6 +41,7 @@ var ledgeRight: bool = false
 
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1
+var coyoteWallTime: float = 0.2
 var semisolidResetTime:= .1
 
 var jumpCornerCorrectionVertical: int = 10
@@ -136,7 +137,7 @@ func wall_detection(length: int = 5) -> int:
 
 func set_timers() -> void:
 	coyoteJumpTimer.wait_time = coyoteTime
-	coyoteJumpWallTimer.wait_time = coyoteTime
+	coyoteJumpWallTimer.wait_time = coyoteWallTime
 	bufferJumpTimer.wait_time = jumpBufferTime
 	dashTimer.wait_time = dashDuration
 	semisolidResetTimer.wait_time = semisolidResetTime

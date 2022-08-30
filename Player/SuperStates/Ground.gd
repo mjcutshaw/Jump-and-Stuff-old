@@ -59,6 +59,7 @@ func state_check(delta: float) -> int:
 		player.bufferJumpTimer.stop()
 		return State.Jump
 	if !player.is_on_floor():
+		player.coyoteJumpTimer.start()
 		return State.Fall
 
 	return State.Null

@@ -1,13 +1,10 @@
 extends AirState
 
-
+#TODO: Variables
 func enter() -> void:
 	.enter()
 
-	EventBus.emit_signal("fall")
-	if player.moveDirection == Vector2.ZERO:
-		neutralMovement = true
-	player.animPlayer.play("Fall")
+	player.animPlayer.play("Dash Down")
 
 
 func exit() -> void:
@@ -19,9 +16,8 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	gravity_logic(player.gravityFall, delta)
-	terminal_velocity(player.terminalVelocity)
-	air_velocity_logic(player.moveSpeed)
+	player.velocityPlayer.x = 0
+	player.velocityPlayer.y = 1000
 
 
 func visual(delta) -> void:
@@ -35,8 +31,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("move_down"):
-		return	 State.GroundPound
+	
 
 	return State.Null
 
@@ -46,7 +41,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.glidePressed:
-		return State.Glide
+	if player.is_on_floor():
+		return State.Idle
 
 	return State.Null
