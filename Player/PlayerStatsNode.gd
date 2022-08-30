@@ -41,6 +41,8 @@ var terminalVelocity: float
 var dashVelocity: float
 onready var dashDuration: float = Stats.dashDuration
 
+var wallSlideSpeed
+var wallQuickSlideSpeed
 
 func _ready() -> void:
 	update_stats()
@@ -77,6 +79,9 @@ func update_stats():
 	terminalVelocity = by_tile_size(baseTerminalVelocity)
 	
 	dashVelocity = by_tile_size(Stats.dashDistance)/Stats.dashDuration
+	
+	wallSlideSpeed = by_tile_size(Stats.wallSlideSpeed)
+	wallQuickSlideSpeed = by_tile_size(Stats.wallQuickSlideSpeed)
 
 
 func by_tile_size(amount) -> float:

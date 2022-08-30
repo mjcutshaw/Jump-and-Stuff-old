@@ -10,7 +10,7 @@ func enter() -> void:
 	rotate_to_normal()
 	player.dashTimer.start()
 	player.velocityPlayer.x = player.dashVelocity * player.facing
-	
+	player.animPlayer.play("Dash Side")
 	player.consume_ability(Globals.abiliyList.Dash, 1)
 
 

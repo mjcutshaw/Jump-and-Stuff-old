@@ -30,5 +30,5 @@ glideGravityModifier = 10
 jumpBoostTime = 0.1
 dashDuration = 0.3
 dashDistance = 12
-slideSpeed = 7
-quickSlideSpeed = 12
+wallSlideSpeed = 2
+wallQuickSlideSpeed = 4

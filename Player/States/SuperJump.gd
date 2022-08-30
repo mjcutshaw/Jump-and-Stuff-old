@@ -8,6 +8,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerSuperJumped")
 	player.velocityPlayer.y = player.jumpVelocityMax*2 
 	#TODO: own variable
+	player.animPlayer.play("Dash Up")
 
 
 func exit() -> void:

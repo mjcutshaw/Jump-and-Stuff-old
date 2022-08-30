@@ -10,10 +10,12 @@ enum State {
 	Jump,
 	SuperJump,
 	JumpAir,
+	JumpWall,
 	Apex,
 	Fall,
 	Dash,
 	Glide,
+	WallSlide,
 }
 
 var player: Player

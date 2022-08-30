@@ -1,6 +1,8 @@
 extends BaseState
 
 
+export var growTime: float = .5
+
 func enter() -> void:
 	.enter()
 
@@ -11,6 +13,8 @@ func enter() -> void:
 	EventBus.emit_signal("playerHealthChanged", player.healthMax)
 	#TODO: need if statement if after damage return to last platform
 	player.reset_ability(Globals.abiliyList.All)
+	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(player.characterRig, "scale", Vector2(1,1), growTime).from(Vector2(0,0))
 
 
 func exit() -> void:

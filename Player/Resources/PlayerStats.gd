@@ -39,5 +39,5 @@ export var dashDuration = 0.3
 export var dashDistance: int = 12
 
 # WALL SLIDE #
-export var slideSpeed: int = 7
-export var quickSlideSpeed: int = 12
+export var wallSlideSpeed: int = 2
+export var wallQuickSlideSpeed: int = 4

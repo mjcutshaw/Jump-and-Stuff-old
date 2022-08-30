@@ -1,11 +1,10 @@
-extends AirState
+extends WallState
 
 
 func enter() -> void:
 	.enter()
 
-	EventBus.emit_signal("playerGlide")
-	player.animPlayer.play("Glide")
+	
 
 
 func exit() -> void:
@@ -17,15 +16,20 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	gravity_logic(player.gravityGlide, delta)
-	terminal_velocity(player.terminalVelocity/player.glideFallSpeedModifier)
-	air_velocity_logic(player.moveSpeed/player.glideSpeedModifier)
+#	gravity_logic(player.gravityFall/10, delta
+#	cap_wall_slide_speed(player.wallSlideSpeed)
+	
+	if player.moveDirection.y == Globals.DOWN:
+		player.velocityPlayer.y = player.wallQuickSlideSpeed
+	else:
+		player.velocityPlayer.y = player.wallSlideSpeed
+
 
 
 func visual(delta) -> void:
 	.visual(delta)
 
-	
+	player.characterRig.scale.x = -player.lastWallDirection
 
 
 func handle_input(event: InputEvent) -> int:
@@ -33,8 +37,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_released("glide"):
-		return State.Fall
+	
 
 	return State.Null
 
@@ -44,7 +47,6 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.is_on_floor():
-		return State.Walk
+	
 
 	return State.Null

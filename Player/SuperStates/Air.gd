@@ -29,7 +29,7 @@ func physics(delta) -> void:
 func visual(delta) -> void:
 	.visual(delta)
 
-	
+	player.turn_sprite()
 
 
 func handle_input(event: InputEvent) -> int:
@@ -67,6 +67,8 @@ func state_check(delta: float) -> int:
 		player.animPlayer.play("Landing")
 		EventBus.emit_signal("landed")
 		return State.Walk
+	if player.is_on_wall():
+		return State.WallSlide
 
 	return State.Null
 

@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	#TODO: make not run all the time
+	#FIXME: slopes break it
 	shadow.scale.x = lerp(.5, shadow.position.y, .002)
 	shadow.scale.y = lerp(.05, shadow.position.y, .0005 )
 	

@@ -19,6 +19,10 @@ const HAZARD: int = 7
 #const SNOW: int = 2048
 #const ICE: int = 4096
 
+const LEFT = -1
+const RIGHT = 1
+const UP = -1
+const DOWN = 1
 
 #TODO: Move to settings
 var dashSideColor: Color = Color.blue

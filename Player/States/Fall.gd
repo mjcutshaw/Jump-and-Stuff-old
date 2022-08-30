@@ -7,6 +7,7 @@ func enter() -> void:
 	EventBus.emit_signal("fall")
 	if player.moveDirection == Vector2.ZERO:
 		neutralMovement = true
+	player.animPlayer.play("Fall")
 
 
 func exit() -> void:

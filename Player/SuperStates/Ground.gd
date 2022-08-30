@@ -29,6 +29,7 @@ func visual(delta) -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.tween_property(player, "rotation", player.get_floor_normal().angle() + PI/2, .5)
 	#TODO: find a way to not run every frame
+	player.turn_sprite()
 
 
 func handle_input(event: InputEvent) -> int:

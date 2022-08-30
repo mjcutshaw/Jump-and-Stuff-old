@@ -8,6 +8,8 @@ onready var characterRig: Node2D = $CharacterRig
 onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
 onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
+onready var wallRaycastLeft: RayCast2D = $Raycasts/Wall/Left
+onready var wallRaycastRight: RayCast2D = $Raycasts/Wall/Right
 
 onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
@@ -17,7 +19,7 @@ onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
-const SNAP_Wall:= Vector2(20.0, 0) ##TODO: multiply times wall direction
+const SNAP_Wall:= Vector2(20.0, 0)
 const NO_SNAP:= Vector2.ZERO
 
 var velocity: Vector2 = Vector2.ZERO
@@ -29,6 +31,7 @@ var moveStrength: Vector2 = Vector2.ZERO
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var facing: int = 1
+var lastWallDirection: int = 0
 
 var aimStrength: Vector2 = Vector2.ZERO
 var aimDirection: Vector2 = Vector2.ZERO
@@ -45,6 +48,7 @@ var jumpCornerCorrectionHorizontal: int = 15
 
 var glidePressed: bool = false
 
+export var flipTime: float = .4
 
 func _ready() -> void:
 	sm.init()
@@ -105,7 +109,7 @@ func velocity_logic() -> Vector2:
 func died() -> void:
 	pass
 
-func ledge_detection()-> void:
+func ledge_detection() -> void:
 	#TODO: look into mvoing this to the raycasts
 	if is_on_floor() and !ledgeDetectionLeft.is_colliding():
 		ledgeLeft = true
@@ -116,6 +120,19 @@ func ledge_detection()-> void:
 		ledgeRight = true
 	else:
 		ledgeRight = false
+
+func wall_detection(length: int = 5) -> int:
+	wallRaycastLeft.cast_to.x = -length
+	wallRaycastRight.cast_to.x = length
+	
+	if wallRaycastLeft.is_colliding():
+		lastWallDirection = -1
+		return lastWallDirection
+	elif wallRaycastRight.is_colliding():
+		lastWallDirection = 1
+		return lastWallDirection
+	
+	return 0
 
 func set_timers() -> void:
 	coyoteJumpTimer.wait_time = coyoteTime
@@ -152,3 +169,15 @@ func bounce(amount) -> void:
 
 func change_health(amount: int) -> void:
 	EventBus.emit_signal("playerHealthChanged", amount)
+
+func turn_sprite() -> void:
+	if moveDirection.x > 0:
+		if characterRig.scale.x == -1:
+			var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tween.tween_property(characterRig, "scale", Vector2(1,1), flipTime).from(Vector2(-1,1))
+		facing = 1
+	elif moveDirection.x < 0:
+		if characterRig.scale.x == 1:
+			var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tween.tween_property(characterRig, "scale", Vector2(-1,1), flipTime).from(Vector2(1,1))
+		facing = -1
