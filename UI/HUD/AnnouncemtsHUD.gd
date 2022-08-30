@@ -2,28 +2,47 @@ extends MarginContainer
 
 
 onready var announceLabel: Label = $MarginContainer/Announce
-export var annoucmentLenght: float = 2.0
+onready var announceTimer: Timer = $Timer
+export var annoucmentLength: float = 2.0
 
+var queue:= []
+signal announcementFinished
 
 func _ready() -> void:
+	announceTimer.wait_time = annoucmentLength
 	hide()
 	EventBus.connect("playerStatChange", self, "announce_stat_change")
+	announceTimer.connect("timeout", self, "announce_finished")
+	connect("announcementFinished", self, "check_announcement_que")
 
-func announce(type: String, amount: int) -> void:
-	show()
-	announceLabel.text = str(type + str(amount))
-	yield(get_tree().create_timer(annoucmentLenght),"timeout")
+func announce(announcment: String) -> void:
+	if announceTimer.is_stopped():
+		show()
+		announceLabel.text = announcment
+		announceTimer.start()
+	else:
+		store_announce(announcment)
+
+func store_announce(announcment: String) -> void:
+	queue.append(announcment)
+
+func announce_finished() -> void:
 	announceLabel.text = ""
 	hide()
+	emit_signal("announcementFinished")
 
+func check_announcement_que() -> void:
+	if not queue.empty():
+		var nextAnnouncement = queue.pop_front()
+		announce(nextAnnouncement)
 
 func announce_stat_change(stat: int, amount: int) -> void:
 	if stat == Globals.statList.MoveSpeed:
-		announce("Move speed inscreased by ", amount)
+		announce(str("Move speed inscreased by ", amount))
 	elif stat == Globals.statList.JumpHeight:
-		announce("Jump height inscreased by ", amount)
+		announce(str("Jump height inscreased by ", amount))
 	elif stat == Globals.statList.HealthMax:
-		announce("Max health inscreased by ", amount)
+		announce(str("Max health inscreased by ", amount))
 	else:
 		EventBus.emit_signal("error", str("stat change error: ", stat))
 	
