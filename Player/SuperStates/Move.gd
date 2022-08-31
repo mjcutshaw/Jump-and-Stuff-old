@@ -46,8 +46,6 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
-
 	return State.Null
 
 
@@ -72,9 +70,11 @@ func momentum_logic(speed, useMoveDirection: bool = true) -> void:
 
 
 func apply_acceleration(amount) -> void:
+	#FIXME: need to multiply times delta/ (1/FRAMERATE)
 	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * player.moveDirection.x
 
 func apply_friction(amount) -> void:
+	#FIXME: need to multiply times delta/ (1/FRAMERATE)
 	player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, amount)
 
 

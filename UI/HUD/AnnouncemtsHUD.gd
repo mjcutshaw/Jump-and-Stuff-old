@@ -5,7 +5,7 @@ onready var announceLabel: Label = $MarginContainer/Announce
 onready var announceTimer: Timer = $Timer
 export var annoucmentLength: float = 2.0
 
-var queue:= []
+var queue: Array = []
 signal announcementFinished
 
 func _ready() -> void:

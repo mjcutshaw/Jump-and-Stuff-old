@@ -16,6 +16,7 @@ onready var states = {
 	BaseState.State.Glide: $Glide,
 	BaseState.State.WallSlide: $WallSlide,
 	BaseState.State.GroundPound: $GroundPound,
+	BaseState.State.Swim: $Swim,
 }
 
 var currentState: BaseState

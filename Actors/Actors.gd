@@ -3,6 +3,7 @@ class_name Actors
 
 var health: int
 export var healthMax: int
+var inWater: bool = false
 
 func _ready() -> void:
 	pass

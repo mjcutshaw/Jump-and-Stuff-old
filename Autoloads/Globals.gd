@@ -1,5 +1,7 @@
 extends Node
 
+#TODO: move constants out of Global, don't need to be autoloaded
+
 const TILE_SIZE: int = 32
 const GAME_NAME: String = "Jump and Stuff"
 const CREATOR: String = "Matt"
@@ -23,6 +25,7 @@ const LEFT = -1
 const RIGHT = 1
 const UP = -1
 const DOWN = 1
+const ZERO = Vector2.ZERO
 
 #TODO: Move to settings
 var dashSideColor: Color = Color.blue

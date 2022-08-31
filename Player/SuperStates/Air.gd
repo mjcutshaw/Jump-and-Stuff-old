@@ -69,6 +69,8 @@ func state_check(delta: float) -> int:
 		return State.Walk
 	if player.is_on_wall():
 		return State.WallSlide
+	if player.inWater == true:
+		return State.Swim
 
 	return State.Null
 
@@ -79,6 +81,7 @@ func air_velocity_logic(speed) -> void:
 		airTurn = true
 	
 	if airTurn:
+		#FIXME: need to multiply times delta/ (1/FRAMERATE)
 		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, speed * player.moveDirection.x, player.accelerationAir) 
 	elif !airTurn:
 		if player.moveDirection.x != 0 and abs(player.velocityPlayer.x) < speed:
