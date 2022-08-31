@@ -20,11 +20,12 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.move_logic(player.NO_SNAP, false)
-	#FIXME: find away to not push player out of water from gravity. GameEndevor vid
+	
 	if player.moveDirection != Globals.ZERO:
 		swim_velocity_logic(player.moveSpeed/3)
 	else:
 		player.velocityPlayer.y = -64
+		#FIXME: find away to not push player out of water from gravity. GameEndevor vid
 
 
 func visual(delta) -> void:
