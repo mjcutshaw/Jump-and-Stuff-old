@@ -33,6 +33,7 @@ func physics(delta) -> void:
 		#Skid if over base speed
 	
 	if skidding:
+		#FIXME: should not be the full amount
 		if abs(player.moveDirection.x) > 0:
 			##TODO: accel skid?
 			#FIXME: need to multiply times delta/ (1/FRAMERATE)

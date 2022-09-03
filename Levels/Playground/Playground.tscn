@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://UI/Announcements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -51,6 +51,7 @@
 [ext_resource path="res://Assets/Water/waterTop_high.png" type="Texture" id=49]
 [ext_resource path="res://Assets/Water/water.png" type="Texture" id=50]
 [ext_resource path="res://Assets/Water/water2.png" type="Texture" id=51]
+[ext_resource path="res://Objects/Wind/Wind.gd" type="Script" id=52]
 
 [sub_resource type="StreamTexture" id=39]
 flags = 6
@@ -580,6 +581,24 @@ shader_param/sprite_scale = Vector2( 0.6, 0.8 )
 shader_param/x_scale = 0.67
 shader_param/highlight_thickness = 0.2
 shader_param/wave_reduction = 100.0
+
+[sub_resource type="ParticlesMaterial" id=88]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 30, 80, 1 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+initial_velocity = 2.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 1.0
+color = Color( 0.788235, 0.788235, 0.788235, 1 )
+hue_variation = 0.01
+
+[sub_resource type="RectangleShape2D" id=87]
+extents = Vector2( 172, 164 )
 
 [node name="Playground" type="Node2D"]
 script = ExtResource( 3 )
@@ -1195,3 +1214,25 @@ material = SubResource( 85 )
 position = Vector2( 160, 48 )
 scale = Vector2( 6, 2 )
 texture = ExtResource( 46 )
+
+[node name="Wind" type="Area2D" parent="."]
+position = Vector2( -2792, -160 )
+collision_layer = 0
+collision_mask = 64
+script = ExtResource( 52 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="Wind"]
+amount = 50
+lifetime = 3.0
+randomness = 1.0
+process_material = SubResource( 88 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind"]
+modulate = Color( 1, 1, 1, 0.647059 )
+z_index = -5
+shape = SubResource( 87 )
+script = ExtResource( 9 )
+color = Color( 0.584314, 0.584314, 0.584314, 1 )

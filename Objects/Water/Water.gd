@@ -1,5 +1,4 @@
-extends Area2D
-
+extends EnviromentalEffects
 #TODO: should be a tilemap
 
 func _ready() -> void:

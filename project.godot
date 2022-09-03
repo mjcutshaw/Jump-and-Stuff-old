@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Autoloads/StaticScripts/CollisionLayers.gd"
 }, {
+"base": "Area2D",
+"class": "EnviromentalEffects",
+"language": "GDScript",
+"path": "res://Objects/Enviroment/Enviroment.gd"
+}, {
 "base": "Interactable",
 "class": "GrappleTarget",
 "language": "GDScript",
@@ -180,6 +185,7 @@ _global_script_class_icons={
 "Checkpoint": "",
 "CollectorBox": "",
 "CollisionLayers": "",
+"EnviromentalEffects": "",
 "GrappleTarget": "",
 "GroundAbilities": "",
 "GroundState": "",

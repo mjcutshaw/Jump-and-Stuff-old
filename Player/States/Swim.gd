@@ -2,8 +2,8 @@ extends MoveState
 class_name SwimState
 
 #TODO: turn into super swim state
-#TODO: add in pressing Jump
 #TODO: variables
+#TODO: water dash
 
 var isSurfacing: bool = false
 

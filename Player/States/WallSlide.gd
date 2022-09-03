@@ -30,7 +30,8 @@ func physics(delta) -> void:
 func visual(delta) -> void:
 	.visual(delta)
 
-	player.characterRig.scale.x = -player.lastWallDirection
+	if player.lastWallDirection != 0:
+		player.characterRig.scale.x = -player.lastWallDirection
 
 
 func handle_input(event: InputEvent) -> int:

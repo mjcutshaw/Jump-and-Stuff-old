@@ -6,6 +6,8 @@ func enter() -> void:
 
 	EventBus.emit_signal("playerGlide")
 	player.animPlayer.play("Glide")
+	if player.inWind:
+		player.reset_ability(Globals.abiliyList.All)
 
 
 func exit() -> void:
@@ -17,8 +19,12 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	gravity_logic(player.gravityGlide, delta)
-	terminal_velocity(player.terminalVelocity/player.glideFallSpeedModifier)
+	if player.inWind == true:
+		player.velocityPlayer.y = -50
+	else:
+		gravity_logic(player.gravityGlide, delta)
+		terminal_velocity(player.terminalVelocity/player.glideFallSpeedModifier)
+	
 	air_velocity_logic(player.moveSpeed/player.glideSpeedModifier)
 
 

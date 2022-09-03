@@ -3,7 +3,10 @@ class_name Actors
 
 var health: int
 export var healthMax: int
+
+## Enviroment Effects ##
 var inWater: bool = false
+var inWind: bool = false
 
 func _ready() -> void:
 	pass
