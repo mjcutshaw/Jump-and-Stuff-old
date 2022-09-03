@@ -518,7 +518,7 @@ extents = Vector2( 10, 8 )
 4/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=83]
-extents = Vector2( 192, 64 )
+extents = Vector2( 192, 60 )
 
 [sub_resource type="Shader" id=84]
 code = "shader_type canvas_item;
@@ -1187,7 +1187,7 @@ format = 1
 tile_data = PoolIntArray( -196684, 4, 0, -196682, 4, 0, -196680, 4, 0, -196678, 4, 0, -196676, 4, 0, -196674, 4, 0, -196672, 4, 0, -196670, 4, 0, -65612, 3, 0, -65610, 3, 0, -65608, 3, 0, -65606, 3, 0, -65604, 3, 0, -65602, 3, 0, -65600, 3, 0, -65598, 3, 0, 65460, 3, 0, 65462, 3, 0, 65463, 3, 0, 65464, 3, 0, 65465, 3, 0, 65466, 3, 0, 65467, 3, 0, 65468, 3, 0, 65469, 3, 0, 65470, 3, 0, 65471, 3, 0, 65472, 3, 0, 65473, 3, 0, 65474, 3, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
-position = Vector2( 160, 48 )
+position = Vector2( 160, 52 )
 shape = SubResource( 83 )
 
 [node name="Sprite" type="Sprite" parent="Water"]

@@ -40,7 +40,7 @@ func handle_input(event: InputEvent) -> int:
 	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.Dash):
 		return State.Dash
 	if Input.is_action_pressed("move_down"):
-		player.set_collision_mask_bit(Globals.SEMISOLID, false)
+		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 	if Input.is_action_just_released("move_down"):
 		player.semisolidResetTimer.start()
 	if Input.is_action_just_pressed("jump"):
@@ -69,8 +69,6 @@ func state_check(delta: float) -> int:
 		return State.Walk
 	if player.is_on_wall():
 		return State.WallSlide
-	if player.inWater == true:
-		return State.Swim
 
 	return State.Null
 

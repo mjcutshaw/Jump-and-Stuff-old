@@ -48,5 +48,7 @@ func state_check(delta: float) -> int:
 
 	if player.glidePressed:
 		return State.Glide
+	if player.inWater == true:
+		return State.Swim
 
 	return State.Null

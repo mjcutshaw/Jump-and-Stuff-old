@@ -10,6 +10,7 @@ onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
 onready var wallRaycastLeft: RayCast2D = $Raycasts/Wall/Left
 onready var wallRaycastRight: RayCast2D = $Raycasts/Wall/Right
+onready var swimLevel: RayCast2D = $SwimLevel
 
 onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
@@ -163,7 +164,7 @@ func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 
 
 func _on_SemisolidReset_timeout() -> void:
-	set_collision_mask_bit(Globals.SEMISOLID, true)
+	set_collision_mask_bit(CollisionLayers.SEMISOLID, true)
 
 func bounce(amount) -> void:
 	EventBus.emit_signal("playerBounced", amount)

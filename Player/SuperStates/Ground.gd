@@ -6,7 +6,7 @@ func enter() -> void:
 
 	player.velocityPlayer.y = 10
 	EventBus.emit_signal("playerGrounded", true)
-	player.set_collision_mask_bit(Globals.SEMISOLID, true)
+	player.set_collision_mask_bit(CollisionLayers.SEMISOLID, true)
 	player.reset_ability(Globals.abiliyList.All)
 
 
@@ -39,7 +39,7 @@ func handle_input(event: InputEvent) -> int:
 
 	if Input.is_action_just_pressed("jump"):
 		if Input.is_action_pressed("move_down"):
-			player.set_collision_mask_bit(Globals.SEMISOLID, false)
+			player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 		else:
 			return State.Jump
 	if Input.is_action_just_pressed("dash"):

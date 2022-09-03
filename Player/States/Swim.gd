@@ -4,16 +4,20 @@ class_name SwimState
 #TODO: turn into super swim state
 #TODO: add in pressing Jump
 #TODO: variables
+
+var isSurfacing: bool = false
+
 func enter() -> void:
 	.enter()
 
-	
+	player.swimLevel.enabled = true
+	player.animPlayer.play("Slide")
 
 
 func exit() -> void:
 	.exit()
 
-	
+	player.swimLevel.enabled = false
 
 
 func physics(delta) -> void:
@@ -25,8 +29,13 @@ func physics(delta) -> void:
 		swim_velocity_logic(player.moveSpeed/3)
 	else:
 		player.velocityPlayer.y = -64
-		#FIXME: find away to not push player out of water from gravity. GameEndevor vid
-
+		apply_friction(player.frictionGround)
+	
+	if player.velocityPlayer.y < 0 and !player.swimLevel.is_colliding():
+		player.velocityPlayer.y = 0
+		isSurfacing = true
+	else:
+		isSurfacing = false
 
 func visual(delta) -> void:
 	.visual(delta)
@@ -39,7 +48,9 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if isSurfacing and Input.is_action_just_pressed("jump"):
+		return State.Jump
+	#TODO: jump in water for up thrust
 
 	return State.Null
 

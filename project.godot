@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Scripts/CollectorBox.gd"
 }, {
+"base": "Node",
+"class": "CollisionLayers",
+"language": "GDScript",
+"path": "res://Autoloads/StaticScripts/CollisionLayers.gd"
+}, {
 "base": "Interactable",
 "class": "GrappleTarget",
 "language": "GDScript",
@@ -174,6 +179,7 @@ _global_script_class_icons={
 "BounceBox": "",
 "Checkpoint": "",
 "CollectorBox": "",
+"CollisionLayers": "",
 "GrappleTarget": "",
 "GroundAbilities": "",
 "GroundState": "",

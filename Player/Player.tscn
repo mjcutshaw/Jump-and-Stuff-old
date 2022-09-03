@@ -5634,8 +5634,9 @@ texture = ExtResource( 25 )
 visible = false
 
 [node name="shieldBronze" type="Sprite" parent="CharacterRig/Parts/Sled"]
-position = Vector2( -31, -22 )
-scale = Vector2( 0.0825758, 0.995941 )
+position = Vector2( 0, -1 )
+rotation = -1.5708
+scale = Vector2( 0.0825758, 0.806789 )
 texture = ExtResource( 24 )
 
 [node name="Umbrella" type="Node2D" parent="CharacterRig/Parts"]
@@ -5917,5 +5918,13 @@ shape = SubResource( 28 )
 [node name="HazardWaring" type="Area2D" parent="."]
 visible = false
 script = ExtResource( 46 )
+
+[node name="SwimLevel" type="RayCast2D" parent="."]
+position = Vector2( 0, -24 )
+enabled = true
+cast_to = Vector2( 0, -1 )
+collision_mask = 512
+collide_with_areas = true
+collide_with_bodies = false
 
 [connection signal="timeout" from="Timers/SemisolidReset" to="." method="_on_SemisolidReset_timeout"]
