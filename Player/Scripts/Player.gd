@@ -11,6 +11,8 @@ onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
 onready var wallRaycastLeft: RayCast2D = $Raycasts/Wall/Left
 onready var wallRaycastRight: RayCast2D = $Raycasts/Wall/Right
 onready var swimLevel: RayCast2D = $SwimLevel
+onready var trail: Line2D = $Trail
+#TODO: player trail
 
 onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump

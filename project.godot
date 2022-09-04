@@ -62,7 +62,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "EnviromentalEffects",
 "language": "GDScript",
-"path": "res://Objects/Enviroment/Enviroment.gd"
+"path": "res://Objects/Enviroment/EnviromentalEffects.gd"
+}, {
+"base": "Node",
+"class": "Fluids",
+"language": "GDScript",
+"path": "res://Objects/Enviroment/Fluids/Scripts/Fluids.gd"
 }, {
 "base": "Interactable",
 "class": "GrappleTarget",
@@ -186,6 +191,7 @@ _global_script_class_icons={
 "CollectorBox": "",
 "CollisionLayers": "",
 "EnviromentalEffects": "",
+"Fluids": "",
 "GrappleTarget": "",
 "GroundAbilities": "",
 "GroundState": "",

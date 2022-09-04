@@ -15,11 +15,6 @@ const COLLECTIBLES: int = 5
 const PLAYER: int = 6
 const HAZARD: int = 7
 
-#const WATER: int = 256
-#const LAVA: int = 512
-#const SAND: int = 1024
-#const SNOW: int = 2048
-#const ICE: int = 4096
 
 const LEFT = -1
 const RIGHT = 1

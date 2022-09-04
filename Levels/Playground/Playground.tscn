@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://UI/Announcements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -44,14 +44,8 @@
 [ext_resource path="res://Player/Augments/P-Speed.tscn" type="PackedScene" id=42]
 [ext_resource path="res://UI/Pause/PauseMenu.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Objects/Grapple/GrappleTarget.tscn" type="PackedScene" id=44]
-[ext_resource path="res://Objects/Water/Water.gd" type="Script" id=45]
-[ext_resource path="res://icon.png" type="Texture" id=46]
-[ext_resource path="res://Assets/Water/waterTop_low.png" type="Texture" id=47]
-[ext_resource path="res://Assets/Water/Water copy.png" type="Texture" id=48]
-[ext_resource path="res://Assets/Water/waterTop_high.png" type="Texture" id=49]
-[ext_resource path="res://Assets/Water/water.png" type="Texture" id=50]
-[ext_resource path="res://Assets/Water/water2.png" type="Texture" id=51]
-[ext_resource path="res://Objects/Wind/Wind.gd" type="Script" id=52]
+[ext_resource path="res://Objects/Water/Water.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Objects/Wind/Wind.tscn" type="PackedScene" id=52]
 
 [sub_resource type="StreamTexture" id=39]
 flags = 6
@@ -445,160 +439,6 @@ points = PoolVector2Array( 64, 32, 0, 32, 0, 0, 64, 0 )
 extents = Vector2( 10, 8 )
 
 [sub_resource type="CircleShape2D" id=82]
-
-[sub_resource type="TileSet" id=86]
-0/name = "waterTop_low.png 0"
-0/texture = ExtResource( 47 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 128, 128 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-1/name = "water2.png 1"
-1/texture = ExtResource( 51 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "Water copy.png 2"
-2/texture = ExtResource( 48 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "water.png 3"
-3/texture = ExtResource( 50 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 128, 128 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
-4/name = "waterTop_high.png 4"
-4/texture = ExtResource( 49 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 0, 0, 128, 128 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape_one_way = false
-4/shape_one_way_margin = 0.0
-4/shapes = [  ]
-4/z_index = 0
-
-[sub_resource type="RectangleShape2D" id=83]
-extents = Vector2( 192, 60 )
-
-[sub_resource type="Shader" id=84]
-code = "shader_type canvas_item;
-
-uniform vec4 tint : hint_color;
-uniform vec2 sprite_scale;
-uniform float x_scale = 0.67;
-uniform float highlight_thickness = 0.2;
-uniform float wave_reduction = 100;
-
-float rand(vec2 coord) {
-	return fract(sin(dot(coord, vec2(12.9898, 78.233))) * 43758.5453123);
-}
-
-float noise (vec2 coord) {
-	vec2 i = floor(coord);
-	vec2 f = fract(coord);
-	
-	float a = rand(i);
-	float b = rand(i + vec2(1., 0.));
-	float c = rand(i + vec2(0., 1.));
-	float d = rand(i + vec2(1., 1.));
-	
-	vec2 cubic = f * f * (3. - 2. * f);
-	return mix(a,b,cubic.x) + (c-a) * cubic.y * (1. - cubic.x) + (d-b) * cubic.x * cubic.y;
-}
-
-void fragment () {
-	vec2 coord1 = UV * sprite_scale * x_scale;
-	vec2 coord2 = UV * sprite_scale * x_scale + 4.;
-	
-	vec2 motion1 = vec2(TIME * 0.3, TIME * -0.4);
-	vec2 motion2 = vec2(TIME * 0.1, TIME * 0.5);
-	
-	vec2 distort1 = vec2(noise(coord1 + motion1), noise(coord2 + motion1)) - vec2(0.5);
-	vec2 distort2 = vec2(noise(coord1 + motion2), noise(coord2 + motion2)) - vec2(0.5);
-	
-	vec2 sum_distorts = (distort1 + distort2) / wave_reduction;
-	
-	vec4 color = textureLod(SCREEN_TEXTURE, SCREEN_UV + sum_distorts, 0.);
-	color = mix (color, tint, 0.3);
-	color.rgb = mix(vec3(0.5), color.rgb, 1.4);
-	
-	float top_highlight = (UV.y + sum_distorts.y) * sprite_scale.y / highlight_thickness;
-	top_highlight = 1. - clamp(top_highlight, 0., 1.);
-	
-	color = mix(color, vec4(1.), top_highlight);
-	color.a = 1. - smoothstep(0.6, 0.7, top_highlight);
-	
-	
-	
-	COLOR = color;
-}"
-
-[sub_resource type="ShaderMaterial" id=85]
-shader = SubResource( 84 )
-shader_param/tint = Color( 0.0313726, 0.337255, 0.690196, 1 )
-shader_param/sprite_scale = Vector2( 0.6, 0.8 )
-shader_param/x_scale = 0.67
-shader_param/highlight_thickness = 0.2
-shader_param/wave_reduction = 100.0
-
-[sub_resource type="ParticlesMaterial" id=88]
-lifetime_randomness = 1.0
-emission_shape = 2
-emission_box_extents = Vector3( 30, 80, 1 )
-flag_disable_z = true
-direction = Vector3( -1, 0, 0 )
-initial_velocity = 2.0
-initial_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 5.0
-scale_random = 1.0
-color = Color( 0.788235, 0.788235, 0.788235, 1 )
-hue_variation = 0.01
-
-[sub_resource type="RectangleShape2D" id=87]
-extents = Vector2( 172, 164 )
 
 [node name="Playground" type="Node2D"]
 script = ExtResource( 3 )
@@ -1191,48 +1031,8 @@ shape = SubResource( 82 )
 [node name="Player" parent="." instance=ExtResource( 41 )]
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Water" type="Area2D" parent="."]
-position = Vector2( -2336, -112 )
-collision_layer = 512
-collision_mask = 64
-script = ExtResource( 45 )
+[node name="Water" parent="." instance=ExtResource( 45 )]
 
-[node name="Water2" type="TileMap" parent="Water"]
-position = Vector2( 2336, 112 )
-scale = Vector2( 0.5, 0.5 )
-z_index = -10
-tile_set = SubResource( 86 )
-format = 1
-tile_data = PoolIntArray( -196684, 4, 0, -196682, 4, 0, -196680, 4, 0, -196678, 4, 0, -196676, 4, 0, -196674, 4, 0, -196672, 4, 0, -196670, 4, 0, -65612, 3, 0, -65610, 3, 0, -65608, 3, 0, -65606, 3, 0, -65604, 3, 0, -65602, 3, 0, -65600, 3, 0, -65598, 3, 0, 65460, 3, 0, 65462, 3, 0, 65463, 3, 0, 65464, 3, 0, 65465, 3, 0, 65466, 3, 0, 65467, 3, 0, 65468, 3, 0, 65469, 3, 0, 65470, 3, 0, 65471, 3, 0, 65472, 3, 0, 65473, 3, 0, 65474, 3, 0 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
-position = Vector2( 160, 52 )
-shape = SubResource( 83 )
-
-[node name="Sprite" type="Sprite" parent="Water"]
-material = SubResource( 85 )
-position = Vector2( 160, 48 )
-scale = Vector2( 6, 2 )
-texture = ExtResource( 46 )
-
-[node name="Wind" type="Area2D" parent="."]
-position = Vector2( -2792, -160 )
-collision_layer = 0
-collision_mask = 64
-script = ExtResource( 52 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Particles2D" type="Particles2D" parent="Wind"]
-amount = 50
-lifetime = 3.0
-randomness = 1.0
-process_material = SubResource( 88 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind"]
-modulate = Color( 1, 1, 1, 0.647059 )
-z_index = -5
-shape = SubResource( 87 )
-script = ExtResource( 9 )
-color = Color( 0.584314, 0.584314, 0.584314, 1 )
+[node name="Wind" parent="." instance=ExtResource( 52 )]
+position = Vector2( -1912, -192 )
+direction = 1
