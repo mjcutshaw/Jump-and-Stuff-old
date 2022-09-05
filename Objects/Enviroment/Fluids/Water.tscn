@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Objects/Water/Water.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Enviroment/Fluids/Scripts/Water.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Water/Water copy.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Water/water.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Water/waterTop_low.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Water/waterTop_high.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Water/water2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Particles/circle_05.png" type="Texture" id=8]
 
 [sub_resource type="TileSet" id=86]
 0/name = "waterTop_low.png 0"
@@ -81,89 +81,53 @@
 4/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=83]
-extents = Vector2( 192, 60 )
+extents = Vector2( 64, 60 )
 
-[sub_resource type="Shader" id=84]
-code = "shader_type canvas_item;
+[sub_resource type="Gradient" id=87]
+offsets = PoolRealArray( 0.664122, 0.80916 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-uniform vec4 tint : hint_color;
-uniform vec2 sprite_scale;
-uniform float x_scale = 0.67;
-uniform float highlight_thickness = 0.2;
-uniform float wave_reduction = 100;
+[sub_resource type="GradientTexture" id=88]
+gradient = SubResource( 87 )
 
-float rand(vec2 coord) {
-	return fract(sin(dot(coord, vec2(12.9898, 78.233))) * 43758.5453123);
-}
+[sub_resource type="Curve" id=89]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.480519, 0.788079 ), -1.34815, -1.34815, 0, 0, Vector2( 1, 0.560806 ), 0.0, 0.0, 0, 0 ]
 
-float noise (vec2 coord) {
-	vec2 i = floor(coord);
-	vec2 f = fract(coord);
-	
-	float a = rand(i);
-	float b = rand(i + vec2(1., 0.));
-	float c = rand(i + vec2(0., 1.));
-	float d = rand(i + vec2(1., 1.));
-	
-	vec2 cubic = f * f * (3. - 2. * f);
-	return mix(a,b,cubic.x) + (c-a) * cubic.y * (1. - cubic.x) + (d-b) * cubic.x * cubic.y;
-}
+[sub_resource type="CurveTexture" id=90]
+curve = SubResource( 89 )
 
-void fragment () {
-	vec2 coord1 = UV * sprite_scale * x_scale;
-	vec2 coord2 = UV * sprite_scale * x_scale + 4.;
-	
-	vec2 motion1 = vec2(TIME * 0.3, TIME * -0.4);
-	vec2 motion2 = vec2(TIME * 0.1, TIME * 0.5);
-	
-	vec2 distort1 = vec2(noise(coord1 + motion1), noise(coord2 + motion1)) - vec2(0.5);
-	vec2 distort2 = vec2(noise(coord1 + motion2), noise(coord2 + motion2)) - vec2(0.5);
-	
-	vec2 sum_distorts = (distort1 + distort2) / wave_reduction;
-	
-	vec4 color = textureLod(SCREEN_TEXTURE, SCREEN_UV + sum_distorts, 0.);
-	color = mix (color, tint, 0.3);
-	color.rgb = mix(vec3(0.5), color.rgb, 1.4);
-	
-	float top_highlight = (UV.y + sum_distorts.y) * sprite_scale.y / highlight_thickness;
-	top_highlight = 1. - clamp(top_highlight, 0., 1.);
-	
-	color = mix(color, vec4(1.), top_highlight);
-	color.a = 1. - smoothstep(0.6, 0.7, top_highlight);
-	
-	
-	
-	COLOR = color;
-}"
-
-[sub_resource type="ShaderMaterial" id=85]
-shader = SubResource( 84 )
-shader_param/tint = Color( 0.0313726, 0.337255, 0.690196, 1 )
-shader_param/sprite_scale = Vector2( 0.6, 0.8 )
-shader_param/x_scale = 0.67
-shader_param/highlight_thickness = 0.2
-shader_param/wave_reduction = 100.0
+[sub_resource type="ParticlesMaterial" id=91]
+emission_shape = 2
+emission_box_extents = Vector3( 64, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping_curve = SubResource( 90 )
+scale = 0.01
+scale_random = 0.04
+color_ramp = SubResource( 88 )
 
 [node name="Water" type="Area2D"]
-position = Vector2( -2336, -112 )
 collision_layer = 512
 collision_mask = 64
 script = ExtResource( 1 )
 
 [node name="Water2" type="TileMap" parent="."]
-position = Vector2( 2336, 112 )
 scale = Vector2( 0.5, 0.5 )
 z_index = -10
 tile_set = SubResource( 86 )
 format = 1
-tile_data = PoolIntArray( -196684, 4, 0, -196682, 4, 0, -196680, 4, 0, -196678, 4, 0, -196676, 4, 0, -196674, 4, 0, -196672, 4, 0, -196670, 4, 0, -65612, 3, 0, -65610, 3, 0, -65608, 3, 0, -65606, 3, 0, -65604, 3, 0, -65602, 3, 0, -65600, 3, 0, -65598, 3, 0, 65460, 3, 0, 65462, 3, 0, 65463, 3, 0, 65464, 3, 0, 65465, 3, 0, 65466, 3, 0, 65467, 3, 0, 65468, 3, 0, 65469, 3, 0, 65470, 3, 0, 65471, 3, 0, 65472, 3, 0, 65473, 3, 0, 65474, 3, 0 )
+tile_data = PoolIntArray( -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 160, 52 )
+visible = false
+position = Vector2( 0, 4 )
 shape = SubResource( 83 )
 
-[node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 85 )
-position = Vector2( 160, 48 )
-scale = Vector2( 6, 2 )
-texture = ExtResource( 4 )
+[node name="Bubbles" type="Particles2D" parent="."]
+position = Vector2( 0, 64 )
+lifetime = 5.0
+randomness = 1.0
+process_material = SubResource( 91 )
+texture = ExtResource( 8 )
