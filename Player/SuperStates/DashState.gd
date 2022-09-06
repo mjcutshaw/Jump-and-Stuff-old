@@ -1,14 +1,11 @@
-extends JumpState
+extends MoveState
+class_name DashState
 
-#TODO: will be a combo button
 
 func enter() -> void:
 	.enter()
 
-	EventBus.emit_signal("playerSuperJumped")
-	player.velocityPlayer.y = player.jumpVelocityMax*2 
-	#TODO: own variable
-	player.animPlayer.play("Dash Up")
+	
 
 
 func exit() -> void:
@@ -20,7 +17,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	air_velocity_logic(player.moveSpeed/5)
+	
 
 
 func visual(delta) -> void:
@@ -34,10 +31,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	## variable jump height ##
-	if Input.is_action_just_released("jump"):
-		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin*3)
-		return State.Fall
+	
 
 	return State.Null
 

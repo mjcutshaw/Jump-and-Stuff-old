@@ -1,6 +1,7 @@
-extends MoveState
+extends DashState
 
-#TODO: move timer to here
+#LOOKAT: up and down seperate?
+#FIXME: copied dashH
 
 func enter() -> void:
 	.enter()
@@ -9,7 +10,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
 	player.dashTimer.start()
-	player.velocityPlayer.x = player.dashVelocity * player.facing
+	player.velocityPlayer.y = -player.dashVelocity
 	player.animPlayer.play("Dash Side")
 	player.consume_ability(Globals.abiliyList.Dash, 1)
 
@@ -23,7 +24,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.velocity.y = 0
+	player.velocity.x = 0
 	player.move_logic(player.SNAP_GROUND, true)
 
 

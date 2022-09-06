@@ -45,7 +45,7 @@ func handle_input(event: InputEvent) -> int:
 	if Input.is_action_just_pressed("dash"):
 		return State.Dash
 	if Input.is_action_just_pressed("super_jump"):
-		return State.SuperJump
+		return State.DashJump
 
 	return State.Null
 

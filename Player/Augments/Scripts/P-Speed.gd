@@ -3,6 +3,7 @@ extends Augment
 #FIXME: only works once. looks like speed get stuck at 318
 
 ## SMW like p speed ##
+#TODO: look into dread speed booster
 
 #onready var player: Player = owner
 
