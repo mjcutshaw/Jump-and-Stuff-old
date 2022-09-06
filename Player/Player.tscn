@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -55,6 +55,8 @@
 [ext_resource path="res://Player/States/GroundPound.gd" type="Script" id=53]
 [ext_resource path="res://Player/States/Swim.gd" type="Script" id=54]
 [ext_resource path="res://Player/States/DashVertical.gd" type="Script" id=55]
+[ext_resource path="res://Player/States/DashWall.gd" type="Script" id=56]
+[ext_resource path="res://Player/States/DashClimb.gd" type="Script" id=57]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5766,6 +5768,12 @@ script = ExtResource( 55 )
 
 [node name="DashJump" type="Node" parent="StateMachine"]
 script = ExtResource( 40 )
+
+[node name="DashWall" type="Node" parent="StateMachine"]
+script = ExtResource( 56 )
+
+[node name="DashClimb" type="Node" parent="StateMachine"]
+script = ExtResource( 57 )
 
 [node name="Glide" type="Node" parent="StateMachine"]
 script = ExtResource( 41 )
