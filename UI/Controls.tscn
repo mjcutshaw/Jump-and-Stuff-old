@@ -53,3 +53,17 @@ margin_top = 132.0
 margin_right = 1210.0
 margin_bottom = 146.0
 text = "Burrow"
+
+[node name="Hookshot" type="Label" parent="."]
+margin_left = 1160.0
+margin_top = 165.0
+margin_right = 1210.0
+margin_bottom = 179.0
+text = "Hookshot"
+
+[node name="Pogo" type="Label" parent="."]
+margin_left = 732.0
+margin_top = 300.0
+margin_right = 782.0
+margin_bottom = 314.0
+text = "Pogo"

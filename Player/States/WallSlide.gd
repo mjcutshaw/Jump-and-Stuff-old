@@ -4,7 +4,7 @@ extends WallState
 func enter() -> void:
 	.enter()
 
-	
+	player.animPlayer.play("Wall Slide")
 
 
 func exit() -> void:

@@ -44,6 +44,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
+	#TODO: more ability triggerable or chnage to idle after timer/animation
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		return State.Walk
 	if Input.is_action_just_pressed("jump"):

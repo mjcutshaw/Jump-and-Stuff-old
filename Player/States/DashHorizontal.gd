@@ -1,7 +1,6 @@
 extends DashState
 
 #TODO: move timer to here
-#TODO: renain DashHorizontal
 
 func enter() -> void:
 	.enter()
@@ -10,7 +9,6 @@ func enter() -> void:
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
 	player.dashTimer.start()
-	player.velocityPlayer.x = player.dashVelocity * player.facing
 	player.animPlayer.play("Dash Side")
 	player.consume_ability(Globals.abiliyList.Dash, 1)
 
@@ -25,7 +23,7 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.velocity.y = 0
-	player.move_logic(player.SNAP_GROUND, true)
+	player.velocityPlayer.x = player.dashVelocity * player.facing
 
 
 func visual(delta) -> void:

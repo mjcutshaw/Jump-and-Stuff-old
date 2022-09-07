@@ -1,6 +1,6 @@
 extends BaseState
 
-
+#TODO: grapple and hookshot?
 func enter() -> void:
 	.enter()
 
