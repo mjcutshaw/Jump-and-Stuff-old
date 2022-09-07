@@ -5,7 +5,7 @@ func enter() -> void:
 	.enter()
 
 	#TODO: animation
-	player.animPlayer.play("Base")
+	player.animPlayer.play("Wall Climb")
 
 
 func exit() -> void:

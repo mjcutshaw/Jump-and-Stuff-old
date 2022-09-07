@@ -5,7 +5,7 @@ extends DashState
 func enter() -> void:
 	.enter()
 
-	player.animPlayer.play("Wall Drive")
+	player.animPlayer.play("Dash Climb")
 	player.velocityPlayer.y = -player.dashVelocity
 	player.velocityPlayer.x = 0
 
