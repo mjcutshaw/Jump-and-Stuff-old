@@ -7,7 +7,7 @@ func enter() -> void:
 	.enter()
 
 	EventBus.emit_signal("playerSuperJumped")
-	player.velocityPlayer.y = player.jumpVelocityMax * 1.5
+	player.velocityPlayer.y = player.jumpVelocityMax * player.dashJumpModifier
 	#TODO: own variable
 	player.animPlayer.play("Dash Up")
 
@@ -21,7 +21,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	air_velocity_logic(player.moveSpeed/5)
+	air_velocity_logic(player.moveSpeed/player.dashJumpVelocityModifier)
 
 
 func visual(delta) -> void:

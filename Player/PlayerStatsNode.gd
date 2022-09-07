@@ -25,8 +25,8 @@ onready var jumpTimeAtApex: float = Stats.jumpTimeAtApex
 onready var baseAccelerationAir: float = Stats.accelerationAir
 onready var basefrictionAir: float = Stats.frictionAir
 onready var baseTerminalVelocity: float = Stats.terminalVelocity
-onready var glideFallSpeedModifier: int = Stats.glideFallSpeedModifier #TODO: look into
-onready var glideSpeedModifier: int = Stats.glideSpeedModifier #TODO: look into
+onready var glideFallSpeedModifier: float = Stats.glideFallSpeedModifier #TODO: look into
+onready var glideSpeedModifier: float = Stats.glideSpeedModifier #TODO: look into
 var jumpHeightMax: float
 var gravityJump: float
 var gravityFall: float
@@ -40,6 +40,11 @@ var terminalVelocity: float
 
 var dashVelocity: float
 onready var dashDuration: float = Stats.dashDuration
+onready var dashJumpModifier: float = Stats.dashJumpModifier
+onready var dashJumpVelocityModifier: float = Stats.dashJumpVelocityModifier
+
+onready var swimSpeedModifier: float = Stats.swimSpeedModifier
+
 
 var wallSlideSpeed
 var wallQuickSlideSpeed

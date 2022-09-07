@@ -2,7 +2,6 @@ extends MoveState
 class_name SwimState
 
 #TODO: turn into super swim state
-#TODO: variables
 #TODO: water dash
 
 var isSurfacing: bool = false
@@ -26,7 +25,7 @@ func physics(delta) -> void:
 	player.move_logic(player.NO_SNAP, false)
 	
 	if player.moveDirection != Globals.ZERO:
-		swim_velocity_logic(player.moveSpeed/3)
+		swim_velocity_logic(player.moveSpeed/player.swimSpeedModifier)
 	else:
 		player.velocityPlayer.y = -64
 		apply_friction(player.frictionGround)

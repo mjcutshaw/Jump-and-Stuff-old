@@ -31,14 +31,18 @@ export var frictionAir: float = .7
 export var terminalVelocity: int = 30
 export var moveSpeedApex: int = 13 
 
-export var glideSpeedModifier: int = 2
-export var glideFallSpeedModifier: int = 6
-export var glideGravityModifier: int = 10
+export var glideSpeedModifier: float = 2.0
+export var glideFallSpeedModifier: float = 6.0
+export var glideGravityModifier: float = 10.0
 
 export var jumpBoostTime: float = 0.10 #DASH
 export var dashDuration = 0.3
 export var dashDistance: int = 12
+export var dashJumpModifier: float = 1.5
+export var dashJumpVelocityModifier: float = 5
 
 # WALL SLIDE #
 export var wallSlideSpeed: int = 2
 export var wallQuickSlideSpeed: int = 4
+
+export var swimSpeedModifier: float = 3.0
