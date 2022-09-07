@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -57,6 +57,8 @@
 [ext_resource path="res://Player/States/DashVertical.gd" type="Script" id=55]
 [ext_resource path="res://Player/States/DashWall.gd" type="Script" id=56]
 [ext_resource path="res://Player/States/DashClimb.gd" type="Script" id=57]
+[ext_resource path="res://Player/States/WallClimb.gd" type="Script" id=58]
+[ext_resource path="res://Player/States/WallGrab.gd" type="Script" id=59]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -5614,8 +5616,6 @@ texture = ExtResource( 22 )
 
 [node name="Jetpack" type="Node2D" parent="CharacterRig/Parts"]
 visible = false
-position = Vector2( -23, -13 )
-rotation = 1.5708
 
 [node name="jetpack" type="Sprite" parent="CharacterRig/Parts/Jetpack"]
 position = Vector2( -21, -23 )
@@ -5665,8 +5665,8 @@ texture = ExtResource( 16 )
 
 [node name="Drill" type="Node2D" parent="CharacterRig/Parts"]
 visible = false
-position = Vector2( -1, -44 )
-rotation = -3.14159
+position = Vector2( -13, -22 )
+rotation = 1.5708
 
 [node name="Drill" type="Sprite" parent="CharacterRig/Parts/Drill"]
 position = Vector2( 4.54747e-13, -49 )
@@ -5780,6 +5780,12 @@ script = ExtResource( 41 )
 
 [node name="WallSlide" type="Node" parent="StateMachine"]
 script = ExtResource( 51 )
+
+[node name="WallGrab" type="Node" parent="StateMachine"]
+script = ExtResource( 59 )
+
+[node name="WallClimb" type="Node" parent="StateMachine"]
+script = ExtResource( 58 )
 
 [node name="Grapple" type="Node" parent="StateMachine"]
 script = ExtResource( 48 )

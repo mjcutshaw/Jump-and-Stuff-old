@@ -7,7 +7,7 @@ func enter() -> void:
 	.enter()
 
 	EventBus.emit_signal("playerSuperJumped")
-	player.velocityPlayer.y = player.jumpVelocityMax*2 
+	player.velocityPlayer.y = player.jumpVelocityMax * 1.5
 	#TODO: own variable
 	player.animPlayer.play("Dash Up")
 
@@ -48,6 +48,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.velocityPlayer.y > - player.jumpHeightApex:
+		return State.Apex
 
 	return State.Null

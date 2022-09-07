@@ -5,7 +5,9 @@ class_name WallState
 func enter() -> void:
 	.enter()
 
-	
+	if player.unlockedJumpWall:
+		player.reset_ability(Globals.abiliyList.JumpAir)
+	#TODO: dash reset
 
 
 func exit() -> void:
@@ -33,6 +35,12 @@ func handle_input(event: InputEvent) -> int:
 
 	if Input.is_action_just_pressed("jump"):
 		return State.JumpWall
+	
+	#LOOKAT: make these a charge like hollow?
+	if Input.is_action_just_pressed("dash_wall"):
+		return State.DashWall
+	if Input.is_action_just_pressed("dash_climb"):
+		return State.DashClimb
 
 	return State.Null
 
