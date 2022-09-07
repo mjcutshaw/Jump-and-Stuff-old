@@ -62,8 +62,8 @@ margin_bottom = 179.0
 text = "Hookshot"
 
 [node name="Pogo" type="Label" parent="."]
-margin_left = 732.0
-margin_top = 300.0
-margin_right = 782.0
-margin_bottom = 314.0
+margin_left = 1163.0
+margin_top = 212.0
+margin_right = 1213.0
+margin_bottom = 226.0
 text = "Pogo"

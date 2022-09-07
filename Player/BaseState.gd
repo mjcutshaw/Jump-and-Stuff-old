@@ -20,7 +20,7 @@ enum State {
 	Glide,
 	WallSlide,
 	WallGrab,
-	WallSlide,
+	WallClimb,
 	GroundPound,
 	Swim,
 }

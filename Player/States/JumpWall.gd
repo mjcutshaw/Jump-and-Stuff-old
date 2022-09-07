@@ -1,5 +1,6 @@
 extends JumpState
 
+#TODO: smoother tranistion with no input
 
 func enter() -> void:
 	.enter()
