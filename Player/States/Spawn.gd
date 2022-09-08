@@ -9,7 +9,6 @@ func enter() -> void:
 	EventBus.emit_signal("playerSpawned")
 	if CheckpointSystem.currentRespawn != Vector2.ZERO:
 		player.global_position = CheckpointSystem.currentRespawn
-#	player.animSM.travel("Spawn")
 	player.animPlayer.play("Spawn")
 	EventBus.emit_signal("playerHealthChanged", player.healthMax)
 	#TODO: need if statement if after damage return to last platform

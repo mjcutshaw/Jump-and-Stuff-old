@@ -7,7 +7,6 @@ var skidding: bool = false
 func enter() -> void:
 	.enter()
 
-#	player.animSM.travel("Drive")
 	player.animPlayer.queue("Drive")
 	#TODO: very speed of playback based on velocity
 	#TODO: nuetral on entering

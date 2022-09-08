@@ -5,7 +5,6 @@ extends GroundState
 func enter() -> void:
 	.enter()
 
-#	player.animSM.travel("Idle")
 	player.animPlayer.queue("Idle")
 
 

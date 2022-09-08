@@ -7,7 +7,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerJumped")
 	player.velocityPlayer.y = player.jumpVelocityMax
 	player.animPlayer.play("Jump")
-#	player.animSM.travel("Air State")
+
 
 func exit() -> void:
 	.exit()
