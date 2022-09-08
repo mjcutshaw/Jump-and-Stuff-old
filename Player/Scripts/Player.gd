@@ -5,7 +5,9 @@ class_name Player
 
 onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
-onready var animPlayer: AnimationPlayer = $CharacterRig/AnimationPlayer
+onready var animPlayer: AnimationPlayer = $AnimationPlayer
+onready var animTree: AnimationTree = $AnimationTree
+var animSM
 onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
 onready var wallRaycastLeft: RayCast2D = $Raycasts/Wall/Left
@@ -55,6 +57,7 @@ var glidePressed: bool = false
 export var flipTime: float = .4
 
 func _ready() -> void:
+	animSM = $AnimationTree["parameters/playback"]
 	sm.init()
 	EventBus.connect("playerDied", self, "died")
 	set_timers()

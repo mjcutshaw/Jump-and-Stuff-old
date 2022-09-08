@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -4878,6 +4878,26 @@ tracks/12/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/13/type = "bezier"
+tracks/13/path = NodePath(".:scale:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath(".:scale:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=20]
 tracks/0/type = "value"
@@ -5047,6 +5067,186 @@ tracks/13/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Parts/Tread:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Parts/Propeller:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Parts/Spring:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Parts/Jetpack:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Parts/Sled:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Parts/Umbrella:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Frame:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Frame:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Frame:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Parts/Drill:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Parts/Tread:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Parts/Tread:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Parts/Parachute:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath(".:scale:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath(".:scale:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
 
 [sub_resource type="Animation" id=23]
@@ -5696,6 +5896,76 @@ tracks/13/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=80]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=81]
+animation = "Jump Top"
+
+[sub_resource type="AnimationNodeAnimation" id=82]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+
+[sub_resource type="AnimationNodeStateMachine" id=85]
+states/Fall/node = SubResource( 80 )
+states/Fall/position = Vector2( 620, 147 )
+states/Jump/node = SubResource( 82 )
+states/Jump/position = Vector2( 399, 104 )
+"states/Jump Top/node" = SubResource( 81 )
+"states/Jump Top/position" = Vector2( 750, 99 )
+transitions = [ "Jump", "Jump Top", SubResource( 83 ), "Jump Top", "Fall", SubResource( 84 ) ]
+start_node = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=74]
+animation = "Drive"
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "Landing"
+
+[sub_resource type="AnimationNodeAnimation" id=50]
+animation = "Spawn"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=91]
+
+[sub_resource type="AnimationNodeStateMachine" id=72]
+"states/Air State/node" = SubResource( 85 )
+"states/Air State/position" = Vector2( 441, 39.755 )
+states/Drive/node = SubResource( 74 )
+states/Drive/position = Vector2( 481, 269.755 )
+states/Idle/node = SubResource( 75 )
+states/Idle/position = Vector2( 754, 155.755 )
+states/Landing/node = SubResource( 86 )
+states/Landing/position = Vector2( 647, 85.755 )
+states/Spawn/node = SubResource( 50 )
+states/Spawn/position = Vector2( 249, 155.755 )
+transitions = [ "Spawn", "Drive", SubResource( 76 ), "Spawn", "Idle", SubResource( 77 ), "Drive", "Idle", SubResource( 78 ), "Idle", "Drive", SubResource( 79 ), "Drive", "Air State", SubResource( 87 ), "Air State", "Landing", SubResource( 88 ), "Landing", "Drive", SubResource( 89 ), "Idle", "Spawn", SubResource( 91 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 24, -28.245 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=73]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=90]
+
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 32, 28 )
 
@@ -5723,6 +5993,40 @@ collision_layer = 64
 collision_mask = 190
 script = ExtResource( 2 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CharacterRig")
+anims/Base = SubResource( 2 )
+anims/Dash = SubResource( 3 )
+"anims/Dash Air" = SubResource( 4 )
+"anims/Dash Air Up" = SubResource( 5 )
+"anims/Dash Climb" = SubResource( 30 )
+"anims/Dash Down" = SubResource( 6 )
+"anims/Dash Ground" = SubResource( 7 )
+"anims/Dash Side" = SubResource( 8 )
+"anims/Dash Up" = SubResource( 9 )
+anims/Drive = SubResource( 10 )
+anims/Fall = SubResource( 11 )
+anims/Glide = SubResource( 12 )
+anims/Idle = SubResource( 13 )
+anims/Jump = SubResource( 14 )
+"anims/Jump Double" = SubResource( 15 )
+"anims/Jump Top" = SubResource( 16 )
+"anims/Jump Wall" = SubResource( 17 )
+anims/Landing = SubResource( 18 )
+anims/RESET = SubResource( 19 )
+anims/Slide = SubResource( 20 )
+anims/Spawn = SubResource( 32 )
+anims/Umbrella = SubResource( 23 )
+"anims/Wall Climb" = SubResource( 21 )
+"anims/Wall Slide" = SubResource( 22 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 72 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 73 )
+"parameters/Air State/playback" = SubResource( 90 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 16, -120 )
 current = true
@@ -5743,7 +6047,7 @@ __meta__ = {
 
 [node name="GreenFrame" type="Sprite" parent="CharacterRig/Frame"]
 modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 7.62939e-06, -40.25 )
+position = Vector2( 6.42039e-06, -39.8935 )
 scale = Vector2( 0.385542, 0.427928 )
 texture = ExtResource( 15 )
 
@@ -5835,27 +6139,27 @@ z_index = -1
 texture = ExtResource( 1 )
 
 [node name="propeller1" type="Sprite" parent="CharacterRig/Parts/Propeller"]
+visible = false
 position = Vector2( -18, -63.843 )
 scale = Vector2( 0.186, 0.186 )
 z_index = -1
 texture = ExtResource( 1 )
 
 [node name="propeller4" type="Sprite" parent="CharacterRig/Parts/Propeller"]
+visible = false
 position = Vector2( 14, -64 )
 scale = Vector2( 0.186, 0.186 )
 z_index = -1
 texture = ExtResource( 1 )
 
 [node name="shaft2" type="Sprite" parent="CharacterRig/Parts/Propeller"]
-visible = false
-position = Vector2( -18.0764, -63.7327 )
+position = Vector2( -18.076, -57 )
 scale = Vector2( 0.192463, 0.185347 )
 z_index = -1
 texture = ExtResource( 31 )
 
 [node name="shaft3" type="Sprite" parent="CharacterRig/Parts/Propeller"]
-visible = false
-position = Vector2( 14.0793, -63.6563 )
+position = Vector2( 14.079, -57 )
 scale = Vector2( 0.192463, 0.185347 )
 z_index = -1
 texture = ExtResource( 31 )
@@ -5866,25 +6170,25 @@ __meta__ = {
 }
 
 [node name="treadBack1" type="Sprite" parent="CharacterRig/Parts/Tread"]
-visible = false
 position = Vector2( 15, -16 )
 scale = Vector2( 0.383929, 0.438356 )
 z_index = -1
 texture = ExtResource( 30 )
 
 [node name="treadBack2" type="Sprite" parent="CharacterRig/Parts/Tread"]
+visible = false
 position = Vector2( 14.5, -16 )
 scale = Vector2( 0.383929, 0.438356 )
 z_index = -1
 texture = ExtResource( 19 )
 
 [node name="treadFront1" type="Sprite" parent="CharacterRig/Parts/Tread"]
-visible = false
 position = Vector2( -18, -16 )
 scale = Vector2( 0.321429, 0.438356 )
 texture = ExtResource( 18 )
 
 [node name="treadFront2" type="Sprite" parent="CharacterRig/Parts/Tread"]
+visible = false
 position = Vector2( -18, -16 )
 scale = Vector2( 0.321429, 0.438356 )
 texture = ExtResource( 33 )
@@ -5909,25 +6213,23 @@ texture = ExtResource( 22 )
 
 [node name="Jetpack" type="Node2D" parent="CharacterRig/Parts"]
 visible = false
-position = Vector2( 21, -27 )
-rotation = -1.5708
 
 [node name="jetpack" type="Sprite" parent="CharacterRig/Parts/Jetpack"]
-position = Vector2( -17, -23 )
+position = Vector2( -21, -23 )
 rotation = 1.5708
 scale = Vector2( 0.228257, 0.228257 )
 z_index = -1
 texture = ExtResource( 17 )
 
 [node name="flame" type="Sprite" parent="CharacterRig/Parts/Jetpack"]
-position = Vector2( -41, -14 )
+position = Vector2( -50.5317, -13.4686 )
 rotation = 1.5708
 scale = Vector2( 0.286708, 0.286708 )
 z_index = -2
 texture = ExtResource( 25 )
 
 [node name="flame2" type="Sprite" parent="CharacterRig/Parts/Jetpack"]
-position = Vector2( -41, -32.122 )
+position = Vector2( -50.5312, -32.1224 )
 rotation = 1.5708
 scale = Vector2( 0.286708, 0.286708 )
 z_index = -2
@@ -5985,33 +6287,6 @@ rotation = 3.14159
 scale = Vector2( 0.5, 0.5 )
 z_index = -1
 texture = ExtResource( 27 )
-
-[node name="AnimationTree" type="AnimationTree" parent="CharacterRig"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterRig"]
-anims/Base = SubResource( 2 )
-anims/Dash = SubResource( 3 )
-"anims/Dash Air" = SubResource( 4 )
-"anims/Dash Air Up" = SubResource( 5 )
-"anims/Dash Climb" = SubResource( 30 )
-"anims/Dash Down" = SubResource( 6 )
-"anims/Dash Ground" = SubResource( 7 )
-"anims/Dash Side" = SubResource( 8 )
-"anims/Dash Up" = SubResource( 9 )
-anims/Drive = SubResource( 10 )
-anims/Fall = SubResource( 11 )
-anims/Glide = SubResource( 12 )
-anims/Idle = SubResource( 13 )
-anims/Jump = SubResource( 14 )
-"anims/Jump Double" = SubResource( 15 )
-"anims/Jump Top" = SubResource( 16 )
-"anims/Jump Wall" = SubResource( 17 )
-anims/Landing = SubResource( 18 )
-anims/RESET = SubResource( 19 )
-anims/Slide = SubResource( 20 )
-anims/Umbrella = SubResource( 23 )
-"anims/Wall Climb" = SubResource( 21 )
-"anims/Wall Slide" = SubResource( 22 )
 
 [node name="Particles" type="Node2D" parent="CharacterRig"]
 

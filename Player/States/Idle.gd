@@ -1,10 +1,11 @@
 extends GroundState
 
+#TODO: idle animations
 
 func enter() -> void:
 	.enter()
 
-	#TODO: character needs to be moving
+#	player.animSM.travel("Idle")
 	player.animPlayer.queue("Idle")
 
 

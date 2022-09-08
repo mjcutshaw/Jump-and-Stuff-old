@@ -5,6 +5,7 @@ func enter() -> void:
 	.enter()
 
 	player.animPlayer.play("Jump Top")
+#	player.animSM.travel("Jump Top")
 
 
 func exit() -> void:

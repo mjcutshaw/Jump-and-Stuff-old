@@ -8,7 +8,7 @@ func enter() -> void:
 	
 	if player.moveDirection.x == player.lastWallDirection:
 		player.velocityPlayer = Vector2(100 * -player.lastWallDirection, player.jumpVelocityMax)
-		player.animPlayer.play("Dash Air Up")
+		player.animPlayer.play("Jump Double")
 	else:
 		player.velocityPlayer.y = player.jumpVelocityMax
 		player.velocityPlayer.x = player.moveSpeed * -player.lastWallDirection

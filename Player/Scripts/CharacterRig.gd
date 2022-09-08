@@ -2,7 +2,6 @@ extends Node2D
 
 onready var player: Player = owner
 onready var body: Node2D = $Frame
-onready var animPlayer: AnimationPlayer = $AnimationPlayer
 var spawning: bool = false
 var dashing: bool = false
 export var flipTime: float = .4

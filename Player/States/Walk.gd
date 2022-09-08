@@ -2,11 +2,12 @@ extends GroundState
 
 var skidding: bool = false
 #TODO: if nuetral entering use momentum
+#LOOKAT: stick click for speed boost and shinespark
 
 func enter() -> void:
 	.enter()
 
-	#TODO: animation state machine
+#	player.animSM.travel("Drive")
 	player.animPlayer.queue("Drive")
 	#TODO: very speed of playback based on velocity
 	#TODO: nuetral on entering

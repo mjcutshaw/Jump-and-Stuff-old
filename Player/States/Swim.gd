@@ -75,6 +75,7 @@ func handle_surfacing(delta) -> void:
 
 #func apply_swim_acceleration(amount) -> void:
 #TODO: need to multiply times delta/ (1/FRAMERATE)
+#TODO: linear interpoiation
 #	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * player.moveDirection.x
 #
 #func apply_swim_friction(amount) -> void:

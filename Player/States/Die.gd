@@ -48,5 +48,5 @@ func state_check(delta: float) -> int:
 
 	#TODO: make a timer
 	return State.Spawn
-
-	return State.Null
+#FIXME: disable for no error
+#	return State.Null

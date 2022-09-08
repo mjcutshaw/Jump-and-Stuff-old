@@ -13,7 +13,7 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-	
+	#TODO: close animation
 
 
 func physics(delta) -> void:
