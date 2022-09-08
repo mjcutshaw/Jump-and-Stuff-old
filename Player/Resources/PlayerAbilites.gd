@@ -5,24 +5,6 @@ class_name PlayerAbilities
 #TODO: add these onto player scrip like PlayerStatsNode
 #TODO: add more conditions for unlocks
 #TODO: all abilities should get an upgrade and shards/modifires/charms
-#enum abiliyList {
-#	Null,
-#	All,
-#	Jump,
-#	JumpAir,
-#	JumpLong,
-#	JumpCrouch, 
-#	JumpWall,
-#	Dash,
-#	DashSide,
-#	DashUp,
-#	DashDown,
-#	DashWall,
-#	Glide,
-#	GroundPound,
-#	Grapple,
-#	Climb,
-#	}
 
 
 var unlockedJump: bool = false
@@ -42,7 +24,7 @@ var unlockedDashDown: bool = false
 var unlockedDashWall: bool = false
 var unlockedGlide: bool = false
 var unlockedGroundPound: bool = false
-var unlockedGrapple: bool = false
+var unlockedHookShot: bool = false
 var unlockedClimb: bool = false
 var unlockedClimbLeft: bool = false
 var unlockedClimbRight: bool = false

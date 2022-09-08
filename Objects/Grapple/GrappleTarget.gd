@@ -3,7 +3,7 @@ class_name GrappleTarget
 
 #TODO: generalize 
 
-enum abilityTargetType {null, grapple, burrow}
+enum abilityTargetType {null, hookShot, burrow}
 export (abilityTargetType) var abilityTarget
 onready var timer: Timer = $Timer
 

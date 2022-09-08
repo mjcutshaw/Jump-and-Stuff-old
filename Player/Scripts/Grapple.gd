@@ -3,6 +3,7 @@ extends Line2D
 onready var aim: Area2D = $Aim
 
 #FIXME: grabbing offset global position
+#TODO: change to hookshot
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("grapple"):

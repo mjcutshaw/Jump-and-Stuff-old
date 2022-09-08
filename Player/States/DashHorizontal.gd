@@ -1,6 +1,7 @@
 extends DashState
 
 #TODO: move timer to here
+#TODO: capture previous velocity and return to that, unless nuetral
 
 func enter() -> void:
 	.enter()

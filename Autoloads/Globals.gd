@@ -28,7 +28,7 @@ var dashUpColor: Color = Color.red
 var dashDownColor: Color = Color.green
 var dashColor: Color = Color.blue #TODO: change to cycle through dash colors
 var dashUsedColor: Color = Color.gray
-var grappleColor: Color = Color.purple
+var hookshotColor: Color = Color.purple
 var jumpColor: Color = Color.brown
 var allColor: Color = Color.white
 var spinColor: Color = Color.orange
@@ -56,6 +56,6 @@ enum abiliyList {
 	WallSlide,
 	WallSlide,
 	GroundPound,
-	Grapple,
+	HookShot,
 	Climb,
 	}

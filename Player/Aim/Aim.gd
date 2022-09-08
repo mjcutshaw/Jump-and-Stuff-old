@@ -1,6 +1,6 @@
 extends Area2D
 
-#TODO: two indicators, grapple and burrow
+#TODO: two indicators, grapple and burrow, change to hookshot
 #make resuble and parent tell target. might be easier to have generic target and control the layers they look at
 
 onready var player: Player = owner

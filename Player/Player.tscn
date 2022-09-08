@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Player/States/Fall.gd" type="Script" id=7]
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
-[ext_resource path="res://Player/Scripts/CharacterRig.gd" type="Script" id=10]
 [ext_resource path="res://Player/Abilities/Walk.gd" type="Script" id=11]
 [ext_resource path="res://Assets/Player/parts/spring3.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Player/parts/eyeBlack.png" type="Texture" id=13]
@@ -47,7 +46,7 @@
 [ext_resource path="res://Player/Scripts/CollectorBox.gd" type="Script" id=45]
 [ext_resource path="res://Player/Scripts/HazardWaring.gd" type="Script" id=46]
 [ext_resource path="res://Player/Scripts/TargetIndicator.gd" type="Script" id=47]
-[ext_resource path="res://Player/States/Grapple.gd" type="Script" id=48]
+[ext_resource path="res://Player/States/HookShot.gd" type="Script" id=48]
 [ext_resource path="res://Player/Scripts/Grapple.gd" type="Script" id=49]
 [ext_resource path="res://Player/States/AirJump.gd" type="Script" id=50]
 [ext_resource path="res://Player/States/WallSlide.gd" type="Script" id=51]
@@ -5961,7 +5960,6 @@ editor_draw_drag_margin = true
 script = ExtResource( 34 )
 
 [node name="CharacterRig" type="Node2D" parent="."]
-script = ExtResource( 10 )
 
 [node name="Frame" type="Node2D" parent="CharacterRig"]
 __meta__ = {
@@ -6279,7 +6277,7 @@ script = ExtResource( 59 )
 [node name="WallClimb" type="Node" parent="StateMachine"]
 script = ExtResource( 58 )
 
-[node name="Grapple" type="Node" parent="StateMachine"]
+[node name="HookShot" type="Node" parent="StateMachine"]
 script = ExtResource( 48 )
 
 [node name="GroundPound" type="Node" parent="StateMachine"]
