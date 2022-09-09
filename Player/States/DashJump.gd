@@ -7,6 +7,7 @@ func enter() -> void:
 	.enter()
 
 	EventBus.emit_signal("playerSuperJumped")
+	player.velocityPlayer.x = 0
 	player.velocityPlayer.y = player.jumpVelocityMax * player.dashJumpModifier
 	#TODO: own variable
 	player.animPlayer.play("Dash Up")
