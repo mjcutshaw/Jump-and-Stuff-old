@@ -10,7 +10,7 @@ func enter() -> void:
 	.enter()
 
 	player.swimLevel.enabled = true
-	player.animPlayer.play("Slide")
+	player.animPlayer.play("Swim")
 
 
 func exit() -> void:
@@ -49,7 +49,7 @@ func handle_input(event: InputEvent) -> int:
 
 	if isSurfacing and Input.is_action_just_pressed("jump"):
 		return State.Jump
-	#TODO: jump in water for up thrust
+	#FIXME: needs more range closer to the surface
 
 	return State.Null
 
