@@ -35,8 +35,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("move_down"):
-		return	 State.GroundPound
+	
 
 	return State.Null
 
