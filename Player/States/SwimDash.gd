@@ -4,7 +4,9 @@ extends SwimState
 func enter() -> void:
 	.enter()
 
-	
+	player.animPlayer.play("Dash Side")
+	player.velocityPlayer = player.moveDirection * player.dashVelocity
+	player.dashTimer.start()
 
 
 func exit() -> void:
@@ -40,6 +42,10 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.inWater == false:
+		player.velocityPlayer.y = player.velocityPlayer.y/2
+		return State.Fall
+	if player.dashTimer.is_stopped():
+		return State.Swim
 
 	return State.Null

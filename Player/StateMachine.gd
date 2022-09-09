@@ -22,6 +22,7 @@ onready var states = {
 	BaseState.State.WallClimb: $WallClimb,
 	BaseState.State.GroundPound: $GroundPound,
 	BaseState.State.Swim: $Swim,
+	BaseState.State.SwimDash: $SwimDash,
 }
 
 var currentState: BaseState

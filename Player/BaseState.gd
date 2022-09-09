@@ -23,6 +23,7 @@ enum State {
 	WallClimb,
 	GroundPound,
 	Swim,
+	SwimDash,
 }
 
 var player: Player

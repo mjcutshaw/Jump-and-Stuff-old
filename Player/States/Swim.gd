@@ -1,5 +1,4 @@
-extends MoveState
-class_name SwimState
+extends SwimState
 
 #TODO: turn into super swim state
 #TODO: water dash
@@ -9,20 +8,19 @@ var isSurfacing: bool = false
 func enter() -> void:
 	.enter()
 
-	player.swimLevel.enabled = true
 	player.animPlayer.play("Swim")
 
 
 func exit() -> void:
 	.exit()
 
-	player.swimLevel.enabled = false
+	
 
 
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.move_logic(player.NO_SNAP, false)
+	
 	
 	if player.moveDirection != Globals.ZERO:
 		swim_velocity_logic(player.moveSpeed/player.swimSpeedModifier)
@@ -39,7 +37,7 @@ func physics(delta) -> void:
 func visual(delta) -> void:
 	.visual(delta)
 
-	player.turn_sprite()
+	
 
 
 func handle_input(event: InputEvent) -> int:
@@ -50,6 +48,8 @@ func handle_input(event: InputEvent) -> int:
 	if isSurfacing and Input.is_action_just_pressed("jump"):
 		return State.Jump
 	#FIXME: needs more range closer to the surface
+	if Input.is_action_just_pressed("dash"):
+		return State.SwimDash
 
 	return State.Null
 
@@ -65,13 +65,7 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 
-func swim_velocity_logic(speed: int) -> void:
-	#TODO: accel and friction
-	player.velocityPlayer = player.moveDirection * speed
 
-func handle_surfacing(delta) -> void:
-	if player.velocity.y < 0:
-		pass
 
 #func apply_swim_acceleration(amount) -> void:
 #TODO: need to multiply times delta/ (1/FRAMERATE)

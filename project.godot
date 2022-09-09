@@ -167,7 +167,7 @@ _global_script_classes=[ {
 "base": "MoveState",
 "class": "SwimState",
 "language": "GDScript",
-"path": "res://Player/States/Swim.gd"
+"path": "res://Player/SuperStates/SwimState.gd"
 }, {
 "base": "Interactable",
 "class": "Unlockables",
