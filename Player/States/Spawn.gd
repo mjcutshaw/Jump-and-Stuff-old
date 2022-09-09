@@ -20,7 +20,7 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-	
+	player.characterRig.scale = Vector2(1,1)
 
 
 func physics(delta) -> void:
