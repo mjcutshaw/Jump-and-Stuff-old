@@ -41,6 +41,7 @@ func handle_input(event: InputEvent) -> int:
 
 	if Input.is_action_just_released("glide"):
 		return State.Fall
+		#TODO: settings for toggle glide
 
 	return State.Null
 
