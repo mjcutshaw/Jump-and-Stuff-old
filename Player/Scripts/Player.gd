@@ -170,6 +170,7 @@ func _on_SemisolidReset_timeout() -> void:
 
 func bounce(amount) -> void:
 	EventBus.emit_signal("playerBounced", amount)
+	#TODO: bounce state
 
 func change_health(amount: int) -> void:
 	EventBus.emit_signal("playerHealthChanged", amount)

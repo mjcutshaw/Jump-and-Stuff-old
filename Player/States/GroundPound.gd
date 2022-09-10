@@ -1,6 +1,7 @@
 extends AirState
 
 #TODO: Variables
+#TODO: remove from air state to control what gets you out
 func enter() -> void:
 	.enter()
 
