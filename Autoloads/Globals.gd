@@ -29,10 +29,14 @@ var dashDownColor: Color = Color.green
 var dashColor: Color = Color.blue #TODO: change to cycle through dash colors
 var dashUsedColor: Color = Color.gray
 var hookshotColor: Color = Color.purple
+var grappleColor: Color = Color.violet
+var burrowColor: Color = Color.orange
 var jumpColor: Color = Color.brown
-var allColor: Color = Color.white
-var spinColor: Color = Color.orange
+var pogoColor: Color = Color.floralwhite
 var bashColor: Color = Color.yellow
+#var spinColor: Color = Color.orange
+var allColor: Color = Color.white
+
 #TODO: Add in airjump tracker
 
 
