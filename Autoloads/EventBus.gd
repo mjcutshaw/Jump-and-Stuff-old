@@ -20,6 +20,7 @@ signal playerHealthMaxChanged(amount)
 signal playerStatChange(stat, amount)
 signal playerAbilityUnlocked(ability)
 signal playerAugmentUnlocked(augment)
+signal hookshotTarget(target)
 
 signal playerBounced(amount)
 
