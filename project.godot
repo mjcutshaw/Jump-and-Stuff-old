@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "MoveState",
 "class": "AirState",
 "language": "GDScript",
-"path": "res://Player/SuperStates/Air.gd"
+"path": "res://Player/SuperStates/AirState.gd"
 }, {
 "base": "PlayerUnlockables",
 "class": "Augment",
@@ -74,11 +74,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Enviroment/Fluids/Scripts/Fluids.gd"
 }, {
-"base": "Interactable",
-"class": "GrappleTarget",
-"language": "GDScript",
-"path": "res://Objects/Grapple/GrappleTarget.gd"
-}, {
 "base": "Ability",
 "class": "GroundAbilities",
 "language": "GDScript",
@@ -87,7 +82,7 @@ _global_script_classes=[ {
 "base": "MoveState",
 "class": "GroundState",
 "language": "GDScript",
-"path": "res://Player/SuperStates/Ground.gd"
+"path": "res://Player/SuperStates/GroundState.gd"
 }, {
 "base": "HealthBox",
 "class": "HealBox",
@@ -122,12 +117,12 @@ _global_script_classes=[ {
 "base": "AirState",
 "class": "JumpState",
 "language": "GDScript",
-"path": "res://Player/SuperStates/Jump.gd"
+"path": "res://Player/SuperStates/JumpState.gd"
 }, {
 "base": "BaseState",
 "class": "MoveState",
 "language": "GDScript",
-"path": "res://Player/SuperStates/Move.gd"
+"path": "res://Player/SuperStates/MoveState.gd"
 }, {
 "base": "PlayerAbilitiesNode",
 "class": "Player",
@@ -154,6 +149,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/PlayerStatsNode.gd"
 }, {
+"base": "Node2D",
+"class": "PlayerToTarget",
+"language": "GDScript",
+"path": "res://Player/Scripts/PlayerToTarget.gd"
+}, {
 "base": "Node",
 "class": "PlayerUnlockables",
 "language": "GDScript",
@@ -170,6 +170,11 @@ _global_script_classes=[ {
 "path": "res://Player/SuperStates/SwimState.gd"
 }, {
 "base": "Interactable",
+"class": "Target",
+"language": "GDScript",
+"path": "res://Objects/Target/Target.gd"
+}, {
+"base": "Interactable",
 "class": "Unlockables",
 "language": "GDScript",
 "path": "res://Objects/Unlockables/Scripts/Unlockable.gd"
@@ -182,7 +187,7 @@ _global_script_classes=[ {
 "base": "MoveState",
 "class": "WallState",
 "language": "GDScript",
-"path": "res://Player/SuperStates/Wall.gd"
+"path": "res://Player/SuperStates/WallState.gd"
 } ]
 _global_script_class_icons={
 "AbilitiyUnlocker": "",
@@ -198,7 +203,6 @@ _global_script_class_icons={
 "DashState": "",
 "EnviromentalEffects": "",
 "Fluids": "",
-"GrappleTarget": "",
 "GroundAbilities": "",
 "GroundState": "",
 "HealBox": "",
@@ -214,9 +218,11 @@ _global_script_class_icons={
 "PlayerAbilitiesNode": "",
 "PlayerStats": "",
 "PlayerStatsNode": "",
+"PlayerToTarget": "",
 "PlayerUnlockables": "",
 "StatChanger": "",
 "SwimState": "",
+"Target": "",
 "Unlockables": "",
 "VisibleCollisionShape2D": "",
 "WallState": ""
@@ -239,8 +245,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Autoloads/Globals.gd"
-EventBus="*res://Autoloads/Signals.gd"
 CheckpointSystem="*res://Autoloads/CheckpointSystem.gd"
+EventBus="*res://Autoloads/EventBus.gd"
 
 [debug]
 
@@ -378,7 +384,9 @@ ground_pound={
 2d_physics/layer_7="Player"
 2d_physics/layer_8="Hazard"
 2d_physics/layer_10="Water"
-2d_physics/layer_13="Grapple"
+2d_physics/layer_13="HookShot"
+2d_physics/layer_14="GrappleHook"
+2d_physics/layer_15="Burrow"
 
 [physics]
 

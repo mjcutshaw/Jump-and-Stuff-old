@@ -43,7 +43,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Player/Augments/P-Speed.tscn" type="PackedScene" id=42]
 [ext_resource path="res://UI/Pause/PauseMenu.tscn" type="PackedScene" id=43]
-[ext_resource path="res://Objects/Grapple/GrappleTarget.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Objects/Target/Target.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Objects/Enviroment/Fluids/Water.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Objects/Enviroment/Wind/Wind.tscn" type="PackedScene" id=52]
 
@@ -966,7 +966,7 @@ position = Vector2( -1327, -93 )
 texture = ExtResource( 27 )
 
 [node name="StartingLocation" parent="." instance=ExtResource( 35 )]
-position = Vector2( -1640, -16 )
+position = Vector2( 184, -80 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -1022,10 +1022,18 @@ script = ExtResource( 9 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 13 )
 
-[node name="GrappleTarget" parent="Interactables" instance=ExtResource( 44 )]
-position = Vector2( 320, -112 )
+[node name="Target" parent="Interactables" instance=ExtResource( 44 )]
+position = Vector2( 0, -64 )
+abilityTarget = 1
 
-[node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Interactables/GrappleTarget"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target"]
+shape = SubResource( 82 )
+
+[node name="Target2" parent="Interactables" instance=ExtResource( 44 )]
+position = Vector2( -128, -192 )
+abilityTarget = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target2"]
 shape = SubResource( 82 )
 
 [node name="Player" parent="." instance=ExtResource( 41 )]

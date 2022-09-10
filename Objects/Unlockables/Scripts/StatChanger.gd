@@ -9,7 +9,7 @@ export var negative: bool = false
 func _ready() -> void:
 	if negative:
 		amount = -amount
-	if statIncrease == Globals.statList.NULL:
+	if statIncrease == Globals.statList.null:
 		EventBus.emit_signal("error", str("stat changer null: " + str(global_position)))
 	
 	connect("area_entered", self, "on_Player_entered")

@@ -7,7 +7,7 @@ onready var player: Player = owner
 onready var raycast: RayCast2D = $RayCast2D
 onready var aimIndicator: Node2D = $AimIndicator
 onready var targetIndicator: Node2D = $TargetIndicator
-var targetGrapple: GrappleTarget
+var target: Target
 
 func _ready() -> void:
 	aimIndicator.visible = false
@@ -16,20 +16,9 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
-	
-	aim_direction()
-	if player.aimDirection == Vector2.ZERO:
-		aimIndicator.visible = false
-		targetIndicator.visible = false
-	else:
-		aimIndicator.visible = true
-		aim()
-		targetGrapple = find_best_target()
-		set_target_grapple(targetGrapple)
 
-func find_best_target() -> GrappleTarget:
-	var closestTarget: GrappleTarget = null
+func find_best_target() -> Target:
+	var closestTarget: Target = null
 	var targets = get_overlapping_areas()
 	for t in targets:
 		if not t.is_active:
@@ -41,32 +30,23 @@ func find_best_target() -> GrappleTarget:
 		
 		if raycast.is_colliding():
 			continue
+			
 		
 		closestTarget = t
 	return closestTarget
 
-func has_target_grapple() -> bool:
-	return targetGrapple != null
+func has_target() -> bool:
+	return target != null
 
 
-func set_target_grapple(value: GrappleTarget) -> void:
-	targetGrapple = value
-	targetIndicator.visible = targetGrapple != null
-	if targetGrapple:
-		targetIndicator.global_position = targetGrapple.global_position
+func set_target(value: Target) -> void:
+	target = value
+	targetIndicator.visible = target != null
+	if target:
+		targetIndicator.global_position = target.global_position
 
 
-func aim_direction() -> void:
-	player.aimStrength =  Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
-	#todo: change deadzone to settings
-	var deadzone_radius: = 0.2
-	
-	if player.aimStrength.length() > deadzone_radius:
-		player.aimDirection = player.aimStrength
-	else:
-		player.aimDirection = Vector2.ZERO
-
-func aim()-> void:
+func aim() -> void:
 	var cast: Vector2 = player.aimDirection.normalized() * raycast.cast_to.length()
 	var angle: = cast.angle()
 	rotation = angle

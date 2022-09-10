@@ -2,6 +2,7 @@ extends MoveState
 class_name DashState
 #TODO: ground dash
 #FIXME: turn dash inputs into dash + direction
+#TODO: cooldown timers
 
 func enter() -> void:
 	.enter()

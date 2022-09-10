@@ -36,9 +36,9 @@ var bashColor: Color = Color.yellow
 #TODO: Add in airjump tracker
 
 
-enum statList {NULL, MoveSpeed, JumpHeight, HealthMax}
+enum statList {null, MoveSpeed, JumpHeight, HealthMax}
 enum abiliyList {
-	NULL,
+	null,
 	All,
 	Walk,
 	Jump,
@@ -59,3 +59,4 @@ enum abiliyList {
 	HookShot,
 	Climb,
 	}
+enum abilityTargetType {null, hookShot, grappleHook, burrow}
