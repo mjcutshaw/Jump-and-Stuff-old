@@ -20,6 +20,9 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.move_logic(player.SNAP_GROUND, true)
+	if player.moveDirection.x == 0 and (player.ledgeLeft or player.ledgeRight):
+		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, player.frictionSkid)
+		## stop on ledge it no input. might be better to change friction
 
 
 func visual(delta) -> void:

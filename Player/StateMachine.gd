@@ -23,6 +23,7 @@ onready var states = {
 	BaseState.State.GroundPound: $GroundPound,
 	BaseState.State.Swim: $Swim,
 	BaseState.State.SwimDash: $SwimDash,
+	BaseState.State.Skid: $Skid,
 }
 
 var currentState: BaseState

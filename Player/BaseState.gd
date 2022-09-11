@@ -24,6 +24,7 @@ enum State {
 	GroundPound,
 	Swim,
 	SwimDash,
+	Skid,
 }
 
 var player: Player

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -62,6 +62,7 @@
 [ext_resource path="res://Assets/Player/parts/propeller2.png" type="Texture" id=60]
 [ext_resource path="res://Player/States/SwimDash.gd" type="Script" id=61]
 [ext_resource path="res://Player/Scripts/Hookshot.gd" type="Script" id=62]
+[ext_resource path="res://Player/States/Skid.gd" type="Script" id=63]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -6830,6 +6831,9 @@ script = ExtResource( 4 )
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
 skidPercent = 0.7
+
+[node name="Skid" type="Node" parent="StateMachine"]
+script = ExtResource( 63 )
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
