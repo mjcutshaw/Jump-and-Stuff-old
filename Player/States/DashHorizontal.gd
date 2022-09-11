@@ -6,7 +6,7 @@ extends DashState
 func enter() -> void:
 	.enter()
 
-	
+	player.velocityPrevious = player.velocityPlayer
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
 	player.dashTimer.start()
@@ -17,6 +17,8 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
+	if player.moveDirection != Vector2.ZERO:
+		player.velocityPlayer = player.velocityPrevious
 	player.animPlayer.stop()
 
 

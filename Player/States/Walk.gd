@@ -2,7 +2,6 @@ extends GroundState
 
 var skidding: bool = false
 export (float, 1) var skidPercent: float = .8
-#TODO: skid state
 #TODO: if nuetral entering use momentum
 #LOOKAT: stick click for speed boost and shinespark
 

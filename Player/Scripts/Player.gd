@@ -29,6 +29,7 @@ var velocity: Vector2 = Vector2.ZERO
 var velocityPlayer: Vector2 = Vector2.ZERO
 var velocityEnviroment: Vector2 = Vector2.ZERO
 var velocityAugment: Vector2 = Vector2.ZERO
+var velocityPrevious: Vector2 = Vector2.ZERO
 
 var moveStrength: Vector2 = Vector2.ZERO
 var moveDirection: Vector2 = Vector2.ZERO

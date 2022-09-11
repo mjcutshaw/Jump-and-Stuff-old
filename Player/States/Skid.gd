@@ -1,7 +1,7 @@
 extends GroundState
 
-export (float, 1) var skidDuration: float = .2
-export (float, 1) var skidPercent: float = .8
+export (float, 1) var skidDuration: float = 0.15
+export (float, 1) var skidPercent: float = 0.8
 
 var skidTime: float
 
