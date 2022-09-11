@@ -2,6 +2,7 @@ extends GroundState
 
 var skidding: bool = false
 export (float, 1) var skidPercent: float = .8
+export  var slowDownTime: float = 10
 #TODO: if nuetral entering use momentum
 #LOOKAT: stick click for speed boost and shinespark
 
@@ -25,6 +26,9 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
+	if abs(player.velocityPlayer.x) > player.moveSpeed:
+		player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, slowDownTime) * sign(player.velocityPlayer.x)
+		#Slow player down, meeds a timer.
 	if abs(player.velocityPlayer.x) > player.moveSpeed * skidPercent  and player.moveDirection.x != 0 and (sign(player.velocityPlayer.x) != player.moveDirection.x):
 		skidding = true
 		#Skid if over percent of base speed
