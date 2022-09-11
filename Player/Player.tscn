@@ -6829,6 +6829,7 @@ script = ExtResource( 4 )
 
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
+skidPercent = 0.7
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )

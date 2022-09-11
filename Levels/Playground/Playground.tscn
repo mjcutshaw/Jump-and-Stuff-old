@@ -1031,14 +1031,14 @@ shape = SubResource( 82 )
 
 [node name="Target2" parent="Interactables" instance=ExtResource( 44 )]
 position = Vector2( -128, -192 )
-abilityTarget = 2
+abilityTarget = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target2"]
 shape = SubResource( 82 )
 
 [node name="Target3" parent="Interactables" instance=ExtResource( 44 )]
 position = Vector2( -240, -144 )
-abilityTarget = 3
+abilityTarget = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target3"]
 shape = SubResource( 82 )
