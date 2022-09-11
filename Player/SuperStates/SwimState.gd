@@ -53,5 +53,5 @@ func swim_velocity_logic(speed: int) -> void:
 	player.velocityPlayer = player.moveDirection * speed
 
 func handle_surfacing(delta) -> void:
-	if player.velocity.y < 0:
+	if player.velocityPlayer.y < 0:
 		pass

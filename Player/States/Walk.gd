@@ -1,8 +1,8 @@
 extends GroundState
 
 var skidding: bool = false
-export (float, 1) var skidPercent: float = .8
-export  var slowDownTime: float = 10
+export (float, 0, 1, .1) var skidPercent: float = .8
+export  var slowDownTime: float = 10 #LOOKAT: magic number
 #TODO: if nuetral entering use momentum
 #LOOKAT: stick click for speed boost and shinespark
 

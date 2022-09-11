@@ -70,4 +70,4 @@ func state_check(delta: float) -> int:
 
 
 func cap_wall_slide_speed(amount):
-	player.velocityPlayer.y = max(player.velocity.y, amount)
+	player.velocityPlayer.y = max(player.velocityPlayer.y, amount)

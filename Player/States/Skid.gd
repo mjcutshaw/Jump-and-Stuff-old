@@ -1,7 +1,7 @@
 extends GroundState
 
-export (float, 1) var skidDuration: float = 0.15
-export (float, 1) var skidPercent: float = 0.8
+export (float, 0, 1, .1) var skidDuration: float = 0.15
+export (float, 0, 1, .1) var skidPercent: float = 0.8
 
 var skidTime: float
 
@@ -22,7 +22,6 @@ func exit() -> void:
 
 func physics(delta) -> void:
 	.physics(delta)
-	EventBus.emit_signal("debug1", "skid time: ", skidTime)
 
 	skidTime -= delta
 	if player.moveDirection.x == 0 :

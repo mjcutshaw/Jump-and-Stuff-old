@@ -6,6 +6,7 @@ extends DashState
 func enter() -> void:
 	.enter()
 
+	player.velocityPlayer.y = 0
 	player.velocityPrevious = player.velocityPlayer
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
@@ -18,14 +19,13 @@ func exit() -> void:
 	.exit()
 
 	if player.moveDirection != Vector2.ZERO:
-		player.velocityPlayer = player.velocityPrevious
+		player.velocityPlayer.x = player.velocityPrevious.x
 	player.animPlayer.stop()
 
 
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.velocity.y = 0
 	player.velocityPlayer.x = player.dashVelocity * player.facing
 
 
