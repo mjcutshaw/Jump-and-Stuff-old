@@ -1,12 +1,17 @@
-extends SwimState
+extends MoveState
 
+
+export (float, 0 , 1, 0.1) var recoverTime: float = 0.5
+onready var recoverTimer: Timer = $Recover
+
+func _ready() -> void:
+	recoverTimer.wait_time = recoverTime
 
 func enter() -> void:
 	.enter()
 
-	player.animPlayer.play("Dash Side")
-	player.velocityPlayer = player.moveDirection * player.dashVelocity
-	player.dashTimer.start()
+	recoverTimer.start()
+	player.fallDamge = false
 
 
 func exit() -> void:
@@ -42,10 +47,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if !player.inWater:
-		player.velocityPlayer.y = player.velocityPlayer.y/2
-		return State.Fall
-	if player.dashTimer.is_stopped():
-		return State.Swim
+	if recoverTimer.is_stopped():
+		return State.Idle
 
 	return State.Null

@@ -19,6 +19,7 @@ onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
 onready var coyoteJumpWallTimer: Timer = $Timers/CoyoteJumpWall
 onready var dashTimer: Timer = $Timers/DashDuration
 onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
+onready var fallTimer: Timer = $Timers/FallTimer
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -43,6 +44,8 @@ var aimDirection: Vector2 = Vector2.ZERO
 var ledgeLeft: bool = false
 var ledgeRight: bool = false
 
+var fallDamge: bool = false
+
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1
 var coyoteWallTime: float = 0.2
@@ -54,6 +57,7 @@ var jumpCornerCorrectionHorizontal: int = 15
 var glidePressed: bool = false
 
 export var flipTime: float = .4
+export (float, 0, 5, 0.1) var fallTime: float = .9
 
 func _ready() -> void:
 	sm.init()
@@ -145,6 +149,7 @@ func set_timers() -> void:
 	bufferJumpTimer.wait_time = jumpBufferTime
 	dashTimer.wait_time = dashDuration
 	semisolidResetTimer.wait_time = semisolidResetTime
+	fallTimer.wait_time = fallTime
 	#TODO: move this over to timers
 
 

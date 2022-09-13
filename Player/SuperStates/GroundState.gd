@@ -64,8 +64,10 @@ func state_check(delta: float) -> int:
 	if !player.is_on_floor():
 		player.coyoteJumpTimer.start()
 		return State.Fall
-	if player.inWater == true:
+	if player.inWater:
 		return State.Swim
+	if player.fallDamge:
+		return State.FallDamage
 
 	return State.Null
 

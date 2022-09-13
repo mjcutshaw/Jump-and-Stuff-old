@@ -54,13 +54,13 @@ func unlock_ability(ability: int) -> void:
 		unlockedJumpAir = true
 		unlockedDash = true
 	elif ability == Abilities.abiliyList.JumpAir:
-		if unlockedJumpAir == true:
+		if unlockedJumpAir:
 			maxJumpAir = +1
 		else:
 			unlockedJumpAir = true
 	elif ability == Abilities.abiliyList.Dash:
 		#TODO: logic for increased dashes
-		if unlockedDash == true:
+		if unlockedDash:
 			maxDash += 1
 		else:
 			unlockedDash = true

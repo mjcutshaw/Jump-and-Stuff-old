@@ -45,7 +45,7 @@ func unlock_ability(ability: int) -> void:
 	elif ability == Globals.abiliyList.Jump:
 		unlockedJump = true
 	elif ability == Globals.abiliyList.JumpAir:
-		if unlockedJumpAir == true:
+		if unlockedJumpAir:
 			maxJumpAir = +1
 		else:
 			unlockedJumpAir = true
@@ -55,7 +55,7 @@ func unlock_ability(ability: int) -> void:
 		unlockedDashUp = true
 		unlockedDashDown = true
 	elif ability == Globals.abiliyList.DashSide:
-		if unlockedDashSide == true:
+		if unlockedDashSide:
 			maxDash += 1
 		else:
 			unlockedDashSide = true

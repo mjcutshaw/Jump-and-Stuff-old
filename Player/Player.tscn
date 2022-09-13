@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -63,6 +63,7 @@
 [ext_resource path="res://Player/States/SwimDash.gd" type="Script" id=61]
 [ext_resource path="res://Player/Scripts/Hookshot.gd" type="Script" id=62]
 [ext_resource path="res://Player/States/Skid.gd" type="Script" id=63]
+[ext_resource path="res://Player/States/FallDamage.gd" type="Script" id=64]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -6516,6 +6517,7 @@ height = 80.0
 collision_layer = 64
 collision_mask = 190
 script = ExtResource( 2 )
+fallTime = 0.2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CharacterRig")
@@ -6892,6 +6894,13 @@ script = ExtResource( 61 )
 [node name="Burrow" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
 
+[node name="FallDamage" type="Node" parent="StateMachine"]
+script = ExtResource( 64 )
+
+[node name="Recover" type="Timer" parent="StateMachine/FallDamage"]
+wait_time = 2.0
+one_shot = true
+
 [node name="States" type="Node" parent="."]
 pause_mode = 1
 
@@ -6990,6 +6999,9 @@ one_shot = true
 one_shot = true
 
 [node name="SemisolidReset" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="FallTimer" type="Timer" parent="Timers"]
 one_shot = true
 
 [node name="Collector" type="Area2D" parent="."]

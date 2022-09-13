@@ -1,6 +1,6 @@
 extends Node
 #TODO: look into gdquest state machine
-#TODO: state achine based of signals
+#TODO: state machine based of signals
 onready var states = {
 	BaseState.State.Spawn: $Spawn,
 	BaseState.State.Die: $Die,
@@ -24,6 +24,7 @@ onready var states = {
 	BaseState.State.Swim: $Swim,
 	BaseState.State.SwimDash: $SwimDash,
 	BaseState.State.Skid: $Skid,
+	BaseState.State.FallDamage: $FallDamage,
 }
 
 var currentState: BaseState
@@ -47,6 +48,7 @@ func change_state(newState: int) -> void:
 	currentState.enter()
 	currentStateName = currentState.name
 	EventBus.emit_signal("debugState", currentStateName)
+	EventBus.emit_signal("error", currentStateName)
 	
 
 

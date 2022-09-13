@@ -59,7 +59,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.inWater == false:
+	if !player.inWater:
 		return State.Fall
 
 	return State.Null

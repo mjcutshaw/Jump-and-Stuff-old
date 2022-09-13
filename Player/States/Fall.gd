@@ -2,9 +2,12 @@ extends AirState
 
 #TODO: Nuetral momentum
 
+
 func enter() -> void:
 	.enter()
 
+	player.fallDamge = false
+	player.fallTimer.start()
 	EventBus.emit_signal("fall")
 	if player.moveDirection == Vector2.ZERO:
 		neutralMovement = true
@@ -14,7 +17,8 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-	
+	if player.fallTimer.is_stopped():
+		player.fallDamge = true
 
 
 func physics(delta) -> void:
@@ -48,7 +52,7 @@ func state_check(delta: float) -> int:
 
 	if player.glidePressed:
 		return State.Glide
-	if player.inWater == true:
+	if player.inWater:
 		return State.Swim
 
 	return State.Null

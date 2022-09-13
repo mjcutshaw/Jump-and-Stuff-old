@@ -19,7 +19,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	if player.inWind == true:
+	if player.inWind:
 		player.velocityPlayer.y = -50
 	else:
 		gravity_logic(player.gravityGlide, delta)

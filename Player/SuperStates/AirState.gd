@@ -71,7 +71,7 @@ func state_check(delta: float) -> int:
 		player.animPlayer.play("Landing")
 		EventBus.emit_signal("landed")
 		return State.Walk
-	if player.is_on_wall():
+	if player.is_on_wall() and player.velocityPlayer.y > 0:
 		return State.WallSlide
 
 	return State.Null
