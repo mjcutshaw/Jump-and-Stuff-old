@@ -1,4 +1,4 @@
-extends AirState
+ extends MoveState
 
 #TODO: Variables
 #TODO: remove from air state to control what gets you out
@@ -11,12 +11,13 @@ func enter() -> void:
 func exit() -> void:
 	.exit()
 
-	
+	player.animPlayer.stop()
 
 
 func physics(delta) -> void:
 	.physics(delta)
 
+	player.move_logic(player.NO_SNAP, false)
 	player.velocityPlayer.x = 0
 	player.velocityPlayer.y = 1000
 
@@ -32,7 +33,8 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.Dash):
+		return State.Dash
 
 	return State.Null
 
