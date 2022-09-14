@@ -43,6 +43,8 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.coyoteJumpWallTimer.is_stopped() and player.is_on_wall():
+		player.velocityPlayer.x = 0 #kills sped when hitting wall
+		return State.WallSlide
 
 	return State.Null

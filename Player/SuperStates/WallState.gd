@@ -9,7 +9,6 @@ func enter() -> void:
 		player.reset_ability(Globals.abiliyList.JumpAir)
 	#TODO: dash reset
 
-
 func exit() -> void:
 	.exit()
 
