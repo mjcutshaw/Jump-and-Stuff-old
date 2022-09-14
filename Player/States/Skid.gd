@@ -1,4 +1,5 @@
 extends GroundState
+#TODO: could extend off walk state
 
 export (float, 0, 1, 0.1) var skidDuration: float = 0.15
 export (float, 0, 1, 0.1) var skidPercent: float = 0.8

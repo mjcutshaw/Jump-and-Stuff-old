@@ -4,6 +4,9 @@ extends MoveState
 export (float, 0 , 1, 0.1) var recoverTime: float = 0.5
 onready var recoverTimer: Timer = $Recover
 
+#lookat: maube base it off velocity instead of time
+
+#FIXME: breaks landing animation
 func _ready() -> void:
 	recoverTimer.wait_time = recoverTime
 
