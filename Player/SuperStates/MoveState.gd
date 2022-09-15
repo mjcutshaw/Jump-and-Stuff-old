@@ -53,6 +53,10 @@ func gravity_logic(amount, delta) -> void:
 	player.velocityPlayer.y += amount * delta
 
 
+func terminal_velocity(speed)-> void:
+	player.velocityPlayer.y = min(player.velocityPlayer.y, speed)
+
+
 func velocity_logic(speed) -> void:
 	#TODO: variable to use moveDirection
 	player.velocityPlayer.x = player.moveDirection.x * speed

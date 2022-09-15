@@ -5,6 +5,7 @@ class_name WallState
 func enter() -> void:
 	.enter()
 
+	player.velocityPrevious = player.velocityPlayer
 	if player.unlockedJumpWall:
 		player.reset_ability(Globals.abiliyList.JumpAir)
 	#TODO: dash reset
@@ -49,6 +50,8 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
+	if abs(player.velocityPrevious.x) > player.moveSpeed:
+		return State.Bonk
 	if player.is_on_floor():
 		return State.Walk
 	if player.inWater and player.velocityPlayer.y > 0:

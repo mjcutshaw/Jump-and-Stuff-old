@@ -25,6 +25,7 @@ onready var states = {
 	BaseState.State.SwimDash: $SwimDash,
 	BaseState.State.Skid: $Skid,
 	BaseState.State.FallDamage: $FallDamage,
+	BaseState.State.Bonk: $Bonk,
 }
 
 var currentState: BaseState

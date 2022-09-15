@@ -26,6 +26,7 @@ enum State {
 	SwimDash,
 	Skid,
 	FallDamage,
+	Bonk,
 }
 
 var player: Player

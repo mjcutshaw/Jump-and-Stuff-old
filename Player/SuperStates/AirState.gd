@@ -51,7 +51,7 @@ func handle_input(event: InputEvent) -> int:
 		elif !player.coyoteJumpTimer.is_stopped(): 
 			player.coyoteJumpTimer.stop()
 			return State.Jump
-		#TODO: extend wall can ground raycast to see if you are close and us that instead
+		#TODO: extend wall and ground raycast to see if you are close and us that instead
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			return State.JumpAir
 		else:
@@ -104,7 +104,3 @@ func neutral_air_momentum_logic() -> void:
 		momentum_logic(player.moveSpeed, false)
 	if player.moveDirection != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
 		neutralMovement = false
-
-
-func terminal_velocity(speed)-> void:
-	player.velocityPlayer.y = min(player.velocityPlayer.y, speed)
