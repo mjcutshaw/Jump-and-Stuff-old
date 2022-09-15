@@ -1,5 +1,6 @@
 extends MarginContainer
 
+#TODO: ability unlocked
 
 onready var announceLabel: Label = $MarginContainer/Announce
 onready var announceTimer: Timer = $Timer
