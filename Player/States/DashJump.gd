@@ -1,7 +1,6 @@
 extends JumpState
 
 #TODO: will be a combo button
-#TODO: move to dash state
 
 func enter() -> void:
 	.enter()
@@ -9,7 +8,6 @@ func enter() -> void:
 	EventBus.emit_signal("playerSuperJumped")
 	player.velocityPlayer.x = 0
 	player.velocityPlayer.y = player.jumpVelocityMax * player.dashJumpModifier
-	#TODO: own variable
 	player.animPlayer.play("Dash Up")
 
 

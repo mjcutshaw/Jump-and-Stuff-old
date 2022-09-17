@@ -1,7 +1,6 @@
  extends MoveState
 
-#TODO: Variables
-#TODO: remove from air state to control what gets you out
+
 func enter() -> void:
 	.enter()
 
@@ -19,7 +18,7 @@ func physics(delta) -> void:
 
 	player.move_logic(player.NO_SNAP, false)
 	player.velocityPlayer.x = 0
-	player.velocityPlayer.y = 1000
+	player.velocityPlayer.y = player.dashVelocity
 
 
 func visual(delta) -> void:

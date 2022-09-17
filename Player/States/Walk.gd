@@ -3,7 +3,6 @@ extends GroundState
 var skidding: bool = false
 export (float, 0, 1, 0.1) var skidPercent: float = 0.8
 export  var slowDownTime: float = 10 #LOOKAT: magic number
-#TODO: if nuetral entering use momentum
 #LOOKAT: stick click for speed boost and shinespark
 
 func enter() -> void:

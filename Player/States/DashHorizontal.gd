@@ -1,7 +1,6 @@
 extends DashState
 
 #TODO: move timer to here
-#TODO: capture previous velocity and return to that, unless nuetral
 #TODO: seperate airdash
 
 func enter() -> void:

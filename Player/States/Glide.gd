@@ -1,5 +1,5 @@
 extends AirState
-#TODO: Nuetral momentum
+
 
 func enter() -> void:
 	.enter()
@@ -22,7 +22,7 @@ func physics(delta) -> void:
 
 	if player.inWind:
 		player.velocityPlayer.y = -50
-		#TODO: variable
+		#TODO: get strength from wind
 	else:
 		gravity_logic(player.gravityGlide, delta)
 		terminal_velocity(player.terminalVelocity/player.glideFallSpeedModifier)
