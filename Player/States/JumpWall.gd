@@ -5,7 +5,7 @@ extends JumpState
 func enter() -> void:
 	.enter()
 
-	
+	#TODO: able right before hitting the wall to flip momentum
 	if player.moveDirection.x == player.lastWallDirection:
 		player.velocityPlayer = Vector2(100 * -player.lastWallDirection, player.jumpVelocityMax)
 		player.animPlayer.play("Jump Double")
@@ -13,6 +13,7 @@ func enter() -> void:
 		player.velocityPlayer.y = player.jumpVelocityMax
 		player.velocityPlayer.x = player.moveSpeed * -player.lastWallDirection
 		player.animPlayer.play("Jump Wall")
+	neutral_move_direction_logic()
 
 
 func exit() -> void:
@@ -24,7 +25,10 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	air_velocity_logic(player.moveSpeed)
+	if neutralMovement:
+		neutral_air_momentum_logic()
+	if !neutralMovement:
+		air_velocity_logic(player.moveSpeed)
 
 
 func visual(delta) -> void:

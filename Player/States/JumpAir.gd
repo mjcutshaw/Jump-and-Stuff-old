@@ -8,6 +8,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerJumped")
 	player.velocityPlayer.y = player.jumpVelocityMax
 	player.consume_ability(Globals.abiliyList.JumpAir, 1)
+	neutral_move_direction_logic()
 
 
 func exit() -> void:
@@ -19,7 +20,10 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	air_velocity_logic(player.moveSpeed)
+	if neutralMovement:
+		neutral_air_momentum_logic()
+	if !neutralMovement:
+		air_velocity_logic(player.moveSpeed)
 
 
 func visual(delta) -> void:
