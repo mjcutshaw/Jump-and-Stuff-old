@@ -8,6 +8,7 @@ func enter() -> void:
 	player.animPlayer.play("Glide")
 	if player.inWind:
 		player.reset_ability(Globals.abiliyList.All)
+	neutral_move_direction_logic()
 
 
 func exit() -> void:
@@ -21,11 +22,15 @@ func physics(delta) -> void:
 
 	if player.inWind:
 		player.velocityPlayer.y = -50
+		#TODO: variable
 	else:
 		gravity_logic(player.gravityGlide, delta)
 		terminal_velocity(player.terminalVelocity/player.glideFallSpeedModifier)
 	
-	air_velocity_logic(player.moveSpeed/player.glideSpeedModifier)
+	if neutralMovement:
+		neutral_air_momentum_logic()
+	if !neutralMovement:
+		air_velocity_logic(player.moveSpeed/player.glideSpeedModifier)
 
 
 func visual(delta) -> void:

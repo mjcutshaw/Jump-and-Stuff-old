@@ -82,10 +82,11 @@ func apply_friction(amount) -> void:
 	player.velocityPlayer.x = move_toward(player.velocityPlayer.x, 0, amount)
 
 
-func neutral_move_direction_logic() -> bool:
+func neutral_move_direction_logic() -> void:
 	if player.moveDirection == Vector2.ZERO:
-		return true
-	return false
+		neutralMovement = true
+	else:
+		neutralMovement = false
 
 
 func rotate_to_normal() -> void:

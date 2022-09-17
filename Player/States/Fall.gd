@@ -1,7 +1,5 @@
 extends AirState
 
-#TODO: Nuetral momentum
-
 
 func enter() -> void:
 	.enter()
@@ -9,9 +7,8 @@ func enter() -> void:
 	player.fallDamge = false
 	player.fallTimer.start()
 	EventBus.emit_signal("fall")
-	if player.moveDirection == Vector2.ZERO:
-		neutralMovement = true
 	player.animPlayer.play("Fall")
+	neutral_move_direction_logic()
 
 
 func exit() -> void:
@@ -25,8 +22,13 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	gravity_logic(player.gravityFall, delta)
-	terminal_velocity(player.terminalVelocity)
-	air_velocity_logic(player.moveSpeed)
+	if player.moveDirection != Vector2.DOWN:
+		terminal_velocity(player.terminalVelocity) #Fall faster when pressing down, might need to cap it
+	
+	if neutralMovement:
+		neutral_air_momentum_logic()
+	if !neutralMovement:
+		air_velocity_logic(player.moveSpeed)
 
 
 func visual(delta) -> void:
