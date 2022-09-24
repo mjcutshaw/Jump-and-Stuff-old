@@ -21,6 +21,7 @@ enum State {
 	WallSlide,
 	WallGrab,
 	WallClimb,
+	HookShot,
 	GroundPound,
 	Swim,
 	SwimDash,

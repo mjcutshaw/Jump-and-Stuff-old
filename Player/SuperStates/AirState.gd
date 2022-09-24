@@ -58,6 +58,8 @@ func handle_input(event: InputEvent) -> int:
 			player.bufferJumpTimer.start()
 	if Input.is_action_just_pressed("ground_pound"):
 		return	 State.GroundPound
+	if Input.is_action_just_pressed("hookshot") and player.targetHookShot != null:
+		return State.HookShot
 
 	return State.Null
 
@@ -98,9 +100,6 @@ func air_velocity_logic(speed) -> void:
 
 
 func neutral_air_momentum_logic() -> void:
-	if !neutralMovement:
-		velocity_logic(player.moveSpeed)
-	if neutralMovement: ## Carry momentum with neutral moveDirection ##
-		momentum_logic(player.moveSpeed, false)
+	momentum_logic(player.moveSpeed, false)
 	if player.moveDirection != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
 		neutralMovement = false

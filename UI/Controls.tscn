@@ -41,6 +41,7 @@ margin_bottom = 96.0
 text = "Glide"
 
 [node name="Grapple" type="Label" parent="."]
+visible = false
 margin_left = 1158.0
 margin_top = 96.0
 margin_right = 1208.0

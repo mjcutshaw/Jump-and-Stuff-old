@@ -29,7 +29,6 @@ func physics(delta) -> void:
 
 	gravity_logic(player.gravityFall, delta)
 	terminal_velocity(player.terminalVelocity)
-	EventBus.emit_signal("debug1", "bonk timer", bonkTimer.wait_time)
 	player.move_logic(player.SNAP_GROUND, true)
 	if player.is_on_floor():
 		if bonkTimer.is_stopped() and grounded == false:

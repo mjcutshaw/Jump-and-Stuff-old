@@ -20,6 +20,7 @@ onready var states = {
 	BaseState.State.WallSlide: $WallSlide,
 	BaseState.State.WallGrab: $WallGrab,
 	BaseState.State.WallClimb: $WallClimb,
+	BaseState.State.HookShot: $HookShot,
 	BaseState.State.GroundPound: $GroundPound,
 	BaseState.State.Swim: $Swim,
 	BaseState.State.SwimDash: $SwimDash,

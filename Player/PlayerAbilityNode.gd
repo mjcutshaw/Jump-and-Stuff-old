@@ -26,13 +26,17 @@ onready var unlockedClimb: bool = Abilities.unlockedClimb
 onready var unlockedClimbLeft: bool = Abilities.unlockedClimbLeft
 onready var unlockedClimbRight: bool = Abilities.unlockedClimbRight
 
-
 onready var maxJump: int = Abilities.maxJump
 onready var maxJumpAir: int = Abilities.maxJumpAir
 onready var maxDash: int = Abilities.maxDash
 
 var remainingJumpAir: int = 1
 var remainingDash: int = 1
+
+var targetHookShot: Area2D = null
+var targetBurrow: Area2D = null
+#FIXEME: if a target is at zero it won't work
+
 
 func _ready() -> void:
 	EventBus.connect("update_abilities", self, "update_abilities")

@@ -25,7 +25,7 @@ func physics(delta) -> void:
 	if player.moveDirection != Vector2.DOWN:
 		terminal_velocity(player.terminalVelocity) #Fall faster when pressing down, might need to cap it
 	
-	if neutralMovement:
+	if neutralMovement and abs(player.velocityPlayer.x) > player.moveSpeed:
 		neutral_air_momentum_logic()
 	if !neutralMovement:
 		air_velocity_logic(player.moveSpeed)

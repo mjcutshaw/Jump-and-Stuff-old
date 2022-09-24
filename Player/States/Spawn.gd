@@ -6,6 +6,9 @@ export var growTime: float = .5
 func enter() -> void:
 	.enter()
 
+	#TODO: randomizer spawn look direction
+#	randomize()
+#	self.dir_x = 1 if randf() > 0.5 else -1
 	EventBus.emit_signal("playerSpawned")
 	if CheckpointSystem.currentRespawn != Vector2.ZERO:
 		player.global_position = CheckpointSystem.currentRespawn

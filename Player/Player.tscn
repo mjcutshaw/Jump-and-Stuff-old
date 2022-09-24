@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -48,7 +48,6 @@
 [ext_resource path="res://Player/Scripts/HazardWaring.gd" type="Script" id=46]
 [ext_resource path="res://Player/Scripts/TargetIndicator.gd" type="Script" id=47]
 [ext_resource path="res://Player/States/HookShot.gd" type="Script" id=48]
-[ext_resource path="res://Player/Scripts/LineToTarget.gd" type="Script" id=49]
 [ext_resource path="res://Player/States/JumpAir.gd" type="Script" id=50]
 [ext_resource path="res://Player/States/WallSlide.gd" type="Script" id=51]
 [ext_resource path="res://Player/States/JumpWall.gd" type="Script" id=52]
@@ -61,7 +60,6 @@
 [ext_resource path="res://Player/States/WallGrab.gd" type="Script" id=59]
 [ext_resource path="res://Assets/Player/parts/propeller2.png" type="Texture" id=60]
 [ext_resource path="res://Player/States/SwimDash.gd" type="Script" id=61]
-[ext_resource path="res://Player/Scripts/Hookshot.gd" type="Script" id=62]
 [ext_resource path="res://Player/States/Skid.gd" type="Script" id=63]
 [ext_resource path="res://Player/States/FallDamage.gd" type="Script" id=64]
 [ext_resource path="res://Player/States/Bonk.gd" type="Script" id=65]
@@ -7015,52 +7013,31 @@ gradient = SubResource( 29 )
 joint_mode = 2
 end_cap_mode = 2
 
-[node name="Hookshot" type="Position2D" parent="."]
-visible = false
-script = ExtResource( 62 )
-abilityTarget = 1
-
-[node name="Line2D" type="Line2D" parent="Hookshot"]
-visible = false
-points = PoolVector2Array( 0, -32, 42, -32 )
-width = 5.0
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-script = ExtResource( 49 )
-
-[node name="Timer" type="Timer" parent="Hookshot/Line2D"]
-one_shot = true
-
-[node name="Aim" type="Area2D" parent="Hookshot"]
+[node name="Aim" type="Area2D" parent="."]
 position = Vector2( 0, -32 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 43 )
 
-[node name="CapsuleH" type="CollisionShape2D" parent="Hookshot/Aim"]
+[node name="CapsuleH" type="CollisionShape2D" parent="Aim"]
 position = Vector2( 175, -6 )
 rotation = 1.57079
 shape = SubResource( 26 )
 disabled = true
 
-[node name="CapsuleV" type="CollisionShape2D" parent="Hookshot/Aim"]
+[node name="CapsuleV" type="CollisionShape2D" parent="Aim"]
 position = Vector2( 180, 6 )
 shape = SubResource( 27 )
 
-[node name="RayCast2D" type="RayCast2D" parent="Hookshot/Aim"]
+[node name="RayCast2D" type="RayCast2D" parent="Aim"]
 cast_to = Vector2( 200, 0 )
 collision_mask = 2
 
-[node name="AimIndicator" type="Node2D" parent="Hookshot/Aim"]
+[node name="AimIndicator" type="Node2D" parent="Aim"]
 script = ExtResource( 44 )
 
-[node name="TargetIndicator" type="Node2D" parent="Hookshot/Aim"]
+[node name="TargetIndicator" type="Node2D" parent="Aim"]
 script = ExtResource( 47 )
-
-[node name="GrappleHook" type="Position2D" parent="."]
-
-[node name="Burrow" type="Position2D" parent="."]
 
 [node name="States" type="Node" parent="."]
 pause_mode = 1
@@ -7086,5 +7063,7 @@ script = ExtResource( 37 )
 
 [node name="Walk" type="Node" parent="Abilities"]
 script = ExtResource( 11 )
+
+[node name="GrappleHook" type="Position2D" parent="."]
 
 [connection signal="timeout" from="Timers/SemisolidReset" to="." method="_on_SemisolidReset_timeout"]

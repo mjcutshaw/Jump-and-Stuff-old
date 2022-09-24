@@ -1,8 +1,10 @@
 extends Interactable
 class_name Target
 
+#TODO: add stop at target and launch past
 
 export (Globals.abilityTargetType) var abilityTarget
+export var launchPast: bool = false
 onready var timer: Timer = $Timer
 
 var colorActive: Color = Color.black
@@ -13,17 +15,15 @@ var color: Color = colorActive
 
 
 func _ready() -> void:
+	set_collision_layer_bit(CollisionLayers.TARGET, true)
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	if abilityTarget == Globals.abilityTargetType.null:
 		EventBus.emit_signal("error", str("null target type" + str(global_position)))
 	if abilityTarget == Globals.abilityTargetType.hookShot:
-		set_collision_layer_bit(CollisionLayers.HOOKSHOT, true)
 		colorActive = Globals.hookshotColor
 	if abilityTarget == Globals.abilityTargetType.grappleHook:
-		set_collision_layer_bit(CollisionLayers.GRAPPLEHOOK, true)
 		colorActive = Globals.grappleColor
 	if abilityTarget == Globals.abilityTargetType.burrow:
-		set_collision_layer_bit(CollisionLayers.BURROW, true)
 		colorActive = Globals.burrowColor
 	
 	color = colorActive
