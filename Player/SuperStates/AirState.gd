@@ -101,5 +101,6 @@ func air_velocity_logic(speed) -> void:
 
 func neutral_air_momentum_logic() -> void:
 	momentum_logic(player.moveSpeed, false)
-	if player.moveDirection != Vector2.ZERO and neutralMovement: ## Cancel out neutral momentum
+	if player.moveDirection.x != 0 and neutralMovement: ## Cancel out neutral momentum
+		#TODO: variable to keep speed and timer 
 		neutralMovement = false

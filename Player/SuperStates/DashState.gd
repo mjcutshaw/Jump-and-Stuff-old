@@ -1,6 +1,7 @@
 extends MoveState
 class_name DashState
-#TODO: ground dash
+
+#TODO: move modifiers to states
 #FIXME: turn dash inputs into dash + direction
 #TODO: cooldown timers
 

@@ -11,6 +11,7 @@ onready var states = {
 	BaseState.State.JumpWall: $JumpWall,
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
+	BaseState.State.DashGround: $DashGround,
 	BaseState.State.Dash: $DashHorizontal, #TODO: renamin DashH
 	BaseState.State.DashVertical: $DashVertical,
 	BaseState.State.DashJump: $DashJump,

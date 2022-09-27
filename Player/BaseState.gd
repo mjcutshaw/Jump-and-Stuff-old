@@ -12,6 +12,7 @@ enum State {
 	JumpWall,
 	Apex,
 	Fall,
+	DashGround,
 	Dash,
 	DashVertical,
 	DashWall,

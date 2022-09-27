@@ -46,7 +46,7 @@ func handle_input(event: InputEvent) -> int:
 		else:
 			return State.Jump
 	if Input.is_action_just_pressed("dash"):
-		return State.Dash
+		return State.DashGround
 	if Input.is_action_just_pressed("super_jump"):
 		return State.DashJump
 	if Input.is_action_just_pressed("hookshot") and player.targetHookShot != null:

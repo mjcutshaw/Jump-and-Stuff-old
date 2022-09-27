@@ -1,8 +1,7 @@
 extends DashState
 
 #TODO: move timer to here
-#TODO: seperate airdash
-
+#LOOKAT: see in need dash air group
 func enter() -> void:
 	.enter()
 
