@@ -1,6 +1,6 @@
 extends MarginContainer
 
-#TODO: ability unlocked
+#TODO: ability unlocked. have max jump count announced (double,triple, etc)
 
 onready var announceLabel: Label = $MarginContainer/Announce
 onready var announceTimer: Timer = $Timer

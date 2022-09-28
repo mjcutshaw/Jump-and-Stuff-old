@@ -1,6 +1,6 @@
 extends JumpState
 
-#TODO: dash jump
+#TODO: ground and wall checkers to determine if other jump should be used
 func enter() -> void:
 	.enter()
 

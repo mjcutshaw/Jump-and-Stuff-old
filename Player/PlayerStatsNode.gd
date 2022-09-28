@@ -1,6 +1,8 @@
 extends Actors
 class_name PlayerStatsNode
 
+#TODO: Health upgrades shards amount change for difficulty 
+
 #LOOKAT: get rid of resource?
 var Stats: Resource = preload("res://Resources/PlayerStats.tres")
 

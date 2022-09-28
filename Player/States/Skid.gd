@@ -1,5 +1,6 @@
 extends GroundState
 #TODO: could extend off walk state
+#TODO: If skid and release direction have a longer slow down time
 
 export (float, 0, 1, 0.05) var skidDuration: float = 0.15
 export (float, 0, 1, 0.1) var skidPercent: float = 0.8

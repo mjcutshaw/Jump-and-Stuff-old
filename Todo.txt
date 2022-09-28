@@ -1,0 +1,321 @@
+#TODO 
+
+item that guides through a maze
+	ori dark area
+	Area around player to make platforms active
+  	Ori bf dark area
+ 	 Could have an object that you carry to show stuff. Later on breaking to get the ability. You could use the knowledge earlier to unlock it	
+
+Suck player to ground when falling 
+
+Galaxy 2 silly jump, flip platform add to jump height
+
+Achievement tracker. Show what is available and what failed. Show failed in announcemt option 
+
+Only check enemy hurtbox if bounce box fails
+
+Stat
+    Longest time lost to death
+    Time lost to deaths
+    look into ori stats
+
+create color rects for all collision shapes and only show when in debug mode
+
+Ability combos:
+	combos need to have distance, height and/or speed differences
+	dash(ground) -> jump -> dash
+	jump -> spin -> 
+	
+	jump, spin, dash, roll, dive
+	
+	https://gamefaqs.gamespot.com/switch/200275-super-mario-odyssey/faqs/75301/controls
+	look at demon turf neon combos
+
+Charms, Runes, Trinkets:
+	Generic charms that do different things on different abilities
+	modifiers that change abilities a bit
+	
+	dash:
+		Change dash to a charge system(3D world bullet)
+	
+	regular jump:
+		fall speed slowed when jump is held
+		hold jump to hover
+		double jump
+	
+	spin jump:
+	
+	
+	https://www.kakuchopurei.com/2021/11/demon-turf-platforming-guide-how-to-conquer-the-underworld-with-sick-jumps/
+	https://www.ign.com/wikis/ori-and-the-will-of-the-wisps/Skills_(Spirit_Shards)
+	https://hollowknight.fandom.com/wiki/Category:Charms
+
+Level editor
+
+Map
+	Highlight blocked areas with ability color
+	look at ori, hollow knight, guacamelee for inspiration
+
+Skill based resets for extra movement tech
+	https://the-messenger.fandom.com/wiki/Cloudstep 
+	
+You can save the last position the player was on the ground as last safe position to teleport back to after death. 
+	Saving the previous one lets you keep a back up location if the player dies instantly
+
+difficulty options
+	game speed
+	Invincibility
+	number of dashes/jumps
+	offer presets, let player pick
+
+fun options
+	invisible moving/standing still
+	low friction
+	
+look into how game endeavor sent bounce information back to player
+
+Abilities to add:
+	dive/roll
+	look at mario powerups https://www.mariowiki.com/List_of_power-ups
+	Ledge grab? 
+		Ledge grab to catch high platforms or small passages, dash shrinks character to fit in
+	run on water if about speed or dash/slide thing
+	Going throw Snow/Sand
+		Burrow through bubbles 
+	Ranged attack/activator
+		make bridge/rope -- could slow down gameeplay
+	Ori Bash
+	crouch/look down
+	Look at shinespark from metroid 
+		Build up pspeed with using dash on the ground after time at top speed build to have a burst of energy to dash/teleport further 
+	Smw slide
+		Probably need to have slide as a super state like dash
+		Can jump off things to keep slide
+		https://youtu.be/CTpflm_pFgs Around 5 minutes 
+	
+	PASSIVES:
+		glow
+		water freeze
+	Hover
+	Water powered jetpack
+	side flip, need to add skid for changing directions, press jump during skid to change momentum to other direction
+
+Upgrades to ablities:
+	dash:
+		teleport
+	jump:
+		more jumps
+	lava/water run above a speed
+	swim in water/lava
+	Dash jump upgrade no max height
+
+	
+Platforms
+	Jumping off changes direction 
+	celeste like moving platform
+	celeste bubbles:
+		look at helper mods for more ideas
+		can jump/dash out for more distance
+	conveyors/speed boosters
+	platform throws player after amount of time (celeste lava blocks, throw platforms and thowmps)
+	spring like celestes cloud (skill based)
+		both of these can use signal from object to start a timer to let the player press jump to within a certain window to get boost
+	limited after on/off toggle
+	renzor
+	string polley attached platforms
+		can break if pushed to far
+	Ones that dont move till player is on, have an indicators to show direction and when falling/disappearing
+	Vines that are only solid when grab is held
+	Jump/dash when player does
+	Jump when player is above them 
+	Run around the screen, jump when the player is in front of them
+	Floor is lava until you kill an enemy/button 
+	Platform that goes up when jumped off. Then falls after certain time 
+	Platform that flings player after landing 
+	Speed limit ropes
+		Checks in player is in area, if velocity is above or below turn off player collision with that layer
+		Use the leave semisolid detector to turn it back on
+	go up after land on it
+	Go down for a bit then up
+		Only go up or down when player is on them
+		Freeze other wise
+	Player can steer them
+		Move side to side
+		Look at celeste for up and down
+
+
+Hazards
+	arrow/bullet bill like
+		front kills, but back is a platform
+	falling spikes
+	Smw pencil
+
+enemies
+	badoline like
+	look at various games for ideas
+
+Blocks to add 
+	Sheepo blocks/donkey kong barrel
+		enter then choose fire angle
+		lock character in launch direction
+	hold jump/press jump to get vertical momentum
+		an untold story red block
+	look at celeste helper mods for more ideas
+	One ways
+	Most blocks should have a toggle for interaction
+		Player touch
+		Switch
+		Time
+	Moving rope
+	walls you can not jump off of
+	SMW rope
+		have to keep speed above or below threshold or you pass throught
+	conveyor
+		floor
+		walls
+		ceiling, move along bottom of block
+	bumpers (celeste)
+	thwomps (mario)
+	thowmps (celeste) have to be dashed into to go that way
+	snake block (mario)
+	ice/slime
+	celeste orbs. enter and can fly any directions
+	Push and pull orbs, think super meat boy
+	Hold grab to freeze in place
+	Chains you jump on and pull you up
+	Interactables: ability unlocks, stat boosts, ability augments, passive modifiers
+	
+	
+On/Off Blocks
+	timer for switching, turn off when player has ability
+	hazards
+	platforms
+	hazard to platform switch
+	Has a certain number of switches to it disappears
+	
+Juice!
+	animations on most things
+	particles
+	screen shake
+	shockwave on dash
+	
+decor
+	grass/interactable enviroment
+	backgrounds
+	
+Dungeons
+	Blocks to give temporay upgrades
+		inviceabbility 
+		phase through / ghost
+	jumpping causes on/off switch
+	Gravity switch 
+	No lights on jumpmo
+	One color of platforms doesnot exist jump ½ part 4
+	Only one direction works
+	Freezing enemies/Hazards/platforms from a switch 
+	Sky tree
+	Vertical and horizontal escorts enemy/friend
+	Randomized set of platforming challenges that change on death
+		Pulled from a pool
+		Greyed out till you activate them 
+		Death mechanic to make you move quickly 
+	Acid rain /force quick movement or you die
+		Must get to checkpoint before dying
+	Death trail 
+		Leave death blocks / sprites behind you
+	Only allowed to touch the ground for a certain amount of time
+		Then death
+	Checkpoint regression 
+		Die go back a checkpoint 
+
+
+	
+Accessability/game options
+	infinite jump
+	infinte dashes
+	infinite dash duraction
+	Grab/glide toggle 
+	Engine speed
+	Joystick locked to 8 degrees
+	Look into celeste and towerfall options 
+	Toggle fly
+		Lets you retry sections
+	Controller inputs on screen 
+	Quick retry in options menu 
+		Player move camera on death screen 
+	Options for landing back on platform you fell off, level start, or fast travel
+	If there are enemies, spikes just reset, donot take off health 
+	Turn off helpers
+		Coyote timer, Buffer jump etc
+	Simplify controls
+  		Tie abilities to the same button, like ori
+  	Save custom difficulties and export to share 
+
+
+Hub world
+	Unlock dungeons 
+	Super short levels
+	Roguelike
+	Locked movesets
+	Survival
+	Random level order
+	Add ability every x levels
+
+Game Modes:
+	randomizer
+		items
+		doors
+		split abilities left and right
+		Export rule/ randomizer to share
+	floor is lava
+	Bonk equals death
+	Something chasing trying to kill player
+
+screen wrap https://kidscancode.org/godot_recipes/2d/screen_wrap/
+
+
+Break blocks 
+	Spelunky kaizo hacks has you break a block for a Ledge, but then there is a lava behind it to make you move quick
+
+
+Basic feel goods to add
+	Sticky feet on land
+		Will need accel and decel first
+		Quick stop when landing if input is opposite of move direction
+	Push up through a semisolid 
+		Make a collision box that detects it is in a semisolid (and still holding jump) and put player on top of platform
+		Could use for multiple abilities like dash
+	If the joystick is slightly pushed, don’t go over edges
+	Add platform momentum to character (looks like godot 4 does that)
+	Extend wall detection when trying to use abilities
+		You can actually wall jump 2 pixels from a wall. (That sounds tiny but this is a 320x180-resolution game :P)
+		If you're doing a "super wall jump" (ie: a wall jump while dashing upward), this is a more precise and demanding maneuver so we let you do it from even further away (I think it's 5 pixels, which is more than half a tile!)
+
+
+Adjust air control
+Be a bit different than ground 
+​​What I usually do is treat mid air horizontal velocity change as interpolation from the current velocity to the player's desired velocity. Godot has a built in lerp function that's helpful for this. You would do something like current_hvel.lerp(input_hvel, arbitrary_fraction × delta). Hvel stands for Horizontal velocity. That arbitrary fraction will make the jump feel weightier at lower values. 0 will make it impossible to move in the air.
+With this method you will infinitely approach the goal velocity, but technically never actually reach it. To solve that, just clamp it at the end to the desired velocity if the difference between the current and desired is small enough.
+SMW actually has a lot of hidden mechanics, while it might look to be a very standart movement it has some neat details
+SMW does a neat trick to change the jump height
+The height is varied by lowering the "force" that moves you down when you press the nump button
+(Which results in an interestingly dynamic way of changing your jump height, as well as allowing to change your fall speed by holding the jump button pressed)
+(Barely any game does its jump like that anymore, but I adore it cause of how great it feels when you know it and play some Kaizo)
+
+
+SMW also makes the top speed a little complicated
+As (simmilarly to SMB3 I think) it has 3 top speeds:
+Walking speed
+Running speed
+P-Speed
+Walking and running speed are pretty intuitive, but P-Speed is reached by filling up a meter by going Running Speed
+(And as it doesn't get reset to 0 instantly you can drag out the filling of the P-Meter for some time)
+
+
+There's also ways to go beyond the p-speed cap in smw, for example sliding.
+However when you press the directional pad it resets that speed, so the way to keep it is by not pressing any directional keys and keeping yourself away from the ground.
+
+
+But in general this is a really handy video to see a few basic movement speeds compare
+Would've been great to see some measurement numbers alongside them, though that would've taken a lot of resources
+http://www.davetech.co.uk/gamedevplatformer

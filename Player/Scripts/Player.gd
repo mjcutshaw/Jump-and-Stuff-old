@@ -1,6 +1,7 @@
 extends PlayerAbilitiesNode
 class_name Player
 
+#TODO: split abilities and character normal movement
 #FIXME: change player to layer 8
 
 onready var sm: Node = $StateMachine

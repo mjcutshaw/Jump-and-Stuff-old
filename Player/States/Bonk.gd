@@ -1,6 +1,7 @@
 extends MoveState
 
 #TODO: bonk super state
+#TODO: bonk savers, jump, wall grab, pogo
 
 export var bounceBack: int = 400
 

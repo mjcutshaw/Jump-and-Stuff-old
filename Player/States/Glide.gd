@@ -1,5 +1,6 @@
 extends AirState
 
+#TODO: find a way to go through semisolids
 
 func enter() -> void:
 	.enter()

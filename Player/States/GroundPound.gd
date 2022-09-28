@@ -1,5 +1,6 @@
  extends MoveState
 
+#TODO: stun state after round pound
 
 func enter() -> void:
 	.enter()

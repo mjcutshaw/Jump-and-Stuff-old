@@ -1,6 +1,7 @@
 extends MoveState
 class_name DashState
 
+#TODO: shrink hitbox
 #TODO: move modifiers to states
 #FIXME: turn dash inputs into dash + direction
 #TODO: cooldown timers

@@ -1,5 +1,6 @@
 extends AirState
 
+#TODO: fall damage, time or speed based
 
 func enter() -> void:
 	.enter()

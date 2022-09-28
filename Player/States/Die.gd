@@ -1,6 +1,7 @@
 extends BaseState
 
 #TODO: freeze so the player sees what happened
+#Stop screen shake and slow mo for player deaths
 
 func enter() -> void:
 	.enter()
