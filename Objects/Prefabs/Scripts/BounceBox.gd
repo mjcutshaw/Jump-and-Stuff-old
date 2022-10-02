@@ -6,7 +6,7 @@ class_name BounceBox
 #TODO: make spring scene
 #TODO: only for players atm
 #TODO: have bounce speed be min, invert if player is faster
-#TODO: spring only activates after jumpjing
+#TODO: spring only activates after jumping
 
 export var amount: int = 1000
 enum direction {null, up, down, left, right, upLeft, upRight, downLeft, downRight,}
