@@ -1,6 +1,10 @@
 extends DashState
 
-# Wave/SuperWave dash like Celeste
+#TODO: create reverse versions of the jump
+#TODO: create stats for jump dash types
+## hyper version, lower jump height with small hitbox
+## wave
+## ultra
 export (float, 0 , 0.3, 0.05) var dashJumpTime: float = .1
 onready var dashJumpTimer: Timer = $DashJumpTimer
 export (float, 0 , 0.3, 0.05) var dashJumpRefreshTime: float = .2
@@ -28,6 +32,7 @@ func exit() -> void:
 	.exit()
 
 	if player.is_on_floor():
+		## Celeste style superdash
 		if dashJumpTimer.is_stopped() and dashJumpRefreshTimer.is_stopped():
 				player.velocityPlayer.x = player.velocityPrevious.x
 		elif !dashJumpTimer.is_stopped() and !dashJumpRefreshTimer.is_stopped():

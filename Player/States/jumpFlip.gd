@@ -1,6 +1,5 @@
-extends MoveState
+extends JumpState
 #TODO: create
-#TODO: dive through water, sand and snow. waterfall
 
 func enter() -> void:
 	.enter()

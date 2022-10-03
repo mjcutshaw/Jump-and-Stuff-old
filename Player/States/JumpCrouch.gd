@@ -1,7 +1,6 @@
-extends MoveState
+extends JumpState
 #TODO: create
-#TODO: dive through water, sand and snow. waterfall
-
+#keep crouch hit box, can dash get a smaller hitbox
 func enter() -> void:
 	.enter()
 

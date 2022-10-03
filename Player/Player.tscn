@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -61,10 +61,14 @@
 [ext_resource path="res://Player/States/WallGrab.gd" type="Script" id=59]
 [ext_resource path="res://Assets/Player/parts/propeller2.png" type="Texture" id=60]
 [ext_resource path="res://Player/States/SwimDash.gd" type="Script" id=61]
+[ext_resource path="res://Player/States/jumpFlip.gd" type="Script" id=62]
 [ext_resource path="res://Player/States/Skid.gd" type="Script" id=63]
 [ext_resource path="res://Player/States/FallDamage.gd" type="Script" id=64]
 [ext_resource path="res://Player/States/Bonk.gd" type="Script" id=65]
 [ext_resource path="res://Player/Scripts/Timers.gd" type="Script" id=66]
+[ext_resource path="res://Player/States/JumpCrouch.gd" type="Script" id=67]
+[ext_resource path="res://Player/States/Roll.gd" type="Script" id=68]
+[ext_resource path="res://Player/States/Dive.gd" type="Script" id=69]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -6847,6 +6851,18 @@ script = ExtResource( 50 )
 [node name="JumpWall" type="Node" parent="StateMachine"]
 script = ExtResource( 52 )
 
+[node name="JumpCrouch" type="Node" parent="StateMachine"]
+script = ExtResource( 67 )
+
+[node name="jumpFlip" type="Node" parent="StateMachine"]
+script = ExtResource( 62 )
+
+[node name="Roll" type="Node" parent="StateMachine"]
+script = ExtResource( 68 )
+
+[node name="Dive" type="Node" parent="StateMachine"]
+script = ExtResource( 69 )
+
 [node name="Apex" type="Node" parent="StateMachine"]
 script = ExtResource( 38 )
 
@@ -6865,18 +6881,15 @@ script = ExtResource( 39 )
 
 [node name="DashVertical" type="Node" parent="StateMachine"]
 script = ExtResource( 55 )
-dashTime = null
 
 [node name="DashJump" type="Node" parent="StateMachine"]
 script = ExtResource( 40 )
 
 [node name="DashWall" type="Node" parent="StateMachine"]
 script = ExtResource( 56 )
-dashTime = null
 
 [node name="DashClimb" type="Node" parent="StateMachine"]
 script = ExtResource( 57 )
-dashTime = null
 
 [node name="Glide" type="Node" parent="StateMachine"]
 script = ExtResource( 41 )
@@ -7026,6 +7039,7 @@ joint_mode = 2
 end_cap_mode = 2
 
 [node name="Aim" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -32 )
 collision_layer = 0
 collision_mask = 0
@@ -7075,7 +7089,5 @@ script = ExtResource( 37 )
 
 [node name="Walk" type="Node" parent="Abilities"]
 script = ExtResource( 11 )
-
-[node name="GrappleHook" type="Position2D" parent="."]
 
 [connection signal="timeout" from="Timers/SemisolidReset" to="." method="_on_SemisolidReset_timeout"]

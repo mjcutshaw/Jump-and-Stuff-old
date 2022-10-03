@@ -2,6 +2,7 @@ extends DashState
 
 #LOOKAT: up and down seperate?
 #FIXME: copied dashH
+#if jumped pressed during wall bounce for extra height
 
 func enter() -> void:
 	.enter()
