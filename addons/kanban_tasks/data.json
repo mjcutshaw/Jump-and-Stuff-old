@@ -32,7 +32,12 @@
         0,
         1,
         7,
-        8
+        8,
+        11,
+        12,
+        13,
+        14,
+        15
       ]
     },
     {
@@ -107,6 +112,31 @@
     {
       "category": 0,
       "title": "figure out momentum",
+      "details": ""
+    },
+    {
+      "category": 0,
+      "title": "roll",
+      "details": ""
+    },
+    {
+      "category": 0,
+      "title": "crouch jump",
+      "details": ""
+    },
+    {
+      "category": 0,
+      "title": "roll",
+      "details": ""
+    },
+    {
+      "category": 0,
+      "title": "jump flip",
+      "details": ""
+    },
+    {
+      "category": 0,
+      "title": "dive",
       "details": ""
     }
   ]
