@@ -14,7 +14,7 @@ func enter() -> void:
 	.enter()
 
 	recoverTimer.start()
-	player.fallDamge = false
+	player.fallDamage = false
 
 
 func exit() -> void:

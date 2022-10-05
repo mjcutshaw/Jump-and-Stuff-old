@@ -45,7 +45,7 @@ var aimDirection: Vector2 = Vector2.ZERO
 var ledgeLeft: bool = false
 var ledgeRight: bool = false
 
-var fallDamge: bool = false
+var fallDamage: bool = false
 
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1

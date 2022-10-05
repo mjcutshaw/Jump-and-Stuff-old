@@ -1,7 +1,7 @@
 extends MarginContainer
-#FIXME: only shows one line
+#FIXME: fix margins
 #TODO: make debug overlay
-onready var errorText: TextEdit = $TextEdit
+onready var errorText: TextEdit = $MarginContainer/TextEdit
 
 func _ready() -> void:
 	hide()

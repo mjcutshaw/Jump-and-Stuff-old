@@ -5,7 +5,7 @@ extends AirState
 func enter() -> void:
 	.enter()
 
-	player.fallDamge = false
+	player.fallDamage = false
 	player.fallTimer.start()
 	EventBus.emit_signal("fall")
 	player.animPlayer.play("Fall")
@@ -16,7 +16,8 @@ func exit() -> void:
 	.exit()
 
 	if player.fallTimer.is_stopped():
-		player.fallDamge = true
+		player.fallDamage = true
+		player.fallTimer.stop()
 
 
 func physics(delta) -> void:
