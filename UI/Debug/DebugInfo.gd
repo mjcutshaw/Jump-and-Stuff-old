@@ -10,6 +10,7 @@ onready var debug3Label: Label = $MarginContainer/VBoxContainer/Debug3
 
 
 func _ready() -> void:
+	visible = true #TODO: make a settings toggle
 	EventBus.connect("debugState", self, "state_label")
 	EventBus.connect("debugVelocity", self, "velocity_label")
 	EventBus.connect("debug1", self, "debug_1_label")
