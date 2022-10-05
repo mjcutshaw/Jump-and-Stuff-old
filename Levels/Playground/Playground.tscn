@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://UI/Announcements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -45,6 +45,9 @@
 [ext_resource path="res://UI/Pause/PauseMenu.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Objects/Target/Target.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Objects/Enviroment/Fluids/Water.tscn" type="PackedScene" id=45]
+[ext_resource path="res://UI/Menu/MenuManager.gd" type="Script" id=46]
+[ext_resource path="res://UI/Menu/UnpausedMenu.gd" type="Script" id=47]
+[ext_resource path="res://UI/Menu/PauseMenu.gd" type="Script" id=48]
 [ext_resource path="res://Objects/Enviroment/Wind/Wind.tscn" type="PackedScene" id=52]
 
 [sub_resource type="StreamTexture" id=39]
@@ -444,10 +447,16 @@ extents = Vector2( 10, 8 )
 script = ExtResource( 3 )
 
 [node name="Menu" type="CanvasLayer" parent="."]
-layer = 10
+pause_mode = 2
+script = ExtResource( 46 )
 
 [node name="PauseMenu" parent="Menu" instance=ExtResource( 43 )]
-visible = false
+script = ExtResource( 48 )
+
+[node name="Unpaused" type="Control" parent="Menu"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 47 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

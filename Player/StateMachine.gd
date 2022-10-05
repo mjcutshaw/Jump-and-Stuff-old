@@ -61,7 +61,6 @@ func init() -> void:
 
 	change_state(BaseState.State.Spawn)
 
-
 func handle_input(event: InputEvent) -> void:
 	var newState = currentState.handle_input(event)
 	if newState != BaseState.State.Null:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Quit.gd" type="Script" id=1]
+[ext_resource path="res://UI/Buttons/ResumeButton.gd" type="Script" id=2]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -59,6 +60,7 @@ margin_bottom = 78.0
 margin_right = 64.0
 margin_bottom = 20.0
 text = "Resume"
+script = ExtResource( 2 )
 
 [node name="Options" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 margin_top = 24.0
