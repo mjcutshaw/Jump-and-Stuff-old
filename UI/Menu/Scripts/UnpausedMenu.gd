@@ -4,9 +4,9 @@ func enter() -> void:
 	set_paused(false)
 
 func exit() -> void:
-	set_paused(true)
+	pass
 
-func handle_input(event: InputEvent) -> int:
+func handle_input(event: InputEvent) -> BaseMenu:
 	if Input.is_action_just_pressed("ui_pause"):
 		return State.Paused
 	

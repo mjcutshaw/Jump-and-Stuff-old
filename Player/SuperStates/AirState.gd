@@ -41,7 +41,6 @@ func handle_input(event: InputEvent) -> int:
 		return State.Dash
 	if Input.is_action_pressed("move_down"):
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
-		#TODO: figure a better way to do this
 	if Input.is_action_just_released("move_down"):
 		player.semisolidResetTimer.start()
 	if Input.is_action_just_pressed("jump"):

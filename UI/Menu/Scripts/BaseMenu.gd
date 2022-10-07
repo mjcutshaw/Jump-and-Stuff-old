@@ -5,6 +5,7 @@ enum State{
 	Null,
 	Unpaused,
 	Paused,
+	Settings,
 	}
 
 var menu
@@ -15,7 +16,7 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func handle_input(event: InputEvent) -> int:
+func handle_input(event: InputEvent) -> BaseMenu:
 	return State.Null
 
 

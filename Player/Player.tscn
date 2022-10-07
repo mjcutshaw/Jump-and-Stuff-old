@@ -6855,7 +6855,7 @@ script = ExtResource( 52 )
 [node name="JumpCrouch" type="Node" parent="StateMachine"]
 script = ExtResource( 67 )
 
-[node name="jumpFlip" type="Node" parent="StateMachine"]
+[node name="JumpFlip" type="Node" parent="StateMachine"]
 script = ExtResource( 62 )
 
 [node name="Roll" type="Node" parent="StateMachine"]

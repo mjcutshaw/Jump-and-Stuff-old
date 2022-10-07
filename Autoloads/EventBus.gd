@@ -41,6 +41,7 @@ signal debug3(type, info)
 
 ## MENU ##
 signal returnToGame
+signal menuChanged(menu)
 #signal settings_update
 #
 #signal level_completed(data)

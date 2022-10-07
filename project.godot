@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "BaseMenu",
 "language": "GDScript",
-"path": "res://UI/Menu/BaseMenu.gd"
+"path": "res://UI/Menu/Scripts/BaseMenu.gd"
 }, {
 "base": "Node",
 "class": "BaseState",
@@ -127,7 +127,7 @@ _global_script_classes=[ {
 "base": "CanvasLayer",
 "class": "MenuManager",
 "language": "GDScript",
-"path": "res://UI/Menu/MenuManager.gd"
+"path": "res://UI/Menu/Scripts/MenuManager.gd"
 }, {
 "base": "BaseState",
 "class": "MoveState",
