@@ -1,6 +1,7 @@
 extends AirState
 
 #TODO: find a way to go through semisolids
+#LOOKAT: maaybe press glide just before ability ends to keep momentum
 
 func enter() -> void:
 	.enter()

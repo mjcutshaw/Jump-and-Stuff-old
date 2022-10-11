@@ -82,9 +82,8 @@ func air_velocity_logic(speed) -> void:
 	#TODO: turn accel and friction into variables?
 	if player.velocityPlayer.x != 0  and player.moveDirection.x != 0 and (sign(player.velocityPlayer.x) != player.moveDirection.x):
 		airTurn = true
-	
+	#FIXME: air turn should stop other direction and timer till move other way
 	if airTurn:
-		#FIXME: need to multiply times delta/ (1/FRAMERATE)
 		player.velocityPlayer.x = move_toward(player.velocityPlayer.x, speed * player.moveDirection.x, player.accelerationAir) 
 	elif !airTurn:
 		if player.moveDirection.x != 0 and abs(player.velocityPlayer.x) < speed:
@@ -94,8 +93,6 @@ func air_velocity_logic(speed) -> void:
 		elif abs(player.velocityPlayer.x) >= speed:
 			#TODO: look at not needing moveDirection
 			momentum_logic(speed, true)
-			
-			#TODO: combime with below function
 
 
 func neutral_air_momentum_logic() -> void:
