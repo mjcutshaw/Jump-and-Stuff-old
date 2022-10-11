@@ -20,15 +20,14 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	
-	
+	#TODO: create functions
 	if player.moveDirection != Globals.ZERO:
 		swim_velocity_logic(player.moveSpeed/player.swimSpeedModifier)
 	else:
 		player.velocityPlayer.y = -64
 		apply_friction(player.frictionGround)
 	
-	if player.velocityPlayer.y < 0 and !player.swimLevel.is_colliding():
+	if player.velocityPlayer.y < 1 and !player.swimLevel.is_colliding():
 		player.velocityPlayer.y = 0
 		isSurfacing = true
 	else:
@@ -46,8 +45,8 @@ func handle_input(event: InputEvent) -> int:
 		return newState
 
 	if isSurfacing and Input.is_action_just_pressed("jump"):
+		#FIXME: needs more range closer to the surface
 		return State.Jump
-	#FIXME: needs more range closer to the surface
 	if Input.is_action_just_pressed("dash"):
 		return State.SwimDash
 
