@@ -2,9 +2,17 @@ extends DashState
 
 #TODO: move timer to here
 #LOOKAT: see in need dash air group
+
+var dashDirection
+
 func enter() -> void:
 	.enter()
 
+	if sign(player.velocity.x) != 0:
+		dashDirection = sign(player.velocity.x)
+	else:
+		dashDirection = player.facing
+		
 	player.velocityPlayer.y = 0
 	player.velocityPrevious = player.velocityPlayer
 	EventBus.emit_signal("playerDashed")
@@ -25,7 +33,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	player.velocityPlayer.x = player.dashVelocity * player.facing
+	player.velocityPlayer.x = player.dashVelocity * dashDirection
 
 
 func visual(delta) -> void:
