@@ -2,6 +2,7 @@ extends PlayerStatsNode
 class_name PlayerAbilitiesNode
 
 #LOOKAT: get rid of resource?
+#TODO: ability modifiers like melting/cooling to open areas
 var Abilities: Resource = preload("res://Resources/PlayerAbilities.tres")
 
 onready var abilities: Node = $Abilities

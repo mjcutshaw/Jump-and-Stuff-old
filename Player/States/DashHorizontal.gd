@@ -2,6 +2,7 @@ extends DashState
 
 #TODO: move timer to here
 #LOOKAT: see in need dash air group
+#TODO: add skill exits. keeping momenet with jump/glide at a certian time to keep momentum
 
 var dashDirection
 
