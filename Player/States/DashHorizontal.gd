@@ -47,7 +47,9 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("jump") and player.can_use_ability(Globals.abiliyList.JumpAir):
+		apply_acceleration(player.moveSpeed)
+		return State.JumpAir
 
 	return State.Null
 
