@@ -44,6 +44,7 @@ func handle_input(event: InputEvent) -> int:
 	if Input.is_action_just_released("move_down"):
 		player.semisolidResetTimer.start()
 	if Input.is_action_just_pressed("jump"):
+		#TODO: create an extended wall check 
 		if !player.coyoteJumpWallTimer.is_stopped():
 			player.coyoteJumpWallTimer.stop()
 			return State.JumpWall

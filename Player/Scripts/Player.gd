@@ -83,6 +83,12 @@ func _physics_process(delta: float) -> void:
 	ledge_detection()
 	EventBus.emit_signal("debugVelocity", velocity.round())
 
+	#FIXME: figure out to wall direction	
+#	if is_on_wall():
+#		for i in get_slide_count():
+#			var collision = get_slide_collision(i)
+#			EventBus.emit_signal("error", collision.collider.name)
+
 
 func _process(delta: float) -> void:
 	sm.visual(delta)
