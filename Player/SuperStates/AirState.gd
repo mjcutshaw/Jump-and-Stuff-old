@@ -52,6 +52,7 @@ func handle_input(event: InputEvent) -> int:
 			player.coyoteJumpTimer.stop()
 			return State.Jump
 		#TODO: extend wall and ground raycast to see if you are close and us that instead
+		#TODO: do a ground raycast check to see if close to ground
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			return State.JumpAir
 		else:
