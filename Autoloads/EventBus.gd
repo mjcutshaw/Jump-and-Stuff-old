@@ -32,7 +32,7 @@ signal ability_check
 signal checkpoint
 signal startingLocation
 
-signal error(info)
+signal error(info) #TODO: eventually turn this into write error file
 signal debugState(info)
 signal debugVelocity(info)
 signal debug1(type, info)

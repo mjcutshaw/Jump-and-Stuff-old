@@ -31,6 +31,8 @@ onready var maxJump: int = Abilities.maxJump
 onready var maxJumpAir: int = Abilities.maxJumpAir
 onready var maxDash: int = Abilities.maxDash
 
+onready var dashCDTimer: Timer = $Timers/DashCD
+
 var remainingJumpAir: int = 1
 var remainingDash: int = 1
 
@@ -88,7 +90,7 @@ func augment_unlocked(augment: Augment) -> void:
 #LOOKAT: can to ability first?
 func can_use_ability(ability: int) -> bool:
 	#TODO: add back in unlock check
-	if ability == Globals.abiliyList.Dash and remainingDash > 0:
+	if ability == Globals.abiliyList.Dash and remainingDash > 0 and dashCDTimer.is_stopped():
 		return true
 	elif ability == Globals.abiliyList.JumpAir and remainingJumpAir > 0:
 		return true

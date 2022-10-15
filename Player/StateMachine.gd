@@ -51,7 +51,7 @@ func change_state(newState: int) -> void:
 	currentState.enter()
 	currentStateName = currentState.name
 	EventBus.emit_signal("debugState", currentStateName)
-#	EventBus.emit_signal("error", currentStateName)
+	EventBus.emit_signal("error", currentStateName)
 	
 
 

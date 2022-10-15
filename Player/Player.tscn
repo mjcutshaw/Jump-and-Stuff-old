@@ -7011,6 +7011,8 @@ one_shot = true
 [node name="FallTimer" type="Timer" parent="Timers"]
 one_shot = true
 
+[node name="DashCD" type="Timer" parent="Timers"]
+
 [node name="Collector" type="Area2D" parent="."]
 visible = false
 collision_layer = 32
@@ -7040,7 +7042,6 @@ joint_mode = 2
 end_cap_mode = 2
 
 [node name="Aim" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, -32 )
 collision_layer = 0
 collision_mask = 0
