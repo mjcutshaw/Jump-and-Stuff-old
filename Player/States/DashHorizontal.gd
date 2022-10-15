@@ -4,6 +4,7 @@ extends DashState
 #LOOKAT: see in need dash air group
 #TODO: add skill exits. keeping momenet with jump/glide at a certian time to keep momentum
 
+
 var dashDirection
 
 func enter() -> void:
@@ -29,18 +30,22 @@ func exit() -> void:
 	if player.moveDirection != Vector2.ZERO:
 		player.velocityPlayer.x = player.velocityPrevious.x
 	player.animPlayer.stop()
+	dashDirection = 0
 
 
 func physics(delta) -> void:
 	.physics(delta)
 
+	player.move_logic(player.NO_SNAP, true)
 	player.velocityPlayer.x = player.dashVelocity * dashDirection
+	
 
 
 func visual(delta) -> void:
 	.visual(delta)
 
-	
+	#Fixme: player can still face the wrong way after dash into jump(need better name)
+	player.facing = dashDirection
 
 
 func handle_input(event: InputEvent) -> int:
@@ -65,5 +70,7 @@ func state_check(delta: float) -> int:
 			return State.Walk
 		else:
 			return State.Fall
+	if player.coyoteJumpWallTimer.is_stopped() and player.is_on_wall():
+		return State.WallSlide
 
 	return State.Null

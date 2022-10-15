@@ -20,6 +20,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
+	player.move_logic(player.NO_SNAP, true)
 	air_velocity_logic(player.moveSpeed/player.dashJumpVelocityModifier)
 
 

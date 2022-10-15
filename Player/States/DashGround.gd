@@ -5,10 +5,11 @@ extends DashState
 ## hyper version, lower jump height with small hitbox
 ## wave
 ## ultra
-export (float, 0 , 0.3, 0.05) var dashJumpTime: float = .1
+export (float, 0 , 0.3, 0.05) var dashJumpTime: float = .15
 onready var dashJumpTimer: Timer = $DashJumpTimer
-export (float, 0 , 0.3, 0.05) var dashJumpRefreshTime: float = .2
+export (float, 0 , 0.3, 0.05) var dashJumpRefreshTime: float = .25
 onready var dashJumpRefreshTimer: Timer = $DashJumpRefreshTimer
+var superJump: bool = false
 
 func _ready() -> void:
 	dashJumpTimer.wait_time = dashJumpTime
@@ -32,21 +33,31 @@ func exit() -> void:
 	.exit()
 
 	if player.is_on_floor():
-		## Celeste style superdash
-		if dashJumpTimer.is_stopped() and dashJumpRefreshTimer.is_stopped():
-				player.velocityPlayer.x = player.velocityPrevious.x
-		elif !dashJumpTimer.is_stopped() and !dashJumpRefreshTimer.is_stopped():
+		if superJump:
+			## Celeste like 
+#			EventBus.emit_signal("error", "super jump")
+			player.dashCDTimer.stop()
+		else:
+			if !dashJumpTimer.is_stopped() and !dashJumpRefreshTimer.is_stopped():
 				player.consume_ability(Globals.abiliyList.Dash, 1)
-	if !player.is_on_floor():
+			if player.velocityPrevious.x > player.moveSpeed:
+				player.velocityPlayer.x = player.moveSpeed
+			else:
+				player.velocityPlayer.x = player.velocityPrevious.x
+				
+	elif !player.is_on_floor():
 		player.consume_ability(Globals.abiliyList.Dash, 1)
 		if player.moveDirection.x != 0:
 			player.velocityPlayer.x = player.velocityPrevious.x
+	
 	player.animPlayer.stop()
+	superJump = false
 
 
 func physics(delta) -> void:
 	.physics(delta)
 
+	player.move_logic(player.SNAP_GROUND, true)
 	player.velocityPlayer.x = player.dashVelocity * player.facing
 
 
@@ -62,6 +73,10 @@ func handle_input(event: InputEvent) -> int:
 		return newState
 
 	if Input.is_action_just_pressed("jump") and !dashJumpRefreshTimer.is_stopped():
+		if dashJumpTimer.is_stopped():
+			superJump = true
+		else:
+			superJump = false
 		return State.Jump
 
 	return State.Null

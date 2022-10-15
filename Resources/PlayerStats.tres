@@ -32,6 +32,7 @@ dashDuration = 0.3
 dashDistance = 12
 dashJumpModifier = 1.5
 dashJumpVelocityModifier = 5.0
+dashCDTime = 0.6
 wallSlideSpeed = 2
 wallQuickSlideSpeed = 4
 swimSpeedModifier = 3.0

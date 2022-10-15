@@ -26,7 +26,7 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.velocityPlayer.x = 0
-	player.move_logic(player.SNAP_GROUND, true)
+	player.move_logic(player.NO_SNAP, true)
 
 
 func visual(delta) -> void:

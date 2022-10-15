@@ -19,6 +19,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
+	player.move_logic(player.NO_SNAP, true)
 	player.velocityPlayer.y = 0
 
 

@@ -157,6 +157,7 @@ func set_timers() -> void:
 	dashTimer.wait_time = dashDuration
 	semisolidResetTimer.wait_time = semisolidResetTime
 	fallTimer.wait_time = fallTime
+	dashCDTimer.wait_time = Stats.dashCDTime
 	#TODO: move this over to timers
 
 

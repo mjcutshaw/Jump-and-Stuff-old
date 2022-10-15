@@ -19,7 +19,7 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-	
+	player.move_logic(player.SNAP_Wall  * player.lastWallDirection, true)
 
 
 func visual(delta) -> void:

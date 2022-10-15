@@ -45,7 +45,7 @@ func handle_input(event: InputEvent) -> int:
 			player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 		else:
 			return State.Jump
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and player.dashCDTimer.is_stopped():
 		return State.DashGround
 	if Input.is_action_just_pressed("super_jump"):
 		return State.DashJump
