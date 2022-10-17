@@ -7,6 +7,21 @@ var startingArea: Vector2 = Vector2.ZERO
 var lastSafeGround: Vector2 = Vector2.ZERO
 var lastCheckpoint: Vector2 = Vector2.ZERO
 
+enum waypointsName {
+	null,
+	Up,
+	Down
+}
 
-func set_respawn(spawn):
-	currentRespawn = spawn
+var waypointLocation: Vector2
+var waypoints: Dictionary = {}
+
+func _ready() -> void:
+	EventBus.connect("setRespawn", self, "set_respawn")
+	EventBus.connect("addWaypoint", self, "add_waypoint")
+
+func set_respawn(name, location):
+	currentRespawn = location
+
+func add_waypoint(name, location) -> void:
+	waypoints[name] = location

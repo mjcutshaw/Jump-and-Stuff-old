@@ -6,6 +6,7 @@ enum State{
 	Unpaused,
 	Paused,
 	Settings,
+	FastTravel,
 	}
 
 var menu

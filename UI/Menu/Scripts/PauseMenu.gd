@@ -10,6 +10,7 @@ func _ready() -> void:
 func enter() -> void:
 	set_paused(true)
 	self.visible = true
+	resumeButton.grab_focus()
 
 func exit() -> void:
 	self.visible = false
@@ -18,6 +19,9 @@ func handle_input(event: InputEvent) -> BaseMenu:
 	if Input.is_action_just_pressed("ui_pause"):
 		return State.Unpaused
 	
+	return State.Null
+
+func state_check() -> BaseMenu:
 	return State.Null
 
 func settings_button_pressed() -> void:

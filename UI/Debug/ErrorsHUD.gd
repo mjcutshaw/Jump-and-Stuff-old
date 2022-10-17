@@ -6,6 +6,7 @@ onready var errorText: TextEdit = $MarginContainer/TextEdit
 func _ready() -> void:
 	hide()
 	EventBus.connect("error", self, "enter_text")
+	#TODO: also send to log when that is added
 
 func enter_text(info) -> void:
 	show()

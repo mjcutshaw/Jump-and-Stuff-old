@@ -17,6 +17,7 @@ signal landed
 signal playerGrounded(isGrounded)
 signal playerHealthChanged(amount)
 signal playerHealthMaxChanged(amount)
+signal playerHealFull
 signal playerStatChange(stat, amount)
 signal playerAbilityUnlocked(ability)
 signal playerAugmentUnlocked(augment)
@@ -31,6 +32,9 @@ signal ability_check
 
 signal checkpoint
 signal startingLocation
+signal setRespawn(name, location)
+signal addWaypoint(name, location)
+signal teleportPlayerToWaypoint(name)
 
 signal error(info) #TODO: eventually turn this into write error file
 signal debugState(info)

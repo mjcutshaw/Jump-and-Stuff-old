@@ -19,6 +19,8 @@ func handle_input(event: InputEvent) -> BaseMenu:
 	
 	return State.Null
 
+func state_check() -> BaseMenu:
+	return State.Null
 
 func back_button_pressed() -> void:
 	EventBus.emit_signal("menuChanged", State.Paused)

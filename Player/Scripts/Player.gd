@@ -63,6 +63,7 @@ export (float, 0, 5, 0.1) var fallTime: float = .9
 func _ready() -> void:
 	sm.init()
 	EventBus.connect("playerDied", self, "died")
+	EventBus.connect("teleportPlayerToWaypoint", self, "teleport_to_waypoint")
 	set_timers()
 
 
@@ -200,3 +201,8 @@ func turn_sprite() -> void:
 			var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 			tween.tween_property(characterRig, "scale", Vector2(-1,1), flipTime).from(Vector2(1,1))
 		facing = -1
+
+func teleport_to_waypoint(location):
+	var waypointLocation = CheckpointSystem.waypoints.get(location)
+	global_position = waypointLocation
+	#TODO: teleport state

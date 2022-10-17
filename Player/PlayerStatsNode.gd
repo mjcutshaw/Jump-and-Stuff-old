@@ -57,6 +57,7 @@ func _ready() -> void:
 	EventBus.connect("update_stats", self, "update_stats")
 	EventBus.connect("playerStatChange", self, "change_stat")
 	EventBus.connect("playerHealthChanged", self, "health_changed")
+	EventBus.connect("playerHealFull", self, "full_heal")
 	
 	healthMax = Stats.healthMax
 	health = Stats.health
@@ -64,6 +65,7 @@ func _ready() -> void:
 	yield(get_tree(), "idle_frame") #needs to wait so it updates
 	EventBus.emit_signal("healthUI", health)
 	EventBus.emit_signal("playerHealthMaxChanged", healthMax)
+	
 
 
 func update_stats():
@@ -117,3 +119,6 @@ func health_changed(amount) -> void:
 	
 	if health == 0:
 		EventBus.emit_signal("playerDied")
+
+func full_heal() -> void:
+	health_changed(healthMax)

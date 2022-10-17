@@ -6,6 +6,7 @@ onready var states = {
 	BaseMenu.State.Unpaused: $Unpaused,
 	BaseMenu.State.Paused: $PauseMenu,
 	BaseMenu.State.Settings: $SettingsMenu,
+	BaseMenu.State.FastTravel: $FastTravel,
 }
 
 var currentMenu: BaseMenu
@@ -13,6 +14,7 @@ var previousMenu: BaseMenu
 
 
 func _ready() -> void:
+	visible = true
 	menu_hid()
 	change_menu(BaseMenu.State.Unpaused)
 	EventBus.connect("menuChanged", self, "button_pressed")
@@ -24,6 +26,10 @@ func _input(event: InputEvent) -> void:
 	if newMenu != BaseMenu.State.Null:
 		change_menu(newMenu)
 
+func _process(delta: float) -> void:
+	var newMenu = currentMenu.state_check()
+	if newMenu != BaseMenu.State.Null:
+		change_menu(newMenu)
 
 func button_pressed(menu) -> void:
 	print(menu)
