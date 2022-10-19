@@ -35,6 +35,8 @@ func aim_direction() -> void:
 	
 	if player.aimStrength.length() > deadzone_radius:
 		player.aimDirection = player.aimStrength
+	elif player.moveStrength.length() > deadzone_radius:
+		player.aimDirection = player.moveStrength
 	else:
 		player.aimDirection = Vector2.ZERO
 

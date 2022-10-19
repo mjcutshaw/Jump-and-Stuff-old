@@ -53,7 +53,7 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 func hookshot_velocity() -> Vector2:
-	#TODO: figure out 
+	#FUXME: figure out 
 	var destination: Vector2 = player.targetHookShot.global_position
 	var disp := destination - player.global_position
 
