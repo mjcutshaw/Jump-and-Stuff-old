@@ -73,7 +73,7 @@ func unlock_ability(ability: int) -> void:
 			unlockedDash = true
 	else:
 		EventBus.emit_signal("error", "Null Ability Unlocked")
-	EventBus.emit_signal("ability_check")
+	EventBus.emit_signal("abilityCheck")
 	#TODO: using this?
 
 
@@ -112,7 +112,7 @@ func consume_ability(ability: int, amount: int) -> void:
 		set_dash(-amount)
 	else:
 		print("Null Ability Consume")
-	EventBus.emit_signal("ability_check")
+	EventBus.emit_signal("abilityCheck")
 
 
 func reset_ability(ability: int) -> void:
@@ -125,7 +125,7 @@ func reset_ability(ability: int) -> void:
 		set_dash(maxDash)
 	else:
 		print("Null Ability Reset")
-	EventBus.emit_signal("ability_check")
+	EventBus.emit_signal("abilityCheck")
 
 
 func set_jump_air(amount: int) -> void:

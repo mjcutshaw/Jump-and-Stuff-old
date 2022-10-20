@@ -65,4 +65,4 @@ func unlock_ability(ability: int) -> void:
 		unlockedDashDown = true
 	else:
 		EventBus.emit_signal("error", "Null Ability Unlocked")
-	EventBus.emit_signal("ability_check")
+	EventBus.emit_signal("abilityCheck")
