@@ -47,24 +47,37 @@ margin_right = 20.0
 margin_bottom = 20.0
 grow_horizontal = 2
 
-[node name="Play" type="Button" parent="Buttons"]
-margin_right = 121.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons"]
+margin_right = 152.0
+margin_bottom = 29.0
+
+[node name="NewGame" type="Button" parent="Buttons/HBoxContainer"]
+margin_right = 68.0
 margin_bottom = 29.0
 grow_horizontal = 2
 theme = ExtResource( 1 )
-text = "Play"
+text = "New"
+script = ExtResource( 3 )
+
+[node name="Load" type="Button" parent="Buttons/HBoxContainer"]
+margin_left = 72.0
+margin_right = 152.0
+margin_bottom = 29.0
+grow_horizontal = 2
+theme = ExtResource( 1 )
+text = "Load"
 script = ExtResource( 3 )
 
 [node name="Options" type="Button" parent="Buttons"]
 margin_top = 33.0
-margin_right = 121.0
+margin_right = 152.0
 margin_bottom = 62.0
 theme = ExtResource( 1 )
 text = "Options"
 
 [node name="Quit" type="Button" parent="Buttons"]
 margin_top = 66.0
-margin_right = 121.0
+margin_right = 152.0
 margin_bottom = 95.0
 theme = ExtResource( 1 )
 text = "Quit"
