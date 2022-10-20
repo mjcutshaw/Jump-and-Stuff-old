@@ -1,7 +1,10 @@
 extends MoveState
 
-#TODO: own gravity
 #TODO: no gravity till player pass point
+#TODO: area2d that stops player
+#TODO: figrue out how to launch player past
+
+const slowRadius: = 100.0
 
 func enter() -> void:
 	.enter()
@@ -53,26 +56,13 @@ func state_check(delta: float) -> int:
 	return State.Null
 
 func hookshot_velocity() -> Vector2:
-	#FUXME: figure out 
+	var playerPosition: Vector2 = player.global_position
 	var destination: Vector2 = player.targetHookShot.global_position
-	var disp := destination - player.global_position
-
-	# The height from the higher of the two points to the highest point in the
-	# arc.
-	var h := Globals.TILE_SIZE
-
-	# The total height from the lower of the two points to the highest point in
-	# the arc.
-	var H := abs(disp.y) + h
-
-	var g := player.gravityFall
-
-	var player_below_dest := disp.y < 0
-
-	var time_up := sqrt(2 * (H if player_below_dest else h) / g)
-	var time_down := sqrt(2 * (h if player_below_dest else H) / g)
-
-	var velocity := Vector2.ZERO
-	velocity.x = disp.x / float(time_up + time_down)
-	velocity.y = -sqrt(2 * (H if player_below_dest else h) * g)
-	return velocity
+	
+	var distanceToTarget: float = playerPosition.distance_to(destination)
+	var desiredVelocity: Vector2 = playerPosition.direction_to(destination) * player.dashVelocity 
+	
+	if distanceToTarget < slowRadius:
+		desiredVelocity *= (distanceToTarget / slowRadius) * .75 + .25
+	
+	return desiredVelocity
