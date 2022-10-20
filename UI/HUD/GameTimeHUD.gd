@@ -4,9 +4,11 @@ var timePlayed: float
 var strTimeElapsed: String
 
 onready var playTimeLabel: Label = $MarginContainer/PlayTime
+var SettingsFile: Resource = preload("res://Resources/SettingsFile.tres")
 
 func _ready() -> void:
-	show()
+	show_timer()
+	EventBus.connect("settingsUpdate", self, "show_timer")
 
 func _process(delta) -> void:
 	timePlayed += delta
@@ -17,3 +19,6 @@ func _process(delta) -> void:
 	strTimeElapsed = "%02d : %02d : %02d . %03d" % [hr, mins, secs, mils]
 	
 	playTimeLabel.text = strTimeElapsed
+
+func show_timer() -> void:
+	visible = SettingsFile.showTimer

@@ -7,22 +7,21 @@ onready var raycast: RayCast2D = $RayCast2D
 onready var aimIndicator: Node2D = $AimIndicator
 onready var targetIndicator: Node2D = $TargetIndicator
 var target: Target
-
+var SettingsFile: Resource = preload("res://Resources/SettingsFile.tres")
 
 func _ready() -> void:
 	set_collision_mask_bit(CollisionLayers.TARGET, true)
-	aimIndicator.visible = false
 	raycast.set_as_toplevel(true)
+	show_aim_indicator()
+	EventBus.connect("settingsUpdate", self, "show_aim_indicator")
 
 
 func _physics_process(delta: float) -> void:
 	aim_direction()
 	if player.aimDirection == Vector2.ZERO:
-		aimIndicator.visible = false
 		targetIndicator.visible = false
 		player.targetHookShot = null
 	else:
-		aimIndicator.visible = true
 		aim()
 		target = find_best_target()
 		set_target(target)
@@ -78,3 +77,7 @@ func aim() -> void:
 	var angle: = cast.angle()
 	rotation = angle
 	raycast.force_raycast_update()
+
+
+func show_aim_indicator() -> void:
+	aimIndicator.visible = SettingsFile.showAimIndicator
