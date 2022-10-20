@@ -28,7 +28,7 @@ func exit() -> void:
 	self.visible = false
 
 func handle_input(event: InputEvent) -> BaseMenu:
-	if Input.is_action_just_pressed("ui_pause"):
+	if Input.is_action_just_pressed("ui_pause") or Input.is_action_just_pressed("ui_back"):
 		return State.Paused
 	
 	return State.Null
