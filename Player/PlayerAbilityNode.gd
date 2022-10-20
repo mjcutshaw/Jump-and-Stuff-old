@@ -42,7 +42,7 @@ var targetBurrow: Area2D = null
 
 
 func _ready() -> void:
-	EventBus.connect("update_abilities", self, "update_abilities")
+	EventBus.connect("updateAbilities", self, "update_abilities")
 	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
 	EventBus.connect("playerAbilityUnlocked", self, "ability_unlocked")
 	

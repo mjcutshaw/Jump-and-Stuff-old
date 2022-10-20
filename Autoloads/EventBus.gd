@@ -1,8 +1,8 @@
 extends Node
 
 
-signal update_stats
-signal update_abilities
+signal updateStats
+signal updateAbilities
 
 signal playerSpawned
 signal playerDied
@@ -10,6 +10,7 @@ signal playerJumped
 signal playerSuperJumped
 signal playerDashed
 signal playerGlide
+signal playerBonked
 signal fall
 signal walk
 signal idle
@@ -26,9 +27,7 @@ signal hookshotTarget(target)
 signal playerBounced(amount)
 
 signal healthUI(amount)
-#signal bonked
-#
-signal ability_check
+signal abilityCheck
 
 signal checkpoint
 signal startingLocation
@@ -47,11 +46,6 @@ signal debug3(type, info)
 signal returnToGame
 signal menuChanged(menu)
 signal settingsUpdate
-#
-#signal level_completed(data)
-#signal level_started(data)
-#signal change_scene(data)
-#signal free_look_camera(data)
-#
-#signal game_paused(data)
-#signal game_exit
+signal saveGame
+
+

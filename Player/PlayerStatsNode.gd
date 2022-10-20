@@ -54,7 +54,7 @@ var wallQuickSlideSpeed
 
 func _ready() -> void:
 	update_stats()
-	EventBus.connect("update_stats", self, "update_stats")
+	EventBus.connect("updateStats", self, "update_stats")
 	EventBus.connect("playerStatChange", self, "change_stat")
 	EventBus.connect("playerHealthChanged", self, "health_changed")
 	EventBus.connect("playerHealFull", self, "full_heal")
