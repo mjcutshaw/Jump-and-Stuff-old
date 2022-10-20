@@ -7,6 +7,7 @@ var startingArea: Vector2 = Vector2.ZERO
 var lastSafeGround: Vector2 = Vector2.ZERO
 var lastCheckpoint: Vector2 = Vector2.ZERO
 
+#TODO: will be teleporting to new scene when adding new areas
 enum waypointsName {
 	null,
 	Up,
