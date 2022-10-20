@@ -472,22 +472,22 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -100.0
+margin_left = -200.0
 margin_top = -100.0
-rect_min_size = Vector2( 100, 100 )
+rect_min_size = Vector2( 200, 100 )
 script = ExtResource( 34 )
 
 [node name="Panel" type="Panel" parent="DebugLayer/Errors"]
 modulate = Color( 1, 1, 1, 0.533333 )
-margin_right = 100.0
+margin_right = 200.0
 margin_bottom = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="DebugLayer/Errors"]
-margin_right = 100.0
+margin_right = 200.0
 margin_bottom = 100.0
 
 [node name="TextEdit" type="TextEdit" parent="DebugLayer/Errors/MarginContainer"]
-margin_right = 100.0
+margin_right = 200.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
 readonly = true
@@ -1110,7 +1110,7 @@ position = Vector2( -72, 208 )
 collision_mask = 128
 
 [node name="Spike" parent="Interactables" instance=ExtResource( 36 )]
-position = Vector2( -187, -6 )
+position = Vector2( -280, 223 )
 
 [node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
 position = Vector2( -424, 200 )
