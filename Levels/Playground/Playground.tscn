@@ -1153,7 +1153,10 @@ shape = SubResource( 82 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Wind" parent="." instance=ExtResource( 52 )]
-position = Vector2( -1912, -192 )
+position = Vector2( -1676, -583 )
+rotation = -1.59915
+scale = Vector2( -2.13241, 10.1406 )
+strength = 200
 direction = 1
 
 [node name="Water" parent="." instance=ExtResource( 45 )]

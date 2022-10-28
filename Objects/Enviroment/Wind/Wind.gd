@@ -6,6 +6,7 @@ extends EnviromentalEffects
 
 onready var collisionShape: CollisionShape2D = $CollisionShape2D
 onready var particles: Particles2D = $Particles2D
+var windVelocity: Vector2
 
 func _ready() -> void:
 	connect("body_entered", self, "enter_wind")
@@ -15,6 +16,8 @@ func _ready() -> void:
 		EventBus.emit_signal("error", str("wind direction null: " + str(global_position)))
 	#TODO: add other shapes in
 	adjust_particle()
+	
+	windVelocity =  Vector2(0,-strength).rotated(rotation)
 
 func adjust_particle():
 	particles.process_material.emission_box_extents.x = collisionShape.shape.extents.x
@@ -31,7 +34,9 @@ func adjust_particle():
 
 func enter_wind(body: Actors) -> void:
 	body.inWind = true
+	body.windVelocity = windVelocity
 
 
 func exit_wind(body: Actors) -> void:
 	body.inWind = false
+	body.windVelocity = Vector2.ZERO

@@ -7,6 +7,7 @@ export var healthMax: int
 ## Enviroment Effects ##
 var inWater: bool = false
 var inWind: bool = false
+var windVelocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	pass
