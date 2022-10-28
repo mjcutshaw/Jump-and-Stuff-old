@@ -23,7 +23,9 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	if player.inWind:
-		player.velocityPlayer.y = -50
+		player.velocityPlayer = player.windVelocity
+		air_velocity_logic(player.moveSpeed/player.glideSpeedModifier)
+		neutralMovement = false
 		#TODO: get strength from wind
 	else:
 		gravity_logic(player.gravityGlide, delta)
