@@ -89,6 +89,7 @@ func update_stats():
 	terminalVelocity = by_tile_size(baseTerminalVelocity)
 	
 	dashVelocity = by_tile_size(Stats.dashDistance)/Stats.dashDuration
+	#TODO: make based off moveSpeed
 	
 	wallSlideSpeed = by_tile_size(Stats.wallSlideSpeed)
 	wallQuickSlideSpeed = by_tile_size(Stats.wallQuickSlideSpeed)

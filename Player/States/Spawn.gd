@@ -52,6 +52,8 @@ func handle_input(event: InputEvent) -> int:
 		return State.Walk
 	if Input.is_action_just_pressed("jump"):
 		return State.Jump
+	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.Dash):
+		return State.Dash
 
 	return State.Null
 

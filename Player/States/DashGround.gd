@@ -42,8 +42,8 @@ func exit() -> void:
 				player.consume_ability(Globals.abiliyList.Dash, 1)
 			if player.velocityPrevious.x > player.moveSpeed:
 				player.velocityPlayer.x = player.moveSpeed
-			else:
-				player.velocityPlayer.x = player.velocityPrevious.x
+#			else:
+#				player.velocityPlayer.x = player.velocityPrevious.x
 				
 	elif !player.is_on_floor():
 		player.consume_ability(Globals.abiliyList.Dash, 1)

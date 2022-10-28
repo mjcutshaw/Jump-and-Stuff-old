@@ -36,7 +36,7 @@ export var glideGravityModifier: float = 10.0
 
 export var jumpBoostTime: float = 0.10 #DASH
 export var dashDuration = 0.3
-export var dashDistance: int = 12
+export var dashDistance: int = 10
 export var dashJumpModifier: float = 1.5
 export var dashJumpVelocityModifier: float = 5.0
 export var dashCDTime: float = 0.6
