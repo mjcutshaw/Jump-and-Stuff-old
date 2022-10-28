@@ -19,7 +19,8 @@ func enter() -> void:
 
 func exit() -> void:
 	set_paused(false)
-	EventBus.emit_signal("teleportPlayerToWaypoint", teleportLocation)
+	if teleportPlayer:
+		EventBus.emit_signal("teleportPlayerToWaypoint", teleportLocation)
 	teleportLocation = CheckpointSystem.waypointsName.null
 	teleportPlayer = false
 	visible = false

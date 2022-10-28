@@ -4,6 +4,7 @@ extends Node
 signal updateStats
 signal updateAbilities
 
+signal playerTeleported
 signal playerSpawned
 signal playerDied
 signal playerJumped
