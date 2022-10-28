@@ -1,11 +1,11 @@
 extends JumpState
 
 #TODO: smoother tranistion with no input
+#TODO: lock out conrtols for a short time
 
 func enter() -> void:
 	.enter()
 
-	#TODO: able right before hitting the wall to flip momentum
 	if player.moveDirection.x == player.lastWallDirection:
 		player.velocityPlayer = Vector2(100 * -player.lastWallDirection, player.jumpVelocityMax)
 		player.animPlayer.play("Jump Double")

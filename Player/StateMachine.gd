@@ -3,12 +3,14 @@ extends Node
 #TODO: state machine based of signals
 onready var states = {
 	BaseState.State.Spawn: $Spawn,
+	BaseState.State.Teleport: $Teleport,
 	BaseState.State.Die: $Die,
 	BaseState.State.Idle: $Idle,
 	BaseState.State.Walk: $Walk,
 	BaseState.State.Jump: $Jump,
 	BaseState.State.JumpAir: $JumpAir,
 	BaseState.State.JumpWall: $JumpWall,
+	BaseState.State.JumpReverse: $JumpReverse,
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
 	BaseState.State.DashGround: $DashGround,
@@ -40,12 +42,14 @@ onready var player: Player = owner
 func _ready() -> void:
 	EventBus.connect("playerDied", self, "player_died")
 	EventBus.connect("playerBounced", self, "bounce")
+	EventBus.connect("playerTeleported", self, "player_teleported")
 
 func change_state(newState: int) -> void:
 	if currentState:
 		currentState.exit()
 		previousState = currentState
 		previousStateName = previousState.name
+		player.previousState = currentState
 	
 	currentState = states[newState]
 	currentState.enter()
@@ -83,6 +87,9 @@ func visual(delta) -> void:
 
 #func sound(delta) -> void:
 #	currentState.sound(delta)
+
+func player_teleported() -> void:
+	change_state(BaseState.State.Teleport)
 
 func player_died() -> void:
 	change_state(BaseState.State.Die)

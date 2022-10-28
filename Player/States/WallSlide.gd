@@ -5,6 +5,7 @@ func enter() -> void:
 	.enter()
 
 	player.animPlayer.play("Wall Slide")
+	player.velocityPlayer.x = 0
 
 
 func exit() -> void:

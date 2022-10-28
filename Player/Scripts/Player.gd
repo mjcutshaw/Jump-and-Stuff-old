@@ -11,6 +11,9 @@ onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
 onready var wallRaycastLeft: RayCast2D = $Raycasts/Wall/Left
 onready var wallRaycastRight: RayCast2D = $Raycasts/Wall/Right
+onready var jumpGroundCheck: RayCast2D = $Raycasts/JumpChecks/Ground
+onready var jumpLeftCheck: RayCast2D = $Raycasts/JumpChecks/Left
+onready var jumpRightCheck: RayCast2D = $Raycasts/JumpChecks/Right
 onready var swimLevel: RayCast2D = $SwimLevel
 onready var trail: Line2D = $Trail
 #TODO: player trail
@@ -57,6 +60,8 @@ var jumpCornerCorrectionHorizontal: int = 15
 
 var glidePressed: bool = false
 
+var previousState
+
 export var flipTime: float = .4
 export (float, 0, 5, 0.1) var fallTime: float = .9
 
@@ -94,6 +99,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	sm.visual(delta)
 #	sm.sound(delta)
+	facing =  characterRig.scale.x
 
 
 func move_logic(snap, stopOnSlope) -> void:
@@ -137,6 +143,13 @@ func ledge_detection() -> void:
 		ledgeRight = true
 	else:
 		ledgeRight = false
+
+func wall_jump_detection (lenght: int = 50):
+	jumpLeftCheck.cast_to.x = -lenght
+	jumpRightCheck.cast_to.x = lenght
+	
+	jumpLeftCheck.force_raycast_update()
+	jumpRightCheck.force_raycast_update()
 
 func wall_detection(length: int = 5) -> int:
 	wallRaycastLeft.cast_to.x = -length
@@ -205,4 +218,4 @@ func turn_sprite() -> void:
 func teleport_to_waypoint(location):
 	var waypointLocation = CheckpointSystem.waypoints.get(location)
 	global_position = waypointLocation
-	#TODO: teleport state
+	EventBus.emit_signal("playerTeleported")

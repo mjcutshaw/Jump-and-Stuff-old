@@ -52,7 +52,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if abs(player.velocityPrevious.x) > player.moveSpeed:
+	if abs(player.velocityPrevious.x) > (player.moveSpeed * 1.5):
 		return State.Bonk
 	if player.is_on_floor():
 		return State.Walk

@@ -3,6 +3,7 @@ extends DashState
 #TODO: move timer to here
 #LOOKAT: see in need dash air group
 #TODO: add skill exits. keeping momenet with jump/glide at a certian time to keep momentum
+#TODO: add right stick overwrite dash direction
 
 
 var dashDirection
@@ -45,7 +46,7 @@ func visual(delta) -> void:
 	.visual(delta)
 
 	#Fixme: player can still face the wrong way after dash into jump(need better name)
-	player.facing = dashDirection
+	player.characterRig.scale.x == dashDirection
 
 
 func handle_input(event: InputEvent) -> int:
@@ -53,9 +54,15 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump") and player.can_use_ability(Globals.abiliyList.JumpAir):
-		apply_acceleration(player.moveSpeed)
-		return State.JumpAir
+	if Input.is_action_just_pressed("jump"):
+		player.wall_jump_detection(100)
+		if player.jumpLeftCheck.is_colliding() or player.jumpRightCheck.is_colliding():
+			return State.JumpReverse
+		elif player.can_use_ability(Globals.abiliyList.JumpAir):
+			apply_acceleration(player.moveSpeed)
+			return State.JumpAir
+		else:
+			return State.Null
 
 	return State.Null
 

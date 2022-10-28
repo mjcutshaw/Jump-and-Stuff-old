@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -69,6 +69,8 @@
 [ext_resource path="res://Player/States/JumpCrouch.gd" type="Script" id=67]
 [ext_resource path="res://Player/States/Roll.gd" type="Script" id=68]
 [ext_resource path="res://Player/States/Dive.gd" type="Script" id=69]
+[ext_resource path="res://Player/States/Teleport.gd" type="Script" id=70]
+[ext_resource path="res://Player/States/JumpReverse.gd" type="Script" id=71]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Base"
@@ -6829,6 +6831,9 @@ script = ExtResource( 3 )
 [node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
 
+[node name="Teleport" type="Node" parent="StateMachine"]
+script = ExtResource( 70 )
+
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
 
@@ -6857,6 +6862,9 @@ script = ExtResource( 67 )
 
 [node name="JumpFlip" type="Node" parent="StateMachine"]
 script = ExtResource( 62 )
+
+[node name="JumpReverse" type="Node" parent="StateMachine"]
+script = ExtResource( 71 )
 
 [node name="Roll" type="Node" parent="StateMachine"]
 script = ExtResource( 68 )
@@ -6990,6 +6998,25 @@ enabled = true
 cast_to = Vector2( 5, 0 )
 collision_mask = 14
 
+[node name="JumpChecks" type="Node2D" parent="Raycasts"]
+
+[node name="Ground" type="RayCast2D" parent="Raycasts/JumpChecks"]
+enabled = true
+collision_mask = 14
+
+[node name="Right" type="RayCast2D" parent="Raycasts/JumpChecks"]
+visible = false
+position = Vector2( 31, -32 )
+enabled = true
+cast_to = Vector2( 50, 0 )
+collision_mask = 14
+
+[node name="Left" type="RayCast2D" parent="Raycasts/JumpChecks"]
+position = Vector2( -33, -33 )
+enabled = true
+cast_to = Vector2( -100, 0 )
+collision_mask = 14
+
 [node name="Timers" type="Node" parent="."]
 script = ExtResource( 66 )
 
@@ -7042,6 +7069,7 @@ joint_mode = 2
 end_cap_mode = 2
 
 [node name="Aim" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -32 )
 collision_layer = 0
 collision_mask = 0

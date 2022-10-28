@@ -4,12 +4,14 @@ class_name BaseState
 enum State {
 	Null,
 	Spawn,
+	Teleport,
 	Die,
 	Idle,
 	Walk,
 	Jump,
 	JumpAir,
 	JumpWall,
+	JumpReverse,
 	Apex,
 	Fall,
 	DashGround,
@@ -30,6 +32,7 @@ enum State {
 	FallDamage,
 	Bonk,
 }
+
 
 var player: Player
 

@@ -39,20 +39,24 @@ func handle_input(event: InputEvent) -> int:
 
 	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.Dash):
 		return State.Dash
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_pressed("move_down"): #fall through semisolids
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 	if Input.is_action_just_released("move_down"):
 		player.semisolidResetTimer.start()
 	if Input.is_action_just_pressed("jump"):
-		#TODO: create an extended wall check 
-		if !player.coyoteJumpWallTimer.is_stopped():
+		player.wall_jump_detection() #extended wall check
+		if !player.coyoteJumpWallTimer.is_stopped(): #fall over the wall, but can stil wall jump
 			player.coyoteJumpWallTimer.stop()
 			return State.JumpWall
 		elif !player.coyoteJumpTimer.is_stopped(): 
 			player.coyoteJumpTimer.stop()
 			return State.Jump
-		#TODO: extend wall and ground raycast to see if you are close and us that instead
-		#TODO: do a ground raycast check to see if close to ground
+		elif player.jumpGroundCheck.is_colliding(): #extened ground check, and air jump reset
+			player.reset_ability(Globals.abiliyList.JumpAir)
+			return State.Jump
+#		elif player.jumpRightCheck.is_colliding() or player.jumpLeftCheck.is_colliding():
+#			return State.JumpWall
+			#TODO: probably broken
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			return State.JumpAir
 		else:
@@ -72,6 +76,7 @@ func state_check(delta: float) -> int:
 
 	if player.is_on_floor():
 		player.animPlayer.play("Landing")
+		neutralMovement = false
 		EventBus.emit_signal("landed")
 		return State.Walk
 	if player.is_on_wall() and player.velocityPlayer.y > 0:

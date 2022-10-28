@@ -1,16 +1,25 @@
 extends JumpState
 
+var jumpDirection: int
+
 func enter() -> void:
 	.enter()
-
-	EventBus.emit_signal("playerJumped")
+	#FIXME this breaks wall jumps
+	if player.jumpLeftCheck.is_colliding():
+		jumpDirection = Globals.RIGHT
+		
+	elif player.jumpRightCheck.is_colliding():
+		jumpDirection = Globals.LEFT
+	
+	player.characterRig.scale.x = jumpDirection
 	player.velocityPlayer.y = player.jumpVelocityMax
-	player.animPlayer.play("Jump")
-	
+	if abs(player.velocityPlayer.x) > player.moveSpeed:
+		player.velocityPlayer.x = abs(player.velocity.x) * jumpDirection
+	else:
+		player.velocityPlayer.x = player.moveSpeed * jumpDirection
+
 	neutral_move_direction_logic()
-	
-	if player.previousState.name == "Walk":
-		neutralMovement = false
+
 
 func exit() -> void:
 	.exit()
@@ -38,10 +47,8 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	## variable jump height ##
 	if Input.is_action_just_released("jump"):
-		player.velocityPlayer.y = max(player.velocityPlayer.y, player.jumpHeightMin)
-		return State.Apex
+		return State.Fall
 
 	return State.Null
 
@@ -51,7 +58,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.velocityPlayer.y > - player.jumpHeightApex:
-		return State.Apex
+	if player.velocityPlayer.y > 0:
+		return State.Fall
 
 	return State.Null
