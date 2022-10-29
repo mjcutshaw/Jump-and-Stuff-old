@@ -6950,11 +6950,13 @@ visible = false
 script = ExtResource( 42 )
 
 [node name="RayCast2D" type="RayCast2D" parent="DropShadow"]
+visible = false
 position = Vector2( -32, 0 )
 enabled = true
 collision_mask = 14
 
 [node name="RayCast2D2" type="RayCast2D" parent="DropShadow"]
+visible = false
 position = Vector2( 32, 0 )
 enabled = true
 collision_mask = 14
@@ -7002,6 +7004,7 @@ cast_to = Vector2( 5, 0 )
 collision_mask = 14
 
 [node name="JumpChecks" type="Node2D" parent="Raycasts"]
+visible = false
 
 [node name="Ground" type="RayCast2D" parent="Raycasts/JumpChecks"]
 enabled = true
@@ -7009,7 +7012,6 @@ cast_to = Vector2( 0, 25 )
 collision_mask = 14
 
 [node name="Right" type="RayCast2D" parent="Raycasts/JumpChecks"]
-visible = false
 position = Vector2( 31, -32 )
 enabled = true
 cast_to = Vector2( 50, 0 )
@@ -7125,6 +7127,7 @@ script = ExtResource( 37 )
 script = ExtResource( 11 )
 
 [node name="PogoColisions" type="Node2D" parent="."]
+visible = false
 
 [node name="Down" type="Area2D" parent="PogoColisions"]
 position = Vector2( 0, 58 )

@@ -56,6 +56,8 @@ func handle_input(event: InputEvent) -> int:
 
 	if Input.is_action_just_pressed("jump"):
 		player.wall_jump_detection(100)
+		#FICME: need to check against velocity direction
+		#FOXME: if moveDirection is same as velocity return tall jump
 		if player.jumpLeftCheck.is_colliding() or player.jumpRightCheck.is_colliding():
 			return State.JumpReverse
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):

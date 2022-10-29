@@ -56,7 +56,7 @@ func handle_input(event: InputEvent) -> int:
 			return State.Jump
 #		elif player.jumpRightCheck.is_colliding() or player.jumpLeftCheck.is_colliding():
 #			return State.JumpWall
-			#TODO: make extended wallcheck 
+			#FIXME: make extended wallcheck 
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			return State.JumpAir
 		else:
@@ -79,7 +79,8 @@ func state_check(delta: float) -> int:
 		neutralMovement = false
 		EventBus.emit_signal("landed")
 		return State.Walk
-	if player.is_on_wall() and player.velocityPlayer.y > 0:
+	if player.is_on_wall():
+#	if player.is_on_wall() and player.velocityPlayer.y > 0: #FIXME: find a bettwer way to bring this back. 
 		return State.WallSlide
 
 	return State.Null
