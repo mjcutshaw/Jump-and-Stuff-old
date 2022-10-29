@@ -17,6 +17,8 @@ onready var jumpRightCheck: RayCast2D = $Raycasts/JumpChecks/Right
 onready var swimLevel: RayCast2D = $SwimLevel
 onready var trail: Line2D = $Trail
 #TODO: player trail
+onready var pogoDownCollision: Area2D = $PogoColisions/Down
+
 
 onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
@@ -80,6 +82,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		glidePressed = true
 	if Input.is_action_just_released("glide"):
 		glidePressed = false
+	if Input.is_action_just_pressed("pogo"):
+		if pogo_down_check():
+			velocityPlayer.y = -800
+			fallTimer.start()
+			#TODO rename falltime to fall damage
+			#TODO: create state
 
 
 func _physics_process(delta: float) -> void:
@@ -144,7 +152,7 @@ func ledge_detection() -> void:
 	else:
 		ledgeRight = false
 
-func wall_jump_detection (lenght: int = 50):
+func wall_jump_detection (lenght: int = 15):
 	jumpLeftCheck.cast_to.x = -lenght
 	jumpRightCheck.cast_to.x = lenght
 	
@@ -219,3 +227,14 @@ func teleport_to_waypoint(location):
 	var waypointLocation = CheckpointSystem.waypoints.get(location)
 	global_position = waypointLocation
 	EventBus.emit_signal("playerTeleported")
+
+func pogo_down_check() -> bool:
+	#TODO: make functin to get other sides
+	var hitBodies = pogoDownCollision.get_overlapping_bodies()
+	var hitAreas = pogoDownCollision.get_overlapping_areas()
+	if hitBodies.size() > 0:
+		return true
+	elif  hitAreas.size() > 0:
+		return true
+	else:
+		return false

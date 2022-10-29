@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://Assets/Player/parts/propeller1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -6520,6 +6520,9 @@ height = 286.0
 radius = 169.0
 height = 80.0
 
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 30, 64 )
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 64
 collision_mask = 190
@@ -7002,6 +7005,7 @@ collision_mask = 14
 
 [node name="Ground" type="RayCast2D" parent="Raycasts/JumpChecks"]
 enabled = true
+cast_to = Vector2( 0, 25 )
 collision_mask = 14
 
 [node name="Right" type="RayCast2D" parent="Raycasts/JumpChecks"]
@@ -7119,5 +7123,18 @@ script = ExtResource( 37 )
 
 [node name="Walk" type="Node" parent="Abilities"]
 script = ExtResource( 11 )
+
+[node name="PogoColisions" type="Node2D" parent="."]
+
+[node name="Down" type="Area2D" parent="PogoColisions"]
+position = Vector2( 0, 58 )
+collision_layer = 0
+collision_mask = 8198
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PogoColisions/Down"]
+shape = SubResource( 34 )
 
 [connection signal="timeout" from="Timers/SemisolidReset" to="." method="_on_SemisolidReset_timeout"]

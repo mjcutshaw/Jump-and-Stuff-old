@@ -56,7 +56,7 @@ func handle_input(event: InputEvent) -> int:
 			return State.Jump
 #		elif player.jumpRightCheck.is_colliding() or player.jumpLeftCheck.is_colliding():
 #			return State.JumpWall
-			#TODO: probably broken
+			#TODO: make extended wallcheck 
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			return State.JumpAir
 		else:

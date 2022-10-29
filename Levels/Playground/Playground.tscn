@@ -1117,7 +1117,6 @@ position = Vector2( -424, 200 )
 __meta__ = {
 "_edit_group_": true
 }
-bounceDirection = 3
 
 [node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Interactables/BounceBox"]
 visible = false
@@ -1130,6 +1129,7 @@ texture = ExtResource( 13 )
 
 [node name="Target" parent="Interactables" instance=ExtResource( 44 )]
 position = Vector2( 0, -64 )
+collision_layer = 12288
 abilityTarget = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target"]
@@ -1137,6 +1137,7 @@ shape = SubResource( 82 )
 
 [node name="Target2" parent="Interactables" instance=ExtResource( 44 )]
 position = Vector2( -128, -192 )
+collision_layer = 12288
 abilityTarget = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target2"]
@@ -1144,6 +1145,7 @@ shape = SubResource( 82 )
 
 [node name="Target3" parent="Interactables" instance=ExtResource( 44 )]
 position = Vector2( -240, -144 )
+collision_layer = 12288
 abilityTarget = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target3"]

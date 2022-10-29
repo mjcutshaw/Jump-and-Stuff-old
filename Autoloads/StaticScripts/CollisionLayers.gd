@@ -15,5 +15,7 @@ const WATER: int = 9
 #const SNOW: int = 
 #const ICE: int = 
 
-const TARGET: int = 12
+const TARGET: int = 12 #TODO: rename to hookshot
+const POGO: int = 13
+const BURROW: int = 14
 
