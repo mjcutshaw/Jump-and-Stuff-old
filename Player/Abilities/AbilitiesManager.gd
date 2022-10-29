@@ -1,6 +1,5 @@
 extends Node
 
-#TODO: States and Abilities is paused
 onready var player = owner
 
 func _ready() -> void:

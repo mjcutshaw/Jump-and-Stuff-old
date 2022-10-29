@@ -1,6 +1,5 @@
 extends EnviromentalEffects
 
-#LOOKAT: wind to slow player vs gust/airstreams to float on
 #TODO: tool script to show in editor
 #TODO: extend off directional effects
 

@@ -11,7 +11,6 @@ func enter() -> void:
 	player.animPlayer.queue("Drive")
 	#TODO: very speed of playback based on velocity
 	#TODO: nuetral on entering
-	#FIXME: don't keep dash velocity on ground
 	
 
 

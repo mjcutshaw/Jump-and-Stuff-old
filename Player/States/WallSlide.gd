@@ -17,14 +17,12 @@ func exit() -> void:
 func physics(delta) -> void:
 	.physics(delta)
 
-#	gravity_logic(player.gravityFall/10, delta
-#	cap_wall_slide_speed(player.wallSlideSpeed)
-	
-	#TODO: adjust speeds and use accel and friction
+	#TPDP: find better way for detecting fast fall
 	if player.moveDirection.y == Globals.DOWN:
-		gravity_logic(player.gravityFall/10, delta)
+		gravity_logic(player.gravityFall, delta)
 	else:
-		player.velocityPlayer.y = player.wallSlideSpeed
+		gravity_logic(player.gravityFall, delta)
+		player.velocityPlayer.y =  min(player.velocityPlayer.y, player.wallSlideSpeed * 3) 
 
 
 
