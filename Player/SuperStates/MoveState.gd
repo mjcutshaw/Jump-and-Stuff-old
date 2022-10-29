@@ -75,7 +75,7 @@ func momentum_logic(speed, useMoveDirection: bool = true) -> void:
 
 func apply_acceleration(amount) -> void:
 	#FIXME: need to multiply times delta/ (1/FRAMERATE)
-	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * player.moveDirection.x
+	player.velocityPlayer.x = move_toward(abs(player.velocityPlayer.x), player.moveSpeed, amount) * player.moveStrength.x
 
 func apply_friction(amount) -> void:
 	#FIXME: need to multiply times delta/ (1/FRAMERATE)
