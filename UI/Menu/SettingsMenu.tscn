@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/Menu/MenuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/Menu/Scripts/SettingsMenu.gd" type="Script" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/Kenney Future.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI/Menu/Settings/Accessibility.gd" type="Script" id=5]
 [ext_resource path="res://UI/Menu/Gameplay.gd" type="Script" id=6]
+[ext_resource path="res://UI/Menu/Settings/Keybindings.gd" type="Script" id=7]
+[ext_resource path="res://Assets/XboxSeriesX_Diagram.png" type="Texture" id=8]
+[ext_resource path="res://UI/Menu/Settings/VideoMenu.gd" type="Script" id=9]
+[ext_resource path="res://UI/Menu/Settings/AudioMenu.gd" type="Script" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -232,6 +236,7 @@ custom_constants/margin_bottom = 20
 
 [node name="GameplayMenu" type="VBoxContainer" parent="M/H/Options/M"]
 unique_name_in_owner = true
+visible = false
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 833.0
@@ -315,6 +320,254 @@ text = "Aim Arrow"
 
 [node name="AimArrowCheck" type="CheckBox" parent="M/H/Options/M/AccessibilityMenu/VBoxContainer/AimArrow"]
 unique_name_in_owner = true
+margin_left = 467.0
+margin_right = 491.0
+margin_bottom = 24.0
+
+[node name="VideoMenu" type="VBoxContainer" parent="M/H/Options/M"]
+unique_name_in_owner = true
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 833.0
+margin_bottom = 640.0
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="M/H/Options/M/VideoMenu"]
+margin_right = 813.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Video"
+align = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="M/H/Options/M/VideoMenu"]
+margin_top = 49.0
+margin_right = 813.0
+margin_bottom = 49.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="M/H/Options/M/VideoMenu"]
+margin_top = 53.0
+margin_right = 813.0
+margin_bottom = 77.0
+
+[node name="AimArrow" type="HBoxContainer" parent="M/H/Options/M/VideoMenu/VBoxContainer"]
+margin_right = 813.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/Options/M/VideoMenu/VBoxContainer/AimArrow"]
+margin_left = 322.0
+margin_right = 463.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Aim Arrow"
+
+[node name="AimArrowCheck" type="CheckBox" parent="M/H/Options/M/VideoMenu/VBoxContainer/AimArrow"]
+margin_left = 467.0
+margin_right = 491.0
+margin_bottom = 24.0
+
+[node name="AudioMenu" type="VBoxContainer" parent="M/H/Options/M"]
+unique_name_in_owner = true
+visible = false
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 833.0
+margin_bottom = 640.0
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="M/H/Options/M/AudioMenu"]
+margin_right = 813.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Audio"
+align = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="M/H/Options/M/AudioMenu"]
+margin_top = 49.0
+margin_right = 813.0
+margin_bottom = 49.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="M/H/Options/M/AudioMenu"]
+margin_top = 53.0
+margin_right = 813.0
+margin_bottom = 77.0
+
+[node name="AimArrow" type="HBoxContainer" parent="M/H/Options/M/AudioMenu/VBoxContainer"]
+margin_right = 813.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/Options/M/AudioMenu/VBoxContainer/AimArrow"]
+margin_left = 322.0
+margin_right = 463.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Aim Arrow"
+
+[node name="AimArrowCheck" type="CheckBox" parent="M/H/Options/M/AudioMenu/VBoxContainer/AimArrow"]
+margin_left = 467.0
+margin_right = 491.0
+margin_bottom = 24.0
+
+[node name="KeybindgsMenu" type="VBoxContainer" parent="M/H/Options/M"]
+unique_name_in_owner = true
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 833.0
+margin_bottom = 640.0
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="M/H/Options/M/KeybindgsMenu"]
+margin_right = 813.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Keybindings"
+align = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="M/H/Options/M/KeybindgsMenu"]
+margin_top = 49.0
+margin_right = 813.0
+margin_bottom = 49.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="M/H/Options/M/KeybindgsMenu"]
+margin_top = 53.0
+margin_right = 813.0
+margin_bottom = 77.0
+
+[node name="Sprite" type="Sprite" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer"]
+position = Vector2( 384, 320 )
+scale = Vector2( 0.48, 0.48 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 360.417
+margin_top = 95.8333
+margin_right = 431.417
+margin_bottom = 118.833
+theme = ExtResource( 1 )
+text = "Jump"
+
+[node name="Label2" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 329.167
+margin_top = -312.5
+margin_right = 400.167
+margin_bottom = -289.5
+theme = ExtResource( 1 )
+text = "Dash"
+
+[node name="Label3" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = -606.25
+margin_top = -452.083
+margin_right = -470.25
+margin_bottom = -429.083
+theme = ExtResource( 1 )
+text = "Hookshot"
+
+[node name="Label4" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 441.667
+margin_top = -445.833
+margin_right = 577.667
+margin_bottom = -422.833
+theme = ExtResource( 1 )
+text = "Glide"
+
+[node name="Label5" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 147.917
+margin_top = -145.833
+margin_right = 283.917
+margin_bottom = -122.833
+theme = ExtResource( 1 )
+text = "Pogo"
+
+[node name="Label6" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = -458.333
+margin_top = -258.333
+margin_right = -297.333
+margin_bottom = -235.333
+theme = ExtResource( 1 )
+text = "Super Jump"
+
+[node name="Label7" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 87.5001
+margin_top = 247.917
+margin_right = 271.5
+margin_bottom = 270.917
+theme = ExtResource( 1 )
+text = "Precision Aim"
+
+[node name="Label8" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = -433.333
+margin_top = 81.2499
+margin_right = -249.333
+margin_bottom = 104.25
+theme = ExtResource( 1 )
+text = "Move/Aim"
+
+[node name="Label9" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = -668.75
+margin_top = -308.333
+margin_right = -484.75
+margin_bottom = -285.333
+theme = ExtResource( 1 )
+text = "Dash Wall"
+
+[node name="Label10" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 445.833
+margin_top = -16.6667
+margin_right = 629.833
+margin_bottom = 6.33331
+theme = ExtResource( 1 )
+text = "Dash Climb"
+
+[node name="Label11" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 316.667
+margin_top = -231.25
+margin_right = 508.667
+margin_bottom = -208.25
+theme = ExtResource( 1 )
+text = "Ground Pound"
+
+[node name="Label12" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 422.917
+margin_top = -485.417
+margin_right = 614.917
+margin_bottom = -462.417
+theme = ExtResource( 1 )
+text = "Grab"
+
+[node name="Label13" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 691.667
+margin_top = 97.9167
+margin_right = 883.667
+margin_bottom = 120.917
+theme = ExtResource( 1 )
+text = "Dive"
+
+[node name="Label14" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/Sprite"]
+margin_left = 683.333
+margin_top = 185.417
+margin_right = 875.333
+margin_bottom = 208.417
+theme = ExtResource( 1 )
+text = "Slide"
+
+[node name="MoveLeft" type="HBoxContainer" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer"]
+margin_right = 813.0
+margin_bottom = 24.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/MoveLeft"]
+margin_left = 322.0
+margin_right = 463.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Aim Arrow"
+
+[node name="AimArrowCheck" type="CheckBox" parent="M/H/Options/M/KeybindgsMenu/VBoxContainer/MoveLeft"]
 margin_left = 467.0
 margin_right = 491.0
 margin_bottom = 24.0
