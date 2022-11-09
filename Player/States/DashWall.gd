@@ -48,6 +48,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.is_on_wall() and player.coyoteJumpWallTimer.is_stopped():
+		return State.Bonk
 
 	return State.Null
