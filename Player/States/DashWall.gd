@@ -39,7 +39,7 @@ func handle_input(event: InputEvent) -> int:
 			return State.JumpAir
 		else:
 			return State.Fall
-	elif Input.is_action_just_released("glide"):
+	elif Input.is_action_just_pressed("glide"):
 		return State.Glide
 
 	return State.Null
