@@ -45,8 +45,8 @@ func physics(delta) -> void:
 func visual(delta) -> void:
 	.visual(delta)
 
-	#Fixme: player can still face the wrong way after dash into jump(need better name)
 	player.characterRig.scale.x == dashDirection
+	#Fixme: player can still face the wrong way after dash into jump(need better name)
 
 
 func handle_input(event: InputEvent) -> int:
@@ -79,7 +79,7 @@ func state_check(delta: float) -> int:
 			return State.Walk
 		else:
 			return State.Fall
-	if player.coyoteJumpWallTimer.is_stopped() and player.is_on_wall():
+	if player.coyoteWallTimer.is_stopped() and player.is_on_wall():
 		return State.WallSlide
 
 	return State.Null

@@ -37,18 +37,24 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.Dash):
-		return State.Dash
+	if Input.is_action_just_pressed("dash"):
+		if !player.coyoteWallTimer.is_stopped():
+			player.coyoteWallTimer.stop()
+			return State.DashWall
+		elif player.can_use_ability(Globals.abiliyList.Dash):
+			return State.Dash
+		else:
+			return State.Null
 	if Input.is_action_pressed("move_down"): #fall through semisolids
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 	if Input.is_action_just_released("move_down"):
 		player.semisolidResetTimer.start()
 	if Input.is_action_just_pressed("jump"):
 		player.wall_jump_detection() #extended wall check
-		if !player.coyoteJumpWallTimer.is_stopped(): #fall over the wall, but can stil wall jump
-			player.coyoteJumpWallTimer.stop()
+		if !player.coyoteWallTimer.is_stopped(): #fall off the wall, but can stil wall jump
+			player.coyoteWallTimer.stop()
 			return State.JumpWall
-		elif !player.coyoteJumpTimer.is_stopped(): 
+		elif !player.coyoteJumpTimer.is_stopped(): #leave ground, but stil can jump
 			player.coyoteJumpTimer.stop()
 			return State.Jump
 		elif player.jumpGroundCheck.is_colliding(): #extened ground check, and air jump reset
@@ -80,7 +86,7 @@ func state_check(delta: float) -> int:
 		EventBus.emit_signal("landed")
 		return State.Walk
 	if player.is_on_wall():
-#	if player.is_on_wall() and player.velocityPlayer.y > 0: #FIXME: find a bettwer way to bring this back. 
+#	if player.is_on_wall() and player.velocityPlayer.y > 0: #FIXME: find a bettwer way to bring this back. wall jump in corners is difficult
 		return State.WallSlide
 
 	return State.Null

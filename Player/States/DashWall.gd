@@ -39,6 +39,8 @@ func handle_input(event: InputEvent) -> int:
 			return State.JumpAir
 		else:
 			return State.Fall
+	elif Input.is_action_just_released("glide"):
+		return State.Glide
 
 	return State.Null
 
@@ -48,7 +50,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.is_on_wall() and player.coyoteJumpWallTimer.is_stopped():
+	if player.is_on_wall() and player.coyoteWallTimer.is_stopped():
 		return State.Bonk
 
 	return State.Null

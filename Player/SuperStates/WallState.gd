@@ -60,15 +60,15 @@ func state_check(delta: float) -> int:
 		return State.Swim
 	if  player.moveDirection.x == Globals.LEFT and player.lastWallDirection == Globals.RIGHT:
 		player.velocityPlayer = Vector2(-20,-10)
-		player.coyoteJumpWallTimer.start()
+		player.coyoteWallTimer.start()
 		return State.Fall
 	if player.moveDirection.x == Globals.RIGHT and player.lastWallDirection == Globals.LEFT:
 		player.velocityPlayer = Vector2(20, -10)
-		player.coyoteJumpWallTimer.start()
+		player.coyoteWallTimer.start()
 		return State.Fall
 	
 	if !player.is_on_wall():
-		player.coyoteJumpWallTimer.start()
+		player.coyoteWallTimer.start()
 		return State.Fall
 
 	return State.Null

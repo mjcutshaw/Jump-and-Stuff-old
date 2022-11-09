@@ -22,7 +22,7 @@ onready var pogoDownCollision: Area2D = $PogoColisions/Down
 
 onready var bufferJumpTimer: Timer = $Timers/BufferJump
 onready var coyoteJumpTimer: Timer = $Timers/CoyoteJump
-onready var coyoteJumpWallTimer: Timer = $Timers/CoyoteJumpWall
+onready var coyoteWallTimer: Timer = $Timers/CoyoteWall
 onready var dashTimer: Timer = $Timers/DashDuration
 onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
 onready var fallTimer: Timer = $Timers/FallTimer
@@ -174,7 +174,7 @@ func wall_detection(length: int = 5) -> int:
 
 func set_timers() -> void:
 	coyoteJumpTimer.wait_time = coyoteTime
-	coyoteJumpWallTimer.wait_time = coyoteWallTime
+	coyoteWallTimer.wait_time = coyoteWallTime
 	bufferJumpTimer.wait_time = jumpBufferTime
 	dashTimer.wait_time = dashDuration
 	semisolidResetTimer.wait_time = semisolidResetTime
