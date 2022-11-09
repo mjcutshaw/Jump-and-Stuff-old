@@ -52,6 +52,9 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
+	if !player.wallGrabCheckTimer.is_stopped():
+		player.wallGrabCheckTimer.stop()
+		return State.WallGrab
 	if abs(player.velocityPrevious.x) > (player.moveSpeed * 1.5):
 		return State.Bonk
 	if player.is_on_floor():

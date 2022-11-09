@@ -63,8 +63,6 @@ func handle_input(event: InputEvent) -> int:
 		elif player.can_use_ability(Globals.abiliyList.JumpAir):
 			apply_acceleration(player.moveSpeed)
 			return State.JumpAir
-		else:
-			return State.Null
 
 	return State.Null
 

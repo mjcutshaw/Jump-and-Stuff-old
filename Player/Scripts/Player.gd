@@ -26,6 +26,7 @@ onready var coyoteWallTimer: Timer = $Timers/CoyoteWall
 onready var dashTimer: Timer = $Timers/DashDuration
 onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
 onready var fallTimer: Timer = $Timers/FallTimer
+onready var wallGrabCheckTimer: Timer = $Timers/WallGrabCheck
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -55,7 +56,8 @@ var fallDamage: bool = false
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1
 var coyoteWallTime: float = 0.2
-var semisolidResetTime:= .1
+var semisolidResetTime: float = 0.1
+var wallGrabTime: float = 0.5
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
@@ -180,6 +182,7 @@ func set_timers() -> void:
 	semisolidResetTimer.wait_time = semisolidResetTime
 	fallTimer.wait_time = fallTime
 	dashCDTimer.wait_time = Stats.dashCDTime
+	wallGrabCheckTimer.wait_time = wallGrabTime
 	#TODO: move this over to timers
 
 
