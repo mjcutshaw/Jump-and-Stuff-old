@@ -17,4 +17,6 @@ func _ready() -> void:
 
 func on_Player_entered(area: CollectorBox) -> void:
 	EventBus.emit_signal("playerStatChange", statIncrease, amount)
+	if oneUse:
+		queue_free()
 	

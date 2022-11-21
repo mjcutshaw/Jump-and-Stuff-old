@@ -13,6 +13,7 @@ func _ready() -> void:
 	announceTimer.wait_time = annoucmentLength
 	hide()
 	EventBus.connect("playerStatChange", self, "announce_stat_change")
+	EventBus.connect("playerAbilityUnlocked", self, "announce_ability_unlocked")
 	announceTimer.connect("timeout", self, "announce_finished")
 	connect("announcementFinished", self, "check_announcement_que")
 
@@ -48,3 +49,10 @@ func announce_stat_change(stat: int, amount: int) -> void:
 		EventBus.emit_signal("error", str("stat change error: ", stat))
 	
 
+func announce_ability_unlocked(ability: int) -> void:
+	if ability == Globals.abiliyList.Dash:
+		announce(str("Dash Unlocked"))
+	elif ability == Globals.abiliyList.JumpAir:
+		announce(str("Double Jump Unlocked "))
+	else:
+		EventBus.emit_signal("error", str("ability unlock error: ", ability))

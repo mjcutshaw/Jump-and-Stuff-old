@@ -1,6 +1,7 @@
  extends MoveState
 
 #TODO: stun state after round pound
+#TODO: change to dash down
 
 func enter() -> void:
 	.enter()

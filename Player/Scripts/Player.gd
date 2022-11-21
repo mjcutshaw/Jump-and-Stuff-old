@@ -98,6 +98,7 @@ func _physics_process(delta: float) -> void:
 	get_move_input()
 	ledge_detection()
 	EventBus.emit_signal("debugVelocity", velocity.round())
+	EventBus.emit_signal("debug2", "dash unlocked", unlockedDash)
 
 	#FIXME: figure out to wall direction	
 #	if is_on_wall():

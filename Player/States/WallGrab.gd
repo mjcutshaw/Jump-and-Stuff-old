@@ -1,6 +1,6 @@
 extends WallState
 
-
+#TODO: remove and make wall dash like hollow knight
 func enter() -> void:
 	.enter()
 

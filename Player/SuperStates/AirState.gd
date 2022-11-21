@@ -37,7 +37,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("grab"):
+	if Input.is_action_just_pressed("grab"): #bonk saver
 		player.wallGrabCheckTimer.start()
 	if Input.is_action_just_pressed("dash"):
 		if !player.coyoteWallTimer.is_stopped():

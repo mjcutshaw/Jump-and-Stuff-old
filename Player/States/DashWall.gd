@@ -1,6 +1,6 @@
 extends DashState
 
-
+#TODO:  make like hollow knight
 func enter() -> void:
 	.enter()
 

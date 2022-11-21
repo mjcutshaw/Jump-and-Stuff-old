@@ -1,6 +1,6 @@
 extends DashState
 
-#LOOKAT: up and down seperate?
+#LOOKAT: change to dash up
 #FIXME: copied dashH
 #if jumped pressed during wall bounce for extra height
 

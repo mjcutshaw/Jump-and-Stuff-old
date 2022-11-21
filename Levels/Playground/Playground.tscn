@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=98 format=2]
 
 [ext_resource path="res://UI/Announcements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -49,6 +49,7 @@
 [ext_resource path="res://UI/Menu/Scripts/UnpausedMenu.gd" type="Script" id=47]
 [ext_resource path="res://UI/Menu/Scripts/FastTravel.gd" type="Script" id=48]
 [ext_resource path="res://UI/Menu/SettingsMenu.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Objects/Unlockables/AbilityUnlocker.tscn" type="PackedScene" id=50]
 [ext_resource path="res://Objects/Enviroment/Wind/Wind.tscn" type="PackedScene" id=52]
 
 [sub_resource type="Shader" id=3]
@@ -1163,3 +1164,12 @@ direction = 1
 
 [node name="Water" parent="." instance=ExtResource( 45 )]
 position = Vector2( -2048, -64 )
+
+[node name="StatChanger" parent="." instance=ExtResource( 39 )]
+position = Vector2( -514, -34 )
+oneUse = true
+statIncrease = 2
+
+[node name="AbilityUnlock" parent="." instance=ExtResource( 50 )]
+position = Vector2( -386, -11 )
+ability = 1

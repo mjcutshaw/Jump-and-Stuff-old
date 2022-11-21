@@ -1,5 +1,5 @@
 extends DashState
-
+#:OOKAT: change to slide?
 #TODO: create reverse versions of the jump
 #TODO: create stats for jump dash types
 ## hyper version, lower jump height with small hitbox

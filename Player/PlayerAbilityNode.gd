@@ -5,27 +5,26 @@ class_name PlayerAbilitiesNode
 #TODO: ability modifiers like melting/cooling to open areas
 var Abilities: Resource = preload("res://Resources/PlayerAbilities.tres")
 
-onready var abilities: Node = $Abilities
+#onready var abilities: Node = $Abilities
 onready var augments: Node = $Augments
 
-onready var unlockedJump: bool = Abilities.unlockedJump
 onready var unlockedJumpAir: bool = Abilities.unlockedJumpAir
-onready var unlockedJumpCrouch: bool = Abilities.unlockedJumpCrouch
-onready var unlockedJumpLong: bool = Abilities.unlockedJumpLong
 onready var unlockedJumpWall: bool = Abilities.unlockedJumpWall
-onready var unlockedJumpWallLeft: bool = Abilities.unlockedJumpWallLeft
-onready var unlockedJumpWallRight: bool = Abilities.unlockedJumpWallRight
 onready var unlockedDash: bool = Abilities.unlockedDash
 onready var unlockedDashAir: bool = Abilities.unlockedDashAir
-onready var unlockedDashLeft: bool = Abilities.unlockedDashLeft
-onready var unlockedDashRight: bool = Abilities.unlockedDashRight
+onready var unlockedDashUp: bool = Abilities.unlockedDashUp
+onready var unlockedDashDown: bool = Abilities.unlockedDashDown
 onready var unlockedDashWall: bool = Abilities.unlockedDashWall
+onready var unlockedDashJump: bool = Abilities.unlockedDashJump
+onready var unlockedDashClimb: bool = Abilities.unlockedDashClimb
 onready var unlockedGlide: bool = Abilities.unlockedGlide
-onready var unlockedGroundPound: bool = Abilities.unlockedGroundPound
 onready var unlockedHookShot: bool = Abilities.unlockedHookShot
 onready var unlockedClimb: bool = Abilities.unlockedClimb
-onready var unlockedClimbLeft: bool = Abilities.unlockedClimbLeft
-onready var unlockedClimbRight: bool = Abilities.unlockedClimbRight
+onready var unlockedGrab: bool = Abilities.unlockedGrab
+onready var unlockedSwim: bool = Abilities.unlockedSwim
+onready var unlockedSwimDash: bool = Abilities.unlockedSwimDash
+onready var unlockedBurrow: bool = Abilities.unlockedBurrow
+
 
 onready var maxJump: int = Abilities.maxJump
 onready var maxJumpAir: int = Abilities.maxJumpAir
@@ -33,8 +32,11 @@ onready var maxDash: int = Abilities.maxDash
 
 onready var dashCDTimer: Timer = $Timers/DashCD
 
-var remainingJumpAir: int = 1
-var remainingDash: int = 1
+var remainingJumpAir: int = 0
+var remainingDashAir: int = 1
+var remainingDashUp: int = 1
+var remainingDashDown: int = 1
+
 
 var targetHookShot: Area2D = null
 var targetBurrow: Area2D = null
@@ -44,10 +46,10 @@ var targetBurrow: Area2D = null
 func _ready() -> void:
 	EventBus.connect("updateAbilities", self, "update_abilities")
 	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
-	EventBus.connect("playerAbilityUnlocked", self, "ability_unlocked")
+	EventBus.connect("playerAbilityUnlocked", self, "unlock_ability")
 	
-	for child in abilities.get_children():
-		child.initialize(self)
+#	for child in abilities.get_children():
+#		child.initialize(self)
 	for child in augments.get_children():
 		child.initialize(self)
 
@@ -57,30 +59,57 @@ func update_abilities():
 
 
 func unlock_ability(ability: int) -> void:
-	if ability == Abilities.abiliyList.All:
+	
+	if ability == Globals.abiliyList.All:
 		unlockedJumpAir = true
 		unlockedDash = true
-	elif ability == Abilities.abiliyList.JumpAir:
+	elif ability == Globals.abiliyList.JumpAir:
 		if unlockedJumpAir:
 			maxJumpAir = +1
 		else:
 			unlockedJumpAir = true
-	elif ability == Abilities.abiliyList.Dash:
-		#TODO: logic for increased dashes
-		if unlockedDash:
-			maxDash += 1
+	elif ability == Globals.abiliyList.JumpWall:
+		unlockedJumpWall = true
+	elif ability == Globals.abiliyList.Dash:
+		unlockedDash = true
+	elif ability == Globals.abiliyList.DashAir:
+		if unlockedDashAir:
+			maxDash = +1
 		else:
-			unlockedDash = true
+			unlockedDashAir = true
+	elif ability == Globals.abiliyList.DashUp:
+		unlockedDashUp = true
+	elif ability == Globals.abiliyList.DashDown:
+		unlockedDashDown = true
+	elif ability == Globals.abiliyList.DashWall:
+		unlockedDashWall = true
+	elif ability == Globals.abiliyList.DashJump:
+		unlockedDashJump = true
+	elif ability == Globals.abiliyList.DashClimb:
+		unlockedDashClimb = true
+	elif ability == Globals.abiliyList.Glide:
+		unlockedGlide = true
+	elif ability == Globals.abiliyList.HookShot:
+		unlockedHookShot = true
+	elif ability == Globals.abiliyList.Climb:
+		unlockedClimb = true
+	elif ability == Globals.abiliyList.Grab:
+		unlockedGrab = true
+	elif ability == Globals.abiliyList.Swim:
+		unlockedSwim = true
+	elif ability == Globals.abiliyList.SwimDash:
+		unlockedSwimDash = true
+	elif ability == Globals.abiliyList.Burrow:
+		unlockedBurrow = true
 	else:
 		EventBus.emit_signal("error", "Null Ability Unlocked")
 	EventBus.emit_signal("abilityCheck")
-	#TODO: using this?
 
 
-func ability_unlocked(ability: Ability) -> void:
-	abilities.add_child(ability)
-	for i in abilities.get_children():
-		i.initialize(self)
+#func ability_unlocked(ability: Ability) -> void:
+#	abilities.add_child(ability)
+#	for i in abilities.get_children():
+#		i.initialize(self)
 
 func augment_unlocked(augment: Augment) -> void:
 	augments.add_child(augment)
@@ -90,16 +119,41 @@ func augment_unlocked(augment: Augment) -> void:
 #LOOKAT: can to ability first?
 func can_use_ability(ability: int) -> bool:
 	#TODO: add back in unlock check
-	if ability == Globals.abiliyList.Dash and remainingDash > 0 and dashCDTimer.is_stopped():
+	
+	if ability == Globals.abiliyList.JumpAir and unlockedJumpAir and remainingJumpAir > 0:
 		return true
-	elif ability == Globals.abiliyList.JumpAir and remainingJumpAir > 0:
+	elif ability == Globals.abiliyList.JumpWall and unlockedJumpWall:
 		return true
+	elif ability == Globals.abiliyList.Dash and unlockedDash and dashCDTimer.is_stopped():
+		return true
+	elif ability == Globals.abiliyList.DashAir and unlockedDashAir and remainingDashAir > 0 and dashCDTimer.is_stopped():
+		return true
+	elif ability == Globals.abiliyList.DashUp and unlockedDashUp and remainingDashUp > 0:
+		return true
+	elif ability == Globals.abiliyList.DashUp and unlockedDashDown and remainingDashDown > 0:
+		return true
+	elif ability == Globals.abiliyList.DashWall and unlockedDashUp:
+		return true
+	elif ability == Globals.abiliyList.DashJump and unlockedDashJump:
+		return true
+	elif ability == Globals.abiliyList.DashClimb and unlockedDashClimb:
+		return true
+	elif ability == Globals.abiliyList.Glide and unlockedGlide:
+		return true
+	elif ability == Globals.abiliyList.HookShot and unlockedHookShot:
+		return true
+	elif ability == Globals.abiliyList.Climb and unlockedClimb:
+		return true
+	elif ability == Globals.abiliyList.Grab and unlockedGrab:
+		return true
+	elif ability == Globals.abiliyList.Swim and unlockedSwim:
+		return true
+	elif ability == Globals.abiliyList.SwimDash and unlockedSwimDash:
+		return true
+	elif ability == Globals.abiliyList.Burrow and unlockedBurrow:
+		return true
+	
 	return false
-#	if ability == Globals.abiliyList.Dash and remainingDash > 0 and unlockedDash:
-#		return true
-#	elif ability == Globals.abiliyList.JumpAir and remainingJumpAir > 0 and unlockedJumpAir:
-#		return true
-#	return false
 
 func consume_ability(ability: int, amount: int) -> void:
 	#TODO: Use 99 remove all or all a third input to do that
@@ -133,4 +187,4 @@ func set_jump_air(amount: int) -> void:
 
 
 func set_dash(amount: int) -> void:
-	remainingDash = clamp(remainingDash + amount, 0, maxDash)
+	remainingDashAir = clamp(remainingDashAir + amount, 0, maxDash)
