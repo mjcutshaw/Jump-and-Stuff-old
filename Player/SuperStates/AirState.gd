@@ -43,8 +43,8 @@ func handle_input(event: InputEvent) -> int:
 		if !player.coyoteWallTimer.is_stopped():
 			player.coyoteWallTimer.stop()
 			return State.DashWall
-		elif player.can_use_ability(Globals.abiliyList.Dash):
-			return State.Dash
+		elif player.can_use_ability(Globals.abiliyList.DashGround):
+			return State.DashGround
 	if Input.is_action_pressed("move_down"): #fall through semisolids
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 	if Input.is_action_just_released("move_down"):

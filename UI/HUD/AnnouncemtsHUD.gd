@@ -50,7 +50,9 @@ func announce_stat_change(stat: int, amount: int) -> void:
 	
 
 func announce_ability_unlocked(ability: int) -> void:
-	if ability == Globals.abiliyList.Dash:
+	if ability == Globals.abiliyList.All:
+		announce(str("The whole enchilanda unlocked"))
+	elif ability == Globals.abiliyList.DashGround:
 		announce(str("Dash Unlocked"))
 	elif ability == Globals.abiliyList.JumpAir:
 		announce(str("Double Jump Unlocked "))

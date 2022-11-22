@@ -46,7 +46,7 @@ enum abiliyList {
 	All,
 	JumpAir,
 	JumpWall,
-	Dash,
+	DashGround,
 	DashAir,
 	DashUp,
 	DashDown,

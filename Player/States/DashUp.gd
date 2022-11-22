@@ -1,8 +1,6 @@
 extends DashState
 
-#LOOKAT: change to dash up
 #FIXME: copied dashH
-#if jumped pressed during wall bounce for extra height
 
 func enter() -> void:
 	.enter()
@@ -13,7 +11,7 @@ func enter() -> void:
 	player.dashTimer.start()
 	player.velocityPlayer.y = -player.dashVelocity
 	player.animPlayer.play("Dash Side")
-	player.consume_ability(Globals.abiliyList.Dash, 1)
+	player.consume_ability(Globals.abiliyList.DashUp, 1)
 
 
 func exit() -> void:
@@ -32,7 +30,7 @@ func physics(delta) -> void:
 func visual(delta) -> void:
 	.visual(delta)
 
-	
+	#TODO: if jump pressed and is near wall kick off for a boost
 
 
 func handle_input(event: InputEvent) -> int:

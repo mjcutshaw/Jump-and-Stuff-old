@@ -1,7 +1,5 @@
 extends DashState
 
-#lookat change to dash air
-#TODO: move timer to here
 #LOOKAT: see in need dash air group
 #TODO: add skill exits. keeping momenet with jump/glide at a certian time to keep momentum
 #TODO: add right stick overwrite dash direction
@@ -23,7 +21,7 @@ func enter() -> void:
 	rotate_to_normal()
 	player.dashTimer.start()
 	player.animPlayer.play("Dash Side")
-	player.consume_ability(Globals.abiliyList.Dash, 1)
+	player.consume_ability(Globals.abiliyList.DashAir, 1)
 
 
 func exit() -> void:

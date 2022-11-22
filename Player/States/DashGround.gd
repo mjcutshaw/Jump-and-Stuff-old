@@ -39,14 +39,14 @@ func exit() -> void:
 			player.dashCDTimer.stop()
 		else:
 			if !dashJumpTimer.is_stopped() and !dashJumpRefreshTimer.is_stopped():
-				player.consume_ability(Globals.abiliyList.Dash, 1)
+				player.consume_ability(Globals.abiliyList.DashAir, 1)
 			if player.velocityPrevious.x > player.moveSpeed:
 				player.velocityPlayer.x = player.moveSpeed
 #			else:
 #				player.velocityPlayer.x = player.velocityPrevious.x
 				
 	elif !player.is_on_floor():
-		player.consume_ability(Globals.abiliyList.Dash, 1)
+		player.consume_ability(Globals.abiliyList.DashAir, 1)
 		if player.moveDirection.x != 0:
 			player.velocityPlayer.x = player.velocityPrevious.x
 	

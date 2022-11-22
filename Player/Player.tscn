@@ -36,7 +36,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=35]
 [ext_resource path="res://Player/Abilities/Super/Ground.gd" type="Script" id=36]
 [ext_resource path="res://Player/States/JumpApex.gd" type="Script" id=38]
-[ext_resource path="res://Player/States/DashHorizontal.gd" type="Script" id=39]
+[ext_resource path="res://Player/States/DashAir.gd" type="Script" id=39]
 [ext_resource path="res://Player/States/DashJump.gd" type="Script" id=40]
 [ext_resource path="res://Player/States/Glide.gd" type="Script" id=41]
 [ext_resource path="res://Player/Scripts/DropShadow.gd" type="Script" id=42]
@@ -50,9 +50,9 @@
 [ext_resource path="res://Player/States/JumpAir.gd" type="Script" id=50]
 [ext_resource path="res://Player/States/WallSlide.gd" type="Script" id=51]
 [ext_resource path="res://Player/States/JumpWall.gd" type="Script" id=52]
-[ext_resource path="res://Player/States/GroundPound.gd" type="Script" id=53]
+[ext_resource path="res://Player/States/DashDown.gd" type="Script" id=53]
 [ext_resource path="res://Player/States/Swim.gd" type="Script" id=54]
-[ext_resource path="res://Player/States/DashVertical.gd" type="Script" id=55]
+[ext_resource path="res://Player/States/DashUp.gd" type="Script" id=55]
 [ext_resource path="res://Player/States/DashWall.gd" type="Script" id=56]
 [ext_resource path="res://Player/States/DashClimb.gd" type="Script" id=57]
 [ext_resource path="res://Player/States/WallClimb.gd" type="Script" id=58]
@@ -6886,11 +6886,14 @@ script = ExtResource( 49 )
 
 [node name="DashJumpRefreshTimer" type="Timer" parent="StateMachine/DashGround"]
 
-[node name="DashHorizontal" type="Node" parent="StateMachine"]
+[node name="DashAir" type="Node" parent="StateMachine"]
 script = ExtResource( 39 )
 
-[node name="DashVertical" type="Node" parent="StateMachine"]
+[node name="DashUp" type="Node" parent="StateMachine"]
 script = ExtResource( 55 )
+
+[node name="DashDown" type="Node" parent="StateMachine"]
+script = ExtResource( 53 )
 
 [node name="DashJump" type="Node" parent="StateMachine"]
 script = ExtResource( 40 )
@@ -6918,9 +6921,6 @@ script = ExtResource( 48 )
 
 [node name="Burrow" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
-
-[node name="GroundPound" type="Node" parent="StateMachine"]
-script = ExtResource( 53 )
 
 [node name="Swim" type="Node" parent="StateMachine"]
 script = ExtResource( 54 )

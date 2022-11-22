@@ -10,7 +10,7 @@ onready var augments: Node = $Augments
 
 onready var unlockedJumpAir: bool = Abilities.unlockedJumpAir
 onready var unlockedJumpWall: bool = Abilities.unlockedJumpWall
-onready var unlockedDash: bool = Abilities.unlockedDash
+onready var unlockedDashGround: bool = Abilities.unlockedDashGround
 onready var unlockedDashAir: bool = Abilities.unlockedDashAir
 onready var unlockedDashUp: bool = Abilities.unlockedDashUp
 onready var unlockedDashDown: bool = Abilities.unlockedDashDown
@@ -62,7 +62,7 @@ func unlock_ability(ability: int) -> void:
 	
 	if ability == Globals.abiliyList.All:
 		unlockedJumpAir = true
-		unlockedDash = true
+		unlockedDashGround = true
 	elif ability == Globals.abiliyList.JumpAir:
 		if unlockedJumpAir:
 			maxJumpAir = +1
@@ -70,8 +70,8 @@ func unlock_ability(ability: int) -> void:
 			unlockedJumpAir = true
 	elif ability == Globals.abiliyList.JumpWall:
 		unlockedJumpWall = true
-	elif ability == Globals.abiliyList.Dash:
-		unlockedDash = true
+	elif ability == Globals.abiliyList.DashGround:
+		unlockedDashGround = true
 	elif ability == Globals.abiliyList.DashAir:
 		if unlockedDashAir:
 			maxDash = +1
@@ -124,7 +124,7 @@ func can_use_ability(ability: int) -> bool:
 		return true
 	elif ability == Globals.abiliyList.JumpWall and unlockedJumpWall:
 		return true
-	elif ability == Globals.abiliyList.Dash and unlockedDash and dashCDTimer.is_stopped():
+	elif ability == Globals.abiliyList.DashGround and unlockedDashGround and dashCDTimer.is_stopped():
 		return true
 	elif ability == Globals.abiliyList.DashAir and unlockedDashAir and remainingDashAir > 0 and dashCDTimer.is_stopped():
 		return true
@@ -162,7 +162,7 @@ func consume_ability(ability: int, amount: int) -> void:
 		set_dash(-amount)
 	elif ability == Globals.abiliyList.JumpAir:
 		set_jump_air(-amount)
-	elif ability == Globals.abiliyList.Dash:
+	elif ability == Globals.abiliyList.DashAir:
 		set_dash(-amount)
 	else:
 		print("Null Ability Consume")
@@ -175,7 +175,7 @@ func reset_ability(ability: int) -> void:
 		set_jump_air(maxJumpAir)
 	elif ability == Globals.abiliyList.JumpAir:
 		set_jump_air(maxJumpAir)
-	elif ability == Globals.abiliyList.Dash:
+	elif ability == Globals.abiliyList.DashAir:
 		set_dash(maxDash)
 	else:
 		print("Null Ability Reset")

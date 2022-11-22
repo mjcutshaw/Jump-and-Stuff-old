@@ -6,7 +6,7 @@ class_name PlayerAbilities
 
 var unlockedJumpAir: bool = false
 var unlockedJumpWall: bool = false
-var unlockedDash: bool = false
+var unlockedDashGround: bool = false
 var unlockedDashAir: bool = false
 var unlockedDashUp: bool = false
 var unlockedDashDown: bool = false

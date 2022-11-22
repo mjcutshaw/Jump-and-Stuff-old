@@ -1,6 +1,7 @@
 extends JumpState
 
 #TODO: will be a combo button
+#TODO: should not trigger fall damage
 
 func enter() -> void:
 	.enter()
