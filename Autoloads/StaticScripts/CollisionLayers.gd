@@ -1,4 +1,4 @@
-extends Node
+extends Reference
 class_name CollisionLayers
 
 
@@ -18,4 +18,6 @@ const WATER: int = 9
 const TARGET: int = 12 #TODO: rename to hookshot
 const POGO: int = 13
 const BURROW: int = 14
-
+const DashSide: int = 15
+const DashUp: int = 16
+const DashDown: int = 17

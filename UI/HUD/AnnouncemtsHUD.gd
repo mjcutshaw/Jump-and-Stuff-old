@@ -1,7 +1,5 @@
 extends MarginContainer
 
-#TODO: ability unlocked. have max jump count announced (double,triple, etc)
-
 onready var announceLabel: Label = $MarginContainer/Announce
 onready var announceTimer: Timer = $Timer
 export var annoucmentLength: float = 2.0
@@ -56,5 +54,6 @@ func announce_ability_unlocked(ability: int) -> void:
 		announce(str("Dash Unlocked"))
 	elif ability == Globals.abiliyList.JumpAir:
 		announce(str("Double Jump Unlocked "))
+		#TODO: ability unlocked. have max jump count announced (double,triple, etc)
 	else:
 		EventBus.emit_signal("error", str("ability unlock error: ", ability))

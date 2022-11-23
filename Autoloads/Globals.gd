@@ -3,18 +3,6 @@ extends Node
 #TODO: move constants out of Global, don't need to be autoloaded
 
 const TILE_SIZE: int = 32
-const GAME_NAME: String = "Jump and Stuff"
-const CREATOR: String = "Matt"
-const VERSION: String = "0.0.1"
-
-const GROUND: int = 1
-const SEMISOLID: int = 2
-const PLATFORM: int = 3
-const INTERACTABLE: int = 4
-const COLLECTIBLES: int = 5
-const PLAYER: int = 6
-const HAZARD: int = 7
-
 
 const LEFT = -1
 const RIGHT = 1
