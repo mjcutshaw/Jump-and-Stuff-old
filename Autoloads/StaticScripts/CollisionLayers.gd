@@ -15,10 +15,11 @@ const WATER: int = 9
 #const SNOW: int = 
 #const ICE: int = 
 
-const TARGET: int = 12 #TODO: rename to hookshot
+const TARGET: int = 12
 const POGO: int = 13
-const BURROW: int = 14
-const DashSide: int = 15
-const DashUp: int = 16
-const DashDown: int = 17 
-const SwimDash: int = 18
+const DashSide: int = 14
+const DashUp: int = 15
+const DashDown: int = 16 
+const HookShot: int = 17
+const Burrow: int = 18
+const SwimDash: int = 19

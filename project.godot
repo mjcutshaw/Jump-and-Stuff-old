@@ -471,10 +471,12 @@ sprint={
 2d_physics/layer_10="Water"
 2d_physics/layer_13="Target"
 2d_physics/layer_14="Pogo"
-2d_physics/layer_15="Burrow"
-2d_physics/layer_16="DashSide"
-2d_physics/layer_17="DashUp"
-2d_physics/layer_18="DashDown"
+2d_physics/layer_15="DashSide"
+2d_physics/layer_16="DashUp"
+2d_physics/layer_17="DashDown"
+2d_physics/layer_18="HookShot"
+2d_physics/layer_19="Burrow"
+2d_physics/layer_20="SwimDash"
 
 [physics]
 

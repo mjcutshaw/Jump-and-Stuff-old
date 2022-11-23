@@ -11,4 +11,16 @@ func _ready() -> void:
 	
 	if ability == abiliyList.DashSide:
 		staticBody.set_collision_layer_bit(CollisionLayers.DashSide, true)
+	elif ability == abiliyList.DashUp:
+		staticBody.set_collision_layer_bit(CollisionLayers.DashUp, true)
+	elif ability == abiliyList.DashDown:
+		staticBody.set_collision_layer_bit(CollisionLayers.DashDown, true)
+	elif ability == abiliyList.HookShot:
+		staticBody.set_collision_layer_bit(CollisionLayers.HookShot, true)
+	elif ability == abiliyList.Burrow:
+		staticBody.set_collision_layer_bit(CollisionLayers.Burrow, true)
+	elif ability == abiliyList.SwimDash:
+		staticBody.set_collision_layer_bit(CollisionLayers.SwimDash, true)
+	else:
+		EventBus.emit_signal("error", str("Ability Wall error at: "  + str(name) + " at " + str(global_position)))
 
