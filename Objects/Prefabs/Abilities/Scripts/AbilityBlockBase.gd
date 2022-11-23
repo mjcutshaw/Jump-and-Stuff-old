@@ -1,10 +1,9 @@
 extends Interactable
 class_name AbilityBlockBase
-
+#TODO: passage, hazard, boost, hazard, portal, spring
 #todo: look at grapple pulling wall in GDQuest platformer
 enum abiliyList {
 	null,
-	All,
 	DashSide,
 	DashUp,
 	DashDown,
@@ -12,7 +11,7 @@ enum abiliyList {
 	SwimDash,
 	Burrow,
 	}
-
+#TODO: use "any" for default behaviour
 export (abiliyList) var ability
 
 func _ready() -> void:
