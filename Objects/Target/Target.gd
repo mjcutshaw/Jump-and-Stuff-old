@@ -18,7 +18,7 @@ func _ready() -> void:
 	set_collision_layer_bit(CollisionLayers.TARGET, true)
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	if abilityTarget == Globals.abilityTargetType.null:
-		EventBus.emit_signal("error", str("null target type" + str(global_position)))
+		EventBus.emit_signal("error", str("null target type" + str(name) + " at " + str(global_position)))
 	if abilityTarget == Globals.abilityTargetType.hookShot:
 		colorActive = Globals.hookshotColor
 	if abilityTarget == Globals.abilityTargetType.grappleHook:

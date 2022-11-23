@@ -14,5 +14,4 @@ func _ready() -> void:
 
 func on_Player_entered(area: CollectorBox) -> void:
 	EventBus.emit_signal("playerAbilityUnlocked", ability)
-	if oneUse:
-		queue_free()
+

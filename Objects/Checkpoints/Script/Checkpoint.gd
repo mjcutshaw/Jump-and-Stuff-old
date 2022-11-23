@@ -17,7 +17,8 @@ func _ready() -> void:
 		if waypointName != null:
 			add_waypoint()
 		else:
-			EventBus.emit_signal("error", "Waypoint without name at: " + str(global_position))
+			#FIXME: not working
+			EventBus.emit_signal("error", str("Waypoint without name at: "  + str(name) + " at " + str(global_position)))
 
 func _on_Checkpoint_entered(body: Player) -> void:
 	EventBus.emit_signal("setRespawn", locationName, global_position)

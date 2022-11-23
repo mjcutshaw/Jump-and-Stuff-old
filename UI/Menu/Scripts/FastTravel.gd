@@ -1,5 +1,7 @@
 extends BaseMenu
 
+#FIXME: check if waypoint location is null. crash
+
 onready var waypointUpButton: Button = $"%Up"
 onready var waypointDownButton: Button = $"%Down"
 var teleportPlayer: bool = false

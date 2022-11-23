@@ -12,7 +12,7 @@ func _ready() -> void:
 	connect("body_exited", self, "exit_wind")
 	
 	if direction == directions.null:
-		EventBus.emit_signal("error", str("wind direction null: " + str(global_position)))
+		EventBus.emit_signal("error", str("wind direction null: " + str(name) + " at " + str(global_position)))
 	#TODO: add other shapes in
 	adjust_particle()
 	
