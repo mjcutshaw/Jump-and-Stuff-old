@@ -1094,7 +1094,7 @@ ability = 1
 
 [node name="AbilityWall" parent="Interactables" instance=ExtResource( 51 )]
 position = Vector2( -370, -139 )
-ability = 3
+ability = 2
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
 position = Vector2( 136, 264 )
