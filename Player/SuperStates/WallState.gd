@@ -8,7 +8,7 @@ func enter() -> void:
 	player.velocityPrevious = player.velocityPlayer
 	if player.unlockedJumpWall:
 		player.reset_ability(Globals.abiliyList.JumpAir)
-	if player.unlockedDashG:
+	if player.unlockedDashAir:
 		player.reset_ability(Globals.abiliyList.DashAir)
 
 

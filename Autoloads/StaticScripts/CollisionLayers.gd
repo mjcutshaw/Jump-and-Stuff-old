@@ -20,4 +20,5 @@ const POGO: int = 13
 const BURROW: int = 14
 const DashSide: int = 15
 const DashUp: int = 16
-const DashDown: int = 17
+const DashDown: int = 17 
+const SwimDash: int = 18

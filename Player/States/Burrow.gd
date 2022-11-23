@@ -5,13 +5,13 @@ extends MoveState
 func enter() -> void:
 	.enter()
 
-	
+	player.set_collision_mask_bit(CollisionLayers.BURROW, false)
 
 
 func exit() -> void:
 	.exit()
 
-	
+	player.set_collision_mask_bit(CollisionLayers.BURROW, true)
 
 
 func physics(delta) -> void:

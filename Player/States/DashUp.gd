@@ -12,12 +12,14 @@ func enter() -> void:
 	player.velocityPlayer.y = -player.dashVelocity
 	player.animPlayer.play("Dash Side")
 	player.consume_ability(Globals.abiliyList.DashUp, 1)
+	player.set_collision_mask_bit(CollisionLayers.DashUp, false)
 
 
 func exit() -> void:
 	.exit()
 
 	player.animPlayer.stop()
+	player.set_collision_mask_bit(CollisionLayers.DashUp, true)
 
 
 func physics(delta) -> void:

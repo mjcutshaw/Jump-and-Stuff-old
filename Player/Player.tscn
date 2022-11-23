@@ -6523,7 +6523,7 @@ extents = Vector2( 30, 64 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 64
-collision_mask = 190
+collision_mask = 245950
 script = ExtResource( 2 )
 fallTime = 0.7
 

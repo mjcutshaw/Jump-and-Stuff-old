@@ -7,12 +7,13 @@ func enter() -> void:
 	player.animPlayer.play("Dash Side")
 	player.velocityPlayer = player.moveDirection * player.dashVelocity
 	player.dashTimer.start()
+	player.set_collision_mask_bit(CollisionLayers.SwimDash, false)
 
 
 func exit() -> void:
 	.exit()
 
-	
+	player.set_collision_mask_bit(CollisionLayers.SwimDash, true)
 
 
 func physics(delta) -> void:

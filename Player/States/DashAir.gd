@@ -22,6 +22,7 @@ func enter() -> void:
 	player.dashTimer.start()
 	player.animPlayer.play("Dash Side")
 	player.consume_ability(Globals.abiliyList.DashAir, 1)
+	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
 
 
 func exit() -> void:
@@ -31,6 +32,7 @@ func exit() -> void:
 		player.velocityPlayer.x = player.velocityPrevious.x
 	player.animPlayer.stop()
 	dashDirection = 0
+	player.set_collision_mask_bit(CollisionLayers.DashSide, true)
 
 
 func physics(delta) -> void:

@@ -8,12 +8,13 @@ func enter() -> void:
 	player.animPlayer.play("Dash Climb")
 	player.velocityPlayer.y = -player.dashVelocity
 	player.velocityPlayer.x = 0
+	player.set_collision_mask_bit(CollisionLayers.DashUp, false)
 
 
 func exit() -> void:
 	.exit()
 
-	
+	player.set_collision_mask_bit(CollisionLayers.DashUp, true)
 
 
 func physics(delta) -> void:
