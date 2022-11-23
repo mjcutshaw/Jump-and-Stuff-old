@@ -29,12 +29,24 @@ custom_constants/margin_top = 75
 
 [node name="GameName" type="Label" parent="GameName"]
 unique_name_in_owner = true
-margin_top = 75.0
+margin_top = 135.0
 margin_right = 535.0
-margin_bottom = 132.0
+margin_bottom = 192.0
 grow_horizontal = 2
 theme = ExtResource( 1 )
 text = "Jump and Stuff"
+align = 1
+
+[node name="Test" type="Label" parent="GameName"]
+unique_name_in_owner = true
+margin_top = 75.0
+margin_right = 535.0
+margin_bottom = 252.0
+grow_horizontal = 2
+theme = ExtResource( 1 )
+text = "Test
+
+"
 align = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
