@@ -47,11 +47,12 @@ func handle_input(event: InputEvent) -> int:
 			return State.Jump
 	if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
 		return State.DashGround
+		#TODO: add other dashes, able to dash down on ground
 	if Input.is_action_just_pressed("dash_jump") and player.can_use_ability(PlayerAbilities.list.DashJump):
 		return State.DashJump
 	if Input.is_action_just_pressed("hookshot") and player.targetHookShot != null:
 		return State.HookShot
-
+	
 	return State.Null
 
 

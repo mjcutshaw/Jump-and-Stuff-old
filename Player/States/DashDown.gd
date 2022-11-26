@@ -1,7 +1,6 @@
  extends DashState
 
-#TODO: stun state after round pound
-#TODO: add jump cancel
+#LOOKAT: umlimited uses?
 
 func enter() -> void:
 	.enter()
@@ -54,5 +53,6 @@ func state_check(delta: float) -> int:
 
 	if player.is_on_floor():
 		return State.Idle
+		#TODO add stun state
 
 	return State.Null

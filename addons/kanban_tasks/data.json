@@ -33,11 +33,11 @@
         1,
         7,
         8,
+        10,
         11,
         12,
         13,
-        14,
-        15
+        14
       ]
     },
     {
@@ -54,7 +54,7 @@
       "title": "Major needs",
       "tasks": [
         9,
-        10
+        15
       ]
     }
   ],
@@ -111,11 +111,6 @@
     },
     {
       "category": 0,
-      "title": "figure out momentum",
-      "details": ""
-    },
-    {
-      "category": 0,
       "title": "roll",
       "details": ""
     },
@@ -137,6 +132,11 @@
     {
       "category": 0,
       "title": "dive",
+      "details": ""
+    },
+    {
+      "category": 0,
+      "title": "add option for dedicated buttons for abilities",
       "details": ""
     }
   ]
