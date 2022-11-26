@@ -10,7 +10,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerSpawned")
 	player.animPlayer.play("Spawn")
 	EventBus.emit_signal("playerHealthChanged", player.healthMax)
-	player.reset_ability(Globals.abiliyList.All)
+	player.reset_ability(PlayerAbilities.list.All)
 
 
 func exit() -> void:
@@ -46,7 +46,7 @@ func handle_input(event: InputEvent) -> int:
 			return State.Walk
 		if Input.is_action_just_pressed("jump"):
 			return State.Jump
-		if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.DashGround):
+		if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
 			return State.DashGround
 
 	return State.Null

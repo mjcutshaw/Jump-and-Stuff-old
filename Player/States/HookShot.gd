@@ -36,7 +36,11 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_released("jump"):
+		if player.can_use_ability(PlayerAbilities.list.JumpAir):
+			return State.JumpAir
+		else:
+			return State.Fall
 
 	return State.Null
 

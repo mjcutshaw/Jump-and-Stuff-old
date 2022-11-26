@@ -38,7 +38,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("grab") or Input.is_action_pressed("grab"):
+	if Input.is_action_just_pressed("grab") or Input.is_action_pressed("grab") and player.can_use_ability(PlayerAbilities.list.Grab):
 		return State.WallGrab
 
 	return State.Null

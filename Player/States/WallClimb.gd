@@ -1,5 +1,6 @@
 extends WallState
 
+#TODO: remove
 
 func enter() -> void:
 	.enter()
@@ -43,7 +44,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.moveDirection.y == 0:
+	if player.moveDirection.y == 0 and player.can_use_ability(PlayerAbilities.list.Grab):
 		return State.WallGrab
 
 	return State.Null

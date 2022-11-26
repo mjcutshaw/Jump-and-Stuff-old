@@ -1,7 +1,7 @@
  extends MoveState
 
 #TODO: stun state after round pound
-#TODO: change to dash down
+#TODO: add jump cancel
 
 func enter() -> void:
 	.enter()
@@ -36,10 +36,10 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.DashGround):
-		return State.DashGround
+	if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashAir):
+		return State.DashAir #TODO: add dash up
 	if Input.is_action_just_released("jump"):
-		if player.can_use_ability(Globals.abiliyList.JumpAir):
+		if player.can_use_ability(PlayerAbilities.list.JumpAir):
 			return State.JumpAir
 		else:
 			return State.Fall

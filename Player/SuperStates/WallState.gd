@@ -7,9 +7,9 @@ func enter() -> void:
 
 	player.velocityPrevious = player.velocityPlayer
 	if player.unlockedJumpWall:
-		player.reset_ability(Globals.abiliyList.JumpAir)
+		player.reset_ability(PlayerAbilities.list.JumpAir)
 	if player.unlockedDashAir:
-		player.reset_ability(Globals.abiliyList.DashAir)
+		player.reset_ability(PlayerAbilities.list.DashAir)
 
 
 func exit() -> void:
@@ -35,7 +35,7 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and player.can_use_ability(PlayerAbilities.list.JumpWall):
 		return State.JumpWall
 	
 	#LOOKAT: make these a charge like hollow?

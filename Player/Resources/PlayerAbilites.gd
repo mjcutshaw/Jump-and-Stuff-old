@@ -2,6 +2,7 @@ extends Resource
 class_name PlayerAbilities
 
 #TODO: all abilities should get an upgrade and shards/modifires/charms
+#TODO: add unlockable skills enum
 
 
 var unlockedJumpAir: bool = false
@@ -25,3 +26,25 @@ var unlockedBurrow: bool = false
 var maxJump: int = 1
 var maxJumpAir: int = 1
 var maxDash: int = 1
+
+enum list {
+	null,
+	All,
+	JumpAir,
+	JumpWall,
+	DashGround,
+	DashAir,
+	DashUp,
+	DashDown,
+	DashWall,
+	DashClimb,
+	DashJump,
+	Glide,
+	HookShot,
+	Climb,
+	Grab,
+	Swim,
+	SwimDash,
+	Burrow,
+	}
+enum abilityTargetType {null, hookShot, grappleHook, burrow}

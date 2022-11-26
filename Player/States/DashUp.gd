@@ -1,7 +1,6 @@
 extends DashState
 
 #FIXME: copied dashH
-
 func enter() -> void:
 	.enter()
 
@@ -11,7 +10,7 @@ func enter() -> void:
 	player.dashTimer.start()
 	player.velocityPlayer.y = -player.dashVelocity
 	player.animPlayer.play("Dash Side")
-	player.consume_ability(Globals.abiliyList.DashUp, 1)
+	player.consume_ability(PlayerAbilities.list.DashUp, 1)
 	player.set_collision_mask_bit(CollisionLayers.DashUp, false)
 
 
@@ -40,7 +39,12 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	#TODO: add dash down and side
+	if Input.is_action_just_released("jump"):
+		if player.can_use_ability(PlayerAbilities.list.JumpAir):
+			return State.JumpAir
+		else:
+			return State.Fall
 
 	return State.Null
 

@@ -1,6 +1,6 @@
 extends DashState
 
-#LOOKAT: see in need dash air group
+#TODO: change to side dash
 #TODO: add skill exits. keeping momenet with jump/glide at a certian time to keep momentum
 #TODO: add right stick overwrite dash direction
 
@@ -21,7 +21,7 @@ func enter() -> void:
 	rotate_to_normal()
 	player.dashTimer.start()
 	player.animPlayer.play("Dash Side")
-	player.consume_ability(Globals.abiliyList.DashAir, 1)
+	player.consume_ability(PlayerAbilities.list.DashAir, 1)
 	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
 
 
@@ -55,15 +55,18 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
+	#TODO: add dash up and down
 	if Input.is_action_just_pressed("jump"):
 		player.wall_jump_detection(100)
 		#FICME: need to check against velocity direction
 		#FOXME: if moveDirection is same as velocity return tall jump
-		if player.jumpLeftCheck.is_colliding() or player.jumpRightCheck.is_colliding():
+		if player.jumpLeftCheck.is_colliding() or player.jumpRightCheck.is_colliding() and player.can_use_ability(PlayerAbilities.list.JumpWall):
 			return State.JumpReverse
-		elif player.can_use_ability(Globals.abiliyList.JumpAir):
+		elif player.can_use_ability(PlayerAbilities.list.JumpAir): #TODO: move to dash in air super state
 			apply_acceleration(player.moveSpeed)
 			return State.JumpAir
+		else:
+			return State.Fall
 
 	return State.Null
 

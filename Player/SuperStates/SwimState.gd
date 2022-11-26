@@ -6,7 +6,7 @@ func enter() -> void:
 	.enter()
 
 	player.swimLevel.enabled = true
-	player.reset_ability(Globals.abiliyList.All)
+	player.reset_ability(PlayerAbilities.list.All)
 
 
 func exit() -> void:

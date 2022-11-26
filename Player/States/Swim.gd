@@ -47,7 +47,7 @@ func handle_input(event: InputEvent) -> int:
 	if isSurfacing and Input.is_action_just_pressed("jump"):
 		#FIXME: needs more range closer to the surface
 		return State.Jump
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.SwimDash):
 		return State.SwimDash
 
 	return State.Null

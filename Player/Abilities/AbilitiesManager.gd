@@ -11,5 +11,5 @@ func initialize() -> void:
 
 
 func change_ability(ability):
-	if ability == Globals.abiliyList.Walk:
+	if ability == PlayerAbilities.list.Walk:
 		pass

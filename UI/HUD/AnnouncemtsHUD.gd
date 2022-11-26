@@ -48,11 +48,11 @@ func announce_stat_change(stat: int, amount: int) -> void:
 	
 
 func announce_ability_unlocked(ability: int) -> void:
-	if ability == Globals.abiliyList.All:
+	if ability == PlayerAbilities.list.All:
 		announce(str("The whole enchilanda unlocked"))
-	elif ability == Globals.abiliyList.DashGround:
+	elif ability == PlayerAbilities.list.DashGround:
 		announce(str("Dash Unlocked"))
-	elif ability == Globals.abiliyList.JumpAir:
+	elif ability == PlayerAbilities.list.JumpAir:
 		announce(str("Double Jump Unlocked "))
 		#TODO: ability unlocked. have max jump count announced (double,triple, etc)
 	else:

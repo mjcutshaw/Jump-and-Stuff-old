@@ -60,46 +60,62 @@ func update_abilities():
 
 func unlock_ability(ability: int) -> void:
 	
-	if ability == Globals.abiliyList.All:
+	if ability == PlayerAbilities.list.All:
+		#TODO: for look todo all abilities
 		unlockedJumpAir = true
+		unlockedJumpWall = true
 		unlockedDashGround = true
-	elif ability == Globals.abiliyList.JumpAir:
+		unlockedDashAir = true
+		unlockedDashUp = true
+		unlockedDashDown = true
+		unlockedDashWall = true
+		unlockedDashJump = true
+		unlockedDashClimb = true
+		unlockedGlide = true
+		unlockedHookShot = true
+		unlockedClimb = true
+		unlockedGrab = true
+		unlockedSwim = true
+		unlockedSwimDash = true
+		unlockedBurrow = true
+		
+	elif ability == PlayerAbilities.list.JumpAir:
 		if unlockedJumpAir:
 			maxJumpAir = +1
 		else:
 			unlockedJumpAir = true
-	elif ability == Globals.abiliyList.JumpWall:
+	elif ability == PlayerAbilities.list.JumpWall:
 		unlockedJumpWall = true
-	elif ability == Globals.abiliyList.DashGround:
+	elif ability == PlayerAbilities.list.DashGround:
 		unlockedDashGround = true
-	elif ability == Globals.abiliyList.DashAir:
+	elif ability == PlayerAbilities.list.DashAir:
 		if unlockedDashAir:
 			maxDash = +1
 		else:
 			unlockedDashAir = true
-	elif ability == Globals.abiliyList.DashUp:
+	elif ability == PlayerAbilities.list.DashUp:
 		unlockedDashUp = true
-	elif ability == Globals.abiliyList.DashDown:
+	elif ability == PlayerAbilities.list.DashDown:
 		unlockedDashDown = true
-	elif ability == Globals.abiliyList.DashWall:
+	elif ability == PlayerAbilities.list.DashWall:
 		unlockedDashWall = true
-	elif ability == Globals.abiliyList.DashJump:
+	elif ability == PlayerAbilities.list.DashJump:
 		unlockedDashJump = true
-	elif ability == Globals.abiliyList.DashClimb:
+	elif ability == PlayerAbilities.list.DashClimb:
 		unlockedDashClimb = true
-	elif ability == Globals.abiliyList.Glide:
+	elif ability == PlayerAbilities.list.Glide:
 		unlockedGlide = true
-	elif ability == Globals.abiliyList.HookShot:
+	elif ability == PlayerAbilities.list.HookShot:
 		unlockedHookShot = true
-	elif ability == Globals.abiliyList.Climb:
+	elif ability == PlayerAbilities.list.Climb:
 		unlockedClimb = true
-	elif ability == Globals.abiliyList.Grab:
+	elif ability == PlayerAbilities.list.Grab:
 		unlockedGrab = true
-	elif ability == Globals.abiliyList.Swim:
+	elif ability == PlayerAbilities.list.Swim:
 		unlockedSwim = true
-	elif ability == Globals.abiliyList.SwimDash:
+	elif ability == PlayerAbilities.list.SwimDash:
 		unlockedSwimDash = true
-	elif ability == Globals.abiliyList.Burrow:
+	elif ability == PlayerAbilities.list.Burrow:
 		unlockedBurrow = true
 	else:
 		EventBus.emit_signal("error", "Null Ability Unlocked")
@@ -120,49 +136,49 @@ func augment_unlocked(augment: Augment) -> void:
 func can_use_ability(ability: int) -> bool:
 	#TODO: add back in unlock check
 	
-	if ability == Globals.abiliyList.JumpAir and unlockedJumpAir and remainingJumpAir > 0:
+	if ability == PlayerAbilities.list.JumpAir and unlockedJumpAir and remainingJumpAir > 0:
 		return true
-	elif ability == Globals.abiliyList.JumpWall and unlockedJumpWall:
+	elif ability == PlayerAbilities.list.JumpWall and unlockedJumpWall:
 		return true
-	elif ability == Globals.abiliyList.DashGround and unlockedDashGround and dashCDTimer.is_stopped():
+	elif ability == PlayerAbilities.list.DashGround and unlockedDashGround and dashCDTimer.is_stopped():
 		return true
-	elif ability == Globals.abiliyList.DashAir and unlockedDashAir and remainingDashAir > 0 and dashCDTimer.is_stopped():
+	elif ability == PlayerAbilities.list.DashAir and unlockedDashAir and remainingDashAir > 0 and dashCDTimer.is_stopped():
 		return true
-	elif ability == Globals.abiliyList.DashUp and unlockedDashUp and remainingDashUp > 0:
+	elif ability == PlayerAbilities.list.DashUp and unlockedDashUp and remainingDashUp > 0:
 		return true
-	elif ability == Globals.abiliyList.DashUp and unlockedDashDown and remainingDashDown > 0:
+	elif ability == PlayerAbilities.list.DashUp and unlockedDashDown and remainingDashDown > 0:
 		return true
-	elif ability == Globals.abiliyList.DashWall and unlockedDashUp:
+	elif ability == PlayerAbilities.list.DashWall and unlockedDashUp:
 		return true
-	elif ability == Globals.abiliyList.DashJump and unlockedDashJump:
+	elif ability == PlayerAbilities.list.DashJump and unlockedDashJump:
 		return true
-	elif ability == Globals.abiliyList.DashClimb and unlockedDashClimb:
+	elif ability == PlayerAbilities.list.DashClimb and unlockedDashClimb:
 		return true
-	elif ability == Globals.abiliyList.Glide and unlockedGlide:
+	elif ability == PlayerAbilities.list.Glide and unlockedGlide:
 		return true
-	elif ability == Globals.abiliyList.HookShot and unlockedHookShot:
+	elif ability == PlayerAbilities.list.HookShot and unlockedHookShot:
 		return true
-	elif ability == Globals.abiliyList.Climb and unlockedClimb:
+	elif ability == PlayerAbilities.list.Climb and unlockedClimb:
 		return true
-	elif ability == Globals.abiliyList.Grab and unlockedGrab:
+	elif ability == PlayerAbilities.list.Grab and unlockedGrab:
 		return true
-	elif ability == Globals.abiliyList.Swim and unlockedSwim:
+	elif ability == PlayerAbilities.list.Swim and unlockedSwim:
 		return true
-	elif ability == Globals.abiliyList.SwimDash and unlockedSwimDash:
+	elif ability == PlayerAbilities.list.SwimDash and unlockedSwimDash:
 		return true
-	elif ability == Globals.abiliyList.Burrow and unlockedBurrow:
+	elif ability == PlayerAbilities.list.Burrow and unlockedBurrow:
 		return true
 	
 	return false
 
 func consume_ability(ability: int, amount: int) -> void:
 	#TODO: Use 99 remove all or all a third input to do that
-	if ability == Globals.abiliyList.All:
+	if ability == PlayerAbilities.list.All:
 		set_jump_air(-amount)
 		set_dash(-amount)
-	elif ability == Globals.abiliyList.JumpAir:
+	elif ability == PlayerAbilities.list.JumpAir:
 		set_jump_air(-amount)
-	elif ability == Globals.abiliyList.DashAir:
+	elif ability == PlayerAbilities.list.DashAir:
 		set_dash(-amount)
 	else:
 		print("Null Ability Consume")
@@ -170,12 +186,12 @@ func consume_ability(ability: int, amount: int) -> void:
 
 
 func reset_ability(ability: int) -> void:
-	if ability == Globals.abiliyList.All:
+	if ability == PlayerAbilities.list.All:
 		set_dash(maxDash)
 		set_jump_air(maxJumpAir)
-	elif ability == Globals.abiliyList.JumpAir:
+	elif ability == PlayerAbilities.list.JumpAir:
 		set_jump_air(maxJumpAir)
-	elif ability == Globals.abiliyList.DashAir:
+	elif ability == PlayerAbilities.list.DashAir:
 		set_dash(maxDash)
 	else:
 		print("Null Ability Reset")

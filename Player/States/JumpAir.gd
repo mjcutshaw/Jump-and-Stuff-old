@@ -7,7 +7,7 @@ func enter() -> void:
 	player.animPlayer.play("Jump Double")
 	EventBus.emit_signal("playerJumped")
 	player.velocityPlayer.y = player.jumpVelocityMax
-	player.consume_ability(Globals.abiliyList.JumpAir, 1)
+	player.consume_ability(PlayerAbilities.list.JumpAir, 1)
 	neutral_move_direction_logic()
 
 

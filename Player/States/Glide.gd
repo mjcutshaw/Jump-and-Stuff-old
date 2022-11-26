@@ -9,7 +9,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerGlide")
 	player.animPlayer.play("Glide")
 	if player.inWind:
-		player.reset_ability(Globals.abiliyList.All)
+		player.reset_ability(PlayerAbilities.list.All)
 	neutral_move_direction_logic()
 
 

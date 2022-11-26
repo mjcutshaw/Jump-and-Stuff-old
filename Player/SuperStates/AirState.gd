@@ -43,7 +43,7 @@ func handle_input(event: InputEvent) -> int:
 		if !player.coyoteWallTimer.is_stopped():
 			player.coyoteWallTimer.stop()
 			return State.DashWall
-		elif player.can_use_ability(Globals.abiliyList.DashGround):
+		elif player.can_use_ability(PlayerAbilities.list.DashGround):
 			return State.DashGround
 	if Input.is_action_pressed("move_down"): #fall through semisolids
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
@@ -58,12 +58,12 @@ func handle_input(event: InputEvent) -> int:
 			player.coyoteJumpTimer.stop()
 			return State.Jump
 		elif player.jumpGroundCheck.is_colliding(): #extened ground check, and air jump reset
-			player.reset_ability(Globals.abiliyList.JumpAir)
+			player.reset_ability(PlayerAbilities.list.JumpAir)
 			return State.Jump
 #		elif player.jumpRightCheck.is_colliding() or player.jumpLeftCheck.is_colliding():
 #			return State.JumpWall
 			#FIXME: make extended wallcheck 
-		elif player.can_use_ability(Globals.abiliyList.JumpAir):
+		elif player.can_use_ability(PlayerAbilities.list.JumpAir):
 			return State.JumpAir
 		else:
 			player.bufferJumpTimer.start()

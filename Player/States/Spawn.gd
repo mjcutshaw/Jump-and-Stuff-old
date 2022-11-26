@@ -15,7 +15,7 @@ func enter() -> void:
 	player.animPlayer.play("Spawn")
 	EventBus.emit_signal("playerHealthChanged", player.healthMax)
 	#TODO: need if statement if after damage return to last platform
-	player.reset_ability(Globals.abiliyList.All)
+	player.reset_ability(PlayerAbilities.list.All)
 #	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 #	tween.tween_property(player.characterRig, "scale", Vector2(1,1), growTime).from(Vector2(0,0))
 
@@ -53,7 +53,7 @@ func handle_input(event: InputEvent) -> int:
 			return State.Walk
 		if Input.is_action_just_pressed("jump"):
 			return State.Jump
-		if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.DashGround):
+		if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
 			return State.DashGround
 
 	return State.Null

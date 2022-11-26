@@ -1089,7 +1089,7 @@ tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220,
 [node name="Interactables" type="Node" parent="."]
 
 [node name="AbilityUnlock" parent="Interactables" instance=ExtResource( 50 )]
-position = Vector2( -371, 291 )
+position = Vector2( -535, -11 )
 ability = 1
 
 [node name="AbilityWall" parent="Interactables" instance=ExtResource( 51 )]

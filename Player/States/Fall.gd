@@ -54,7 +54,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.glidePressed:
+	if player.glidePressed  and player.can_use_ability(PlayerAbilities.list.Glide):
 		return State.Glide
 	if player.inWater:
 		return State.Swim

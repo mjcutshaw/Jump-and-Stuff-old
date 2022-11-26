@@ -7,7 +7,7 @@ func enter() -> void:
 	player.velocityPlayer.y = 10
 	EventBus.emit_signal("playerGrounded", true)
 	player.set_collision_mask_bit(CollisionLayers.SEMISOLID, true)
-	player.reset_ability(Globals.abiliyList.All)
+	player.reset_ability(PlayerAbilities.list.All)
 
 
 func exit() -> void:
@@ -45,9 +45,9 @@ func handle_input(event: InputEvent) -> int:
 			player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 		else:
 			return State.Jump
-	if Input.is_action_just_pressed("dash") and player.can_use_ability(Globals.abiliyList.DashGround):
+	if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
 		return State.DashGround
-	if Input.is_action_just_pressed("super_jump"):
+	if Input.is_action_just_pressed("dash_jump") and player.can_use_ability(PlayerAbilities.list.DashJump):
 		return State.DashJump
 	if Input.is_action_just_pressed("hookshot") and player.targetHookShot != null:
 		return State.HookShot
