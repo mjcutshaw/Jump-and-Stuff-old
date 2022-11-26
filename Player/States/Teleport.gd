@@ -1,5 +1,4 @@
 extends BaseState
-#TODO: superstate for teleport and spawn
 
 export var growTime: float = .5
 
@@ -57,6 +56,7 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.is_on_floor():
+		return State.Spawn
 
 	return State.Null
