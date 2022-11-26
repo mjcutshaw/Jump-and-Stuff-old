@@ -67,8 +67,8 @@ func handle_input(event: InputEvent) -> int:
 			return State.JumpAir
 		else:
 			player.bufferJumpTimer.start()
-	if Input.is_action_just_pressed("ground_pound"):
-		return	 State.GroundPound
+	if Input.is_action_just_pressed("dash_down"):
+		return State.DashDown #TODO proper checks for dash
 	if Input.is_action_just_pressed("hookshot") and player.targetHookShot != null:
 		return State.HookShot
 
