@@ -43,10 +43,7 @@ func handle_input(event: InputEvent) -> int:
 		if !player.coyoteWallTimer.is_stopped():
 			player.coyoteWallTimer.stop()
 			return State.DashWall
-#		elif player.can_use_ability(PlayerAbilities.list.DashAir):
-#			return State.DashAir
-			#FIXME: find a better way to include buffer dash
-		elif Input.is_action_just_pressed("dash"): 
+		else: 
 			dash_pressed_buffer()
 	if Input.is_action_pressed("move_down"): #fall through semisolids
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)

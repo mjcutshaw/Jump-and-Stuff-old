@@ -14,12 +14,12 @@ func enter() -> void:
 		dashDirection = sign(player.velocity.x)
 	else:
 		dashDirection = player.facing
-		
+	
 	player.velocityPlayer.y = 0
 	player.velocityPrevious = player.velocityPlayer
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
-	player.dashTimer.start()
+	
 	player.animPlayer.play("Dash Side")
 	player.consume_ability(PlayerAbilities.list.DashAir, 1)
 	player.set_collision_mask_bit(CollisionLayers.DashSide, false)

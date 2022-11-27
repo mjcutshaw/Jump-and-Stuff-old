@@ -1,17 +1,13 @@
  extends DashState
 
 #LOOKAT: umlimited uses?
-onready var onFloorTimer: Timer = $OnFloor
-var onFloorTime: float = 0.5
 
 
 func enter() -> void:
 	.enter()
 
-	onFloorTimer.wait_time = onFloorTime
 	player.animPlayer.play("Dash Down")
 	player.set_collision_mask_bit(CollisionLayers.DashDown, false)
-	onFloorTimer.start()
 
 
 func exit() -> void:
@@ -65,7 +61,7 @@ func state_check(delta: float) -> int:
 			return BaseState.State.DashUp
 		if player.can_use_ability(PlayerAbilities.list.DashDown) and dashBufferState == BaseState.State.DashDown:
 			return BaseState.State.DashDown
-	if onFloorTimer.is_stopped() and player.is_on_floor():
+	if player.dashContactTimer.is_stopped() and player.is_on_floor():
 		return State.Idle
 		#TODO add stun state
 

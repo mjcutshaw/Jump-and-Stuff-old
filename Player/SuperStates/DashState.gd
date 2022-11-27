@@ -10,6 +10,8 @@ func enter() -> void:
 	.enter()
 
 	player.dashCDTimer.start()
+	player.dashContactTimer.start()
+	player.dashTimer.start()
 
 
 func exit() -> void:
