@@ -8,7 +8,7 @@ func enter() -> void:
 	EventBus.emit_signal("playerDashed")
 	rotate_to_normal()
 	player.dashTimer.start()
-	player.velocityPlayer.y = -player.dashVelocity
+	player.velocityPlayer.y = -player.dashVelocity/2
 	player.consume_ability(PlayerAbilities.list.DashUp, 1)
 	player.animPlayer.play("Dash Up")
 	player.set_collision_mask_bit(CollisionLayers.DashUp, false)

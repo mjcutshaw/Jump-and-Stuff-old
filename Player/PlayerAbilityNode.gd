@@ -146,7 +146,7 @@ func can_use_ability(ability: int) -> bool:
 		return true
 	elif ability == PlayerAbilities.list.DashUp and unlockedDashUp and remainingDashUp > 0:
 		return true
-	elif ability == PlayerAbilities.list.DashUp and unlockedDashDown and remainingDashDown > 0:
+	elif ability == PlayerAbilities.list.DashDown and unlockedDashDown and remainingDashDown > 0:
 		return true
 	elif ability == PlayerAbilities.list.DashWall and unlockedDashUp:
 		return true

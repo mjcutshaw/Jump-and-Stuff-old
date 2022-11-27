@@ -40,16 +40,13 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and !Input.is_action_pressed("dash"):
 		if Input.is_action_pressed("move_down"):
 			player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 		else:
 			return State.Jump
-	if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
-		return State.DashGround
-		#TODO: add other dashes, able to dash down on ground
-	if Input.is_action_just_pressed("dash_jump") and player.can_use_ability(PlayerAbilities.list.DashJump):
-		return State.DashJump
+	if Input.is_action_just_pressed("dash"): 
+		dash_pressed_buffer()
 	if Input.is_action_just_pressed("hookshot") and player.targetHookShot != null:
 		return State.HookShot
 	
@@ -61,6 +58,16 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
+
+	if dashBufferState != BaseState.State.Null:
+		if player.can_use_ability(PlayerAbilities.list.DashJump) and dashBufferState == BaseState.State.DashJump:
+			return BaseState.State.DashJump
+		if player.can_use_ability(PlayerAbilities.list.DashGround) and dashBufferState == BaseState.State.DashGround:
+			return BaseState.State.DashGround
+		if player.can_use_ability(PlayerAbilities.list.DashUp) and dashBufferState == BaseState.State.DashUp:
+			return BaseState.State.DashUp
+		if player.can_use_ability(PlayerAbilities.list.DashDown) and dashBufferState == BaseState.State.DashDown:
+			return BaseState.State.DashDown
 	if !player.bufferJumpTimer.is_stopped():
 		player.bufferJumpTimer.stop()
 		return State.Jump

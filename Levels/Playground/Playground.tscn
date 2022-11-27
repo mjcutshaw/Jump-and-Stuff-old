@@ -1093,8 +1093,13 @@ position = Vector2( -535, -11 )
 ability = 1
 
 [node name="AbilityWall" parent="Interactables" instance=ExtResource( 51 )]
-position = Vector2( -370, -139 )
-ability = 2
+position = Vector2( -814, 260 )
+scale = Vector2( 10, 2 )
+ability = 3
+
+[node name="ColorRect" type="ColorRect" parent="Interactables/AbilityWall"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
 position = Vector2( 136, 264 )

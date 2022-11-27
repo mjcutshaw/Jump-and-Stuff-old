@@ -39,14 +39,14 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	#TODO: more ability triggerable or chnage to idle after timer/animation
-	if player.is_on_floor():
-		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-			return State.Walk
-		if Input.is_action_just_pressed("jump"):
-			return State.Jump
-		if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
-			return State.DashGround
+#	#TODO: more ability triggerable or chnage to idle after timer/animation
+#	if player.is_on_floor():
+#		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+#			return State.Walk
+#		if Input.is_action_just_pressed("jump"):
+#			return State.Jump
+#		if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.list.DashGround):
+#			return State.DashGround
 
 	return State.Null
 

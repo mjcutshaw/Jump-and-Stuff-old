@@ -43,8 +43,11 @@ func handle_input(event: InputEvent) -> int:
 		if !player.coyoteWallTimer.is_stopped():
 			player.coyoteWallTimer.stop()
 			return State.DashWall
-		elif player.can_use_ability(PlayerAbilities.list.DashGround):
-			return State.DashGround
+#		elif player.can_use_ability(PlayerAbilities.list.DashAir):
+#			return State.DashAir
+			#FIXME: find a better way to include buffer dash
+		elif Input.is_action_just_pressed("dash"): 
+			dash_pressed_buffer()
 	if Input.is_action_pressed("move_down"): #fall through semisolids
 		player.set_collision_mask_bit(CollisionLayers.SEMISOLID, false)
 	if Input.is_action_just_released("move_down"):
@@ -80,6 +83,13 @@ func state_check(delta: float) -> int:
 	if newState:
 		return newState
 
+	if dashBufferState != BaseState.State.Null:
+		if player.can_use_ability(PlayerAbilities.list.DashAir) and dashBufferState == BaseState.State.DashAir:
+			return BaseState.State.DashAir
+		if player.can_use_ability(PlayerAbilities.list.DashUp) and dashBufferState == BaseState.State.DashUp:
+			return BaseState.State.DashUp
+		if player.can_use_ability(PlayerAbilities.list.DashDown) and dashBufferState == BaseState.State.DashDown:
+			return BaseState.State.DashDown
 	if player.is_on_floor():
 		player.animPlayer.play("Landing")
 		neutralMovement = false

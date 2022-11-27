@@ -1,13 +1,9 @@
 extends DashState
-#:OOKAT: change to slide?
 #TODO: create reverse versions of the jump
-#TODO: create stats for jump dash types
-## hyper version, lower jump height with small hitbox
-## wave
-## ultra
-export (float, 0 , 0.3, 0.05) var dashJumpTime: float = .15
+#TODO: make percent of dashDuraction, make stat increase based off fewer numbers
+export (float, 0 , 0.3, 0.05) var dashJumpTime: float = .17
 onready var dashJumpTimer: Timer = $DashJumpTimer
-export (float, 0 , 0.3, 0.05) var dashJumpRefreshTime: float = .25
+export (float, 0 , 0.3, 0.05) var dashJumpRefreshTime: float = .22
 onready var dashJumpRefreshTimer: Timer = $DashJumpRefreshTimer
 var superJump: bool = false
 
@@ -34,17 +30,16 @@ func exit() -> void:
 	.exit()
 
 	if player.is_on_floor():
-		if superJump:
-			## Celeste like 
-#			EventBus.emit_signal("error", "super jump")
+		if superJump: ## dash jump with dash count reset
 			player.dashCDTimer.stop()
-		else:
-			if !dashJumpTimer.is_stopped() and !dashJumpRefreshTimer.is_stopped():
-				player.consume_ability(PlayerAbilities.list.DashAir, 1)
-			if player.velocityPrevious.x > player.moveSpeed:
-				player.velocityPlayer.x = player.moveSpeed
+#			EventBus.emit_signal("error", "ultra jump")
+		else:## dash jump 
+			player.consume_ability(PlayerAbilities.list.DashAir, 1)
+			if !dashJumpTimer.is_stopped():
+#				EventBus.emit_signal("error", "early jump")
+				player.velocityPlayer.x = player.velocityPlayer.x/4
 #			else:
-#				player.velocityPlayer.x = player.velocityPrevious.x
+#				EventBus.emit_signal("error", "super jump")
 				
 	elif !player.is_on_floor():
 		player.consume_ability(PlayerAbilities.list.DashAir, 1)
@@ -74,8 +69,8 @@ func handle_input(event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump") and !dashJumpRefreshTimer.is_stopped():
-		if dashJumpTimer.is_stopped():
+	if Input.is_action_just_pressed("jump"):
+		if dashJumpRefreshTimer.is_stopped():
 			superJump = true
 		else:
 			superJump = false

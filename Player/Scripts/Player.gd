@@ -27,6 +27,7 @@ onready var dashTimer: Timer = $Timers/DashDuration
 onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
 onready var fallTimer: Timer = $Timers/FallTimer
 onready var wallGrabCheckTimer: Timer = $Timers/WallGrabCheck
+onready var dashBufferTimer: Timer = $Timers/DashBuffer
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -58,6 +59,7 @@ var coyoteTime: float = 0.1
 var coyoteWallTime: float = 0.2
 var semisolidResetTime: float = 0.1
 var wallGrabTime: float = 0.5
+var dashBufferTime: float = 0.06
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
@@ -79,17 +81,20 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	sm.handle_input(event)
 	
-	#LookAt: move other actions to this
-	if Input.is_action_pressed("glide"):
-		glidePressed = true
-	if Input.is_action_just_released("glide"):
-		glidePressed = false
+	glide_logic()
+	
 	if Input.is_action_just_pressed("pogo"):
 		if pogo_down_check():
 			velocityPlayer.y = -800
 			fallTimer.start()
 			#TODO rename falltime to fall damage
 			#TODO: create state
+
+func glide_logic() -> void:
+	if Input.is_action_pressed("glide"):
+		glidePressed = true
+	if Input.is_action_just_released("glide"):
+		glidePressed = false
 
 
 func _physics_process(delta: float) -> void:
@@ -98,6 +103,8 @@ func _physics_process(delta: float) -> void:
 	get_move_input()
 	ledge_detection()
 	EventBus.emit_signal("debugVelocity", velocity.round())
+	EventBus.emit_signal("debug2", "down r", remainingDashDown)
+	EventBus.emit_signal("debug1", "up r", remainingDashUp)
 
 
 	#FIXME: figure out to wall direction	
@@ -184,6 +191,7 @@ func set_timers() -> void:
 	fallTimer.wait_time = fallTime
 	dashCDTimer.wait_time = Stats.dashCDTime
 	wallGrabCheckTimer.wait_time = wallGrabTime
+	dashBufferTimer.wait_time = dashBufferTime
 	#TODO: move this over to timers
 
 

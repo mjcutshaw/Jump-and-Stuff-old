@@ -1,6 +1,6 @@
 extends Node
 class_name BaseState
-
+#TODO: remane to player state
 enum State {
 	Null,
 	Spawn,
