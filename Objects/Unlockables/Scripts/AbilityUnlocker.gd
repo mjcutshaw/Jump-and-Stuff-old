@@ -1,8 +1,8 @@
 extends Unlockables
 class_name AbilitiyUnlocker
 
-export (Globals.abiliyList) var ability
-var Abilities: Resource = preload("res://Resources/PlayerAbilities.tres")
+export (PlayerAbilities.list) var ability
+#var Abilities: Resource = preload("res://Resources/PlayerAbilities.tres")
 
 #TODO: redundent could could be merge for unlockers
 

@@ -23,5 +23,4 @@ func _ready() -> void:
 		staticBody.set_collision_layer_bit(CollisionLayers.SwimDash, true)
 	else:
 		if ability != abiliyList.null:
-			EventBus.emit_signal("error", str("Ability Wall error at: "  + str(name) + " at " + str(global_position)))
-
+			EventBus.emit_signal("error", "Ability Wall error for " + str(ability) +" at: "  + str(name) + " at " + str(global_position))

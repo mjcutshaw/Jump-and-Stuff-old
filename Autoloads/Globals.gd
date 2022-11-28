@@ -14,10 +14,9 @@ const ZERO = Vector2.ZERO
 var dashSideColor: Color = Color.blue
 var dashUpColor: Color = Color.red
 var dashDownColor: Color = Color.green
-var dashColor: Color = Color.blue #TODO: change to cycle through dash colors
-var dashUsedColor: Color = Color.gray
-var hookshotColor: Color = Color.purple
-var grappleColor: Color = Color.violet
+var dashAllColor: Color = Color.purple
+var swimDashColor: Color = Color.gray
+var hookShotColor: Color = Color.violet
 var burrowColor: Color = Color.orange
 var jumpColor: Color = Color.brown
 var pogoColor: Color = Color.floralwhite
@@ -29,24 +28,5 @@ var allColor: Color = Color.white
 
 
 enum statList {null, MoveSpeed, JumpHeight, HealthMax}
-enum abiliyList {
-	null,
-	All,
-	JumpAir,
-	JumpWall,
-	DashGround,
-	DashAir,
-	DashUp,
-	DashDown,
-	DashWall,
-	DashClimb,
-	DashJump,
-	Glide,
-	HookShot,
-	Climb,
-	Grab,
-	Swim,
-	SwimDash,
-	Burrow,
-	}
+
 enum abilityTargetType {null, hookShot, grappleHook, burrow}

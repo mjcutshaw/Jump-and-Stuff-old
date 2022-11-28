@@ -20,7 +20,7 @@ func _ready() -> void:
 	if abilityTarget == Globals.abilityTargetType.null:
 		EventBus.emit_signal("error", str("null target type" + str(name) + " at " + str(global_position)))
 	if abilityTarget == Globals.abilityTargetType.hookShot:
-		colorActive = Globals.hookshotColor
+		colorActive = Globals.hookShotColor
 	if abilityTarget == Globals.abilityTargetType.grappleHook:
 		colorActive = Globals.grappleColor
 	if abilityTarget == Globals.abilityTargetType.burrow:

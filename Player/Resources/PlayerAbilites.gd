@@ -32,6 +32,7 @@ enum list {
 	All,
 	JumpAir,
 	JumpWall,
+	DashAll,
 	DashGround,
 	DashAir,
 	DashUp,

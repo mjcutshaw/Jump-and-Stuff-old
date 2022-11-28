@@ -6523,7 +6523,7 @@ extents = Vector2( 30, 64 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 64
-collision_mask = 245950
+collision_mask = 508094
 script = ExtResource( 2 )
 fallTime = 0.7
 
@@ -6895,9 +6895,6 @@ script = ExtResource( 55 )
 [node name="DashDown" type="Node" parent="StateMachine"]
 script = ExtResource( 53 )
 
-[node name="OnFloor" type="Timer" parent="StateMachine/DashDown"]
-one_shot = true
-
 [node name="DashJump" type="Node" parent="StateMachine"]
 script = ExtResource( 40 )
 
@@ -7050,6 +7047,9 @@ one_shot = true
 [node name="WallGrabCheck" type="Timer" parent="Timers"]
 
 [node name="DashBuffer" type="Timer" parent="Timers"]
+
+[node name="DashContact" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Collector" type="Area2D" parent="."]
 collision_layer = 32

@@ -23,7 +23,9 @@ func enter() -> void:
 	dashJumpTimer.start()
 	dashJumpRefreshTimer.start()
 	player.animPlayer.play("Dash Ground")
+	player.set_collision_layer_bit(CollisionLayers.DashSide, true)
 	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
+	player.velocityPlayer.x = player.dashVelocity * player.facing
 
 
 func exit() -> void:
@@ -48,6 +50,7 @@ func exit() -> void:
 	
 	player.animPlayer.stop()
 	superJump = false
+	player.set_collision_layer_bit(CollisionLayers.DashSide, false)
 	player.set_collision_mask_bit(CollisionLayers.DashSide, true)
 
 
@@ -55,7 +58,7 @@ func physics(delta) -> void:
 	.physics(delta)
 
 	player.move_logic(player.SNAP_GROUND, true)
-	player.velocityPlayer.x = player.dashVelocity * player.facing
+	
 
 
 func visual(delta) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://UI/Announcements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -52,6 +52,8 @@
 [ext_resource path="res://Objects/Unlockables/AbilityUnlocker.tscn" type="PackedScene" id=50]
 [ext_resource path="res://Objects/Prefabs/Abilities/AbilityWall.tscn" type="PackedScene" id=51]
 [ext_resource path="res://Objects/Enviroment/Wind/Wind.tscn" type="PackedScene" id=52]
+[ext_resource path="res://Objects/Prefabs/Abilities/AbilityBoost.tscn" type="PackedScene" id=53]
+[ext_resource path="res://Objects/Prefabs/Abilities/AbilityReset.tscn" type="PackedScene" id=54]
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
@@ -1088,18 +1090,14 @@ tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220,
 
 [node name="Interactables" type="Node" parent="."]
 
+[node name="AbilityReset" parent="Interactables" instance=ExtResource( 54 )]
+position = Vector2( 254, 246 )
+lockOut = true
+ability = 1
+
 [node name="AbilityUnlock" parent="Interactables" instance=ExtResource( 50 )]
 position = Vector2( -535, -11 )
 ability = 1
-
-[node name="AbilityWall" parent="Interactables" instance=ExtResource( 51 )]
-position = Vector2( -814, 260 )
-scale = Vector2( 10, 2 )
-ability = 3
-
-[node name="ColorRect" type="ColorRect" parent="Interactables/AbilityWall"]
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
 position = Vector2( 136, 264 )
@@ -1150,21 +1148,14 @@ abilityTarget = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target"]
 shape = SubResource( 82 )
 
-[node name="Target2" parent="Interactables" instance=ExtResource( 44 )]
-position = Vector2( -128, -192 )
-collision_layer = 12288
-abilityTarget = 1
+[node name="AbilityBoost" parent="Interactables" instance=ExtResource( 53 )]
+position = Vector2( 398, 248 )
+ability = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target2"]
-shape = SubResource( 82 )
-
-[node name="Target3" parent="Interactables" instance=ExtResource( 44 )]
-position = Vector2( -240, -144 )
-collision_layer = 12288
-abilityTarget = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Target3"]
-shape = SubResource( 82 )
+[node name="AbilityWall" parent="Interactables" instance=ExtResource( 51 )]
+position = Vector2( -823, -257 )
+oneUse = true
+ability = 4
 
 [node name="Player" parent="." instance=ExtResource( 41 )]
 scale = Vector2( 0.5, 0.5 )

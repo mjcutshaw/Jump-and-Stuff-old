@@ -23,6 +23,7 @@ signal playerHealFull
 signal playerStatChange(stat, amount)
 signal playerAbilityUnlocked(ability)
 signal playerAugmentUnlocked(augment)
+signal playerAbilityReset(ability)
 signal hookshotTarget(target)
 
 signal playerBounced(amount)

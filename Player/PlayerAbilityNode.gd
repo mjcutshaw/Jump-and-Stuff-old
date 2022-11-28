@@ -47,6 +47,7 @@ func _ready() -> void:
 	EventBus.connect("updateAbilities", self, "update_abilities")
 	EventBus.connect("playerAugmentUnlocked", self, "augment_unlocked")
 	EventBus.connect("playerAbilityUnlocked", self, "unlock_ability")
+	EventBus.connect("playerAbilityReset", self, "reset_ability")
 	
 #	for child in abilities.get_children():
 #		child.initialize(self)
@@ -187,12 +188,22 @@ func consume_ability(ability: int, amount: int) -> void:
 
 func reset_ability(ability: int) -> void:
 	if ability == PlayerAbilities.list.All:
-		set_dash(maxDash)
-		set_jump_air(maxJumpAir)
+		remainingJumpAir = maxJumpAir
+		remainingDashAir = maxDash
+		remainingDashUp = maxDash
+		remainingDashDown = maxDash
 	elif ability == PlayerAbilities.list.JumpAir:
-		set_jump_air(maxJumpAir)
+		remainingJumpAir = maxJumpAir
+	elif ability == PlayerAbilities.list.DashAll:
+		remainingDashAir = maxDash
+		remainingDashUp = maxDash
+		remainingDashDown = maxDash
 	elif ability == PlayerAbilities.list.DashAir:
-		set_dash(maxDash)
+		remainingDashAir = maxDash
+	elif ability == PlayerAbilities.list.DashUp:
+		remainingDashUp = maxDash
+	elif ability == PlayerAbilities.list.DashDown:
+		remainingDashDown = maxDash
 	else:
 		print("Null Ability Reset")
 	EventBus.emit_signal("abilityCheck")

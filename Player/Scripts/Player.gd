@@ -28,6 +28,7 @@ onready var semisolidResetTimer: Timer = $Timers/SemisolidReset
 onready var fallTimer: Timer = $Timers/FallTimer
 onready var wallGrabCheckTimer: Timer = $Timers/WallGrabCheck
 onready var dashBufferTimer: Timer = $Timers/DashBuffer
+onready var dashContactTimer: Timer = $Timers/DashContact
 
 const FLOOR_NORMAL = Vector2.UP
 const SNAP_GROUND:= Vector2(0, 20.0)
@@ -60,6 +61,7 @@ var coyoteWallTime: float = 0.2
 var semisolidResetTime: float = 0.1
 var wallGrabTime: float = 0.5
 var dashBufferTime: float = 0.06
+var dashContactTime: float = 0.5
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
@@ -103,9 +105,6 @@ func _physics_process(delta: float) -> void:
 	get_move_input()
 	ledge_detection()
 	EventBus.emit_signal("debugVelocity", velocity.round())
-	EventBus.emit_signal("debug2", "down r", remainingDashDown)
-	EventBus.emit_signal("debug1", "up r", remainingDashUp)
-
 
 	#FIXME: figure out to wall direction	
 #	if is_on_wall():
@@ -192,6 +191,7 @@ func set_timers() -> void:
 	dashCDTimer.wait_time = Stats.dashCDTime
 	wallGrabCheckTimer.wait_time = wallGrabTime
 	dashBufferTimer.wait_time = dashBufferTime
+	dashContactTimer.wait_time = dashContactTime
 	#TODO: move this over to timers
 
 

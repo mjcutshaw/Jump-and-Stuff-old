@@ -7,14 +7,14 @@ func enter() -> void:
 	.enter()
 
 	player.animPlayer.play("Dash Down")
-	player.set_collision_mask_bit(CollisionLayers.DashDown, false)
+	player.set_collision_mask_bit(CollisionLayers.DashDown, true)
 
 
 func exit() -> void:
 	.exit()
 
 	player.animPlayer.stop()
-	player.set_collision_mask_bit(CollisionLayers.DashDown, true)
+	player.set_collision_mask_bit(CollisionLayers.DashDown, false)
 
 
 func physics(delta) -> void:
