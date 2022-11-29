@@ -8,12 +8,14 @@ func enter() -> void:
 	player.velocityPlayer.x = -player.lastWallDirection * player.dashVelocity * 1.5
 	#TODO: new animation
 	player.animPlayer.play("Dash Side")
-	player.set_collision_mask_bit(CollisionLayers.DashSide, true)
+	player.set_collision_layer_bit(CollisionLayers.DashSide, true)
+	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
 
 
 func exit() -> void:
 	.exit()
 
+	player.set_collision_layer_bit(CollisionLayers.DashSide, true)
 	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
 
 

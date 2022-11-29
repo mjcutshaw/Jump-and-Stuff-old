@@ -23,9 +23,10 @@ func enter() -> void:
 	dashJumpTimer.start()
 	dashJumpRefreshTimer.start()
 	player.animPlayer.play("Dash Ground")
-	player.set_collision_layer_bit(CollisionLayers.DashSide, true)
-	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
 	player.velocityPlayer.x = player.dashVelocity * player.facing
+	player.set_collision_layer_bit(CollisionLayers.DashSide, true) #TODO: change to function
+	player.set_collision_mask_bit(CollisionLayers.DashSide, false)
+	
 
 
 func exit() -> void:
