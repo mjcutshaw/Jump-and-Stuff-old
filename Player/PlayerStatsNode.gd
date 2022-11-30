@@ -1,10 +1,11 @@
 extends Actors
 class_name PlayerStatsNode
-
+#FIXME: create a timer for invincibility timer
 #FIXME: figure out a better way to do this
 #TODO: Health upgrades shards amount change for difficulty 
 
 #LOOKAT: get rid of resource?
+
 var Stats: Resource = preload("res://Resources/PlayerStats.tres")
 
 

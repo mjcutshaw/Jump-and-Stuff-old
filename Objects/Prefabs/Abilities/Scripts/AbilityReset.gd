@@ -1,9 +1,9 @@
 extends AbilityBlockBase
 
 func _ready() -> void:
-	connect("body_entered", self, "_on_boost_entered")
+	connect("body_entered", self, "_on_reset_entered")
 
-func _on_boost_entered(body: Player) -> void:
+func _on_reset_entered(body: Player) -> void:
 	if ability == abiliyList.All:
 		EventBus.emit_signal("playerAbilityReset", PlayerAbilities.list.All)
 	elif ability == abiliyList.DashSide:

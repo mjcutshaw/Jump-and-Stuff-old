@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://UI/Announcements.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Kenney Rocket.ttf" type="DynamicFontData" id=2]
@@ -54,6 +54,7 @@
 [ext_resource path="res://Objects/Enviroment/Wind/Wind.tscn" type="PackedScene" id=52]
 [ext_resource path="res://Objects/Prefabs/Abilities/AbilityBoost.tscn" type="PackedScene" id=53]
 [ext_resource path="res://Objects/Prefabs/Abilities/AbilityReset.tscn" type="PackedScene" id=54]
+[ext_resource path="res://Objects/Prefabs/Abilities/AbilityHazard.tscn" type="PackedScene" id=55]
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
@@ -1090,13 +1091,17 @@ tile_data = PoolIntArray( -786462, 0, 0, -786461, 0, 196610, -786460, 0, 393220,
 
 [node name="Interactables" type="Node" parent="."]
 
+[node name="Hazard" parent="Interactables" instance=ExtResource( 55 )]
+position = Vector2( -325, -40 )
+ability = 4
+
 [node name="AbilityReset" parent="Interactables" instance=ExtResource( 54 )]
 position = Vector2( 254, 246 )
 lockOut = true
 ability = 1
 
 [node name="AbilityUnlock" parent="Interactables" instance=ExtResource( 50 )]
-position = Vector2( -535, -11 )
+position = Vector2( -751, -132 )
 ability = 1
 
 [node name="AugmentUnlocker" parent="Interactables" instance=ExtResource( 37 )]
@@ -1123,7 +1128,7 @@ position = Vector2( -72, 208 )
 collision_mask = 128
 
 [node name="Spike" parent="Interactables" instance=ExtResource( 36 )]
-position = Vector2( -280, 223 )
+position = Vector2( -654, 225 )
 
 [node name="BounceBox" parent="Interactables" instance=ExtResource( 11 )]
 position = Vector2( -424, 200 )
@@ -1153,7 +1158,7 @@ position = Vector2( 398, 248 )
 ability = 4
 
 [node name="AbilityWall" parent="Interactables" instance=ExtResource( 51 )]
-position = Vector2( -823, -257 )
+position = Vector2( -544, 229 )
 oneUse = true
 ability = 4
 
