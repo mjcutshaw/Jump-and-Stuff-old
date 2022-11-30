@@ -16,8 +16,8 @@ func _ready() -> void:
 	
 	abilityDetector.connect("body_entered", self, "_on_hazard_entered")
 	abilityDetector.connect("body_exited", self, "_on_hazard_exited")
-	connect("body_entered", self, "_on_player_entered")
-	connect("body_exited", self, "_on_player_exited")
+	connect("area_entered", self, "_on_player_entered")
+	connect("area_exited", self, "_on_player_exited")
 	if ability == abiliyList.All:
 		abilityDetector.set_collision_mask_bit(CollisionLayers.INTERACTABLE, true)
 	elif ability == abiliyList.DashSide:
@@ -40,10 +40,10 @@ func _physics_process(delta: float) -> void:
 	if playerInHazard and !correctAbility:
 		EventBus.emit_signal("playerHealthChanged", -damageAmount)
 
-func _on_player_entered(body: Player) -> void:
+func _on_player_entered(area: Hitbox) -> void:
 	playerInHazard = true
 
-func _on_player_exited (body: Player) -> void:
+func _on_player_exited (area: Hitbox) -> void:
 	playerInHazard = false
 
 func _on_hazard_entered(body: Player) -> void:
