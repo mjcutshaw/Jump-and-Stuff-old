@@ -8,7 +8,8 @@ export  var slowDownTime: float = 10 #LOOKAT: magic number
 func enter() -> void:
 	.enter()
 
-	player.animPlayer.queue("Drive")
+#	player.animPlayer.queue("Drive")
+	player.animPlayer2.play("Walk")
 	#TODO: very speed of playback based on velocity
 	#TODO: nuetral on entering
 	

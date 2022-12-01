@@ -7,6 +7,7 @@ class_name Player
 onready var sm: Node = $StateMachine
 onready var characterRig: Node2D = $CharacterRig
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
+onready var animPlayer2: AnimationPlayer = $AnimationPlayer2
 onready var ledgeDetectionLeft: RayCast2D = $Raycasts/LedgeDetection/Left
 onready var ledgeDetectionRight: RayCast2D = $Raycasts/LedgeDetection/Right
 onready var wallRaycastLeft: RayCast2D = $Raycasts/Wall/Left
